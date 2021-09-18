@@ -191,7 +191,7 @@ Fichero vacío
 
 El archivo print.sh tiene permisos de escritura
 
-`echo 'cat /root/root.txt > /home/lennie/root.txt' >> /etc/print.sh`
+`echo 'cat /root/root.txt > /home/lennie/root.txt' > /etc/print.sh`
 
 Comprobamos que el fichero print.sh se ha modificado
 
