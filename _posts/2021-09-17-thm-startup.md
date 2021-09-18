@@ -165,7 +165,7 @@ Veamos que contiene: `cat planner.sh`
 echo $LIST > /home/lennie/scripts/startup_list.txt
 /etc/print.sh
 ```
-### Fichero
+### Fichero print.sh
 Miramos el contenido del siguiente archivo: `cat /etc/print.sh`
 ```bash
 #!/bin/bash
