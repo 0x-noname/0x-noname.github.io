@@ -19,10 +19,7 @@ tags:
   - reverse-shell
   - bash
 ---
-
-## Linux / 10.10.186.208 
-### Abusar de las vulnerabilidades tradicionales a través de medios no tradicionales.
-
+ 
 ### Escaneo de puertos abiertos
 ```
 ❯ nmap -p- --open -T5 -v -n 10.10.186.208 -oG puertos
