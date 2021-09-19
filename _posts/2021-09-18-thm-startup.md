@@ -1,7 +1,7 @@
 ---
 layout: single
-title: Startup - Try Hack Me
-excerpt: "Estamos frente a una máquina Linux, tenemos acceso al servicio FTP con el usuario anonymous, 
+title: Startup - TryHackMe
+excerpt: "Startup es una máquina Linux, tenemos acceso al servicio FTP con el usuario anonymous, 
 podremos subir una reverse-shell al servidor FTP porque tenemos permisos de escritura, lectura y ejecución
 para si obtener la intrusión de la máquina, una vez dentro tendrémos que realizar un user pivoting para posteriormente
 obtener la flag de root mediante un fichero en bash."
