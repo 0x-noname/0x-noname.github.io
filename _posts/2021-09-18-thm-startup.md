@@ -20,11 +20,7 @@ tags:
   - bash
 ---
 
-## Linux / 10.10.186.208
-
-![](/assets/images/thm-writeup-startup/spicy.png)
-
-# Startup 
+## Linux / 10.10.186.208 
 ### Abusar de las vulnerabilidades tradicionales a través de medios no tradicionales.
 
 ### Escaneo de puertos abiertos
