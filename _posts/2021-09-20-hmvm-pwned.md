@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Pwned - HackMyVM
-excerpt: "Hoy toca Pwned creada por Annlynn, máquina linux de nivel fácil, con wfuzz encontraremos las credenciales de acceso al FTP, una vez en el FTP nos descargaremos un fichero id_rsa para conectarnos a la máquina. Después tendremos que hacer un user pivoting usando un archivo en bash y finalmente escalaremos privilegios mediante un exploit."
+excerpt: "Hoy toca Pwned creada por Annlynn,una máquina linux de nivel fácil, con wfuzz encontraremos las credenciales de acceso al FTP, una vez en el FTP nos descargaremos un fichero id_rsa para conectarnos a la máquina. Después tendremos que hacer un user pivoting usando un archivo en bash y finalmente escalaremos privilegios mediante un exploit."
 date: 2021-09-20
 classes: wide
 header:
@@ -53,7 +53,7 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ### Puerto 80 (HTTP)
 ![](/assets/images/hmvm-Pwned/web80.png)
 
-Si miramos el código fuente vemos que tenemos otro mensaje
+Si miramos el código fuente veremos un comentario con otro mensaje
 ```html
 <!-- I forgot to add this on last note
      You are pretty smart as i thought 
