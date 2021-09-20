@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Pwned - HackMyVM
-excerpt: "Hoy toca "Pwned" creada por Annlynn, máquina linux nivel fácil, con wfuzz encontraremos las credenciales de acceso al FTP, una vez en el FTP nos descargaremos un fichero id_rsa para conectarnos a la máquina. Después tendremos que hacer un user pivoting usando un archivo en bash y finalmente escalaremos privilegios mediante un exploit."
+excerpt: "Hoy toca Pwned creada por Annlynn, máquina linux nivel fácil, con wfuzz encontraremos las credenciales de acceso al FTP, una vez en el FTP nos descargaremos un fichero id_rsa para conectarnos a la máquina. Después tendremos que hacer un user pivoting usando un archivo en bash y finalmente escalaremos privilegios mediante un exploit."
 date: 2021-09-20
 classes: wide
 header:
