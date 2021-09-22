@@ -1,14 +1,13 @@
 ---
 layout: single
 title: Startup - TryHackMe
-excerpt: "Startup es una máquina Linux, tenemos acceso al servicio FTP con el usuario anonymous, 
-podremos subir una reverse-shell al servidor FTP porque tenemos permisos de escritura, lectura y ejecución
-para si obtener la intrusión de la máquina, una vez dentro tendrémos que realizar un user pivoting para posteriormente
-obtener la flag de root mediante un fichero en bash."
+excerpt: "Startup es una máquina Linux creada por elbee, en esta máquina veremos el acceso al servidor FTP con el usuario anonymous, podremos subir una reverse-shell al servidor FTP 
+ y obtener la intrusión de la máquina. Una vez dentro tendrémos que realizar un user pivoting para poder leer la flag de user y finalmente podemos obtener la flag de root usando un 
+ archivo en bash."
 date: 2021-09-18
 classes: wide
 header:
-  teaser: /assets/images/thm-writeup-startup/spicy.png
+  teaser: /assets/images/thm-startup/spicy.png
   teaser_home_page: true
   icon: /assets/images/thm.png
 categories:
@@ -18,8 +17,11 @@ tags:
   - tryhackme
   - reverse-shell
   - bash
+  - elbee
 ---
- 
+
+### Abusar de las vulnerabilidades tradicionales a través de medios no tradicionales.
+
 ### Escaneo de puertos abiertos
 ```
 ❯ nmap -p- --open -T5 -v -n 10.10.186.208 -oG puertos
@@ -66,7 +68,7 @@ Dev Team
 
 Navegamos hasta el directorio `/file` y vemos los siguientes archivos:
 
-![](/assets/images/thm-writeup-startup/files.png)
+![](/assets/images/thm-startup/files.png)
 
 Són los mismos archivos que hay en el servidor ftp, en la carpeta ftp tenemos permisos de lectura escritura y ejecución.
 No descargamos una reverse shell.
@@ -83,7 +85,7 @@ Descomprimimos nuestra shell.
 
 Configuramos nuestra shell con nuestra ip de atacante.
 
-![](/assets/images/thm-writeup-startup/reverseconf.png)
+![](/assets/images/thm-startup/reverseconf.png)
 
 Nos conectamos de nuevo al FTP, nos vamos al directorio `/ftp` y subimos el fichero.php.
 
@@ -93,7 +95,7 @@ put php-reverse-shell.php
 
 Nos vamos al navegador web al directorio `/files/ftp` y nos aparace nuestra shell.
 
-![](/assets/images/thm-writeup-startup/php-reverse.png)
+![](/assets/images/thm-startup/php-reverse.png)
 
 Ponemos un netcat a la escucha para obtener nuestra querida shell.
 
@@ -103,7 +105,7 @@ Ponemos un netcat a la escucha para obtener nuestra querida shell.
 
 Volvemos al directorio `/files/ftp` de la página web, hacemos click en `php-reverse-shell.php` y nos devolverá una shell.
 
-![](/assets/images/thm-writeup-startup/www-data.png)
+![](/assets/images/thm-startup/www-data.png)
 
 ### Tratamiento TTY
 
@@ -123,17 +125,17 @@ export SHELL=bash
 ### User Pivoting
 
 Lanzamos un ls -la y vemos un archivo "recipe.txt" este nos dice el ingrediente secreto "love" que necesitamos para la web de THM y luego tenemos
-un directorio llamado `/incident` dentro un archivo llamado `suspicious.pcapng`.
+un directorio llamado `/incident` dentro un archivo llamado `suspicious.pcapng`
 
 Lo descargamos y lo analizamos con wireshark, filtramos por http, seguimos el flujo tcp y encontraremos un login fallido con el user www-data y una contraseña.
 
-![](/assets/images/thm-writeup-startup/pcapPasswd.png)
+![](/assets/images/thm-startup/pcapPasswd.png)
 
 `lennie: c4ntg3t3n0ughsp1c3`
 
 `su lennie`
 
-Probamos la passwd con el usuario lennie y ahora ya podemos leer `user.txt`.
+Probamos la passwd con el usuario lennie y ahora ya podemos leer `user.txt`
 
 Usamos cat para leer el user.txt: `cat user.txt`
  

