@@ -1,7 +1,8 @@
 ---
 layout: single
 title: BaseMe - HackMyVM
-excerpt: "BaseMe es una máquina Linux creada por sML, en esta máquina veremos mucho base64. Nos crearemos un script en bash para crearnos un diccionario especifico para poder encontrar una llave id_rsa y conseguir la intrusión.  ."
+excerpt: "BaseMe es una máquina Linux creada por sML, en esta máquina veremos mucho Base64. Nos crearemos un script en bash para pasar un
+ diccionario en texto claro a base64 de esta forma encontraremos un directorio que contiene un archivo id_rsa con un passphrase."
 date: 2021-09-23
 classes: wide
 header:
@@ -53,7 +54,7 @@ QUxMLCBhYnNvbHV0ZWx5IEFMTCB0aGF0IHlvdSBuZWVkIGlzIGluIEJBU0U2NC4KSW5jbHVkaW5nIHRo
 
 En el código fuente podemos ver lo siguiente:
 
-![[stringsComentario.png]]
+![](/assets/images/hmvm-Baseme/stringsComentario.png)
 
 Vamos a decodificar la cadena de texto encontrada usando nuestra maravillosa terminal.
 ```bash
@@ -127,13 +128,16 @@ Nothing here :(
 ```
 
 Desde el navegador vamos a `http://192.168.1.51/aWRfcnNhCg==` y automáticamente nos aparecerá una ventana para descargar el archivo.
-![[id_rsa.png]]
+
+![](/assets/images/hmvm-Baseme/id_rsa.png)
 
 Si intentamos usar el id_rsa nos dará error porque esta codificado en base64, antes tenemos que decodificarlo, veamos el id_rsa codificado:
-![[id_rsaCodificado.png]]
+
+![](/assets/images/hmvm-Baseme/id_rsaCodificado.png)
 
 id_rsa decodificado
-![[id_rsaDecodificado.png]]
+
+![](/assets/images/hmvm-Baseme/id_rsaDecodificado.png)
 
 Creamos un nuevo archivo llamado id_rsa con el código decodificado, le damos permisos `chmod 600 id_rsa` e intentamos acceder al servidor SSH
 ```bash
@@ -145,16 +149,18 @@ Warning: Permanently added '192.168.1.51' (ECDSA) to the list of known hosts.
 Enter passphrase for key 'id_rsa':
 ```
 No podemos conectarnos porque nos pide passhprase me creo un diccionario con las palabras que vimos en el código fuente de la web:
-![[nombres.png]]
+
+![](/assets/images/hmvm-Baseme/nombres.png)
 
 Lanzamos RSAcrack para encontrar el passphrase pero no encuentra nada
-![[failCrackid_rsa.png]]
+
+![](/assets/images/hmvm-Baseme/failCrackid_rsa.png)
 
 Modificaremos el script 64.sh para pasar los nombres a base64.
 ```bash
 #!/bin/bash
 for i in $(cat nombres.txt);
-	do echo $i | base64 >> nombres64.txt;
+    do echo $i | base64 >> nombres64.txt;
 done
 ```
 
@@ -193,14 +199,15 @@ User lucas may run the following commands on baseme:
 ```
 
 Lucas puede ejecutar el binario base64 como root sin usar la contraseña, consultaremos gtfobins.
-![[HackMyVM/4_Baseme/gtfobins.png]]
+![](/assets/images/hmvm-Baseme/HackMyVM/4_Baseme/gtfobins.png)
 
 Aquí tenemos 2 opciones para obtener la flag de root, una es apuntar a la flag de root `/root/root.txt`o apuntar al archivo id_rsa de root, como queremos hacer las cosas bien apuntaremos al id_rsa de root ;)
-![[root_id_rsa.png]]
+
+![](/assets/images/hmvm-Baseme/root_id_rsa.png)
 
 Creo un nuevo archivo en mi máquina id_rsa2 y copio el contenido que he obtenido anteriormente, le doy permisos chmod 600 y me conectod e nuevo por SSH
 
-![[rootssh.png]]
+![](/assets/images/hmvm-Baseme/rootssh.png)
 
 Una vez como root ya puedo leer la flag de root
 
