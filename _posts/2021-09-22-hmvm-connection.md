@@ -12,6 +12,7 @@ header:
 categories:
   - hackmyvm
   - linux
+  - Fácil
 tags:
   - hackmyvm
   - smbmap
