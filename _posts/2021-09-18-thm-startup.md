@@ -13,6 +13,7 @@ header:
 categories:
   - tryhackme
   - linux
+  - fácil
 tags:
   - tryhackme
   - reverse-shell
