@@ -13,7 +13,7 @@ header:
 categories:
   - hackmyvm
   - linux
-
+  - fácil
 tags:
   - hackmyvm
   - wfuzz

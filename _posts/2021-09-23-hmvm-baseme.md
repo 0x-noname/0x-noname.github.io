@@ -12,7 +12,7 @@ header:
 categories:
   - hackmyvm
   - linux
-  - Fácil
+  - fácil
 tags:
   - hackmyvm
   - base64
