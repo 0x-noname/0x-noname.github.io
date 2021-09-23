@@ -2,7 +2,7 @@
 layout: single
 title: Pwned - HackMyVM
 excerpt: "Pwned es una máquina linux creada por annlynn, en está máquina veremos una enumeración de directorios con wfuzz, accederemos al servidor FTP con unas credenciales encontradas.
- En el servidor FTP encotraremos una archivo id_rsa que usaremos para conectarnos a la máquina objetivo, una vez dentro haremos un user pivoting usando un archivo en bash
+ En el servidor FTP encontraremos una archivo id_rsa que usaremos para conectarnos a la máquina objetivo, una vez dentro haremos un user pivoting usando un archivo en bash
  y finalmente escalaremos privilegios mediante un exploit."
 date: 2021-09-20
 classes: wide
