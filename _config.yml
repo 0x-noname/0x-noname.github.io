@@ -12,11 +12,11 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 remote_theme             : "mmistakes/minimal-mistakes@4.15.1"
-minimal_mistakes_skin    : "haxor" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" #"haxor" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "es-ES"
-title                    : "[+]noname[+]"
+title                    : "noname web page"
 title_separator          : "-"
 name                     : "noname"
 description              : "Ciberseguridad, CTFs..."
@@ -103,7 +103,7 @@ analytics:
 author:
   name             : "0x-noname"
   avatar           : "/assets/images/root.png"
-  bio              : "Estudiando eJPT, Jugador CTF<br>HackMyVM"
+  bio              : "Estudiando eJPT, Jugador CTF<br> HackMyVM, TryHackMe, HackTheBox"
   location         : "127.0.0.1"
   email            : "0x-noname@protonmail.com"
   uri              : "https://0x-noname.medium.com/"
