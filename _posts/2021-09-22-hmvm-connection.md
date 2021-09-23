@@ -84,7 +84,7 @@ Host script results:
 	   IPC$                                              	NO ACCESS	IPC Service (Private Share for uploading files)
 ```
 
-Usamos `smbclient` para conectarnos al recurso compartido llamado `share`, dentro vemos un directorio llamado html.
+Usamos `smbclient` para conectarnos a `share`, dentro vemos un directorio llamado html.
 ```bash
 ❯ smbclient -N //192.168.1.55/share
 Anonymous login successful
