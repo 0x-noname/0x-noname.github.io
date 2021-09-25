@@ -154,7 +154,7 @@ alexia@hommie:/tmp$ chmod +x cat
 ```
 ![](/assets/images/hmvm-Hommie/ficherocat.png)
 
-Exportamos el PATH al directorio `/tmp` que es donde estamos actualmente.
+Exportamos el PATH al directorio `/tmp` que es donde hemos creado el fichero.
 ```bash
 alexia@hommie:/tmp$ export PATH=/tmp:$PATH
 ```
