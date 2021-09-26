@@ -1,8 +1,9 @@
 ---
 layout: single
 title: BaseMe - HackMyVM
-excerpt: "BaseMe es una máquina Linux creada por sML, en esta máquina veremos mucho Base64. Nos crearemos un script en bash para pasar un
- diccionario en texto claro a base64 de esta forma encontraremos un directorio que contiene un archivo id_rsa con un passphrase."
+excerpt: "BaseMe es una máquina Linux creada por sML, en esta máquina veremos Base64 por todas partes :). Nos crearemos un script en bash para codificar un
+ diccionario en texto plano a base64, de esta forma encontraremos un directorio que contiene un archivo id_rsa con un passphrase que tendremos escondido en el
+ código fuente de la web. Elevaremos privilegios usando el binario base64."
 date: 2021-09-23
 classes: wide
 header:

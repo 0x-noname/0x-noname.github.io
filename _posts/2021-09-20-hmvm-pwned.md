@@ -2,7 +2,7 @@
 layout: single
 title: Pwned - HackMyVM
 excerpt: "Pwned es una máquina linux creada por annlynn, en está máquina veremos una enumeración de directorios con wfuzz, accederemos al servidor FTP con unas credenciales encontradas.
- En el servidor FTP encontraremos una archivo id_rsa que usaremos para conectarnos a la máquina objetivo, una vez dentro haremos un user pivoting usando un archivo en bash
+ En el servidor encontraremos una archivo id_rsa que usaremos para conectarnos a la máquina objetivo, una vez dentro haremos un user pivoting usando un archivo en bash
  y finalmente escalaremos privilegios mediante un exploit."
 date: 2021-09-20
 classes: wide
@@ -56,7 +56,7 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ### Puerto 80 (HTTP)
 ![](/assets/images/hmvm-Pwned/web80.png)
 
-Si miramos el código fuente vemos que tenemos otro mensaje:
+Si miramos el código fuente tenemos otro mensaje:
 ```html
 <!-- I forgot to add this on last note
      You are pretty smart as i thought 
@@ -93,7 +93,7 @@ El archivo `nothing.html` tampoco tiene nada.
 ```
 
 ### Wfuzz
-wfuzz encuentra varios directorios entre ellos `/nothing` y `/hidden_text`, `/nothing` ya lo vimos anteriormente pero `/hidden_text` es sospechoso.
+Wfuzz encuentra varios directorios entre ellos `/nothing` y `/hidden_text`, `/nothing` ya lo vimos anteriormente pero `/hidden_text` es sospechoso.
 ```bash
 ❯ wfuzz -c -t 200 --hc=404 -w /opt/w/directory-list-2.3-medium.txt http://192.168.1.54/FUZZ
 ********************************************************
@@ -129,7 +129,7 @@ Longitud: 211
 Grabando a: «secret.dic»
 ```
 
-Volvemos a wfuzz de nuevo y le añadimos el diccionario `secret.dic`
+Volvemos a wfuzz y le añadimos el diccionario `secret.dic`
 ```bash
 ❯ wfuzz -c -t 50 --hc=404 -w /opt/w/secret.dic http://192.168.1.54/FUZZ
 ********************************************************
@@ -168,10 +168,10 @@ Remote system type is UNIX.
 Using binary mode to transfer files.
 ftp> 
 ```
-Una vez logueados, vemos un dicrectorio llamado `/share` dentro de `/share` vemos los siguientes archivos:
+Una vez logueados, vemos un directorio llamado `/share` dentro de `/share` vemos los siguientes archivos:
 ![](/assets/images/hmvm-Pwned/ftp.png)
 
-Los descargamos con get.
+Los descargamos.
 ```bash
 ftp> get id_rsa 
 local: id_rsa remote: id_rsa
@@ -192,7 +192,6 @@ Damos permisos al `id_rsa` y nos conectamos al `SSH`
 ❯ ssh -i id_rsa ariana@192.168.1.54
 ```
 
-### pwned
 Una vez conectados como ariana leemos la flag de user1.
 ```bash
 ariana@pwned:~$ cat user1.txt 
@@ -256,7 +255,7 @@ Try harder to catch me
 ```
 
 ### Privesc
-con id vemos que selena está en el grupo de docker.
+Con id vemos que selena está en el grupo de docker.
 ```bash
 selena@pwned:~$ id
 uid=1001(selena) gid=1001(selena) groups=1001(selena),115(docker)
@@ -286,6 +285,6 @@ Press Ctrl-D to exit the docker instance / shell
 #
 ```
 
-flag root.txt
+Flag root.txt
 
 ![](/assets/images/hmvm-Pwned/root.png)
