@@ -211,7 +211,7 @@ Aquí tenemos 2 opciones para obtener la flag de root, una es apuntar a la flag 
 
 ![](/assets/images/hmvm-Baseme/root_id_rsa.png)
 
-Creo un nuevo archivo en mi máquina `id_rsa2` y copio el contenido que he obtenido anteriormente, le doy permisos chmod 600 y me conecto de nuevo por SSH
+Creo un nuevo archivo en mi máquina `id_rsa2` y copio el contenido que he obtenido anteriormente, le doy permisos chmod 600 y me conecto de nuevo por SSH.
 
 ![](/assets/images/hmvm-Baseme/rootssh.png)
 
