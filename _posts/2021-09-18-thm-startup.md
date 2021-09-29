@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Startup - TryHackMe
-excerpt: "Startup es una máquina Linux creada por elbee, en esta máquina veremos el acceso al servidor FTP con el usuario anonymous, podremos subir una reverse-shell y obtener 
+excerpt: "Startup es una máquina Linux creada por elbee, en esta máquina veremos el acceso a un servidor FTP con el usuario anonymous, podremos subir una reverse-shell y obtener 
 la intrusión de la máquina. Una vez dentro tendrémos que realizar un user pivoting para poder leer la flag de user y finalmente podremos obtener la flag de root usando un archivo en bash."
 date: 2021-09-18
 classes: wide
