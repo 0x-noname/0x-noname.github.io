@@ -131,7 +131,7 @@ alexia@hommie:~$ cat user.txt
 Imxxxxxxt
 ```
 
-En el directorio /opt veo un binario `showMetheKey`, este binario tiene permisos SUID.
+En el directorio `/opt` veo un binario `showMetheKey`, este binario tiene permisos SUID.
 ```bash
 alexia@hommie:/opt$ ls -la
 total 28
