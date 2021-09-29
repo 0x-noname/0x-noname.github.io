@@ -118,7 +118,7 @@ Ahora creo un archivo de texto para subirlo al directorio `html` del servidor sa
 ❯ nano test.txt
 ```
 
-Me conecto de nuevo a samba y nos me voy al directorio html para subir el archivo.
+Me conecto de nuevo a samba y me voy al directorio html para subir el archivo.
 
 ![](/assets/images/hmvm-Connection/subidaArchivotxt.png)
 
