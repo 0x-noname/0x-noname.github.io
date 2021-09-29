@@ -136,7 +136,7 @@ Si intentamos usar el `id_rsa` nos dará error porque esta codificado en base64,
 
 ![](/assets/images/hmvm-Baseme/id_rsaCodificado.png)
 
-id_rsa decodificado
+id_rsa decodificado:
 
 ![](/assets/images/hmvm-Baseme/id_rsaDecodificado.png)
 
