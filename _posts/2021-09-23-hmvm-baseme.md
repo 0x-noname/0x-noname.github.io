@@ -81,7 +81,7 @@ for i in $(cat common.txt);
 done
 ```
 
-Lanzo el script para crear el diccionario en base64 usando el diccionario common.txt
+Lanzo el script para crear el diccionario en base64 usando el diccionario common.
 ```bash
 ❯ ./TextTo64.sh
 ❯ ls -la
@@ -117,12 +117,12 @@ id_rsa
 robots.txt
 ```
 
-Lanzo curl al archivo `robots.txt` para ver su contenido
+Lanzo curl al archivo `robots.txt` para ver su contenido.
 ```bash
 ❯ curl -s http://192.168.1.51/cm9ib3RzLnR4dAo=
 Tm90aGluZyBoZXJlIDooCg==
 ```
-Obtenemos otra cadena en base64 pero no contiene nada
+Obtenemos otra cadena en base64 pero no contiene nada.
 ```bash
 ❯ echo 'Tm90aGluZyBoZXJlIDooCg==' | base64 -d
 Nothing here :(
@@ -154,7 +154,7 @@ No puedo conectarme porque me pide passhprase, creo un diccionario con las palab
 
 ![](/assets/images/hmvm-Baseme/nombres.png)
 
-Lanzamos RSAcrack para encontrar el passphrase pero no encuentra nada
+Lanzo RSAcrack pero no encuentra nada.
 
 ![](/assets/images/hmvm-Baseme/failCrackid_rsa.png)
 
@@ -207,7 +207,7 @@ User lucas may run the following commands on baseme:
 Lucas puede ejecutar el binario base64 como root sin usar la contraseña, consultaremos gtfobins.
 ![](/assets/images/hmvm-Baseme/HackMyVM/4_Baseme/gtfobins.png)
 
-Aquí tenemos 2 opciones para obtener la flag de root, una es apuntar a la flag de root `/root/root.txt`o apuntar al archivo `id_rsa` de root, como quiero hacer las cosas bien apuntaré al `id_rsa` de root ;)
+Aquí tenemos 2 opciones para obtener la flag de root, una es apuntar a la flag de root `/root/root.txt`o apuntar al archivo `id_rsa` de root, como quiero hacer las cosas bien apuntaré al `id_rsa` de root.
 
 ![](/assets/images/hmvm-Baseme/root_id_rsa.png)
 
@@ -215,7 +215,7 @@ Creo un nuevo archivo en mi máquina id_rsa2 y copio el contenido que he obtenid
 
 ![](/assets/images/hmvm-Baseme/rootssh.png)
 
-Una vez como root ya puedo leer la flag de root
+Una vez como root ya puedo leer la flag de root.
 
 ```bash
 root@baseme:~# cat root.txt                                                         
