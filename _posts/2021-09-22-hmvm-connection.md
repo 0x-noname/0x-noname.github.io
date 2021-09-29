@@ -152,7 +152,7 @@ Uso curl para tener la ejecución de comandos.
 ![](/assets/images/hmvm-Connection/shellok.png)
 
 ### TTY
-ÇHago el tratamiento de la tty para tener una shell interactiva.
+Hago el tratamiento de la tty para tener una shell interactiva.
 ```bash
 script /dev/null -c bash
 ctrl+z
@@ -199,7 +199,7 @@ Obtenemos el root.
 
 ![](/assets/images/hmvm-Connection/root.png)
 
-Una vez como root ya podemos leer la flag de root.
+Una vez como root ya puedo leer la flag de root.
 
 ```bash
 # cat proof.txt
