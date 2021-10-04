@@ -231,6 +231,7 @@ ariana@pwned:~$ ls -la /home/messenger.sh
 -rwxr-xr-x 1 root root 367 Jul 10  2020 /home/messenger.sh
 ```
 Con nano abro `/messenger.sh` para ver el código:
+
 ![](/assets/images/hmvm-Pwned/messengersh.png)
 
 Lanzo `/messenger.sh` como selena
