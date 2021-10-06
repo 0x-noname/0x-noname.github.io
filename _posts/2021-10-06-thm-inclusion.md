@@ -79,7 +79,7 @@ User falconfeast may run the following commands on inclusion:
 ```
 
 ### GTFOBins
-Uso el recurso GTFOBins para consultar que puedo hacer con el binario socat.
+Uso el recurso GTFOBins para ver que puedo hacer con el binario socat.
 
 ![](/assets/images/thm-Inclusion/socat.png)
 
