@@ -57,7 +57,7 @@ Veo una explicación básica con varios ejemplos de un LFI.
 
 ### Directory path traversal
 
-Lanzo un `http://10.10.155.189/article?name=../../../etc/passwd` y encuentro una credenciales.
+Lanzo un `http://10.10.155.189/article?name=../../../etc/passwd` y encuentro unas credenciales.
 
 ![](/assets/images/thm-Inclusion/web4.png)
 
