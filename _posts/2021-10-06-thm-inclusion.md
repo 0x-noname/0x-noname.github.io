@@ -2,7 +2,7 @@
 layout: single
 title: Inclusion - TryHackMe
 excerpt: "Inclusion es una sala creada por 0xmzfr de nivel principiante diseñada para personas que quieren familiarizarse con la vulnerabilidad de inclusión de archivos locales.
-En esta máquina conseguiremos la intrusión mediante LFI y escalaremos privilegios usando el binario socat"
+En esta máquina conseguiremos la intrusión mediante LFI y escalaremos privilegios usando el binario socat."
 date: 2021-10-06
 classes: wide
 header:
