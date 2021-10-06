@@ -2,7 +2,7 @@
 layout: single
 title: Bounty Hacker - TryHackMe
 excerpt: "Bounty Hacker es una máquina Linux creada por grayhat, en esta máquina encontraremos un usuario y un diccionario dentro de un servidor FTP, usaremos hydra para encontrar una contraseña 
-válida para conectarnos a la máquina objetivo. Elevaremos privilegios usando el recurso GTFobins y el binario tar."
+válida para conectarnos a la máquina objetivo. Elevaremos privilegios usando el recurso GTFOBins y el binario tar."
 date: 2021-10-04
 classes: wide
 header:
