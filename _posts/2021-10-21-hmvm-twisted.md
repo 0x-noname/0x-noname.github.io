@@ -2,7 +2,7 @@
 layout: single
 title: Twisted - HackMyVM
 excerpt: "Twisted es una máquina Linux creada por sML. En la siguiente máquina encontraremos unos usuarios con sus respectivas contraseñas usando herramientas de steganografía, una vez dentro
- realizaremos un user pivoting con un id_rsa y obtendremos el root mediante un binario SUID que tendremos que debuggear mediante R2."
+ realizaremos un user pivoting con un id_rsa y obtendremos el root mediante un binario SUID que tendremos que debuggear con R2."
 date: 2021-10-21
 classes: wide
 header:
