@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Explore - HackTheBox
-excerpt: "Explore es una máquina Android creada por bertolls, en esta máquina encontraremos unas credenciales de acceso al servicio ssh mediante un exploit. Una vez tenemos acceso a la
+excerpt: "Explore es una máquina Android creada por bertolls. En esta máquina encontraremos unas credenciales de acceso al servicio ssh mediante un exploit. Una vez tenemos acceso a la
 máquina encontraremos un puerto interno al cual tendrémos acceso a este servicio gracias a un local port forwarding, elevaremos privilegios usando la herramienta adb."
 date: 2021-11-02
 classes: wide
