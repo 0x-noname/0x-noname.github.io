@@ -68,7 +68,7 @@ Analizo el audio con audacity y en la opción `espectrograma` me muestra lo sigu
 Consigo acceso al sistema con los datos encontrados en los pasos anteriores.
 ```bash
 ssh paul@192.168.1.61
-paul@192.168.1.61's password: 
+paul@192.168.1.61 password
 Linux helium 4.19.0-12-amd64 #1 SMP Debian 4.19.152-1 (2020-10-18) x86_64
 paul@helium:~$
 ```
