@@ -22,7 +22,7 @@ tags:
 
 ### Escaneo de puertos
 ```bash
-nmap -p- -T5 --open -v -n -Pn 192.168.1.82 -oG puertos
+nmap -p- -T5 --open -v -n -Pn 192.168.1.82
 
 PORT   STATE SERVICE
 80/tcp open  http
@@ -30,7 +30,7 @@ PORT   STATE SERVICE
 
 ### Escaneo de servicios
 ```bash
-nmap -sCV -p 80 192.168.1.82 -oN servicios        
+nmap -sCV -p 80 192.168.1.82        
 
 PORT   STATE SERVICE VERSION
 80/tcp open  http    Apache httpd 2.4.38 ((Debian))
