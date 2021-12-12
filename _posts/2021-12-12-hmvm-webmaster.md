@@ -4,7 +4,7 @@ title: Webmaster - HackMyVM
 excerpt: "Webmaster es máquina Linux creada por sML. En esta máquina encontraremos unas credenciales de acceso usando dig, dig es una 
 herramienta que permite realizar múltiples consultas a servidores DNS. Una vez tenemos acceso al sistema obtendremos el root 
 mediante un archivo php malicioso."
-date: 2021-12-10
+date: 2021-12-12
 classes: wide
 header:
   teaser: /assets/images/hmvm-Webmaster/hmvmWebmaster.png
