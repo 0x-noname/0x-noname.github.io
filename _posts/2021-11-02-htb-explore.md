@@ -149,7 +149,7 @@ Pruebo las credenciales de acceso con el servicio ssh.
 Me desplazo a la ruta `/sdcard` para leer la flag de user.txt.
 ```bash
 :/sdcard $ cat user.txt                                                        
-f32017174c7c7e8f50c6da52891ae250
+fxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0
 ```
 
 Lanzo un ss para ver los puertos abiertos de la máquina, veo el puerto 5555 abierto en local.
@@ -186,5 +186,5 @@ Ahora busco el fichero root.txt para obtener la flag.
 :/ # find / -name "root.txt" 2>/dev/null
 /data/root.txt
 :/ # cat /data/root.txt                                                      
-f04fc82b6d49b41c9b08982be59338c5
+fxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx5
 ```
