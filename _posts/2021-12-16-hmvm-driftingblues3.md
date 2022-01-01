@@ -15,7 +15,7 @@ categories:
   - Fácil
 tags:
   - hackmyvm
-  - log poisoniong
+  - log poisoning
   - rce
   - path hijacking
   - tasiyanci
