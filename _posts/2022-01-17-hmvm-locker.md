@@ -41,7 +41,7 @@ PORT   STATE SERVICE VERSION
 ### Web
 ![](/assets/images/hmvm-Locker/web.png)
 
-Si hago click en Model 1 nos muestra lo siguiente.
+Si hago click en Model 1 me muestra la siguiente imagen.
 
 ![](/assets/images/hmvm-Locker/image1.png)
 
@@ -53,7 +53,7 @@ Uso wfuzz para encontrar más parámetros de la variable image.
 
 ![](/assets/images/hmvm-Locker/wfuzz.png)
 
-Si cambiamos a 2 o 3 veremos imágenes diferentes.
+Si cambio al 2 o al 3 veo imágenes diferentes.
 
 ![](/assets/images/hmvm-Locker/image2.png)
 
@@ -62,7 +62,6 @@ Si cambiamos a 2 o 3 veremos imágenes diferentes.
 Si pongo el número 4 muestra lo siguiente:
 
 ![](/assets/images/hmvm-Locker/imagenrota.png)
-
 
 Después de mucho tiempo me doy cuenta de que tengo un bonito RCE.
 
@@ -93,7 +92,7 @@ www-data@locker:/home/tolocker$ cat user.txt
 cat: user.txt: Permission denied
 ```
 
-Enumero el sistema en busca de binarios SUID y encuentro sulogin.
+Enumero el sistema en busca de binarios SUID y encuentro lo siguiente:
 
 ```console
 www-data@locker:/home/tolocker$ find / -perm -4000 2>/dev/null
@@ -104,7 +103,7 @@ Si ejecuto sulogin directamente, sólo puedo obtener un shell sin privilegios de
 
 ![](/assets/images/hmvm-Locker/sulogin.png)
 
-Buscando información sobre sulogin he encontrado esto:
+Buscando información sobre sulogin encuentro la siguiente información:
 
 ![](/assets/images/hmvm-Locker/infosulogin.png)
 
