@@ -24,7 +24,7 @@ tags:
 ---
 
 ### Escaneo de puertos
-```bash
+```console
 nmap -p- -T5 --open -v -n -Pn 10.0.2.8
 
 PORT      STATE SERVICE
@@ -34,7 +34,7 @@ PORT      STATE SERVICE
 ```
 
 ### Escaneo de servicios
-```bash
+```console
 nmap -sCV -p 53,80,65222 10.0.2.8
 
 PORT      STATE SERVICE VERSION
@@ -57,7 +57,7 @@ PORT      STATE SERVICE VERSION
 ```
 
 ### Escaneo web
-```bash
+```console
 nmap --script http-enum -p80 10.0.2.8          
 
 PORT   STATE SERVICE
@@ -107,13 +107,13 @@ Lanzo un ls para ver que archivos hay en el directorio, veo que no existe el use
 ![](/assets/images/hmvm-Dominator/note.png)
 
 Busco el archivo user.txt con find.
-```bash
+```console
 find / -type f -iname user.txt 2>/dev/null
 /home/hans/.local/share/Trash/files/user.txt
 ```
 
 Una vez encuentro el archivo ya puedo leer la flag.
-```bash
+```console
 cat .local/share/Trash/files/user.txt
 SxxxxxxxxxxxxxxxxxxxxxJ
 ```
@@ -130,7 +130,7 @@ Utilizo el recurso online GTFObins.
 ![](/assets/images/hmvm-Dominator/privesc.png)
 
 Leo la flag de root.
-```bash
+```console
 bash-5.0# cat /root/root.txt 
 ZxxxxxxxxxxxxxxxxxxxxxR
 ```
