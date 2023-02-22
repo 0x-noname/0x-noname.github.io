@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Nunito+Sans:wght@400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* *{
+    padding: 0;
+    margin: 0;
+} */
+
+body {
+    box-sizing: border-box;
+    width:800px;
+	margin:0 auto;
+	height:100%;
+    background-color: #383737;
+    font-family: 'Ubuntu', sans-serif;
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    justify-content: left;
+    text-decoration: none;
+    border-style: groove;
+    border-color: aliceblue;
+    /* background-color: black; */
+    /* align-items: center;  */
+    /* border-bottom-style: solid;
+    border-color: aliceblue; */
+}
+
+.nav_link {
+    display: flex;
+}
+
+.nav_link a {
+    color: aliceblue;
+    text-decoration: none;
+    margin: 10px;  
+}
+
+.nav_link a:hover {
+    color:  red;
+    transition: 1500ms;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+h1:hover {
+    transition: 4500ms;
+    font-size: 2rem; /* tamaño de fuente */
+    color: #ff4444;
+    text-shadow: 0 0 8px #ff4444, 0 0 12px #ff4444, 0 0 16px #ff4444;
+    animation: neon 4s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+    from {
+      text-shadow: 0 0 4px #ff4444, 0 0 8px #ff4444, 0 0 12px #ff4444;
+    }
+    to {
+      text-shadow: 0 0 2px #ff4444, 0 0 4px #ff4444, 0 0 6px #ff4444;
+    }
+  }
+
+.container {
+    text-align: center;
+    margin: 0 auto;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    color: aliceblue;
+}
+
+h3 {
+    display: flex;
+    margin: 16px;
+    font-size: 18px;
+    color: aliceblue;
+}
+
+
+p {
+    display: flex;
+    text-align: left;
+    color: aliceblue;
+    margin: 16px;
+}
+
+img{
+    margin: 5px;
+    border-radius: 8px;
+}
+
+.pre {
+    border-radius: 8px;
+    border-style: groove;
+    border-width: 2px;
+}
+
+ a{
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    font-size: 18px;
+    margin: 10px;
+    text-decoration: none; 
+} 
+
+.footer {
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    margin: 20px 0px 0px 0px;
+    bottom: 0; 
+    width: 100%;
+    /* border-top-style: solid;
+    border-color: aliceblue; */
+    border-style: groove;
+    border-color: aliceblue;
+    text-align: center;
+}
+
+.a_footer {
+    text-decoration: none;
+    color: aliceblue;
+    align-items: center;
+    padding: auto;
+}
+
+.a_footer:hover{
+    color: red;
+    transition: 1500ms;
+} 
+
+.i_footer {
+    padding: 0 8px;
+    color: #f3f3f3;
+}
+
+@media (max-width: 990px){
+    body, img{
+        width: 80%;
+        
+    }
+    .container,p {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px){
+    body, img {
+        width: 80%;
+    }
+    .container, p {
+        width: 100%;
+        text-align: center;
+    }
+}
+
