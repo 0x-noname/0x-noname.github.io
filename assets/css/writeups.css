@@ -21,12 +21,7 @@ nav {
     text-decoration: none;
     border-style: groove;
     border-color: aliceblue;
-    /* background-color: black; */
-    /* align-items: center;  */
-    /* border-bottom-style: solid;
-    border-color: aliceblue; */
 }
-
 .nav_link {
     display: flex;
 }
@@ -54,7 +49,7 @@ h1 {
 
 h1:hover {
     transition: 4500ms;
-    font-size: 2rem; /* tamaño de fuente */
+    font-size: 2rem;
     color: #ff4444;
     text-shadow: 0 0 8px #ff4444, 0 0 12px #ff4444, 0 0 16px #ff4444;
     animation: neon 4s ease-in-out infinite alternate;
@@ -119,15 +114,13 @@ img{
 .footer {
     display: flex;
     justify-content: center;
-    color: aliceblue;
-    margin: 20px 0px 0px 0px;
-    bottom: 0; 
-    width: 100%;
-    /* border-top-style: solid;
-    border-color: aliceblue; */
     border-style: groove;
     border-color: aliceblue;
     text-align: center;
+    color: aliceblue;
+    margin: 20px 0px 0px 0px;
+    bottom: 0; 
+    width: 100%; 
 }
 
 .a_footer {
