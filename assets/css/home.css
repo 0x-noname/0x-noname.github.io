@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Nunito+Sans:wght@400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-/* *{
-    padding: 0;
-    margin: 0;
-} */
-
 body {
     box-sizing: border-box;
     width:800px;
-	margin:0 auto;
-	height:100%;
+    margin:0 auto;
+    height:100%;
     background-color: #282828;
     font-family: 'Ubuntu', sans-serif;
     overflow-x: hidden;
@@ -52,7 +47,7 @@ h1 {
 
 h1:hover {
     transition: 4500ms;
-    font-size: 2rem; /* tamaño de fuente */
+    font-size: 2rem;
     color: #ff4444;
     text-shadow: 0 0 8px #ff4444, 0 0 12px #ff4444, 0 0 16px #ff4444;
     animation: neon 4s ease-in-out infinite alternate;
@@ -94,8 +89,6 @@ a{
 }
 
 .footer {
-    /* border-top-style: solid;
-    border-color: aliceblue; */
     color: aliceblue;
     margin: 50px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
