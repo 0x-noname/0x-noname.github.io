@@ -22,6 +22,7 @@ nav {
     border-style: groove;
     border-color: aliceblue;
 }
+
 .nav_link {
     display: flex;
 }
@@ -49,7 +50,7 @@ h1 {
 
 h1:hover {
     transition: 4500ms;
-    font-size: 2rem;
+    font-size: 2rem; /* tamaño de fuente */
     color: #ff4444;
     text-shadow: 0 0 8px #ff4444, 0 0 12px #ff4444, 0 0 16px #ff4444;
     animation: neon 4s ease-in-out infinite alternate;
@@ -78,7 +79,8 @@ h2 {
 
 h3 {
     display: flex;
-    margin: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
     font-size: 18px;
     color: aliceblue;
 }
@@ -88,7 +90,7 @@ p {
     display: flex;
     text-align: left;
     color: aliceblue;
-    margin: 16px;
+    margin-bottom: 16px;
 }
 
 img{
@@ -110,24 +112,26 @@ img{
     margin: 10px;
     text-decoration: none; 
 } 
+.container_footer {
+    display: flex;
+    justify-content: center;
+}
 
 .footer {
     display: flex;
     justify-content: center;
+    color: aliceblue;
+    margin-top: 50px;
+    position: relative;
+    width: 800px;
     border-style: groove;
     border-color: aliceblue;
-    text-align: center;
-    color: aliceblue;
-    margin: 20px 0px 0px 0px;
-    bottom: 0; 
-    width: 100%; 
 }
 
 .a_footer {
     text-decoration: none;
     color: aliceblue;
     align-items: center;
-    padding: auto;
 }
 
 .a_footer:hover{
@@ -136,19 +140,22 @@ img{
 } 
 
 .i_footer {
-    padding: 0 8px;
+    padding: 0 0.5em;
     color: #f3f3f3;
 }
+
+
 
 @media (max-width: 990px){
     body, img{
         width: 80%;
         
     }
-    .container,p {
+    .container, p {
         width: 100%;
         text-align: center;
     }
+    
 }
 
 @media (max-width: 768px){
@@ -159,5 +166,6 @@ img{
         width: 100%;
         text-align: center;
     }
+
 }
 

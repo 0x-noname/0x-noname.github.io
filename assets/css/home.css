@@ -3,8 +3,8 @@
 body {
     box-sizing: border-box;
     width:800px;
-    margin:0 auto;
-    height:100%;
+	margin:0 auto;
+	height:100%;
     background-color: #282828;
     font-family: 'Ubuntu', sans-serif;
     overflow-x: hidden;
@@ -22,6 +22,7 @@ nav {
 
 .nav_link {
     display: flex;
+    font-size: 18px;
 }
 
 .nav_link a {
@@ -47,7 +48,7 @@ h1 {
 
 h1:hover {
     transition: 4500ms;
-    font-size: 2rem;
+    font-size: 2rem; /* tamaño de fuente */
     color: #ff4444;
     text-shadow: 0 0 8px #ff4444, 0 0 12px #ff4444, 0 0 16px #ff4444;
     animation: neon 4s ease-in-out infinite alternate;
@@ -64,11 +65,12 @@ h1:hover {
 
 .container {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-a{
-    display: flex;
-    justify-content: center;
+.htb, .hmv{
     color: aliceblue;
     margin: 10px;
     text-decoration: none;
@@ -89,9 +91,11 @@ a{
 }
 
 .footer {
+    display: flex;
+    justify-content: center;
     color: aliceblue;
-    margin: 50px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+    margin-top: 50px;
+    padding: 0px;
     position: absolute;
     bottom: 0;
     width: 800px;
@@ -104,6 +108,7 @@ a{
     color: aliceblue;
     align-items: center;
     padding: auto;
+    margin: 10px;
 }
 
 .a_footer:hover{
@@ -118,8 +123,14 @@ a{
 
 @media (max-width: 990px){
     body, .footer{
-        width: 80%;
-        
+        width: 80%;  
+    }
+
+}
+
+@media (max-width: 768){
+    body, .footer{
+        width: 80%;  
     }
 
 }
