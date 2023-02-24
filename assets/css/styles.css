@@ -5,15 +5,20 @@ body {
     width:800px;
 	margin:0 auto;
 	height:100%;
-    background-color: #383737;
+    background-color: #282828;
     font-family: 'Ubuntu', sans-serif;
     overflow-x: hidden;
+    border-style: groove;
+    border-color: aliceblue;
 }
 
 .nav {
+    display: flex;
+    justify-content: left;
     text-decoration: none;
-    border-style: groove;
+    border-bottom-style: solid;
     border-color: aliceblue;
+    font-size: 18px;
 }
 
 .nav a {
@@ -28,8 +33,7 @@ body {
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
+    text-align: center;
     color: aliceblue;
     margin: 10px;
     padding: 10px;
@@ -56,63 +60,35 @@ h1:hover {
 
 .main {
     text-align: center;
-    margin: 0 auto;
+    flex-direction: column;
 }
 
-h2 {
-    font-size: 24px;
+.badges {
+    text-align: center;   
+}
+
+.htb, .hmv{
     color: aliceblue;
-}
-
-h3 {
-    text-align: left;
-    margin-top: 14px;
-    margin-bottom: 8px;
+    margin: 10px;
+    text-decoration: none;
     font-size: 18px;
-    color: aliceblue;
-}
+} 
 
-p {
-    text-align: left;
-    color: aliceblue;
-    margin-bottom: 12px;
-}
-
-img{
-    margin-bottom: 8px;
-    border-radius: 8px;
-}
-
-.pre {
-    border-radius: 8px;
-    border-style: groove;
-    border-width: 2px;
-}
-
-.code_negrita {
-    color: red;
-}
-
-.code_autor_htb {
+.htb:hover {
     color: #9FEF00;
 }
 
-.code_autor_hmv {
+.hmv:hover {
     color: #F09CB8;
 }
-
- a{
-    color: aliceblue;
-    font-size: 18px;
-    margin: 10px;
-    text-decoration: none; 
-} 
 
 .footer {
     text-align: center;
     color: aliceblue;
     margin-top: 50px;
+    padding: 0px;
     position: absolute;
+    bottom: 0;
     width: 800px;
     border-style: groove;
     border-color: aliceblue;
@@ -123,30 +99,30 @@ img{
     text-decoration: none;
     color: aliceblue;
     align-items: center;
+    padding: auto;
+    margin: 10px;
 }
 
 .a_footer:hover{
     color: red;
-    transition: 1500ms;
+    transition: 500ms;
 } 
 
 .i_footer {
-    padding: 0 0.5em;
+    padding: 0 8px;
     color: #f3f3f3;
 }
 
 @media (max-width: 990px){
-    body, img, .footer{
-        width: 80%;
-        text-align: center; 
+    body, .footer{
+        width: 80%;  
     }
 
 }
 
-@media (max-width: 768px){
-    body, img, .footer {
-        width: 90%;
+@media (max-width: 768){
+    body, .footer{
+        width: 90%;  
     }
 
 }
-
