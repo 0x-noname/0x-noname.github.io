@@ -10,6 +10,7 @@ body {
     overflow-x: hidden;
     border-style: groove;
     border-color: aliceblue;
+    border-radius: 10px;
 }
 
 .nav {
@@ -92,6 +93,7 @@ h1:hover {
     width: 800px;
     border-style: groove;
     border-color: aliceblue;
+    border-radius: 10px;
     padding: 6px;
 }
 
@@ -113,14 +115,21 @@ h1:hover {
     color: #f3f3f3;
 }
 
-@media (max-width: 990px){
+@media screen and (max-width: 960px){
     body, .footer{
-        width: 80%;  
+        width: 90%;  
     }
 
 }
 
-@media (max-width: 768){
+@media screen and (max-width: 768){
+    body, .footer{
+        width: 90%;  
+    }
+
+}
+
+@media screen and (max-width: 480){
     body, .footer{
         width: 90%;  
     }

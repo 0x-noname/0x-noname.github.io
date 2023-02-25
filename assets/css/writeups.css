@@ -14,6 +14,7 @@ body {
     text-decoration: none;
     border-style: groove;
     border-color: aliceblue;
+    border-radius: 10px;
 }
 
 .nav a {
@@ -75,18 +76,31 @@ h3 {
 p {
     text-align: left;
     color: aliceblue;
-    margin-bottom: 12px;
+    margin-top: 12px;
+    margin-bottom: 10px;
 }
 
 img{
+    margin-top: 6px;
     margin-bottom: 8px;
+    border-style: groove;
+    border-color: darkgray;
     border-radius: 8px;
 }
 
+.img_hmv {
+    border-color: #F09CB8;
+}
+
+.img_htb {
+    border-color: #9FEF00;
+}
+
 .pre {
-    border-radius: 8px;
     border-style: groove;
+    border-color: aliceblue;
     border-width: 2px;
+    border-radius: 8px;
 }
 
 .code_negrita {
@@ -116,6 +130,7 @@ img{
     width: 800px;
     border-style: groove;
     border-color: aliceblue;
+    border-radius: 10px;
     padding: 6px;
 }
 
@@ -135,15 +150,29 @@ img{
     color: #f3f3f3;
 }
 
-@media (max-width: 990px){
+/* # */
+@media screen and (max-width: 1328px){
     body, img, .footer{
-        width: 80%;
-        text-align: center; 
+        width: 65%; 
     }
 
 }
 
-@media (max-width: 768px){
+@media screen and (max-width: 960px){
+    body, img, .footer{
+        width: 80%; 
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    body, img, .footer {
+        width: 90%;
+    }
+
+}
+
+@media screen and (max-width: 480px){
     body, img, .footer {
         width: 90%;
     }
