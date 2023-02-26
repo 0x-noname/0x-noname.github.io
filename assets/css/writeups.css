@@ -11,6 +11,7 @@ body {
 }
 
 .nav {
+    margin-top: 10px;
     text-decoration: none;
     border-style: groove;
     border-color: aliceblue;
@@ -68,7 +69,7 @@ h2 {
 h3 {
     text-align: left;
     margin-top: 14px;
-    margin-bottom: 8px;
+    margin-bottom: 14px;
     font-size: 18px;
     color: aliceblue;
 }
@@ -81,11 +82,24 @@ p {
 }
 
 img{
+    width: 650px;
     margin-top: 6px;
     margin-bottom: 8px;
     border-style: groove;
-    border-color: aliceblue;
+    border-color: darkgray;
     border-radius: 8px;
+}
+
+.img_b {
+    width: 800px;
+}
+
+.img_m {
+    width: 600px;
+}
+
+.img_s {
+    width: 350px;
 }
 
 .img_hmv {
@@ -101,6 +115,7 @@ img{
     border-color: aliceblue;
     border-width: 2px;
     border-radius: 8px;
+    margin: 10px;
 }
 
 .code_negrita {
@@ -125,7 +140,7 @@ img{
 .footer {
     text-align: center;
     color: aliceblue;
-    margin-top: 50px;
+    margin-top: 30px;
     position: absolute;
     width: 800px;
     border-style: groove;
@@ -152,28 +167,28 @@ img{
 
 /* # */
 @media screen and (max-width: 1328px){
-    body, img, .footer{
+    body, img, .img_b, .img_m, .img_s, .footer{
         width: 65%; 
     }
 
 }
 
 @media screen and (max-width: 960px){
-    body, img, .footer{
-        width: 80%; 
+    body, img, .img_b, .img_m, .img_s, .footer{
+        width: 80%;
+         
     }
-
 }
 
 @media screen and (max-width: 768px){
-    body, img, .footer {
+    body, img, .img_b, .img_m, .img_s, .footer {
         width: 90%;
     }
 
 }
 
 @media screen and (max-width: 480px){
-    body, img, .footer {
+    body, img, .img_b, .img_m, .img_s, .footer {
         width: 90%;
     }
 
