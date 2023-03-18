@@ -93,6 +93,7 @@ h1:hover {
     text-align: center;
     color: aliceblue;
     margin-top: 50px;
+    margin-left: -3px;
     padding: 0px;
     position: absolute;
     bottom: 0;
