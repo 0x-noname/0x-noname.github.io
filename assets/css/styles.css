@@ -128,14 +128,14 @@ h1:hover {
 
 }
 
-@media screen and (max-width: 768){
+@media screen and (max-width: 768px){
     body, .footer{
         width: 90%;  
     }
 
 }
 
-@media screen and (max-width: 480){
+@media screen and (max-width: 480px){
     body, .footer{
         width: 90%;  
     }
