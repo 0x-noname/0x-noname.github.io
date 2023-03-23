@@ -56,7 +56,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 </code></pre>
             <h3>HTTP</h3>
             <img class="img_b" src="../../assets/img/hmv_comet/web.png" alt="web">                
-            <p>En<code class="code_negrita">&nbsp;login&nbsp;</code>hay un formulario de acceso que si ingresamos 2 veces las credenciales erróenas nos bloqueará durante unos minutos.</p>
+            <p>En<code class="code_negrita">&nbsp;login&nbsp;</code>hay un formulario de acceso que si ingresamos 2 veces las credenciales erróneas nos bloqueará durante unos minutos.</p>
             <img class="img_b" src="../../assets/img/hmv_comet/login.png" alt="login">
             <p>Con gobuster hago una enumeración de extensiones. El archivo<code class="code_negrita">&nbsp;ip.txt&nbsp;</code>es el que usa el cortafuegos para generar una lista negra de direcciones ip.</p>
 <pre class="pre">
@@ -147,13 +147,13 @@ Firewall successfully updated
 joe@comet:~$
 </code></pre>
 
-            <p>Sudo -l</p>
+            <p>Elevación de privilegios.</p>
 <pre class="pre"><code class="language-txt">joe@comet:~$ sudo -l
 User joe may run the following commands on comet:
         (ALL : ALL) NOPASSWD: /bin/bash /home/joe/coll
 </code></pre>
 
-            <p>Archivo coll</p>
+            <p>Archivo coll.</p>
 <pre class="pre"><code class="language-bash">joe@comet:~$ cat coll
 
 #!/bin/bash
