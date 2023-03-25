@@ -10,38 +10,38 @@ body {
     width:800px;
 	margin:0 auto;
 	height:100%;
-    background-color: #282828;
+    background-color: black;
     font-family: 'Ubuntu', sans-serif;
     overflow-x: hidden;
     border-style: groove;
-    border-color: aliceblue;
+    border-color: #00396B;
     border-radius: 10px;
 }
 
 .nav {
-    
+    background-color: #202020;
     display: flex;
     justify-content: left;
     text-decoration: none;
     border-bottom-style: solid;
-    border-color: aliceblue;
+    border-color: #00396B;
     font-size: 18px;
 }
 
 .nav a {
-    color: aliceblue;
+    color: #A4BFD6;
     text-decoration: none;
     margin: 10px;  
 }
 
 .nav a:hover {
-    color:  red;
+    color:  aliceblue;
     transition: 1500ms;
 }
 
 h1 {
     text-align: center;
-    color: aliceblue;
+    color: #A4BFD6;
     margin: 10px;
     padding: 10px;
     text-decoration: none;
@@ -51,17 +51,17 @@ h1 {
 h1:hover {
     transition: 4500ms;
     font-size: 2rem;
-    color: #ff4444;
-    text-shadow: 0 0 8px #ff4444, 0 0 12px #ff4444, 0 0 16px #ff4444;
-    animation: neon 4s ease-in-out infinite alternate;
+    color: aliceblue;
+    text-shadow: 0 0 8px aliceblue, 0 0 10px aliceblue, 0 0 10px aliceblue;
+    animation: neon 2s ease-in-out infinite alternate;
 }
 
 @keyframes neon {
     from {
-      text-shadow: 0 0 4px #ff4444, 0 0 8px #ff4444, 0 0 12px #ff4444;
+      text-shadow: 0 0 4px aliceblue, 0 0 8px aliceblue, 0 0 10px aliceblue;
     }
     to {
-      text-shadow: 0 0 2px #ff4444, 0 0 4px #ff4444, 0 0 6px #ff4444;
+      text-shadow: 0 0 2px aliceblue, 0 0 4px aliceblue, 0 0 6px aliceblue;
     }
   }
 
@@ -90,30 +90,31 @@ h1:hover {
 }
 
 .footer {
+    background-color: #202020;
     text-align: center;
-    color: aliceblue;
+    /* color: #A4BFD6; */
     margin-top: 50px;
-    margin-left: -3px;
     padding: 0px;
     position: absolute;
     bottom: 0;
     width: 800px;
+    margin-left: -3px;
     border-style: groove;
-    border-color: aliceblue;
+    border-color: #00396B;
     border-radius: 10px;
     padding: 6px;
 }
 
 .a_footer {
     text-decoration: none;
-    color: aliceblue;
+    color: #A4BFD6;
     align-items: center;
     padding: auto;
     margin: 10px;
 }
 
 .a_footer:hover{
-    color: red;
+    color: aliceblue;
     transition: 500ms;
 } 
 

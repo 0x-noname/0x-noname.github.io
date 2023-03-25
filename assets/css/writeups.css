@@ -5,7 +5,8 @@ body {
     width:800px;
 	margin:0 auto;
 	height:100%;
-    background-color: #383737;
+    /* background-color: #383737; */
+    background-color: black;
     font-family: 'Ubuntu', sans-serif;
     overflow-x: hidden;
 }
@@ -14,25 +15,25 @@ body {
     margin-top: 10px;
     text-decoration: none;
     border-style: groove;
-    border-color: aliceblue;
+    border-color: #00396B;
     border-radius: 10px;
 }
 
 .nav a {
-    color: aliceblue;
+    color: #A4BFD6;
     text-decoration: none;
     margin: 10px;  
 }
 
 .nav a:hover {
-    color:  red;
+    color:  aliceblue;
     transition: 1500ms;
 }
 
 h1 {
     display: flex;
     justify-content: center;
-    color: aliceblue;
+    color: #A4BFD6;
     margin: 10px;
     padding: 10px;
     text-decoration: none;
@@ -42,28 +43,29 @@ h1 {
 h1:hover {
     transition: 4500ms;
     font-size: 2rem;
-    color: #ff4444;
-    text-shadow: 0 0 8px #ff4444, 0 0 12px #ff4444, 0 0 16px #ff4444;
-    animation: neon 4s ease-in-out infinite alternate;
+    color: aliceblue;
+    text-shadow: 0 0 8px aliceblue, 0 0 10px aliceblue, 0 0 10px aliceblue;
+    animation: neon 2s ease-in-out infinite alternate;
 }
 
 @keyframes neon {
     from {
-      text-shadow: 0 0 4px #ff4444, 0 0 8px #ff4444, 0 0 12px #ff4444;
+      text-shadow: 0 0 4px aliceblue, 0 0 8px aliceblue, 0 0 10px aliceblue;
     }
     to {
-      text-shadow: 0 0 2px #ff4444, 0 0 4px #ff4444, 0 0 6px #ff4444;
+      text-shadow: 0 0 2px aliceblue, 0 0 4px aliceblue, 0 0 6px aliceblue;
     }
   }
 
 .main {
     text-align: center;
     margin: 0 auto;
+    background-color: #202020;
 }
 
 h2 {
     font-size: 24px;
-    color: aliceblue;
+    color: #A4BFD6;
 }
 
 h3 {
@@ -76,7 +78,7 @@ h3 {
 
 p {
     text-align: left;
-    color: aliceblue;
+    color: #A4BFD6;
     margin-top: 12px;
     margin-bottom: 10px;
 }
@@ -112,7 +114,7 @@ img{
 
 .pre {
     border-style: groove;
-    border-color: aliceblue;
+    border-color: #00396B;
     border-width: 2px;
     border-radius: 8px;
     margin: 10px;
@@ -136,38 +138,39 @@ img{
 }
 
  a{
-    color: aliceblue;
+    color: #A4BFD6;
     font-size: 18px;
     margin: 10px;
     text-decoration: none; 
 } 
 
+
 .footer {
     text-align: center;
-    color: aliceblue;
+    color: #A4BFD6;
     margin-top: 30px;
     position: absolute;
     width: 800px;
     border-style: groove;
-    border-color: aliceblue;
+    border-color: #00396B;
     border-radius: 10px;
     padding: 6px;
 }
 
 .a_footer {
     text-decoration: none;
-    color: aliceblue;
+    color: #A4BFD6;
     align-items: center;
 }
 
 .a_footer:hover{
-    color: red;
+    color: aliceblue;
     transition: 1500ms;
 } 
 
 .i_footer {
     padding: 0 0.5em;
-    color: #f3f3f3;
+    color: #A4BFD6;
 }
 
 /* # */
