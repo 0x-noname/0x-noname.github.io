@@ -14,17 +14,16 @@ body {
     font-family: 'Ubuntu', sans-serif;
     overflow-x: hidden;
     border-style: groove;
-    border-color: #00396B;
+    border-color: #0077DF;
     border-radius: 10px;
 }
 
 .nav {
-    background-color: #202020;
     display: flex;
     justify-content: left;
     text-decoration: none;
     border-bottom-style: solid;
-    border-color: #00396B;
+    border-color: #0077DF;
     font-size: 18px;
 }
 
@@ -90,9 +89,7 @@ h1:hover {
 }
 
 .footer {
-    background-color: #202020;
     text-align: center;
-    /* color: #A4BFD6; */
     margin-top: 50px;
     padding: 0px;
     position: absolute;
@@ -100,7 +97,7 @@ h1:hover {
     width: 800px;
     margin-left: -3px;
     border-style: groove;
-    border-color: #00396B;
+    border-color: #0077DF;
     border-radius: 10px;
     padding: 6px;
 }
