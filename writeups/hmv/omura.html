@@ -72,7 +72,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
             <p>Agrego el dominio<code class="code_negrita">&nbsp;omura.hmv&nbsp;</code>mi archivo hosts y lanzo una enumeración de subdominios con<code class="code_negrita">&nbsp;wfuzz</code>.</p>
             
            
-<pre class="pre"><code class="language-txt">wfuzz -t 100 -c --hh=795 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Host: FUZZ.omura.hmv" http://omura.hmv
+<pre class="pre"><code class="language-txt">❯ wfuzz -t 100 -c --hh=795 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Host: FUZZ.omura.hmv" http://omura.hmv
     
 =====================================================================
 ID           Response   Lines    Word       Chars       Payload                                                                                                                                         
