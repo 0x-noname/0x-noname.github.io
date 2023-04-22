@@ -63,9 +63,9 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
             <h3>HTTP</h3>                
             <p>Después de mirar el menu de navegación entro en<code class="code_negrita">&nbsp;Doctors</code>.</p>
             <img class="img_b" src="../../assets/img/nyx_doctor/docmed.png" alt="docmed">
-            <p>En<code class="code_negrita">&nbsp;Doctors&nbsp;</code>me llama la atencion el parámetro<code class="code_negrita">&nbsp;include&nbsp;</code>porque muestra el contenido de<code class="code_negrita">&nbsp;Doctors.html</code>.</p>
+            <p>En<code class="code_negrita">&nbsp;Doctors&nbsp;</code>me llama la atención el parámetro<code class="code_negrita">&nbsp;include&nbsp;</code>porque muestra el contenido de<code class="code_negrita">&nbsp;Doctors.html</code>.</p>
             <img class="img_b" src="../../assets/img/nyx_doctor/doctors.png" alt="doctors">
-            <p>Si cambio<code class="code_negrita">&nbsp;Doctors.html&nbsp;</code>por<code class="code_negrita">&nbsp;/etc/passwd&nbsp;</code>consigo leer el archivo<code class="code_negrita">&nbsp;passwd&nbsp;</code> y veo que existe el usuario admin.</p>
+            <p>Si cambio<code class="code_negrita">&nbsp;Doctors.html&nbsp;</code>por<code class="code_negrita">&nbsp;/etc/passwd&nbsp;</code>consigo leer el archivo<code class="code_negrita">&nbsp;passwd&nbsp;</code>y veo que existe el usuario admin.</p>
             <img class="img_b" src="../../assets/img/nyx_doctor/doctors_etcpasswd.png" alt="doctors_etcpasswd">
             <p>Encuentro una llave rsa en el<code class="code_negrita">&nbsp;home&nbsp;</code>de admin.</p>
             <img class="img_b" src="../../assets/img/nyx_doctor/id_rsa.png" alt="id_rsa">
@@ -82,7 +82,7 @@ Enter passphrase for key 'id_rsa':
             
             <p>Para obtener el passphrase he clonado<code class="code_negrita">&nbsp;RSAcrack</code>.</p>
 <pre class="pre__nyx">
-<code class="language-js">❯  git clone https://github.com/d4t4s3c/RSAcrack.git
+<code class="language-js">❯ git clone https://github.com/d4t4s3c/RSAcrack.git
 ❯ ./RSAcrack.sh -w /usr/share/wordlists/rockyou.txt -k id_rsa
 
 ╭━━━┳━━━┳━━━╮          ╭╮  
