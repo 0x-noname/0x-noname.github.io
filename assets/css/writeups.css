@@ -113,22 +113,9 @@ img{
     border-color: #9FEF00;
 }
 
-.img_nyx {
-    border-color: #AB2A3E;
-    width: 300px;
-}
-
 .pre {
     border-style: groove;
     border-color: #0077DF;
-    border-width: 2px;
-    border-radius: 8px;
-    margin: 10px;
-}
-
-.pre__nyx {
-    border-style: groove;
-    border-color: #AB2A3E;
     border-width: 2px;
     border-radius: 8px;
     margin: 10px;
@@ -144,10 +131,6 @@ img{
 
 .code_autor_hmv {
     color: #F09CB8;
-}
-
-.code_autor_nyx {
-    color: #AB2A3E;
 }
 
 .cursiva {
