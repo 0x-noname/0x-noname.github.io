@@ -69,9 +69,9 @@ Service Info: Host: blog.literal.hmv; OS: Linux; CPE: cpe:/o:linux:linux_kernel
             <img class="img_b" src="../../assets/img/hmv_literal/hi_noname.png" alt="hi_noname">
             <p>Hago click en<code class="code_negrita">&nbsp;Check what projects I'm working on&nbsp;</code>y veo una lista.</p>
             <img class="img_b" src="../../assets/img/hmv_literal/noname_next_projects.png" alt="noname_next_projects">
-            <p>Guardo la salida de burpsuite con<code class="code_negrita">&nbsp;copy to file&nbsp;</code>y le doy el nombre de burp.</p>
+            <p>Después de interceptar la petición con burpsuite la guardo a un fichero con<code class="code_negrita">&nbsp;copy to file&nbsp;</code>y le doy el nombre de burp.</p>
             <img class="img_b" src="../../assets/img/hmv_literal/burpcaptura.png" alt="burpcaptura">
-            <p>Ahora utilizo el fichero que he guardado anteriormente para usarlo con sqlmap para buscar el nombre de la base de datos.</p>
+            <p>Ahora utilizo el fichero que he guardado anteriormente para usarlo con sqlmap y buscar el nombre de la base de datos.</p>
 <pre class="pre"><code class="language-js">❯ sqlmap -r burp --level 5 --risk 3 --dbs
 [20:27:45] [INFO] fetching database names
 available databases [4]:
