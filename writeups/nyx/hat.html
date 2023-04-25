@@ -17,7 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VulNyx - Hat</title>
     <link rel="shortcut icon" href="../../assets/img/favicon.ico">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../assets/css/prism.css">
     <link rel="stylesheet" href="../../assets/css/writeups_nyx.css">  
@@ -173,7 +172,7 @@ Sysadmin
             <p>Uso<code class="code_negrita">&nbsp;RSACrack&nbsp;</code>para conseguir el passhprase del archivo id_rsa.</p>
             <img class="img_m" src="../../assets/img/nyx_hat/rsaCrack.png" alt="rsaCrack">
 
-            <p>Antes de conectarme por ssh me falta un directorio por enumerar, así que hago una búsqueda de extensiones<code class="code_negrita">&nbsp;php&nbsp;</code>en el directorio<code class="code_negrita">&nbsp;php-scripts</code>.</p>
+            <p>Antes de conectarme por ssh me falta un directorio por enumerar, asi que hago una búsqueda de extensiones<code class="code_negrita">&nbsp;php&nbsp;</code>en el directorio<code class="code_negrita">&nbsp;php-scripts</code>.</p>
 <pre class="pre__nyx"><code class="language-js">❯ wfuzz -c -t 200 --hc=404 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,php http://192.168.1.24/php-scripts/FUZZ.FUZ2Z
     
 =====================================================================
@@ -194,8 +193,9 @@ ID           Response   Lines    Word       Chars       Payload
 </code></pre>
             <p>Visualizo el archivo<code class="code_negrita">&nbsp;/etc/passwd&nbsp;</code>y obtengo el usuario para la llave rsa.</p>
             <img class="img_b" src="../../assets/img/nyx_hat/lfi-cromiphi.png" alt="">
-            <i class="cursiva">En este caso la enumeración del directorio php-scripts es opcional ya que en el servidor ftp se puede deducir que el usuario es cromiphi, pero recomiendo realizar estos pasos para refrescar métodos de enumeración.</i>
+            <i class="cursiva">En este caso la enumeración del directorio php-scripts es opcional ya que en el servidor ftp se puede deducir que el usuario es cromiphi, pero recomiendo realizar estos pasos para refrescar métodos de enumeración.</i></pre>
 
+            
 
             <p>Si intento conectarme por SSH no conseguiré conectarme porque el puerto está filtrado, pero está filtrado para<code class="code_negrita">&nbsp;IPv4&nbsp;</code>pero no para<code class="code_negrita">&nbsp;IPv6</code>, para ver que<code class="code_negrita">&nbsp;IPv6&nbsp;</code>tiene la máquina objetivo usaré<code class="code_negrita">&nbsp;ping6</code>.</p>
 <pre class="pre__nyx"><code class="language-js">❯ ping6 -c2 -n -I eth0 ff02::1
@@ -221,7 +221,7 @@ User cromiphi may run the following commands on Hat:
     (root) NOPASSWD: /usr/bin/nmap
 </code></pre>
 
-            <p>Para obtener el root he usado este recurso online de<code class="code_negrita">&nbsp;GTFOBins</code>.</p>
+            <p>Para obtener el root es usado este recurso online de<code class="code_negrita">&nbsp;GTFOBins</code>.</p>
 <pre class="pre__nyx"><code class="language-txt">https://gtfobins.github.io/gtfobins/nmap/#sudo
 </code></pre>
 
