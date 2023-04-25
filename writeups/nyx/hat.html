@@ -173,7 +173,7 @@ Sysadmin
             <p>Uso<code class="code_negrita">&nbsp;RSACrack&nbsp;</code>para conseguir el passhprase del archivo id_rsa.</p>
             <img class="img_m" src="../../assets/img/nyx_hat/rsaCrack.png" alt="rsaCrack">
 
-            <p>Antes de conectarme por ssh me falta un directorio por enumerar, asi que hago una búsqueda de extensiones<code class="code_negrita">&nbsp;php&nbsp;</code>en el directorio<code class="code_negrita">&nbsp;php-scripts</code>.</p>
+            <p>Antes de conectarme por ssh me falta un directorio por enumerar, así que hago una búsqueda de extensiones<code class="code_negrita">&nbsp;php&nbsp;</code>en el directorio<code class="code_negrita">&nbsp;php-scripts</code>.</p>
 <pre class="pre__nyx"><code class="language-js">❯ wfuzz -c -t 200 --hc=404 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,php http://192.168.1.24/php-scripts/FUZZ.FUZ2Z
     
 =====================================================================
