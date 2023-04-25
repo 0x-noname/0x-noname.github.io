@@ -108,7 +108,7 @@ drwx------    3 1000     1000         4096 Feb 11 19:18 pink
 drwx------    2 1081     1081         4096 Feb 20 16:07 purple
 drwx------    2 1039     1039         4096 Feb 11 19:56 red</code></pre>
             
-            <p>Entro en la carpeta<code class="code_negrita">&nbsp;pink</code> por que en las demás carpetas no tenemos permiso.</p>
+            <p>Entro en la carpeta<code class="code_negrita">&nbsp;pink&nbsp;</code>por que en las demás carpetas no tenemos permiso.</p>
             <pre class="pre"><code class="language-txt">drwx------    3 1000     1000         4096 Feb 11 19:18 .
 drwxr-xr-x    6 0        0            4096 Jan 27 22:44 ..
 lrwxrwxrwx    1 1000     1000            9 Jan 27 20:30 .bash_history -> /dev/null
@@ -127,7 +127,7 @@ PORT   STATE    SERVICE
 22/tcp filtered ssh
 80/tcp open     http</code></pre>
 
-            <p>Encuentra el puerto 22 filtrado, está filtrado para<code class="code_negrita">&nbsp;IPv4</code> lo podemos abrir mediante la técnica de<code class="code_negrita">&nbsp;Port Knocking</code>pero en este writeup accederé al sistema por<code class="code_negrita">&nbsp;IPv6</code>. Hago un barrido con<code class="code_negrita">&nbsp;ping6&nbsp;</code>en busca de direcciones<code class="code_negrita">&nbsp;IPv6&nbsp;</code>y encuentro la siguiente dirección:</p>
+            <p>Encuentra el puerto 22 filtrado, está filtrado para<code class="code_negrita">&nbsp;IPv4&nbsp;</code>lo podemos abrir mediante la técnica de<code class="code_negrita">&nbsp;Port Knocking</code>pero en este writeup accederé al sistema por<code class="code_negrita">&nbsp;IPv6</code>. Hago un barrido con<code class="code_negrita">&nbsp;ping6&nbsp;</code>en busca de direcciones<code class="code_negrita">&nbsp;IPv6&nbsp;</code>y encuentro la siguiente dirección:</p>
 
             <p></p>
             <pre class="pre"><code class="language-txt">❯ ping6 -c2 -n -I enp0s3 ff02::1
@@ -204,7 +204,7 @@ Nope, sorry</code></pre>
             <p>Se puede observar que hay unas cadenas de texto entendibles para humanos.</p>
         <img class="img_b" src="../../assets/img/hmv_colors/r2P1.png" alt="r2P1">
         <img class="img_b" src="../../assets/img/hmv_colors/r2P2.png" alt="r2P2">
-         <p>Con las flechas "arriba y abajo" nos movemos hasta la dirección <code class="code_negrita">&nbsp;0x00001257&nbsp;</code>es importante que la dirección<code class="code_negrita">&nbsp;0x00001257&nbsp;</code>esté marcada en amarillo como se ve en la imagen en el "recuadro" amarillo.</p>
+         <p>Con las flechas "arriba y abajo" nos movemos hasta la dirección<code class="code_negrita">&nbsp;0x00001257&nbsp;</code>es importante que la dirección<code class="code_negrita">&nbsp;0x00001257&nbsp;</code>esté marcada en amarillo como se ve en la imagen en el "recuadro" amarillo.</p>
         <img class="img_b" src="../../assets/img/hmv_colors/r2P3_2.png" alt="r2P3">
             <p>Pulsamos <code class="code_negrita">&nbsp;shift+a&nbsp;</code>y escribimos<code class="code_negrita">&nbsp;je 0x12cb</code>.</p>
         <img class="img_m" src="../../assets/img/hmv_colors/r2A.png" alt="r2A">
@@ -222,7 +222,7 @@ p************</code></pre>
         <pre class="pre"><code class="language-txt">purple@color:~$ cat user.txt 
 (:**_******:)</code></pre>
 
-            <p>Archivo <code class="code_negrita">&nbsp;for_purple_only</code>.</p>
+            <p>Archivo<code class="code_negrita">&nbsp;for_purple_only</code>.</p>
 
 
 
@@ -230,7 +230,7 @@ p************</code></pre>
 As the highest level user I allow you to use the supreme ddos attack script.
 </code></pre>
 
-            <p>El usuario purple puede ejecutar <code class="code_negrita">&nbsp;/attack/ddos.sh&nbsp;</code>como root</p>
+            <p>El usuario purple puede ejecutar<code class="code_negrita">&nbsp;/attack/ddos.sh&nbsp;</code>como root</p>
 
         <pre class="pre"><code class="language-txt">purple@color:~$ sudo -l
 Matching Defaults entries for purple on color:
