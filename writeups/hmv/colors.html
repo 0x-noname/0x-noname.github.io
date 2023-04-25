@@ -120,20 +120,20 @@ drwx------    2 1000     1000         4096 Feb 11 19:55 .ssh
 -rw-r--r--    1 1000     1000           23 Feb 11 16:59 note.txt</code></pre>
 
 
-            <p>Me llama la atención la carpeta<code class="code_negrita">&nbsp;.ssh&nbsp;</code>porque en el reconocimiento de puertos no me detectó el puerto 22. Así que vuelvo a escanear los puertos sin la flag <code class="code_negrita">&nbsp;--open</code>.</p>
+            <p>Me llama la atención la carpeta<code class="code_negrita">&nbsp;.ssh&nbsp;</code>porque en el reconocimiento de puertos no me detectó el puerto 22. Así que vuelvo a escanear los puertos sin la flag<code class="code_negrita">&nbsp;--open</code>.</p>
             <pre class="pre"><code class="language-txt">❯ nmap -p- -T5 -v -n 10.10.1.49
 PORT   STATE    SERVICE
 21/tcp open     ftp
 22/tcp filtered ssh
 80/tcp open     http</code></pre>
 
-            <p>Encuentra el puerto 22 filtrado, está filtrado para<code class="code_negrita">&nbsp;IPv4</code> lo podemos abrir mediante la técnica de<code class="code_negrita">&nbsp;Port Knocking</code> pero en este writeup accederé al sistema por<code class="code_negrita">&nbsp;IPv6</code>. Hago un barrido con<code class="code_negrita">&nbsp;ping6&nbsp;</code>en busca de direcciones<code class="code_negrita">&nbsp;IPv6&nbsp;</code>y encuentro la siguiente dirección:</p>
+            <p>Encuentra el puerto 22 filtrado, está filtrado para<code class="code_negrita">&nbsp;IPv4</code> lo podemos abrir mediante la técnica de<code class="code_negrita">&nbsp;Port Knocking</code>pero en este writeup accederé al sistema por<code class="code_negrita">&nbsp;IPv6</code>. Hago un barrido con<code class="code_negrita">&nbsp;ping6&nbsp;</code>en busca de direcciones<code class="code_negrita">&nbsp;IPv6&nbsp;</code>y encuentro la siguiente dirección:</p>
 
             <p></p>
             <pre class="pre"><code class="language-txt">❯ ping6 -c2 -n -I enp0s3 ff02::1
 64 bytes from fe80::a00:27ff:fe06:f767%enp0s3: icmp_seq=1 ttl=64 time=0.607 ms
 </code></pre>
-            <p>Antes de conectarme por ssh, he creado un archivo<code class="code_negrita">&nbsp;authorized_keys&nbsp;</code>dentro del archivo he copiado mi <code class="code_negrita">&nbsp;id_rsa.pub&nbsp;</code>de mi máquina y luego lo he subido a la carpeta <code class="code_negrita">&nbsp;.ssh&nbsp;</code>del usuario pink a través del servidor ftp</p>
+            <p>Antes de conectarme por ssh, he creado un archivo<code class="code_negrita">&nbsp;authorized_keys&nbsp;</code>dentro del archivo he copiado mi<code class="code_negrita">&nbsp;id_rsa.pub&nbsp;</code>de mi máquina y luego lo he subido a la carpeta<code class="code_negrita">&nbsp;.ssh&nbsp;</code>del usuario pink a través del servidor ftp</p>
 
             <p>Me conecto al sistema a través del servicio SSH.</p>
             <pre class="pre"><code class="language-txt">ssh -6 pink@fe80::a00:27ff:fe06:f767%enp0s3
@@ -141,7 +141,7 @@ pink@color:~$ id
 uid=1000(pink) gid=1000(pink) groups=1000(pink),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),108(netdev),112(bluetooth)
 </code></pre>
             <p>Leyendo el archivo<code class="code_negrita">&nbsp;.viminfo&nbsp;</code>
-            observo que ha habido movimiento en la ruta <code class="code_negrita">&nbsp;/var/www/html&nbsp;</code>me desplazo a ella y observo que puedo crear archivos, creo un archivo php malicioso para obtener una shell. Aquí abajo te dejo el enlace de la reverse-shell que he usado:</p>
+            observo que ha habido movimiento en la ruta<code class="code_negrita">&nbsp;/var/www/html&nbsp;</code>me desplazo a ella y observo que puedo crear archivos, creo un archivo php malicioso para obtener una shell. Aquí abajo te dejo el enlace de la reverse-shell que he usado:</p>
             <pre class="pre"><code class="language-txt">http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
 </code></pre>
             
