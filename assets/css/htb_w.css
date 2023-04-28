@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Nunito+Sans:wght@400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* Colores */
+:root {
+    --body-bg-color: #121212;
+    --nav-bg-color: #202020;
+    --text-color: #e0e0e0;
+    --h1-color: grey;
+    --h1-hover: aliceblue;
+    --h2-color: #e0e0e0;
+    --h3-color: whitesmoke;
+    --main-bg-color: #202020;
+    --border-color: #9FEF00;
+    --img-border-color: darkgray;
+    --img-hmv-color: #ecdede;
+    --img-htb-color: #9FEF00;
+    --link-hover-htb-color: #9FEF00;
+    --link-hover-nyx-color: #AB2A3E;
+    --pre-color: #9FEF00;
+    --code-negrita: #5cb85c;
+    --code-autor-htb: #fff;
+    --code-autor-htb-bg: #207020;
+    --cursiva-color: yellow;
+}   
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width:800px;
+	margin:0 auto;
+    background-color: var(--body-bg-color);
+    font-family: Ubuntu, sans-serif;
+}
+
+.nav {
+    background-color: var(--nav-bg-color);
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: groove;
+    border-color: var(--border-color);
+  }
+  
+.nav a {
+    font-weight: bold;
+  }
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: var(--h1-color);
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+h1:hover {
+    transition: 4500ms;
+    font-size: 2rem;
+    color: var(--h1-hover);
+    text-shadow: 0 0 8px var(--h1-hover), 0 0 10px var(--h1-hover), 0 0 10px var(--h1-hover);
+    animation: neon 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+    from {
+      text-shadow: 0 0 4px var(--h1-hover), 0 0 8px var(--h1-hover), 0 0 10px var(--h1-hover);
+    }
+    to {
+      text-shadow: 0 0 2px var(--h1-hover), 0 0 4px var(--h1-hover), 0 0 6px var(--h1-hover);
+    }
+  }
+
+.main {
+    text-align: center;
+    margin: 0 auto;
+    background-color: var(--main-bg-color);
+    border-radius: 5px;
+}
+
+h2 {
+    font-size: 24px;
+    color: var(--h2-color);
+}
+
+h3 {
+    text-align: left;
+    margin-top: 14px;
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: var(--h3-color);
+}
+
+p {
+    text-align: left;
+    color: var(--text-color);
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+img{
+    width: 650px;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    border-style: groove;
+    border-color: var(--img-border-color);
+    border-radius: 8px;
+}
+
+.img_b {
+    width: 800px;
+}
+
+.img_m {
+    width: 600px;
+}
+
+.img_s {
+    width: 350px;
+}
+
+.img_htb {
+    border-color: var(--img-htb-color);
+}
+
+
+.pre {
+    border-style: groove;
+    border-color: var(--border-color);
+    border-width: 2px;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.code_negrita {
+    color: var(--code-negrita);
+    font-size: 1rem;
+}
+
+.code_autor_htb {
+    color: var(--code-autor-htb);
+    font-size: 1rem;
+}
+
+.autor{
+    text-align: center;
+    margin-left: 10px;
+}
+.code_autor_htb {
+    background-color: var(--code-autor-htb-bg);
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-weight: bolder;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    color: var(--code-autor-text);
+  }
+
+.cursiva {
+    color: var(--cursiva-color);
+    font-size: 14px;
+}
+
+ a{
+    color: var(--text-color);
+    font-size: 18px;
+    margin: 10px;
+    text-decoration: none; 
+} 
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    position: absolute;
+    width: 800px;
+    border-style: groove;
+    border-color: var(--text-color);
+    border-radius: 10px;
+    padding: 6px;
+}
+
+.a_footer {
+    text-decoration: none;
+    align-items: center;
+}
+
+.a_footer:hover{
+    color: var(--link-hover-htb-color);
+    transition: 1500ms;
+} 
+
+.i_footer {
+    padding: 0 0.5em;
+    color: var(--text-color);
+}
+
+/* # */
+@media screen and (max-width: 1328px){
+    body, img, .img_b, .img_m, .img_s, .footer{
+        width: 65%; 
+    }
+
+}
+
+@media screen and (max-width: 960px){
+    body, img, .img_b, .img_m, .img_s, .footer{
+        width: 80%;
+         
+    }
+}
+
+@media screen and (max-width: 768px){
+    body, img, .img_b, .img_m, .img_s, .footer {
+        width: 90%;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+    body, img, .img_b, .img_m, .img_s, .footer {
+        width: 90%;
+    }
+
+}
