@@ -11,11 +11,13 @@
     --h3-color: whitesmoke;
     --main-bg-color: #202020;
     --border-color: #AB2A3E;
+    --border-color-negrita: red;
     --img-border-color: darkgray;
     --img-nyx-color: #AB2A3E;
     --link-hover-nyx-color: #AB2A3E;
     --pre-color: #AB2A3E;
     --code-negrita: red;
+    --code-text-negrita: #fff;
     --code-autor-nyx: #fff;
     --code-autor-nyx-bg: #AB2A3E;
     --cursiva-color: yellow;
@@ -94,6 +96,7 @@ h3 {
 
 p {
     text-align: left;
+    font-size: 16px;
     color: var(--text-color);
     margin-top: 12px;
     margin-bottom: 10px;
@@ -125,18 +128,34 @@ img{
     width: 300px;
 }
 
-
-.pre__nyx {
-    border-style: groove;
+pre {
+    background-color: black;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
     border-color: var(--border-color);
-    border-width: 2px;
-    border-radius: 8px;
-    margin: 10px;
+    border-style: groove;
+    border-radius: 10px;
+}
+  
+pre code {
+    border-radius: 10px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: left;
 }
 
 .code_negrita {
-    color: var(--code-negrita);
-    font-size: 1rem;
+    color: var(--code-text-negrita);
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    border-style: groove;
+    border-color: var(--border-color-negrita);
+    font-weight: bold;
+    font-family: Consolas, monospace;
+    font-size: 12px;
 }
 
 .code_autor_nyx {
@@ -160,7 +179,9 @@ img{
 
 .cursiva {
     color: var(--cursiva-color);
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Consolas, monospace;
 }
 
  a{
