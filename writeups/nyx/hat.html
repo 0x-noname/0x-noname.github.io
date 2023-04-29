@@ -18,7 +18,10 @@
     <title>VulNyx - Hat</title>
     <link rel="shortcut icon" href="../../assets/img/favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
+    <script src="../../assets/highlight/highlight.min.js"></script>
     <link rel="stylesheet" href="../../assets/css/nyx_w.css">  
 </head>
 <body>
@@ -103,7 +106,7 @@ ID           Response   Lines    Word       Chars       Payload
 </code></pre>
 
             
-            <p>Búsqueda de extensiones<code class="code_negrita">&nbsp;log&nbsp;</code>en el directorio<code class="code_negrita">&nbsp;logs</code>.</p>
+            <p>Búsqueda de extensiones<code class="code_negrita">&nbsp;log&nbsp;</code>en el directorio<code class="code_negrita">&nbsp;logs&nbsp;</code>.</p>
 <pre class="pre__nyx">
 <code class="language-js">❯ wfuzz -c -t 200 --hc=404 --hw=0 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,log http://192.168.1.24/logs/FUZZ.FUZ2Z
     
@@ -240,7 +243,7 @@ root@Hat:/home/cromiphi# uid=0(root) gid=0(root) grupos=0(root)
     </main>
         <footer class="footer">
             <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
-            <script src="../../assets/js/prism.js"></script> 
+            <script>hljs.initHighlightingOnLoad();</script> 
 
         </footer>  
 </body>

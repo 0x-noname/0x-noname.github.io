@@ -18,7 +18,10 @@
     <title>VulNyx - Doctor</title>
     <link rel="shortcut icon" href="../../assets/img/favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
+    
     <link rel="stylesheet" href="../../assets/css/nyx_w.css">  
 </head>
 <body>
@@ -79,7 +82,7 @@ Enter passphrase for key 'id_rsa':
 </code></pre>
 
             
-            <p>Para obtener el passphrase he clonado<code class="code_negrita">&nbsp;RSAcrack</code>.</p>
+            <p>Para obtener el passphrase he clonado<code class="code_negrita">&nbsp;RSAcrack&nbsp;</code>.</p>
 <pre class="pre__nyx">
 <code class="language-js">❯  git clone https://github.com/d4t4s3c/RSAcrack.git
 ❯ ./RSAcrack.sh -w /usr/share/wordlists/rockyou.txt -k id_rsa
@@ -123,7 +126,7 @@ v1lqXvNcrNYhU
 </code></pre>
 
             <p>Obtengo el root.</p>
-<pre class="pre__nyx"><code class="language-txt">admin@doctor:~$ su root
+<pre class="pre__nyx"><code class="language-js">admin@doctor:~$ su root
 Contraseña: 
 root@doctor:/home/admin# id
 uid=0(root) gid=0(root) grupos=0(root)
@@ -134,7 +137,8 @@ uid=0(root) gid=0(root) grupos=0(root)
     </main>
         <footer class="footer">
             <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
-            <script src="../../assets/js/prism.js"></script> 
+            <script src="../../assets/highlight/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script>
 
         </footer>  
 </body>
