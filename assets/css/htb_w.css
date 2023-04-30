@@ -148,12 +148,13 @@ pre code {
 
 .code_negrita {
     color: var(--code-negrita);
-    font-size: 1rem;
-}
-
-.code_autor_htb {
-    color: var(--code-autor-htb);
-    font-size: 1rem;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    border-style: groove;
+    border-width: 1px;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .autor{
@@ -161,13 +162,15 @@ pre code {
     margin-left: 10px;
 }
 .code_autor_htb {
-    background-color: var(--code-autor-htb-bg);
     padding: 2px 5px;
     border-radius: 5px;
+    border-style: groove;
+    border-color: var(--border-color);
+    border-width: 1px;
     font-weight: bolder;
-    font-family: Consolas, monospace;
+    font-family: Ubuntu, monospace;
     font-size: 14px;
-    color: var(--code-autor-text);
+    color: var(--code-autor-text); 
   }
 
 .cursiva {
