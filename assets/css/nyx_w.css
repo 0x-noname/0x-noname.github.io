@@ -13,13 +13,15 @@
     --border-color: #AB2A3E;
     --border-color-negrita: red;
     --img-border-color: darkgray;
-    --img-nyx-color: #AB2A3E;
+    --img-nyx-color: #ecdede;
     --link-hover-nyx-color: #AB2A3E;
     --pre-color: #AB2A3E;
+    --pre-bg-color: black;
     --code-negrita: red;
     --code-text-negrita: #fff;
     --code-autor-nyx: #fff;
-    --code-autor-nyx-bg: #AB2A3E;
+    --code-autor-nyx-bg: #B65261;
+    --code-text-color: rgb(177, 172, 172);
     --cursiva-color: yellow;
 }   
 
@@ -124,13 +126,16 @@ img{
 }
 
 .img_nyx {
-    border-color: #AB2A3E;
+    border-color: #ecdede;
     width: 300px;
 }
 
+.code {
+    color: var(--code-text-color);
+}
+
 pre {
-    background-color: black;
-    color: white;
+    background-color: var(--pre-bg-color);
     font-family: "Courier New", Courier, monospace;
     font-size: 14px;
     border-color: var(--border-color);
@@ -147,20 +152,14 @@ pre code {
 }
 
 .code_negrita {
-    color: var(--code-text-negrita);
-    margin-left: 5px;
-    margin-right: 5px;
-    border-radius: 10px;
-    border-style: groove;
-    border-color: var(--border-color-negrita);
+    color: var(--code-negrita);
+    font-size: 14px;
     font-weight: bold;
-    font-family: Consolas, monospace;
-    font-size: 12px;
-}
-
-.code_autor_nyx {
-    color: var(--code-autor-nyx);
-    font-size: 1rem;
+    border-radius: 5px;
+    border-style: groove;
+    border-width: 1px;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .autor{
@@ -168,11 +167,13 @@ pre code {
     margin-left: 10px;
 }
 .code_autor_nyx {
-    background-color: var(--code-autor-nyx-bg);
     padding: 2px 5px;
     border-radius: 5px;
+    border-style: groove;
+    border-color: var(--border-color);
+    border-width: 1px;
     font-weight: bolder;
-    font-family: Consolas, monospace;
+    font-family: Ubuntu, monospace;
     font-size: 14px;
     color: var(--code-autor-text);
   }

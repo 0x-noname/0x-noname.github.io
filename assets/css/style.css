@@ -2,17 +2,19 @@
 
 /* Colores */
 :root {
-  --body-bg-color: #121212;
+  --body-bg-color: #202020;
   --body-text-color: #ffffff;
   --text-color: #e0e0e0;
   --a-color: #ffffff;
-  --h1-color: #A4BFD6;
+  --h1-color: #e0e0e0;
   --h2-color: grey;
+  --main-nav-bg-color: #000;
   --border-color: grey;
   --link-color: grey;
   --link-hover-hmv-color: #F09CB8;
   --link-hover-htb-color: #9FEF00;
   --link-hover-nyx-color: #AB2A3E;
+  --footer-bg-color: #000;
 }
 
 /* Estilos generales */
@@ -23,8 +25,9 @@
 }
 
 body {
-    background-color: var(--body-bg-color);
-    color: var(--body-text-color);
+    /* background-color: var();
+    color: var(); */
+    background-image: url(../img/tactile_noise.webp);
     font-family: Ubuntu, sans-serif;  
 }
 
@@ -48,26 +51,23 @@ h2 {
 }
 
 .main {
-  /* background-color: ;*/
+  /* background-color: var();*/
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 10px;
-    border-style: groove;
-    border-color: var(--border-color);
 }
+
 
 /* Estilos de la barra de navegación */
 .nav {
-    /* background-color: ;*/
+    background-color: var(--main-nav-bg-color);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     margin-bottom: 20px;
     padding: 10px;
-    border-radius: 10px;
-    border-style: groove;
-    border-color: var(--border-color);
+    box-shadow: 2px 2px 5px var(--border-color);
 }
 
 .nav a {
@@ -112,14 +112,12 @@ footer {
   justify-content: center;
   align-items: center;
   height: 40px;
-  /* background-color: ; */
+  background-color:var(--footer-bg-color) ;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  border-radius: 10px;
-  border-style: groove;
-  border-color: var(--border-color);
+  box-shadow: -1px -1px 5px var(--border-color);
 }
 
 .a_footer {

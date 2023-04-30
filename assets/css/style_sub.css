@@ -5,17 +5,17 @@
   --body-bg-color: #121212;
   --body-text-color: #ffffff;
   --text-color: #e0e0e0;
-  --a-color: #ffffff;
-  --h1-color: grey;
-  --main-bg-color: #202020;
+  --a-color: whitesmoke;
+  --h1-color: whitesmoke;
+  --main-bg-color: #252525;
   --nav-bg-color: #202020;
   --border-color: grey;
   --badge-easy-color: #5cb85c;
   --badge-medium-color: #f0ad4e;
   --badge-hard-color: #d9534f;
   --badge-text-color: #ffffff;
-  --badge-vulns-bg-color: aliceblue;
-  --badge-vulns-text-color: #202020;
+  --badge-vulns-bg-color: #000;
+  --badge-vulns-text-color: whitesmoke;
   --footer-bg-color: #202020;
   --link-hover-hmv-color: #F09CB8;
   --link-hover-htb-color: #9FEF00;
@@ -29,7 +29,8 @@
 }
 
 body {
-    background-color: var(--body-bg-color);
+    /* background-color: var(--body-bg-color); */
+    background-image: url(../img/tactile_noise.webp);
     color: var(--body-text-color);
     font-family: Ubuntu, sans-serif;
 }
@@ -52,9 +53,10 @@ h1 {
     margin: 0 auto;
     padding: 20px;
     border-radius: 10px;
-    border-style: groove;
-    border-color: var(--border-color);
 }
+
+/* Paginador */
+
 
 /* Estilos de la barra de navegación */
 .nav, 
@@ -66,9 +68,7 @@ h1 {
     align-items: center;
     margin-bottom: 20px;
     padding: 10px;
-    border-radius: 10px;
-    border-style: groove;
-    border-color: var(--border-color);
+    box-shadow: 2px 2px 5px var(--border-color);
 }
 
 .nav a,
@@ -100,11 +100,10 @@ h1 {
 .badges {
     display: flex;
     flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 10px;
     margin: 10px 0 30px;
-    font-weight: bold;  
+    
 }
 
 .bg-easy {
@@ -132,11 +131,14 @@ h1 {
 }
 
 .bg-vulns {
-    background-color: var(--badge-vulns-bg-color);
+    /* background-color: var(); */
     color: var(--badge-vulns-text-color);
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 14px;
+    border-width: 1px;
+    border-style: groove;
+    border-color: var(--border-color);
 }
 
 /* Estilos de los enlaces a los writeups */
@@ -144,11 +146,11 @@ h1 {
 .htb,
 .nyx {
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
     color: var(--a-color);
-    text-align: center;
+    text-align: left;
 }
 
 .hmv:hover {
@@ -177,9 +179,7 @@ footer {
   left: 0;
   right: 0;
   margin-top: 15px;
-  border-radius: 10px;
-  border-style: groove;
-  border-color: var(--border-color);
+  box-shadow: -1px -1px 5px var(--border-color);
 }
 
 .a_footer {
