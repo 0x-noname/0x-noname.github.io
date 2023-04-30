@@ -86,12 +86,14 @@ h1:hover {
 h2 {
     font-size: 24px;
     color: var(--h2-color);
+    
 }
 
 h3 {
     text-align: left;
     margin-top: 14px;
     margin-bottom: 12px;
+    margin-left: 10px;
     font-size: 18px;
     color: var(--h3-color);
 }
@@ -102,6 +104,7 @@ p {
     color: var(--text-color);
     margin-top: 12px;
     margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 img{
