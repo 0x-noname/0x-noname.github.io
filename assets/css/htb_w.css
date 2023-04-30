@@ -129,12 +129,21 @@ img{
 }
 
 
-.pre {
-    border-style: groove;
+pre {
+    background-color: var(--pre-bg-color);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
     border-color: var(--border-color);
-    border-width: 2px;
-    border-radius: 8px;
-    margin: 10px;
+    border-style: groove;
+    border-radius: 10px;
+}
+  
+pre code {
+    border-radius: 10px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: left;
 }
 
 .code_negrita {
