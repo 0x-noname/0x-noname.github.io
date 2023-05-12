@@ -35,16 +35,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe img</description>
       <description>Hello echo &amp;#34;Hello World&amp;#34; </description>
     </item>
     
-    <item>
-      <title>Ceres - VulNyx</title>
-      <link>http://127.0.0.1:1313/writeups/nyx/ceres/</link>
-      <pubDate>Thu, 04 May 2023 12:20:23 +0200</pubDate>
-      
-      <guid>http://127.0.0.1:1313/writeups/nyx/ceres/</guid>
-      <description>Autor: d4t4s3c \ Dificultad: Medium
-❯ nmap -p- -T5 -v -n 192.168.1.15 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http ❯ nmap -sVC -v -p 22,80 192.168.1.15 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 3681c13bb87b840f6a417b2e3a014c44 (RSA) | 256 f67e44418000b0c2e9038d74c37aea0e (ECDSA) |_ 256 37d15ab4e50a779a2a7e1a637cd42e9b (ED25519) 80/tcp open http Apache httpd 2.4.38 ((Debian)) |_http-title: Site doesn&amp;#39;t have a title (text/html).</description>
-    </item>
-    
+   
     <item>
       <title>Doll - HackMyVM</title>
       <link>http://127.0.0.1:1313/writeups/hmv/doll/</link>
