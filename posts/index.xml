@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>Hat - VulNyx</title>
+      <link>https://0x-noname.github.io/writeups/nyx/hat/</link>
+      <pubDate>Tue, 25 Apr 2023 15:20:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/hat/</guid>
+      <description>FTP Brute Force Passphrase Cracking LFI IPv6 Abusing nmap binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.24 PORT STATE SERVICE 22/tcp filtered ssh 80/tcp open http 65535/tcp open unknown Escaneo de servicios ❯ nmap -sVC -v -p 22,80,65535 192.168.1.24 PORT STATE SERVICE VERSION 22/tcp filtered ssh 80/tcp open http Apache httpd 2.4.38 ((Debian)) |_http-server-header: Apache/2.4.38 (Debian) | http-methods: |_ Supported Methods: GET POST OPTIONS HEAD |_http-title: Apache2 Debian Default Page: It works 65535/tcp open ftp pyftpdlib 1.</description>
+    </item>
+    
+    <item>
       <title>Fing - VulNyx</title>
       <link>https://0x-noname.github.io/writeups/nyx/fing/</link>
       <pubDate>Mon, 24 Apr 2023 10:01:23 +0200</pubDate>
@@ -41,15 +50,6 @@
       
       <guid>https://0x-noname.github.io/writeups/nyx/doctor/</guid>
       <description>Local File Inclusion Passphrase Cracking Weak File Permissions Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.15 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.15 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 4495500be473a18511ca10ec1ccbd426 (RSA) | 256 27db6ac73a9c5a0e47ba8d81ebd6d63c (ECDSA) |_ 256 e30756a92563d4ce3901c19ad9fede64 (ED25519) 80/tcp open http Apache httpd 2.</description>
-    </item>
-    
-    <item>
-      <title>Hat - VulNyx</title>
-      <link>https://0x-noname.github.io/writeups/nyx/hat/</link>
-      <pubDate>Sat, 15 Apr 2023 15:20:03 +0200</pubDate>
-      
-      <guid>https://0x-noname.github.io/writeups/nyx/hat/</guid>
-      <description>FTP Brute Force Passphrase Cracking LFI IPv6 Abusing nmap binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.24 PORT STATE SERVICE 22/tcp filtered ssh 80/tcp open http 65535/tcp open unknown Escaneo de servicios ❯ nmap -sVC -v -p 22,80,65535 192.168.1.24 PORT STATE SERVICE VERSION 22/tcp filtered ssh 80/tcp open http Apache httpd 2.4.38 ((Debian)) |_http-server-header: Apache/2.4.38 (Debian) | http-methods: |_ Supported Methods: GET POST OPTIONS HEAD |_http-title: Apache2 Debian Default Page: It works 65535/tcp open ftp pyftpdlib 1.</description>
     </item>
     
     <item>
