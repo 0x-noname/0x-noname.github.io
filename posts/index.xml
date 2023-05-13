@@ -13,11 +13,7 @@
       <pubDate>Wed, 10 May 2023 12:20:23 +0200</pubDate>
       
       <guid>https://0x-noname.github.io/writeups/hmv/friendly2/</guid>
-<<<<<<< HEAD
       <description>Directory Path Traversal Brute Force id_rsa Path Hijacking Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.14 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 74fdf1a7475bad8e8a3102fe44289fd2 (RSA) | 256 16f0de5109fffc08a29a69a0ad42a048 (ECDSA) |_ 256 650eed44e23ef0e7600c759363952056 (ED25519) 80/tcp open http Apache httpd 2.</description>
-=======
-      <description>Directory Path Traversal Cracking id_rsa Path Hijacking Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.14 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 74fdf1a7475bad8e8a3102fe44289fd2 (RSA) | 256 16f0de5109fffc08a29a69a0ad42a048 (ECDSA) |_ 256 650eed44e23ef0e7600c759363952056 (ED25519) 80/tcp open http Apache httpd 2.</description>
->>>>>>> 5858fd9bd9d7d4f47be38759f522122b1df1487b
     </item>
     
     <item>
