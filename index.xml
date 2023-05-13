@@ -41,7 +41,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
       <pubDate>Tue, 02 May 2023 15:20:03 +0200</pubDate>
       
       <guid>https://0x-noname.github.io/writeups/nyx/serve/</guid>
-      <description>WebDav HTTP Brute Force Curl Upload Shell Abusing wget Binary Abusing bro Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.51 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.51 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 9a0c755abbbb06a29a7dbe91ca4545e4 (RSA) | 256 077de70f0b5e5a90e9337268493bf58c (ECDSA) |_ 256 6c1532a742e79fda63667d3abefbbf14 (ED25519) 80/tcp open http Apache httpd 2.</description>
+      <description>HTTP Brute Force Curl Upload Shell Abusing wget Binary Abusing bro Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.51 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.51 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 9a0c755abbbb06a29a7dbe91ca4545e4 (RSA) | 256 077de70f0b5e5a90e9337268493bf58c (ECDSA) |_ 256 6c1532a742e79fda63667d3abefbbf14 (ED25519) 80/tcp open http Apache httpd 2.</description>
     </item>
     
     <item>
