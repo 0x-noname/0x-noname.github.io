@@ -210,8 +210,10 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>                                                          
 </span></span><span style="display:flex;"><span>000001517:   200        0 L      0 W        0 Ch        &#34;file - php&#34;                                                    
 </span></span><span style="display:flex;"><span>000010309:   200        1 L      3 W        54 Ch       &#34;secret - php&#34;
-</span></span></code></pre></div><p>El archivo file no se puede ver nada y el archivo secret veo que es la salida del comando id.
+</span></span></code></pre></div><blockquote>
+<p>El archivo file no se puede ver nada y el archivo secret veo que es la salida del comando id.
 Esta parte de la máquina se puede complicar porque si intentas fuzzear extensiones o parámetros no encontrarás nada, pero el archivo <code>secret</code> tiene ese nombre por algo y el archivo <code>file</code> también tiene ese nombre por algo.</p>
+</blockquote>
 <p><img src="/../machines/nyx/nyx_ceres/secret.png" alt="secret"></p>
 <blockquote>
 <p>Si usamos un wrapper sobre el fichero secrets nos devolverá una string en base64, pero hay un pequeño detalle al usar el wrapper, el detalle es que al escribir <code>secret.php</code> hay que ponerlo sin la extensión php para que el wrapper funcione sino quitamos la extensión el wrapper no funcionará. Eso ocurre porque el archivo file hace un include de <code>.php</code> sería como poner <code>secret.php.php</code> pero si quitamos el <code>.php</code> y ponemos sólo secret  el resultado final será <code>secret.php</code>.</p>
