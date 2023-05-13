@@ -17,12 +17,30 @@
     </item>
     
     <item>
+      <title>Shock - VulNyx</title>
+      <link>https://0x-noname.github.io/writeups/nyx/shock/</link>
+      <pubDate>Sun, 30 Apr 2023 15:12:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/shock/</guid>
+      <description>Shellshock Abusing BusyBox Binary Abusing Systemctl Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 3736603e26ae233fe18b5d18e7a7c7ce (RSA) | 256 349a57607d6670d5b5ff4796e0362375 (ECDSA) |_ 256 ae7deefe1dbc994d54453d6116f86c87 (ED25519) 80/tcp open http Apache httpd 2.4.38 ((Debian)) | http-methods: |_ Supported Methods: HEAD GET POST OPTIONS |_http-server-header: Apache/2.</description>
+    </item>
+    
+    <item>
       <title>Doll - HackMyVM</title>
       <link>https://0x-noname.github.io/writeups/hmv/doll/</link>
       <pubDate>Sat, 29 Apr 2023 18:20:52 +0200</pubDate>
       
       <guid>https://0x-noname.github.io/writeups/hmv/doll/</guid>
       <description>Docker Registry API Exposed Password Leakage sudo abuse fzf Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 1007/tcp open unknown Escaneo de servicios ❯ nmap -sVC -v -p 22,1007 192.168.1.14 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 d732ac404ba84166d3d811496ceded4b (RSA) | 256 810e67f8c3d2501e4d092a5811c8d495 (ECDSA) |_ 256 0dc37c540b9d3132f2d909d3eded93cd (ED25519) 1007/tcp open http Docker Registry (API: 2.</description>
+    </item>
+    
+    <item>
+      <title>Wrapp - VulNyx</title>
+      <link>https://0x-noname.github.io/writeups/nyx/wrapp/</link>
+      <pubDate>Fri, 28 Apr 2023 13:12:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/wrapp/</guid>
+      <description>SSRF Internal Port Discovery LFI Abusing ag Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.150 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.150 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 fc847e5d15854d01d37b5a00dea47337 (RSA) | 256 54f5eadba038e2c85adb30913e78b4b9 (ECDSA) |_ 256 97b6b8f7cb15f56bcd925f6626284707 (ED25519) 80/tcp open http Apache httpd 2.</description>
     </item>
     
     <item>
