@@ -8,7 +8,7 @@
     <language>es</language>
     <lastBuildDate>Wed, 10 May 2023 12:20:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Friendly2 - HackMyVM</title>
+      <title>HackMyVM - Friendly2</title>
       <link>https://0x-noname.github.io/writeups/hmv/friendly2/</link>
       <pubDate>Wed, 10 May 2023 12:20:23 +0200</pubDate>
       
@@ -27,7 +27,16 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
     </item>
     
     <item>
-      <title>Shock - VulNyx</title>
+      <title>VulNyx - Ceres</title>
+      <link>https://0x-noname.github.io/writeups/nyx/ceres/</link>
+      <pubDate>Thu, 04 May 2023 15:20:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/ceres/</guid>
+      <description>LFI/PHP Wrappers Log Poisoning Abusing Python Binary Python Library Hijacking Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.15 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de Servicios ❯ nmap -sVC -v -p 22,80 192.168.1.15 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 3681c13bb87b840f6a417b2e3a014c44 (RSA) | 256 f67e44418000b0c2e9038d74c37aea0e (ECDSA) |_ 256 37d15ab4e50a779a2a7e1a637cd42e9b (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Shock</title>
       <link>https://0x-noname.github.io/writeups/nyx/shock/</link>
       <pubDate>Sun, 30 Apr 2023 15:12:03 +0200</pubDate>
       
@@ -36,7 +45,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
     </item>
     
     <item>
-      <title>Doll - HackMyVM</title>
+      <title>HackMyVM - Doll</title>
       <link>https://0x-noname.github.io/writeups/hmv/doll/</link>
       <pubDate>Sat, 29 Apr 2023 18:20:52 +0200</pubDate>
       
@@ -45,7 +54,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
     </item>
     
     <item>
-      <title>Wrapp - VulNyx</title>
+      <title>VulNyx - Wrapp</title>
       <link>https://0x-noname.github.io/writeups/nyx/wrapp/</link>
       <pubDate>Fri, 28 Apr 2023 13:12:03 +0200</pubDate>
       
@@ -54,7 +63,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
     </item>
     
     <item>
-      <title>Hat - VulNyx</title>
+      <title>VulNyx - Hat</title>
       <link>https://0x-noname.github.io/writeups/nyx/hat/</link>
       <pubDate>Tue, 25 Apr 2023 15:20:03 +0200</pubDate>
       
@@ -63,7 +72,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
     </item>
     
     <item>
-      <title>Fing - VulNyx</title>
+      <title>VulNyx - Fing</title>
       <link>https://0x-noname.github.io/writeups/nyx/fing/</link>
       <pubDate>Mon, 24 Apr 2023 10:01:23 +0200</pubDate>
       
@@ -72,7 +81,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
     </item>
     
     <item>
-      <title>Doctor - VulNyx</title>
+      <title>VulNyx - Doctor</title>
       <link>https://0x-noname.github.io/writeups/nyx/doctor/</link>
       <pubDate>Sat, 22 Apr 2023 15:01:23 +0200</pubDate>
       
@@ -81,7 +90,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
     </item>
     
     <item>
-      <title>Alive - HackMyVM</title>
+      <title>HackMyVM - Alive</title>
       <link>https://0x-noname.github.io/writeups/hmv/alive/</link>
       <pubDate>Sat, 15 Apr 2023 10:20:23 +0200</pubDate>
       
@@ -90,7 +99,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
     </item>
     
     <item>
-      <title>University - HackMyVM</title>
+      <title>HackMyVM - University</title>
       <link>https://0x-noname.github.io/writeups/hmv/university/</link>
       <pubDate>Wed, 12 Apr 2023 19:21:23 +0200</pubDate>
       
@@ -99,7 +108,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
     </item>
     
     <item>
-      <title>Omura - HackMyVM</title>
+      <title>HackMyVM - Omura</title>
       <link>https://0x-noname.github.io/writeups/hmv/omura/</link>
       <pubDate>Sat, 08 Apr 2023 11:20:23 +0200</pubDate>
       
@@ -108,7 +117,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
     </item>
     
     <item>
-      <title>Quandary1 - HackMyVM</title>
+      <title>HackMyVM - Quandary1</title>
       <link>https://0x-noname.github.io/writeups/hmv/qandary1/</link>
       <pubDate>Thu, 30 Mar 2023 15:20:23 +0200</pubDate>
       
@@ -118,7 +127,7 @@ Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14 PORT STATE
     </item>
     
     <item>
-      <title>Friendly - HackMyVM</title>
+      <title>HackMyVM - Friendly</title>
       <link>https://0x-noname.github.io/writeups/hmv/friendly/</link>
       <pubDate>Sat, 25 Mar 2023 18:20:52 +0200</pubDate>
       
@@ -127,7 +136,7 @@ Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14 PORT STATE
     </item>
     
     <item>
-      <title>Comet - HackMyVM</title>
+      <title>HackMyVM - Comet</title>
       <link>https://0x-noname.github.io/writeups/hmv/comet/</link>
       <pubDate>Thu, 23 Mar 2023 19:20:23 +0200</pubDate>
       
@@ -136,7 +145,7 @@ Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14 PORT STATE
     </item>
     
     <item>
-      <title>W140 - HackMyVM</title>
+      <title>HackMyVM - W140</title>
       <link>https://0x-noname.github.io/writeups/hmv/w140/</link>
       <pubDate>Thu, 09 Mar 2023 19:20:23 +0200</pubDate>
       
@@ -145,7 +154,7 @@ Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14 PORT STATE
     </item>
     
     <item>
-      <title>Colors - HackMyVM</title>
+      <title>HackMyVM - Colors</title>
       <link>https://0x-noname.github.io/writeups/hmv/colors/</link>
       <pubDate>Sun, 26 Feb 2023 19:20:23 +0200</pubDate>
       
