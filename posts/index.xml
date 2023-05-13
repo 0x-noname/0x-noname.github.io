@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on noname</title>
+    <link>https://0x-noname.github.io/posts/</link>
+    <description>Recent content in Posts on noname</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 10 May 2023 12:20:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Friendly2 - HackMyVM</title>
+      <link>https://0x-noname.github.io/writeups/hmv/friendly2/</link>
+      <pubDate>Wed, 10 May 2023 12:20:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/friendly2/</guid>
+      <description>Directory Path Traversal Cracking id_rsa Path Hijacking Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.14 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 74fdf1a7475bad8e8a3102fe44289fd2 (RSA) | 256 16f0de5109fffc08a29a69a0ad42a048 (ECDSA) |_ 256 650eed44e23ef0e7600c759363952056 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>Doll - HackMyVM</title>
+      <link>https://0x-noname.github.io/writeups/hmv/doll/</link>
+      <pubDate>Sat, 29 Apr 2023 18:20:52 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/doll/</guid>
+      <description>Docker Registry API Exposed Password Leakage sudo abuse fzf Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 1007/tcp open unknown Escaneo de servicios ❯ nmap -sVC -v -p 22,1007 192.168.1.14 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 d732ac404ba84166d3d811496ceded4b (RSA) | 256 810e67f8c3d2501e4d092a5811c8d495 (ECDSA) |_ 256 0dc37c540b9d3132f2d909d3eded93cd (ED25519) 1007/tcp open http Docker Registry (API: 2.</description>
+    </item>
+    
+    <item>
+      <title>Hat - VulNyx</title>
+      <link>https://0x-noname.github.io/writeups/nyx/hat/</link>
+      <pubDate>Tue, 25 Apr 2023 15:20:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/hat/</guid>
+      <description>FTP Brute Force Passphrase Cracking LFI IPv6 Abusing nmap binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.24 PORT STATE SERVICE 22/tcp filtered ssh 80/tcp open http 65535/tcp open unknown Escaneo de servicios ❯ nmap -sVC -v -p 22,80,65535 192.168.1.24 PORT STATE SERVICE VERSION 22/tcp filtered ssh 80/tcp open http Apache httpd 2.4.38 ((Debian)) |_http-server-header: Apache/2.4.38 (Debian) | http-methods: |_ Supported Methods: GET POST OPTIONS HEAD |_http-title: Apache2 Debian Default Page: It works 65535/tcp open ftp pyftpdlib 1.</description>
+    </item>
+    
+    <item>
+      <title>Fing - VulNyx</title>
+      <link>https://0x-noname.github.io/writeups/nyx/fing/</link>
+      <pubDate>Mon, 24 Apr 2023 10:01:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/fing/</guid>
+      <description>Finger SSH Brute Froce Abusing Doas Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.16 PORT STATE SERVICE 22/tcp open ssh 79/tcp open finger 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,79,80 192.168.1.16 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 79/tcp open finger Linux fingerd |_finger: No one logged on.</description>
+    </item>
+    
+    <item>
+      <title>Doctor - VulNyx</title>
+      <link>https://0x-noname.github.io/writeups/nyx/doctor/</link>
+      <pubDate>Sat, 22 Apr 2023 15:01:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/doctor/</guid>
+      <description>Local File Inclusion Passphrase Cracking Weak File Permissions Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.15 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.15 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 4495500be473a18511ca10ec1ccbd426 (RSA) | 256 27db6ac73a9c5a0e47ba8d81ebd6d63c (ECDSA) |_ 256 e30756a92563d4ce3901c19ad9fede64 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>Alive - HackMyVM</title>
+      <link>https://0x-noname.github.io/writeups/hmv/alive/</link>
+      <pubDate>Sat, 15 Apr 2023 10:20:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/alive/</guid>
+      <description>RCE Password leaked Cracking Hash MySQL4.1+ User-Defined Function (UDF) Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.13 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.13 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 269c17ef21363d01c31d6b0d4711cd58 (RSA) | 256 29266849b0375c0e7b6d818d60988dfc (ECDSA) |_ 256 132e13190c9da3a73eb8dfab97084188 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>University - HackMyVM</title>
+      <link>https://0x-noname.github.io/writeups/hmv/university/</link>
+      <pubDate>Wed, 12 Apr 2023 19:21:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/university/</guid>
+      <description>Online Admission System - RCE Password leaked Gerapy - RCE Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.28 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.28 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5 (protocol 2.0) | ssh-hostkey: | 3072 8eeeda29f1ae03a5c37e4584c78667ce (RSA) | 256 f81cef967bae74216c9f069b200ad856 (ECDSA) |_ 256 19fc9432419d436f52c5ba5af083b45b (ED25519) 80/tcp open http nginx 1.</description>
+    </item>
+    
+    <item>
+      <title>Omura - HackMyVM</title>
+      <link>https://0x-noname.github.io/writeups/hmv/omura/</link>
+      <pubDate>Sat, 08 Apr 2023 11:20:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/omura/</guid>
+      <description>LFI XSLT injection Upload shell iSCSI missconfigured Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.12 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 3260/tcp open iscsi Escaneo de servicios ❯ nmap -sVC -v -p 22,80,3260 192.168.1.12 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 dbf946e520816ceec72508ab2251366c (RSA) | 256 33c09564294723dd864ee6b8073367ad (ECDSA) |_ 256 beaa6d4243dd7dd40e0d7478c189a136 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>Quandary1 - HackMyVM</title>
+      <link>https://0x-noname.github.io/writeups/hmv/qandary1/</link>
+      <pubDate>Thu, 30 Mar 2023 15:20:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/qandary1/</guid>
+      <description>Brute Force Generate RSA Key ReverseShell Splunk Dirty_sock exploit Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8000/tcp open http-alt 8089/tcp open unknown
+Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 3072 81560bdc551faa606864239a9ff79cc7 (RSA) | 256 43f311c7e4bec9bf4f6c1b48f6e41368 (ECDSA) |_ 256 3cb98d3f70b2311596f8ce952986b785 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>Friendly - HackMyVM</title>
+      <link>https://0x-noname.github.io/writeups/hmv/friendly/</link>
+      <pubDate>Sat, 25 Mar 2023 18:20:52 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/friendly/</guid>
+      <description>FTP anonymous Upload File abusing vim binary Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.12 PORT STATE SERVICE 21/tcp open ftp 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 21,80 192.168.1.12 PORT STATE SERVICE VERSION 21/tcp open ftp ProFTPD | ftp-anon: Anonymous FTP login allowed (FTP code 230) |_-rw-r--r-- 1 root root 10725 Feb 23 15:26 index.html 80/tcp open http Apache httpd 2.4.54 ((Debian)) |_http-server-header: Apache/2.</description>
+    </item>
+    
+    <item>
+      <title>Comet - HackMyVM</title>
+      <link>https://0x-noname.github.io/writeups/hmv/comet/</link>
+      <pubDate>Thu, 23 Mar 2023 19:20:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/comet/</guid>
+      <description>Bypass WAF Brute Force RCE Identical Prefix Collision Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.11 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.11 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 dbf946e520816ceec72508ab2251366c (RSA) | 256 33c09564294723dd864ee6b8073367ad (ECDSA) |_ 256 beaa6d4243dd7dd40e0d7478c189a136 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>W140 - HackMyVM</title>
+      <link>https://0x-noname.github.io/writeups/hmv/w140/</link>
+      <pubDate>Thu, 09 Mar 2023 19:20:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/w140/</guid>
+      <description>Command Injection RCE Path Hijacking Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.15 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -p 22,80 192.168.1.15 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 fffdb20f38881a44c42b642cd297f68d (RSA) | 256 ca5054f7244ea7f10646e72230ec95b7 (ECDSA) |_ 256 0968c062831ef15dcb29a65eb472aacf (ED25519) 80/tcp open http Apache httpd 2.4.54 ((Debian)) |_http-title: w140 |_http-server-header: Apache/2.</description>
+    </item>
+    
+    <item>
+      <title>Colors - HackMyVM</title>
+      <link>https://0x-noname.github.io/writeups/hmv/colors/</link>
+      <pubDate>Sun, 26 Feb 2023 19:20:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/colors/</guid>
+      <description>IPv6 sudo abuse Reversing DNS Spoofing Escaneo de puertos ❯ nmap -p- -T5 -v -n --open 10.10.1.49 PORT STATE SERVICE 21/tcp open ftp 80/tcp open http Escaneo de servicios nmap -sVC -p 21,80 10.10.1.49 PORT STATE SERVICE VERSION /tcp open ftp vsftpd 3.0.3 ftp-syst: STAT: FTP server status: Connected to ::ffff:10.10.1.40 Logged in as ftp TYPE: ASCII No session bandwidth limit Session timeout in seconds is 300 Control connection is plain text Data connections will be plain text At session startup, client count was 6 vsFTPd 3.</description>
+    </item>
+    
+  </channel>
+</rss>
