@@ -95,7 +95,7 @@ Pentesting VulNyx HackMyVM HackTheBox TryHackMe </description>
       <pubDate>Sun, 23 Apr 2023 19:20:23 +0200</pubDate>
       
       <guid>https://0x-noname.github.io/writeups/hmv/literal/</guid>
-      <description>Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.14 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 3072 30ca559468338b5042f4c2b5139966fe (RSA) | 256 2db05e6b96bd0be314fbe0d058845085 (ECDSA) |_ 256 92d92a5d6f58db8556d60c9968b85964 (ED25519) 80/tcp open http Apache httpd 2.4.41 |_http-title: Did not follow redirect to http://blog.</description>
+      <description>SQL injection Hash Cracking sudo abuse python script Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.14 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 3072 30ca559468338b5042f4c2b5139966fe (RSA) | 256 2db05e6b96bd0be314fbe0d058845085 (ECDSA) |_ 256 92d92a5d6f58db8556d60c9968b85964 (ED25519) 80/tcp open http Apache httpd 2.</description>
     </item>
     
     <item>
