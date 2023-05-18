@@ -44,6 +44,15 @@
     </item>
     
     <item>
+      <title>VulNyx - Brain</title>
+      <link>https://0x-noname.github.io/writeups/nyx/brain/</link>
+      <pubDate>Wed, 03 May 2023 15:20:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/brain/</guid>
+      <description>Local File Inclusion Credential Leakage Abusing Wfuzz Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.93 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.93 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 3295f92044d7a1d180a8d69591d51eda (RSA) | 256 07e724381d64f6889a712379b8d8e657 (ECDSA) |_ 256 58a6da1e0f89422bbade00fc71783d56 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
       <title>VulNyx - Serve</title>
       <link>https://0x-noname.github.io/writeups/nyx/serve/</link>
       <pubDate>Tue, 02 May 2023 15:20:03 +0200</pubDate>
