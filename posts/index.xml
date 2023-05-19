@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>HackMyVM - Aurora</title>
+      <link>https://0x-noname.github.io/writeups/hmv/aurora/</link>
+      <pubDate>Fri, 05 May 2023 11:55:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/aurora/</guid>
+      <description>Json Web Tokens Abusing Python Script GNU Screen 4.5.0 Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 3000/tcp open ppp Escaneo de servicios ❯ nmap -sVC -v -p 22,3000 192.168.1.14 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 dbf946e520816ceec72508ab2251366c (RSA) | 256 33c09564294723dd864ee6b8073367ad (ECDSA) |_ 256 beaa6d4243dd7dd40e0d7478c189a136 (ED25519) 3000/tcp open http Node.js Express framework |_http-title: Error | http-methods: |_ Supported Methods: GET HEAD POST OPTIONS Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel Puerto 3000 ❯ curl -s http://192.</description>
+    </item>
+    
+    <item>
       <title>VulNyx - Ceres</title>
       <link>https://0x-noname.github.io/writeups/nyx/ceres/</link>
       <pubDate>Thu, 04 May 2023 15:20:03 +0200</pubDate>
