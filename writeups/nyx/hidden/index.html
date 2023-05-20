@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-05-17",
         "description": "",
-        "wordCount":  579 ,
+        "wordCount":  576 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-05-17",
         "image": {
@@ -253,7 +253,7 @@ stroke-linejoin="round" class="feather feather-home">
 <blockquote>
 <p>X11 es el servidor gráfico que usan la mayoría de distribuciones GNU-Linux. Este servidor permite, entre otras cosas, forwarding a través de SSH. Esto significa que es posible ejecutar aplicaciones gráficas de una máquina remota exportando el display a nuestro escritorio. Es decir, la aplicación se ejecuta en el servidor remoto, pero la interfaz gráfica la visualizamos en nuestro escritorio local.</p>
 </blockquote>
-<p>Con xauth veo la magic cookie del usuario satan, esta magic cookie es un protocolo de autorización.</p>
+<p>Con xauth veo la <strong>magic-cookie</strong> del usuario satan, esta <strong>magic-cookie</strong> es un protocolo de autorización.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>satan@hidden:~$ xauth list
 </span></span><span style="display:flex;"><span>hidden/unix:10  MIT-MAGIC-COOKIE-1  00ecfb40390ae6e2f8adb8c6c7f50057
 </span></span><span style="display:flex;"><span>satan@hidden:~$ xauth info
@@ -264,7 +264,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>Changes honored:      yes
 </span></span><span style="display:flex;"><span>Changes made:         no
 </span></span><span style="display:flex;"><span>Current input:        (argv):1
-</span></span></code></pre></div><p>Añado la magic cookie de root.</p>
+</span></span></code></pre></div><p>Añado la <strong>magic-cookie</strong> de root.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>satan@hidden:~$ sudo /usr/bin/xauth add $(xauth list $DISPLAY)
 </span></span><span style="display:flex;"><span>sudo: unable to resolve host hidden: Nombre o servicio desconocido
 </span></span></code></pre></div><p>Lanzo geany apuntando al id_rsa de root.</p>
