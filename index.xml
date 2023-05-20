@@ -112,7 +112,7 @@
       <pubDate>Mon, 24 Apr 2023 10:01:23 +0200</pubDate>
       
       <guid>https://0x-noname.github.io/writeups/nyx/fing/</guid>
-      <description>Finger SSH Brute Froce Abusing Doas Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.16 PORT STATE SERVICE 22/tcp open ssh 79/tcp open finger 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,79,80 192.168.1.16 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 79/tcp open finger Linux fingerd |_finger: No one logged on.</description>
+      <description>Finger SSH Brute Force Abusing Doas Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.16 PORT STATE SERVICE 22/tcp open ssh 79/tcp open finger 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,79,80 192.168.1.16 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 79/tcp open finger Linux fingerd |_finger: No one logged on.</description>
     </item>
     
     <item>
