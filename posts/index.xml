@@ -6,7 +6,16 @@
     <description>Recent content in Posts on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 24 May 2023 15:23:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 May 2023 13:23:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Blog</title>
+      <link>https://0x-noname.github.io/writeups/nyx/blog/</link>
+      <pubDate>Fri, 26 May 2023 13:23:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/blog/</guid>
+      <description>Brute Force HTTP Upload Shell Abuse Git Binary Abuse Mcedit Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.53 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80, 192.168.1.53 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 569bdd56a5c1e352a84246185e0c1286 (RSA) | 256 1bd2cc5921501b3919771d28c0bec682 (ECDSA) |_ 256 9ce741b6ad03edf5a14ccc0a50791c20 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Node</title>
       <link>https://0x-noname.github.io/writeups/nyx/node/</link>
