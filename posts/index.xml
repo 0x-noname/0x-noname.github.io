@@ -6,7 +6,16 @@
     <description>Recent content in Posts on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 26 May 2023 13:23:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 May 2023 14:10:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Tom</title>
+      <link>https://0x-noname.github.io/writeups/nyx/tom/</link>
+      <pubDate>Sat, 27 May 2023 14:10:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/tom/</guid>
+      <description>Apache Tomcat Upload War Abuse ascii85 Binary Abuse lftp Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.39 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8080 192.168.1.39 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 555f3f15c7cb5f09d6a1f57006d0ddbc (RSA) | 256 ecdb4119b860bc536fc7efc6d3eeb9b8 (ECDSA) |_ 256 2e0d0327a52a0b4eb06a420157fda99f (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Blog</title>
       <link>https://0x-noname.github.io/writeups/nyx/blog/</link>
