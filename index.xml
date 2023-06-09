@@ -13,7 +13,7 @@
       <pubDate>Thu, 08 Jun 2023 12:20:23 +0200</pubDate>
       
       <guid>https://0x-noname.github.io/writeups/hmv/crack/</guid>
-      <description>Leaked Credentials Local File Inclusion Abusing Dirb Binary Escaneo de puetos ❯ nmap -p- -v -T5 -n 192.168.1.15 PORT STATE SERVICE 21/tcp open ftp 4200/tcp open vrml-multi-use 12359/tcp open unknown Escaneo de servicios ❯ nmap -sVC -v -p 21,4200,12359 192.168.1.15 PORT STATE SERVICE VERSION 21/tcp open ftp vsftpd 3.0.3 | ftp-anon: Anonymous FTP login allowed (FTP code 230) |_drwxrwxrwx 2 0 0 4096 Jun 07 14:40 upload [NSE: writeable] | ftp-syst: | STAT: | FTP server status: | Connected to ::ffff:192.</description>
+      <description>FTP Misconfiguration Shell In A Box Abusing Dirb Binary Escaneo de puetos ❯ nmap -p- -v -T5 -n 192.168.1.15 PORT STATE SERVICE 21/tcp open ftp 4200/tcp open vrml-multi-use 12359/tcp open unknown Escaneo de servicios ❯ nmap -sVC -v -p 21,4200,12359 192.168.1.15 PORT STATE SERVICE VERSION 21/tcp open ftp vsftpd 3.0.3 | ftp-anon: Anonymous FTP login allowed (FTP code 230) |_drwxrwxrwx 2 0 0 4096 Jun 07 14:40 upload [NSE: writeable] | ftp-syst: | STAT: | FTP server status: | Connected to ::ffff:192.</description>
     </item>
     
     <item>
