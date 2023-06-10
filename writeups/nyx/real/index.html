@@ -229,7 +229,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></code></pre></div><blockquote>
 <p>El script verifica que el subdominio <code>shelly.real.nyx</code> es accesible mediante ping, si tiene éxito, abre una conexión utilizando netcat y ejecuta una shell en el subdominio especificado.</p>
 </blockquote>
-<p>Con pspy64 puedo observar que hay una tarea cron que lanza task.</p>
+<p>Con <strong>pspy64</strong> puedo observar que hay una tarea cron que lanza task.</p>
 <p><img src="/../machines/nyx/real/pspy64.webp" alt="pspy64"></p>
 <p>Hago una búsqueda de archivos con permisos de escritura y encuentro <code>/etc/hosts</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>server@real:~$ find / -writable 2&gt;/dev/null | grep -v -i -E &#39;proc|sys|dev|run|irc|home|tmp&#39;
