@@ -6,7 +6,16 @@
     <description>Recent content in Posts on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sun, 11 Jun 2023 12:15:14 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Jun 2023 20:29:14 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Secrets</title>
+      <link>https://0x-noname.github.io/writeups/nyx/secrets/</link>
+      <pubDate>Mon, 12 Jun 2023 20:29:14 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/secrets/</guid>
+      <description>Cracking Private RSA Key Leakage Credentials Information Abuse Jed Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.129 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.129 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 6b36d8beac2439bfbaa9a717e15e00f2 (RSA) | 256 1d20e44ba4e70871ebd341e1ee941c61 (ECDSA) |_ 256 e3936fb30ba3c30ef70d4cb6db3ced90 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Zero</title>
       <link>https://0x-noname.github.io/writeups/nyx/zero/</link>
