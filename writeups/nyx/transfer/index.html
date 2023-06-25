@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-06-25",
         "description": "Writeup Transfer 🔴",
-        "wordCount":  778 ,
+        "wordCount":  780 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-06-25",
         "image": {
@@ -188,8 +188,8 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>|_  Supported Methods: GET HEAD POST OPTIONS
 </span></span></code></pre></div><p>En el puerto <strong>80</strong> hay un servidor apache por defecto.</p>
 <p><img src="/../machines/nyx/transfer/apache.webp" alt="apache"></p>
-<p>Fuerza bruta de directorios.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c -t 200 -w /usr/share/seclists/Discovery/Web-Content/common.txt -u &#39;http://192.168.1.42/FUZZ.FUZ2Z&#39; -z list,php-txt-html-json --hc=404 --hl=9
+<p>Realizo fuerza bruta de extensiones php.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c -t 200 -w /usr/share/seclists/Discovery/Web-Content/common.txt -u &#39;http://192.168.1.42/FUZZ.FUZ2Z&#39; -z list,php --hc=404 --hl=9
 </span></span><span style="display:flex;"><span>********************************************************
 </span></span><span style="display:flex;"><span>* Wfuzz 3.1.0 - The Web Fuzzer                         *
 </span></span><span style="display:flex;"><span>********************************************************
