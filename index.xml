@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 21 Jun 2023 19:24:42 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jun 2023 15:24:42 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Transfer</title>
+      <link>https://0x-noname.github.io/writeups/nyx/transfer/</link>
+      <pubDate>Sun, 25 Jun 2023 15:24:42 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/transfer/</guid>
+      <description>SSRF URL Scheme Port Forwarding Disable Functions Bypass Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.42 PORT STATE SERVICE 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 80 192.168.1.42 PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.4.38 ((Debian)) |_http-server-header: Apache/2.4.38 (Debian) |_http-title: Apache2 Debian Default Page: It works | http-methods: |_ Supported Methods: GET HEAD POST OPTIONS En el puerto 80 hay un servidor apache por defecto.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Deploy</title>
       <link>https://0x-noname.github.io/writeups/nyx/deploy/</link>
