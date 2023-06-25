@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-06-25",
         "description": "Writeup Transfer 🔴",
-        "wordCount":  797 ,
+        "wordCount":  778 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-06-25",
         "image": {
@@ -300,9 +300,6 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>[+] File created!
 </span></span></code></pre></div><p>Subo el archivo <code>rsh.php</code> a <code>/dev/shm/</code> luego mando una petición con curl para ejecutarla.</p>
-<blockquote>
-<p>Al ejecutar el archivo rsh.php actuará de dropper, creando en el servidor una librería <strong>.so</strong> y un archivo <strong>.socket</strong>.</p>
-</blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>www-data@transfer:/dev/shm$ curl localhost:8888/rsh.php
 </span></span></code></pre></div><p>Y sorpresa! recibo una shell como usuario root.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvnp 1337
