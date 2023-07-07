@@ -221,7 +221,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></code></pre></div><p>Si intento usar la herramienta <code>lucks2john</code> me muestra lo siguiente:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ luks2john oliva &gt; haash_oliva
 </span></span><span style="display:flex;"><span>oliva : Only LUKS1 is supported. Used version: 2
-</span></span></code></pre></div><p>Gracias a la ayuda de <em>PL4GU3</em> descargo esta <a href="https://github.com/glv2/bruteforce-luks">herramienta</a>, sigo el readme para instalarla en mi equipo y para encontrar la contraseña he usado la siguiente sintaxis:</p>
+</span></span></code></pre></div><p>Gracias a la ayuda de <strong>PL4GU3</strong> descargo esta <a href="https://github.com/glv2/bruteforce-luks">herramienta</a>, sigo el readme para instalarla en mi equipo y para encontrar la contraseña he usado la siguiente sintaxis:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ ./bruteforce-luks -t 8 -f /usr/share/wordlists/rockyou.txt oliva
 </span></span><span style="display:flex;"><span>Warning: using dictionary mode, ignoring options -b, -e, -l, -m and -s.
 </span></span><span style="display:flex;"><span>
