@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-07-06",
         "description": "Writeup Oliva 🟢",
-        "wordCount":  784 ,
+        "wordCount":  786 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-07-06",
         "image": {
@@ -256,7 +256,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></code></pre></div><p>En gtfobins encuentro lo siguiente.</p>
 <p><img src="/../machines/hmv/oliva/gtfobins.webp" alt="gtfobins"></p>
 <blockquote>
-<p>A partir de aquí se puede obtener las credenciales de root de dos formas, una es leyendo el archivo <strong>/root/.mysql_history</strong> y la otra es la siguiente.</p>
+<p>A partir de aquí se puede obtener las credenciales de root de dos formas, una es según <strong>PL4GU3</strong> leyendo el archivo <strong>/root/.mysql_history</strong> y la otra es la siguiente.</p>
 </blockquote>
 <p>En la máquina victima pongo la ruta del fichero <code>index.php</code> ya que con el usuario oliva no tenemos permisos de lectura y eso me ha llamado la atención.</p>
 <pre tabindex="0"><code>oliva@oliva:~$ nmap -p 8080 192.168.1.18 --script http-put --script-args http-put.url=/,http-put.file=/var/www/html/index.php
