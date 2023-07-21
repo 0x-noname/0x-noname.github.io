@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 15 Jul 2023 15:26:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jul 2023 21:26:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Logan</title>
+      <link>https://0x-noname.github.io/writeups/hmv/logan/</link>
+      <pubDate>Thu, 20 Jul 2023 21:26:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/logan/</guid>
+      <description>LFI - Path Traversal Sequences Stripped Non-Recursively Log Poisoning - Method POST Abusing Vim Binary Abusing Python Script Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.14 PORT STATE SERVICE 25/tcp open smtp 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 25,80 192.168.1.14 PORT STATE SERVICE VERSION 25/tcp open smtp Postfix smtpd |_ssl-date: TLS randomness does not represent time |_smtp-commands: logan.hmv, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, SMTPUTF8, CHUNKING | ssl-cert: Subject: commonName=logan | Subject Alternative Name: DNS:logan | Issuer: commonName=logan | Public Key type: rsa | Public Key bits: 2048 | Signature Algorithm: sha256WithRSAEncryption | Not valid before: 2023-07-03T13:46:49 | Not valid after: 2033-06-30T13:46:49 | MD5: 9b0d3da47274a99c8b9e705a122f249f |_SHA-1: ef60c55ce4bfe99ac4bb3281f2c4ded5d44b4801 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Stardust</title>
       <link>https://0x-noname.github.io/writeups/hmv/stardust/</link>
