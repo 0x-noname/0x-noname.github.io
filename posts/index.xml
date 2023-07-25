@@ -6,7 +6,16 @@
     <description>Recent content in Posts on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 20 Jul 2023 21:26:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jul 2023 18:24:42 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Discover</title>
+      <link>https://0x-noname.github.io/writeups/nyx/discover/</link>
+      <pubDate>Tue, 25 Jul 2023 18:24:42 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/discover/</guid>
+      <description>SMB Brute Force Upload Shell Abusing Setarch Binary Abusing Pydoc3 Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.17 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 81/tcp open hosts2-ns 139/tcp open netbios-ssn 445/tcp open microsoft-ds Escaneo de servicios ❯ nmap -sVC -v -p 22,80,81,139,445 192.168.1.17 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http nginx 1.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Logan</title>
       <link>https://0x-noname.github.io/writeups/hmv/logan/</link>
