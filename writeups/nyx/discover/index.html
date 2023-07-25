@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-07-25",
         "description": "Writeup Discover 🟡",
-        "wordCount":  1066 ,
+        "wordCount":  1072 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-07-25",
         "image": {
@@ -291,6 +291,9 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>smb: \&gt; put info.php
 </span></span><span style="display:flex;"><span>putting file info.php as \info.php (2,9 kb/s) (average 2,9 kb/s)
 </span></span></code></pre></div><p>Ahora hago fuerza bruta de subdominios apuntando al archivo <code>info.php</code> que he subido para comprobar que el subdominio interpreta php.</p>
+<blockquote>
+<p>Gracias d4t4s3c por la pista ;)</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -t 100 -c --hl=7 -X POST -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H &#34;Host: FUZZ.todiscover.nyx&#34; &#34;http://todiscover.nyx/info.php&#34;
 </span></span><span style="display:flex;"><span>********************************************************
 </span></span><span style="display:flex;"><span>* Wfuzz 3.1.0 - The Web Fuzzer                         *
