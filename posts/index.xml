@@ -6,7 +6,16 @@
     <description>Recent content in Posts on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 01 Aug 2023 13:00:42 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Aug 2023 12:08:22 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Friendly3</title>
+      <link>https://0x-noname.github.io/writeups/hmv/friendly3/</link>
+      <pubDate>Fri, 04 Aug 2023 12:08:22 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/friendly3/</guid>
+      <description>Information leakage FTP Brute Force Password reuse FTP/SSH Cron Job Abuse Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.12 PORT STATE SERVICE 21/tcp open ftp 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 21,22,80 192.168.1.12 PORT STATE SERVICE VERSION 21/tcp open ftp vsftpd 3.0.3 22/tcp open ssh OpenSSH 9.2p1 Debian 2 (protocol 2.0) | ssh-hostkey: | 256 bc463d8518bfc7bb14269a206cd33952 (ECDSA) |_ 256 7b135a46a5623309249d3e67b6eb3fa1 (ED25519) 80/tcp open http nginx 1.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Apaches</title>
       <link>https://0x-noname.github.io/writeups/hmv/apaches/</link>
