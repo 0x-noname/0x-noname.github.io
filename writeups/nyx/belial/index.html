@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-08-10",
         "description": "Writeup Belial 🟡",
-        "wordCount":  1890 ,
+        "wordCount":  1827 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-08-10",
         "image": {
@@ -458,21 +458,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>Urgent.msg: PDF document, version 1.6, 1 pages
 </span></span></code></pre></div><p>Abro el pdf y me muestra el siguiente mensaje.</p>
 <p><img src="/../machines/nyx/belial/pdf.webp" alt="pdf"></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>Hola Gelal,
-</span></span><span style="display:flex;"><span>Por favor, actualiza nuestro servidor Belial lo antes posible.
-</span></span><span style="display:flex;"><span>He encontrado que nuestra versión del kernel está afectada por una vulnerabilidad importante. El CVE es de altaseveridad.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>También por favor valida si nuestro servidor tiene implementadas las siguientes dependencias:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>- libfuse-dev
-</span></span><span style="display:flex;"><span>- libcap-dev
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Estoy convencido de que esto lo convertiría en un escenario fácil de explotar.
-</span></span><span style="display:flex;"><span>Atentamente.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>El Gran Jefe
-</span></span><span style="display:flex;"><span>GBK
-</span></span></code></pre></div><p>Para obtener el root me descargo este <a href="https://github.com/DataDog/security-labs-pocs/blob/main/proof-of-concept-exploits/overlayfs-cve-2023-0386/poc.c">exploit</a>. En los comentarios pone los pasos para compilarlo correctamente.</p>
+<p>Para obtener el root me descargo este <a href="https://github.com/DataDog/security-labs-pocs/blob/main/proof-of-concept-exploits/overlayfs-cve-2023-0386/poc.c">exploit</a>. En los comentarios pone los pasos para compilarlo correctamente.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>// - attacker
 </span></span><span style="display:flex;"><span>//   apt install libfuse-dev
 </span></span><span style="display:flex;"><span>//   gcc poc.c -o poc -D_FILE_OFFSET_BITS=64 -static -lfuse -ldl
