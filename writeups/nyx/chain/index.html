@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-08-16",
         "description": "Writeup Chain 🟡",
-        "wordCount":  699 ,
+        "wordCount":  698 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-08-16",
         "image": {
@@ -287,7 +287,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>&lt;/pre&gt;
 </span></span></code></pre></div><p>Sabiendo esto, existe un método para obtener RCE a partir de un LFI conocida como <a href="https://exploit-notes.hdks.org/exploit/web/security-risk/php-filters-chain/">Filter Chain</a>. Me descargo la herramienta y genero una cadena con el comando <code>ls -la</code>.</p>
 <p><img src="/../machines/nyx/chain/chain_g_ls.webp" alt="chain_g_ls"></p>
-<p>Copio el churraco, lo pego en el navegador y puedo comprobar que tengo funciona correctamente.</p>
+<p>Copio el churraco, lo pego en el navegador y puedo comprobar que funciona correctamente.</p>
 <p><img src="/../machines/nyx/chain/chain_RCE.webp" alt="chain_RCE"></p>
 <p>Al tener ejecución de comandos genero una cadena con los siguientes parámetros.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">❯</span> <span style="color:#f92672">./</span>php_filter_chain_generator<span style="color:#f92672">.</span>py <span style="color:#f92672">--</span>chain <span style="color:#e6db74">&#39;&lt;?php system($_GET[&#34;cmd&#34;]); ?&gt;&#39;</span>
