@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-08-25",
         "description": "Writeup Goetia 🟢",
-        "wordCount":  823 ,
+        "wordCount":  822 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-08-25",
         "image": {
@@ -298,7 +298,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></code></pre></div><blockquote>
 <p>Este código se aprovecha de la función <code>_init()</code> que se ejecuta automáticamente al inicio de un programa. Primero borra la variable de entorno <code>LD_PRELOAD</code>.  Después cambia la identidad del proceso para obtener privilegios de <strong>root</strong> y finalmente ejecuta una <strong>shell</strong> permitiendo el control completo del sistema.</p>
 </blockquote>
-<p>Para compilar el código sigo las intrucciones que me indica en la web.</p>
+<p>Para compilar el código sigo las intrucciones que me indica la web.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ gcc -fPIC -shared -o priv.so priv.c -nostartfiles
 </span></span><span style="display:flex;"><span>priv.c: In function ‘_init’:
 </span></span><span style="display:flex;"><span>priv.c:7:5: warning: implicit declaration of function ‘setgid’ [-Wimplicit-function-declaration]
