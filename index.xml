@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 31 Aug 2023 15:30:15 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Sep 2023 15:30:15 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackTheBox - TwoMillion</title>
+      <link>https://0x-noname.github.io/writeups/htb/2million/</link>
+      <pubDate>Fri, 01 Sep 2023 15:30:15 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/htb/2million/</guid>
+      <description>HackTheBox Invite Code Challenge Discovering API Routes Command Injection - RCE Re-using the database password (Overlay FS) - Privilege escalation Escaneo de puertos ❯ nmap -p- -T5 -n -v 10.10.11.221 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 10.10.11.221 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 256 3e:ea:45:4b:c5:d1:6d:6f:e2:d4:d1:3b:0a:3d:a9:4f (ECDSA) |_ 256 64:cc:75:de:4a:e6:a5:b4:73:eb:3f:1b:cf:b4:e3:94 (ED25519) 80/tcp open http nginx | http-methods: |_ Supported Methods: GET HEAD POST OPTIONS |_http-title: Did not follow redirect to http://2million.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Za1</title>
       <link>https://0x-noname.github.io/writeups/hmv/za1/</link>
