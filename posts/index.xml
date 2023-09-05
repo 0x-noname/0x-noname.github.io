@@ -6,7 +6,16 @@
     <description>Recent content in Posts on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sun, 03 Sep 2023 12:43:12 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Sep 2023 10:10:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Ready</title>
+      <link>https://0x-noname.github.io/writeups/nyx/ready/</link>
+      <pubDate>Tue, 05 Sep 2023 10:10:10 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/ready/</guid>
+      <description>Redis RCE Brute Force Rsa Key Brute Force Zip Group Disk Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.13 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 6379/tcp open redis 8080/tcp open http-proxy Escaneo de servicios ❯ nmap -sVC -v -p 22,80,6379,8080 192.168.1.13 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 51:f9:f5:59:cd:45:4e:d1:2c:06:41:3b:a6:7a:91:19 (RSA) | 256 5c:9f:60:b7:c5:50:fc:01:fa:37:7c:dc:16:54:87:3b (ECDSA) |_ 256 04:da:68:25:69:d6:2a:25:e2:5b:e2:99:36:36:d7:48 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Beginner</title>
       <link>https://0x-noname.github.io/writeups/nyx/beginner/</link>
