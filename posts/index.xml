@@ -6,7 +6,16 @@
     <description>Recent content in Posts on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 05 Sep 2023 10:10:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Sep 2023 17:26:55 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Wave</title>
+      <link>https://0x-noname.github.io/writeups/hmv/wave/</link>
+      <pubDate>Fri, 08 Sep 2023 17:26:55 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/wave/</guid>
+      <description>Extract Phar Archive Crack MD5 Hash Backdoor PHP Weevely Chisel Port Forwarding Abuse Copyparty-sfx.py - Upload Authorized_keys Abuse Less Binary - Screen size Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.12 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.12 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.2p1 Debian 2 (protocol 2.0) | ssh-hostkey: | 256 07:e9:c8:22:59:a5:00:41:15:fa:26:0f:7d:d3:29:ff (ECDSA) |_ 256 c7:81:8e:06:49:33:8f:1a:88:3b:82:9e:27:f3:72:1e (ED25519) 80/tcp open http nginx 1.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Ready</title>
       <link>https://0x-noname.github.io/writeups/nyx/ready/</link>
