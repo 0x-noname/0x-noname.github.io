@@ -6,7 +6,16 @@
     <description>Recent content in Posts on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 08 Sep 2023 17:26:55 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Sep 2023 10:30:15 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackTheBox - MonitorsTwo</title>
+      <link>https://0x-noname.github.io/writeups/htb/monitorstwo/</link>
+      <pubDate>Sun, 10 Sep 2023 10:30:15 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/htb/monitorstwo/</guid>
+      <description>CVE-2022-46169 Abuse SUID Capsh Binary Password Reuse CVE-2021-41091 - Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 10.10.11.211 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 10.10.11.211 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 3072 48:ad:d5:b8:3a:9f:bc:be:f7:e8:20:1e:f6:bf:de:ae (RSA) | 256 b7:89:6c:0b:20:ed:49:b2:c1:86:7c:29:92:74:1c:1f (ECDSA) |_ 256 18:cd:9d:08:a6:21:a8:b8:b6:f7:9f:8d:40:51:54:fb (ED25519) 80/tcp open http nginx 1.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Wave</title>
       <link>https://0x-noname.github.io/writeups/hmv/wave/</link>
