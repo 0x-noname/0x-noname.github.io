@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 20 Sep 2023 09:15:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Sep 2023 12:29:15 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackTheBox - Wifinetic</title>
+      <link>https://0x-noname.github.io/writeups/htb/wifinetic/</link>
+      <pubDate>Thu, 21 Sep 2023 12:29:15 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/htb/wifinetic/</guid>
+      <description>Backup file - FTP Resude Credentials - SSH Cracking WPS - Reaver Escaneo de puertos ❯ nmap -p- -T5 -n -v 10.10.11.247 PORT STATE SERVICE 21/tcp open ftp 22/tcp open ssh 53/tcp open domain Escaneo de servicios ❯ nmap -sVC -v -p 21,22,53 10.10.11.247 PORT STATE SERVICE VERSION 21/tcp open ftp vsftpd 3.0.3 | ftp-anon: Anonymous FTP login allowed (FTP code 230) | -rw-r--r-- 1 ftp ftp 4434 Jul 31 11:03 MigrateOpenWrt.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Jenk</title>
       <link>https://0x-noname.github.io/writeups/nyx/jenk/</link>
