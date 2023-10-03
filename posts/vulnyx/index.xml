@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VulNyx - Machines on noname</title>
+    <link>https://0x-noname.github.io/posts/vulnyx/</link>
+    <description>Recent content in VulNyx - Machines on noname</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Wed, 20 Sep 2023 09:15:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Jenk</title>
+      <link>https://0x-noname.github.io/writeups/nyx/jenk/</link>
+      <pubDate>Wed, 20 Sep 2023 09:15:10 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/jenk/</guid>
+      <description>LFI - Data Leak Brute Force Hash Abuse Groovy Script console - Jenkins Abusing hping3 Binary Abusing gmic Binary Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.78 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8080 192.168.1.78 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0:e6:24:fb:9e:b0:7a:1a:bd:f7:b1:85:23:7f:b1:6f (RSA) | 256 99:c8:74:31:45:10:58:b0:ce:cc:63:b4:7a:82:57:3d (ECDSA) |_ 256 60:da:3e:31:38:fa:b5:49:ab:48:c3:43:2c:9f:d1:32 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Ready</title>
+      <link>https://0x-noname.github.io/writeups/nyx/ready/</link>
+      <pubDate>Tue, 05 Sep 2023 10:10:10 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/ready/</guid>
+      <description>Redis RCE Brute Force Rsa Key Brute Force Zip Group Disk Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.13 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 6379/tcp open redis 8080/tcp open http-proxy Escaneo de servicios ❯ nmap -sVC -v -p 22,80,6379,8080 192.168.1.13 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 51:f9:f5:59:cd:45:4e:d1:2c:06:41:3b:a6:7a:91:19 (RSA) | 256 5c:9f:60:b7:c5:50:fc:01:fa:37:7c:dc:16:54:87:3b (ECDSA) |_ 256 04:da:68:25:69:d6:2a:25:e2:5b:e2:99:36:36:d7:48 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Beginner</title>
+      <link>https://0x-noname.github.io/writeups/nyx/beginner/</link>
+      <pubDate>Sun, 03 Sep 2023 12:43:12 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/beginner/</guid>
+      <description>TFTP Brute Abusing Html2text Binary Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.48 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.48 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0:e6:24:fb:9e:b0:7a:1a:bd:f7:b1:85:23:7f:b1:6f (RSA) | 256 99:c8:74:31:45:10:58:b0:ce:cc:63:b4:7a:82:57:3d (ECDSA) |_ 256 60:da:3e:31:38:fa:b5:49:ab:48:c3:43:2c:9f:d1:32 (ED25519) 80/tcp open http Apache httpd 2.4.56 ((Debian)) | http-methods: |_ Supported Methods: GET POST OPTIONS HEAD |_http-title: Site doesn&amp;#39;t have a title (text/html).</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Goetia</title>
+      <link>https://0x-noname.github.io/writeups/nyx/goetia/</link>
+      <pubDate>Fri, 25 Aug 2023 17:00:42 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/goetia/</guid>
+      <description>Command Injection - RCE PHP Filter Chains Sudo LD_PRELOAD Privilege Escalation Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.20 PORT STATE SERVICE REASON 22/tcp open ssh syn-ack ttl 64 80/tcp open http syn-ack ttl 64 Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.20 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.4 (protocol 2.0) | ssh-hostkey: | 2048 bd4b59a41cb23af474b57dcf49a3a947 (RSA) | 256 e9ebb86748f630ece19a27aeb71af905 (ECDSA) |_ 256 0e8018c9371bdf5111eb4986a5e71c1c (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Chain</title>
+      <link>https://0x-noname.github.io/writeups/nyx/chain/</link>
+      <pubDate>Wed, 16 Aug 2023 17:00:42 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/chain/</guid>
+      <description>SNMP Enumeration Information Leakage PHP Filter Chain Brute Force su Binary Abuse cpulimit Binary Abuse smokeping Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.43 PORT STATE SERVICE 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 80 192.168.1.43 PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.4.56 ((Debian)) | http-methods: |_ Supported Methods: OPTIONS HEAD GET POST |_http-title: Chain |_http-server-header: Apache/2.4.56 (Debian) HTTP - TCP 80 Si me descargo la imagen y le paso la herramienta strings se puede apreciar una llave rsa pero se trata de un rabbit_hole.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Plot</title>
+      <link>https://0x-noname.github.io/writeups/nyx/plot/</link>
+      <pubDate>Sat, 12 Aug 2023 12:24:42 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/plot/</guid>
+      <description>Sar2HTML - RCE Abuse SSH Binary Abusing Wildcards (tar command) Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.146 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.146 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Belial</title>
+      <link>https://0x-noname.github.io/writeups/nyx/belial/</link>
+      <pubDate>Thu, 10 Aug 2023 12:24:42 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/belial/</guid>
+      <description>PHP Development Server &amp;lt;= 7.4.21 - Remote Source Disclosure Brute Force FTP Brute Force Keepass Master Key Brute Force RSA Key Decode JWT Token Overlayfs CVE-2023-0386 Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.11 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 2121/tcp open ccproxy-ftp 8090/tcp open opsmessaging Escaneo de servicios ❯ nmap -sVC -v -p 22,80,2121,8090 192.168.1.11 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Share</title>
+      <link>https://0x-noname.github.io/writeups/nyx/share/</link>
+      <pubDate>Sun, 30 Jul 2023 12:24:42 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/share/</guid>
+      <description>Directory Traversal Brute Force RSA Abusing Yafc Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.81 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8080 192.168.1.81 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Discover</title>
+      <link>https://0x-noname.github.io/writeups/nyx/discover/</link>
+      <pubDate>Tue, 25 Jul 2023 18:24:42 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/discover/</guid>
+      <description>SMB Brute Force Upload Shell Abusing Setarch Binary Abusing Pydoc3 Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.17 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 81/tcp open hosts2-ns 139/tcp open netbios-ssn 445/tcp open microsoft-ds Escaneo de servicios ❯ nmap -sVC -v -p 22,80,81,139,445 192.168.1.17 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http nginx 1.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Shop</title>
+      <link>https://0x-noname.github.io/writeups/nyx/shop/</link>
+      <pubDate>Mon, 03 Jul 2023 20:24:42 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/shop/</guid>
+      <description>Time-Based Blind SQL Injection SSH Brute Force Privilege Escalation Perl Capabilities Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.102 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.102 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 ce2421a92a9e702a50aed3d431ab01ba (RSA) | 256 6b653b41b3630b12bad369ac14de397f (ECDSA) |_ 256 04cbd99b40cc2858fc03e74ff76ae572 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Transfer</title>
+      <link>https://0x-noname.github.io/writeups/nyx/transfer/</link>
+      <pubDate>Sun, 25 Jun 2023 15:24:42 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/transfer/</guid>
+      <description>SSRF URL Scheme Port Forwarding Disable Functions Bypass Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.42 PORT STATE SERVICE 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 80 192.168.1.42 PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.4.38 ((Debian)) |_http-server-header: Apache/2.4.38 (Debian) |_http-title: Apache2 Debian Default Page: It works | http-methods: |_ Supported Methods: GET HEAD POST OPTIONS En el puerto 80 hay un servidor apache por defecto.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Deploy</title>
+      <link>https://0x-noname.github.io/writeups/nyx/deploy/</link>
+      <pubDate>Wed, 21 Jun 2023 19:24:42 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/deploy/</guid>
+      <description>Tomcat Missconfigured Deploy War File Abusing Ex Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.121 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8080 192.168.1.121 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - External</title>
+      <link>https://0x-noname.github.io/writeups/nyx/external/</link>
+      <pubDate>Tue, 20 Jun 2023 13:06:22 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/external/</guid>
+      <description>XXE File Read Leakage Credentials Abuse Mysql Binary Escaneo de puertos. ❯ nmap -p- -v -T5 -n 192.168.1.112 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 3306/tcp open mysql Escaneo de servicios. ❯ nmap -sVC -v -p 22,80,3306 192.168.1.112 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Secrets</title>
+      <link>https://0x-noname.github.io/writeups/nyx/secrets/</link>
+      <pubDate>Mon, 12 Jun 2023 20:29:14 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/secrets/</guid>
+      <description>Cracking Private RSA Key Leakage Credentials Information Abuse Jed Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.129 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.129 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 6b36d8beac2439bfbaa9a717e15e00f2 (RSA) | 256 1d20e44ba4e70871ebd341e1ee941c61 (ECDSA) |_ 256 e3936fb30ba3c30ef70d4cb6db3ced90 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Zero</title>
+      <link>https://0x-noname.github.io/writeups/nyx/zero/</link>
+      <pubDate>Sun, 11 Jun 2023 12:15:14 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/zero/</guid>
+      <description>Backdoor Remote Code Execution Leakage Credentials Information Abuse Wine Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.56 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8080 192.168.1.56 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Real</title>
+      <link>https://0x-noname.github.io/writeups/nyx/real/</link>
+      <pubDate>Sat, 10 Jun 2023 13:17:44 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/real/</guid>
+      <description>UnrealIRCd 3.2.8.1 Backdoor Hosts Permission Misconfigured Abuse Script Bash Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.38 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 6667/tcp open irc 6697/tcp open ircs-u 8067/tcp open infi-async Escaneo de servicios ❯ nmap -sVC -v -p 22,80,6667,6697,8067 192.168.1.38 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 db282bab632a0ed5ea188d2f6d8c452d (RSA) | 256 cda1c32e20f0f3f6d39b278e9a2d2611 (ECDSA) |_ 256 db9869a58bbd0586163d9c8b307ba36c (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Flash</title>
+      <link>https://0x-noname.github.io/writeups/nyx/flash/</link>
+      <pubDate>Tue, 06 Jun 2023 15:18:44 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/flash/</guid>
+      <description>Server Side Template Injection Upload Shell Abuse Expect Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8080 192.168.1.14 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http nginx 1.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Backdoor</title>
+      <link>https://0x-noname.github.io/writeups/nyx/backdoor/</link>
+      <pubDate>Fri, 02 Jun 2023 15:23:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/backdoor/</guid>
+      <description>Brute Force Secure WebShell Misconfiguration Abuse Reboot Binary Abuse Bettercap Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.58 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.58 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Tom</title>
+      <link>https://0x-noname.github.io/writeups/nyx/tom/</link>
+      <pubDate>Sat, 27 May 2023 14:10:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/tom/</guid>
+      <description>Apache Tomcat Upload War Abuse ascii85 Binary Abuse lftp Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.39 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8080/tcp open http-proxy Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8080 192.168.1.39 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 555f3f15c7cb5f09d6a1f57006d0ddbc (RSA) | 256 ecdb4119b860bc536fc7efc6d3eeb9b8 (ECDSA) |_ 256 2e0d0327a52a0b4eb06a420157fda99f (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Blog</title>
+      <link>https://0x-noname.github.io/writeups/nyx/blog/</link>
+      <pubDate>Fri, 26 May 2023 13:23:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/blog/</guid>
+      <description>Brute Force HTTP Upload Shell Abuse Git Binary Abuse Mcedit Binary Escaneo de puertos ❯ nmap -p- -v -T5 -n 192.168.1.53 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80, 192.168.1.53 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 569bdd56a5c1e352a84246185e0c1286 (RSA) | 256 1bd2cc5921501b3919771d28c0bec682 (ECDSA) |_ 256 9ce741b6ad03edf5a14ccc0a50791c20 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Node</title>
+      <link>https://0x-noname.github.io/writeups/nyx/node/</link>
+      <pubDate>Wed, 24 May 2023 15:23:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/node/</guid>
+      <description>Node-Red RCE Abuse Node Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.69 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 1880/tcp open vsat-control Escaneo de servicios ❯ nmap -sVC -v -p 22,80,1880 192.168.1.69 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Printer</title>
+      <link>https://0x-noname.github.io/writeups/nyx/printer/</link>
+      <pubDate>Tue, 23 May 2023 15:23:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/printer/</guid>
+      <description>Leaked Credentials RCE Abuse Screen Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.120 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 9999/tcp open abyss Escaneo de servicios ❯ nmap -sVC -v -p 22,80,9999 192.168.1.120 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Hidden</title>
+      <link>https://0x-noname.github.io/writeups/nyx/hidden/</link>
+      <pubDate>Wed, 17 May 2023 15:23:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/hidden/</guid>
+      <description>Upload Shell Abusing Dash Binary SSH X11 Forwarding Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.15 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.15 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Mail</title>
+      <link>https://0x-noname.github.io/writeups/nyx/mail/</link>
+      <pubDate>Tue, 16 May 2023 15:20:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/mail/</guid>
+      <description>Mail Poisoning Abusing Mail Binary Abusing Ncat Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.12 PORT STATE SERVICE 22/tcp open ssh 25/tcp open smtp 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,25,80 192.168.1.12 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 25/tcp open smtp Postfix smtpd |_ssl-date: TLS randomness does not represent time |_smtp-commands: mail.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Ceres</title>
+      <link>https://0x-noname.github.io/writeups/nyx/ceres/</link>
+      <pubDate>Thu, 04 May 2023 15:20:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/ceres/</guid>
+      <description>LFI/PHP Wrappers Log Poisoning Abusing Python Binary Python Library Hijacking Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.15 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de Servicios ❯ nmap -sVC -v -p 22,80 192.168.1.15 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 3681c13bb87b840f6a417b2e3a014c44 (RSA) | 256 f67e44418000b0c2e9038d74c37aea0e (ECDSA) |_ 256 37d15ab4e50a779a2a7e1a637cd42e9b (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Brain</title>
+      <link>https://0x-noname.github.io/writeups/nyx/brain/</link>
+      <pubDate>Wed, 03 May 2023 15:10:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/brain/</guid>
+      <description>Local File Inclusion Credential Leakage Abusing Wfuzz Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.93 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.93 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 3295f92044d7a1d180a8d69591d51eda (RSA) | 256 07e724381d64f6889a712379b8d8e657 (ECDSA) |_ 256 58a6da1e0f89422bbade00fc71783d56 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Serve</title>
+      <link>https://0x-noname.github.io/writeups/nyx/serve/</link>
+      <pubDate>Tue, 02 May 2023 15:20:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/serve/</guid>
+      <description>HTTP Brute Force Curl Upload Shell Abusing wget Binary Abusing bro Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.51 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.51 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 9a0c755abbbb06a29a7dbe91ca4545e4 (RSA) | 256 077de70f0b5e5a90e9337268493bf58c (ECDSA) |_ 256 6c1532a742e79fda63667d3abefbbf14 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Shock</title>
+      <link>https://0x-noname.github.io/writeups/nyx/shock/</link>
+      <pubDate>Sun, 30 Apr 2023 15:12:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/shock/</guid>
+      <description>Shellshock Abusing BusyBox Binary Abusing Systemctl Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 3736603e26ae233fe18b5d18e7a7c7ce (RSA) | 256 349a57607d6670d5b5ff4796e0362375 (ECDSA) |_ 256 ae7deefe1dbc994d54453d6116f86c87 (ED25519) 80/tcp open http Apache httpd 2.4.38 ((Debian)) | http-methods: |_ Supported Methods: HEAD GET POST OPTIONS |_http-server-header: Apache/2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Wrapp</title>
+      <link>https://0x-noname.github.io/writeups/nyx/wrapp/</link>
+      <pubDate>Fri, 28 Apr 2023 13:12:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/wrapp/</guid>
+      <description>SSRF Internal Port Discovery LFI Abusing ag Binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.150 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.150 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 fc847e5d15854d01d37b5a00dea47337 (RSA) | 256 54f5eadba038e2c85adb30913e78b4b9 (ECDSA) |_ 256 97b6b8f7cb15f56bcd925f6626284707 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Hat</title>
+      <link>https://0x-noname.github.io/writeups/nyx/hat/</link>
+      <pubDate>Tue, 25 Apr 2023 15:20:03 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/hat/</guid>
+      <description>FTP Brute Force Passphrase Cracking LFI IPv6 Abusing nmap binary Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.24 PORT STATE SERVICE 22/tcp filtered ssh 80/tcp open http 65535/tcp open unknown Escaneo de servicios ❯ nmap -sVC -v -p 22,80,65535 192.168.1.24 PORT STATE SERVICE VERSION 22/tcp filtered ssh 80/tcp open http Apache httpd 2.4.38 ((Debian)) |_http-server-header: Apache/2.4.38 (Debian) | http-methods: |_ Supported Methods: GET POST OPTIONS HEAD |_http-title: Apache2 Debian Default Page: It works 65535/tcp open ftp pyftpdlib 1.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Fing</title>
+      <link>https://0x-noname.github.io/writeups/nyx/fing/</link>
+      <pubDate>Mon, 24 Apr 2023 10:01:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/fing/</guid>
+      <description>Finger SSH Brute Force Abusing Doas Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.16 PORT STATE SERVICE 22/tcp open ssh 79/tcp open finger 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,79,80 192.168.1.16 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA) | 256 99c87431451058b0cecc63b47a82573d (ECDSA) |_ 256 60da3e3138fab549ab48c3432c9fd132 (ED25519) 79/tcp open finger Linux fingerd |_finger: No one logged on.</description>
+    </item>
+    
+    <item>
+      <title>VulNyx - Doctor</title>
+      <link>https://0x-noname.github.io/writeups/nyx/doctor/</link>
+      <pubDate>Sat, 22 Apr 2023 15:01:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/doctor/</guid>
+      <description>Local File Inclusion Passphrase Cracking Weak File Permissions Escaneo de puertos ❯ nmap -p- -T5 -v -n 192.168.1.15 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.15 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) | ssh-hostkey: | 2048 4495500be473a18511ca10ec1ccbd426 (RSA) | 256 27db6ac73a9c5a0e47ba8d81ebd6d63c (ECDSA) |_ 256 e30756a92563d4ce3901c19ad9fede64 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+  </channel>
+</rss>

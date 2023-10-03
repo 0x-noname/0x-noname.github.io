@@ -5,16 +5,25 @@
     <loc>https://0x-noname.github.io/writeups/hmv/liar/</loc>
     <lastmod>2023-09-29T22:03:55+02:00</lastmod>
   </url><url>
+    <loc>https://0x-noname.github.io/posts/hackmyvm/</loc>
+    <lastmod>2023-09-29T22:03:55+02:00</lastmod>
+  </url><url>
     <loc>https://0x-noname.github.io/</loc>
     <lastmod>2023-09-29T22:03:55+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/</loc>
     <lastmod>2023-09-29T22:03:55+02:00</lastmod>
   </url><url>
+    <loc>https://0x-noname.github.io/posts/hackthebox/</loc>
+    <lastmod>2023-09-21T12:29:15+02:00</lastmod>
+  </url><url>
     <loc>https://0x-noname.github.io/writeups/htb/wifinetic/</loc>
     <lastmod>2023-09-21T12:29:15+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/jenk/</loc>
+    <lastmod>2023-09-20T09:15:10+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/posts/vulnyx/</loc>
     <lastmod>2023-09-20T09:15:10+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/htb/inject/</loc>
@@ -192,7 +201,5 @@
     <lastmod>2023-02-26T19:20:23+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/categories/</loc>
-  </url><url>
-    <loc>https://0x-noname.github.io/tags/</loc>
   </url>
 </urlset>
