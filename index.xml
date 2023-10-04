@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 29 Sep 2023 22:03:55 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Oct 2023 09:15:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Cap</title>
+      <link>https://0x-noname.github.io/writeups/nyx/cap/</link>
+      <pubDate>Wed, 04 Oct 2023 09:15:10 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/cap/</guid>
+      <description>User Enumeration - Ident Brute Force SSH Password Leaking - Grub.cfg Brute Force PBKDF2-SHA512 Privesc From Grub Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.64 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.64 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0) | ssh-hostkey: | 3072 f0:e6:24:fb:9e:b0:7a:1a:bd:f7:b1:85:23:7f:b1:6f (RSA) | 256 99:c8:74:31:45:10:58:b0:ce:cc:63:b4:7a:82:57:3d (ECDSA) |_ 256 60:da:3e:31:38:fa:b5:49:ab:48:c3:43:2c:9f:d1:32 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Liar</title>
       <link>https://0x-noname.github.io/writeups/hmv/liar/</link>
