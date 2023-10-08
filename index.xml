@@ -535,7 +535,7 @@
       <pubDate>Thu, 30 Mar 2023 15:20:23 +0200</pubDate>
       
       <guid>https://0x-noname.github.io/writeups/hmv/qandary1/</guid>
-      <description>Brute Force Generate RSA Key ReverseShell Splunk Dirty_sock exploit Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8000/tcp open http-alt 8089/tcp open unknown `` ### Escaneo de servicios ```txt ❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 3072 81560bdc551faa606864239a9ff79cc7 (RSA) | 256 43f311c7e4bec9bf4f6c1b48f6e41368 (ECDSA) |_ 256 3cb98d3f70b2311596f8ce952986b785 (ED25519) 80/tcp open http Apache httpd 2.</description>
+      <description>Brute Force Generate RSA Key ReverseShell Splunk Dirty_sock exploit Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 8000/tcp open http-alt 8089/tcp open unknown Escaneo de servicios ❯ nmap -sVC -v -p 22,80,8000,8089 192.168.1.14 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 3072 81560bdc551faa606864239a9ff79cc7 (RSA) | 256 43f311c7e4bec9bf4f6c1b48f6e41368 (ECDSA) |_ 256 3cb98d3f70b2311596f8ce952986b785 (ED25519) 80/tcp open http Apache httpd 2.</description>
     </item>
     
     <item>
