@@ -13,7 +13,7 @@
       <pubDate>Thu, 12 Oct 2023 18:09:35 +0200</pubDate>
       
       <guid>https://0x-noname.github.io/writeups/hmv/logan2/</guid>
-      <description>SQL-Injection/Blind Based LFI to RCE/Log-Poisoning CVE-2020-14144 - GiTea authenticated RCE Interactive Console - Privesc SSTI - Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.140 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 3000/tcp open ppp Escaneo de servicios ❯ nmap -sVC -v -p 22,80,3000 192.168.1.140 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.2p1 Debian 2 (protocol 2.0) | ssh-hostkey: | 256 10:ed:dd:ab:26:fd:f4:9f:28:1e:89:93:f4:58:16:ab (ECDSA) |_ 256 43:3b:d9:8c:12:44:e9:92:be:cf:1a:78:fd:33:38:67 (ED25519) 80/tcp open http Apache httpd 2.</description>
+      <description>SQL-Injection/Time-Based Blind LFI to RCE/Log-Poisoning CVE-2020-14144 - GiTea authenticated RCE Interactive Console - Privesc SSTI - Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.140 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 3000/tcp open ppp Escaneo de servicios ❯ nmap -sVC -v -p 22,80,3000 192.168.1.140 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.2p1 Debian 2 (protocol 2.0) | ssh-hostkey: | 256 10:ed:dd:ab:26:fd:f4:9f:28:1e:89:93:f4:58:16:ab (ECDSA) |_ 256 43:3b:d9:8c:12:44:e9:92:be:cf:1a:78:fd:33:38:67 (ED25519) 80/tcp open http Apache httpd 2.</description>
     </item>
     
     <item>
