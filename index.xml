@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 12 Oct 2023 18:09:35 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Oct 2023 12:12:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Economists</title>
+      <link>https://0x-noname.github.io/writeups/hmv/economists/</link>
+      <pubDate>Sun, 15 Oct 2023 12:12:08 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/economists/</guid>
+      <description>Brute Force SSH Abusing Systemctl Binary - Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v -Pn 192.168.1.13 PORT STATE SERVICE 21/tcp open ftp 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 21,22,80 192.168.1.13 PORT STATE SERVICE VERSION 21/tcp open ftp vsftpd 3.0.3 | ftp-anon: Anonymous FTP login allowed (FTP code 230) | -rw-rw-r-- 1 1000 1000 173864 Sep 14 11:40 Brochure-1.pdf | -rw-rw-r-- 1 1000 1000 183931 Sep 14 11:37 Brochure-2.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Logan2</title>
       <link>https://0x-noname.github.io/writeups/hmv/logan2/</link>
@@ -581,15 +590,6 @@
       
       <guid>https://0x-noname.github.io/writeups/hmv/colors/</guid>
       <description>IPv6 sudo abuse Reversing DNS Spoofing Escaneo de puertos ❯ nmap -p- -T5 -v -n --open 10.10.1.49 PORT STATE SERVICE 21/tcp open ftp 80/tcp open http Escaneo de servicios nmap -sVC -p 21,80 10.10.1.49 PORT STATE SERVICE VERSION /tcp open ftp vsftpd 3.0.3 ftp-syst: STAT: FTP server status: Connected to ::ffff:10.10.1.40 Logged in as ftp TYPE: ASCII No session bandwidth limit Session timeout in seconds is 300 Control connection is plain text Data connections will be plain text At session startup, client count was 6 vsFTPd 3.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://0x-noname.github.io/posts/hackmyvm/2023-10-15-hmv_economists/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://0x-noname.github.io/posts/hackmyvm/2023-10-15-hmv_economists/</guid>
-      <description>Escaneo de puertos ❯ nmap -p- -T5 -n -v -Pn 192.168.1.13 PORT STATE SERVICE 21/tcp open ftp 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 21,22,80 192.168.1.13 PORT STATE SERVICE VERSION 21/tcp open ftp vsftpd 3.0.3 | ftp-anon: Anonymous FTP login allowed (FTP code 230) | -rw-rw-r-- 1 1000 1000 173864 Sep 13 11:40 Brochure-1.pdf | -rw-rw-r-- 1 1000 1000 183931 Sep 13 11:37 Brochure-2.</description>
     </item>
     
   </channel>

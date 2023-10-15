@@ -2,16 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://0x-noname.github.io/writeups/hmv/logan2/</loc>
-    <lastmod>2023-10-12T18:09:35+02:00</lastmod>
+    <loc>https://0x-noname.github.io/writeups/hmv/economists/</loc>
+    <lastmod>2023-10-15T12:12:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/hackmyvm/</loc>
-    <lastmod>2023-10-12T18:09:35+02:00</lastmod>
+    <lastmod>2023-10-15T12:12:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/</loc>
-    <lastmod>2023-10-12T18:09:35+02:00</lastmod>
+    <lastmod>2023-10-15T12:12:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/</loc>
+    <lastmod>2023-10-15T12:12:08+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/writeups/hmv/logan2/</loc>
     <lastmod>2023-10-12T18:09:35+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/vulnyx/</loc>
@@ -208,8 +211,6 @@
   </url><url>
     <loc>https://0x-noname.github.io/writeups/hmv/colors/</loc>
     <lastmod>2023-02-26T19:20:23+02:00</lastmod>
-  </url><url>
-    <loc>https://0x-noname.github.io/posts/hackmyvm/2023-10-15-hmv_economists/</loc>
   </url><url>
     <loc>https://0x-noname.github.io/categories/</loc>
   </url>
