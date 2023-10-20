@@ -6,7 +6,16 @@
     <description>Recent content in VulNyx - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 06 Oct 2023 09:19:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Oct 2023 20:00:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Wicca</title>
+      <link>https://0x-noname.github.io/writeups/nyx/wicca/</link>
+      <pubDate>Fri, 20 Oct 2023 20:00:10 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/wicca/</guid>
+      <description>NodeJS (Express middleware) Abuse Links Binary - Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.21 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 5000/tcp open upnp Escaneo de servicios ❯ nmap -sVC -v -Pn -p 22,80,5000 192.168.1.21 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.2p1 Debian 2 (protocol 2.0) | ssh-hostkey: | 256 3a:dc:d6:1d:84:b6:96:c0:8f:96:1e:65:a0:24:0e:fb (ECDSA) |_ 256 de:93:17:fb:3a:19:9c:e0:17:32:2d:a9:73:f7:c5:94 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Zone</title>
       <link>https://0x-noname.github.io/writeups/nyx/zone/</link>

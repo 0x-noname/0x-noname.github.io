@@ -2,16 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://0x-noname.github.io/</loc>
+    <lastmod>2023-10-20T20:00:10+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/posts/</loc>
+    <lastmod>2023-10-20T20:00:10+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/posts/vulnyx/</loc>
+    <lastmod>2023-10-20T20:00:10+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/writeups/nyx/wicca/</loc>
+    <lastmod>2023-10-20T20:00:10+02:00</lastmod>
+  </url><url>
     <loc>https://0x-noname.github.io/posts/hackmyvm/</loc>
     <lastmod>2023-10-16T20:30:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/hmv/simple/</loc>
-    <lastmod>2023-10-16T20:30:08+02:00</lastmod>
-  </url><url>
-    <loc>https://0x-noname.github.io/</loc>
-    <lastmod>2023-10-16T20:30:08+02:00</lastmod>
-  </url><url>
-    <loc>https://0x-noname.github.io/posts/</loc>
     <lastmod>2023-10-16T20:30:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/hmv/economists/</loc>
@@ -19,9 +25,6 @@
   </url><url>
     <loc>https://0x-noname.github.io/writeups/hmv/logan2/</loc>
     <lastmod>2023-10-12T18:09:35+02:00</lastmod>
-  </url><url>
-    <loc>https://0x-noname.github.io/posts/vulnyx/</loc>
-    <lastmod>2023-10-06T09:19:10+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/zone/</loc>
     <lastmod>2023-10-06T09:19:10+02:00</lastmod>
