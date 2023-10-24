@@ -6,7 +6,16 @@
     <description>Recent content in HackMyVM - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 16 Oct 2023 20:30:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Oct 2023 12:14:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Pipy</title>
+      <link>https://0x-noname.github.io/writeups/hmv/pipy/</link>
+      <pubDate>Tue, 24 Oct 2023 12:14:08 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/pipy/</guid>
+      <description>SPIP v4.2.0 - RCE (Unauthenticated) Password Leaking CVE-2023-4911 - Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.13 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -Pn -p 22,80 192.168.1.13 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.4 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 256 c0:f6:a1:6a:53:72:be:8d:c2:34:11:e7:e4:9c:94:75 (ECDSA) |_ 256 32:1c:f5:df:16:c7:c1:99:2c:d6:26:93:5a:43:57:59 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Simple</title>
       <link>https://0x-noname.github.io/writeups/hmv/simple/</link>
