@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 26 Oct 2023 10:06:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Oct 2023 19:59:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Fire</title>
+      <link>https://0x-noname.github.io/writeups/nyx/fire/</link>
+      <pubDate>Sat, 28 Oct 2023 19:59:10 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/fire/</guid>
+      <description>Extracting Credentials - Firefox Profile Import SSH Key - Public Abuse Units Binary - Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.100 PORT STATE SERVICE 21/tcp open ftp 22/tcp open ssh 80/tcp open http 9090/tcp open zeus-admin Escaneo de servicios ❯ nmap -sVC -v -Pn -p 21,22,80,9090 192.168.1.100 PORT STATE SERVICE VERSION 21/tcp open ftp pyftpdlib 1.5.7 | ftp-syst: | STAT: | FTP server status: | Connected to: 192.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Noob</title>
       <link>https://0x-noname.github.io/writeups/nyx/noob/</link>
