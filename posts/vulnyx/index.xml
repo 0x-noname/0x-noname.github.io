@@ -6,7 +6,16 @@
     <description>Recent content in VulNyx - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 28 Oct 2023 19:59:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Oct 2023 20:25:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Basic</title>
+      <link>https://0x-noname.github.io/writeups/nyx/basic/</link>
+      <pubDate>Mon, 30 Oct 2023 20:25:10 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/basic/</guid>
+      <description>Brute Force SSH Abuse venv Binary - SUID Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.129 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 631/tcp open ipp Escaneo de servicios ❯ nmap -sVC -v -Pn -p 22,80,631 192.168.1.129 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u2 (protocol 2.0) | ssh-hostkey: | 3072 f0:e6:24:fb:9e:b0:7a:1a:bd:f7:b1:85:23:7f:b1:6f (RSA) | 256 99:c8:74:31:45:10:58:b0:ce:cc:63:b4:7a:82:57:3d (ECDSA) |_ 256 60:da:3e:31:38:fa:b5:49:ab:48:c3:43:2c:9f:d1:32 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Fire</title>
       <link>https://0x-noname.github.io/writeups/nyx/fire/</link>
