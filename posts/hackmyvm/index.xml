@@ -6,7 +6,16 @@
     <description>Recent content in HackMyVM - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 24 Oct 2023 12:14:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Oct 2023 20:57:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Darkside</title>
+      <link>https://0x-noname.github.io/writeups/hmv/darkside/</link>
+      <pubDate>Tue, 31 Oct 2023 20:57:08 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/darkside/</guid>
+      <description>Brute Force Login Form Password Leaking Abuse Nano Binary - Sudo Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.15 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.15 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u2 (protocol 2.0) | ssh-hostkey: | 3072 e0:25:46:8e:b8:bb:ba:69:69:1b:a7:4d:28:34:04:dd (RSA) | 256 60:12:04:69:5e:c4:a1:42:2d:2b:51:8a:57:fe:a8:8a (ECDSA) |_ 256 84:bb:60:b7:79:5d:09:9c:dd:24:23:a3:f2:65:89:3f (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Pipy</title>
       <link>https://0x-noname.github.io/writeups/hmv/pipy/</link>
