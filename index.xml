@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sun, 12 Nov 2023 20:25:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Nov 2023 16:25:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - First</title>
+      <link>https://0x-noname.github.io/writeups/nyx/first/</link>
+      <pubDate>Thu, 16 Nov 2023 16:25:10 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/first/</guid>
+      <description>Default Password - SSH Escape Restricted Shell - rbash Cron Hijacking - Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.14 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 4369/tcp open epmd Escaneo de servicios ❯ nmap -sVC -v -p 22,80,4369 192.168.1.14 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.4p1 Debian 5+deb11u2 (protocol 2.0) | ssh-hostkey: | 3072 24:83:97:49:96:11:7c:7a:54:00:17:3b:0c:f6:e1:54 (RSA) | 256 83:cc:d0:72:41:48:fc:c4:ba:46:a1:0e:70:50:52:71 (ECDSA) |_ 256 a0:37:99:32:78:17:69:4f:1d:ac:75:1e:ba:19:58:45 (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Air</title>
       <link>https://0x-noname.github.io/writeups/nyx/air/</link>

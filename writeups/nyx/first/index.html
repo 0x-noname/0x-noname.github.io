@@ -3,37 +3,32 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">Posts | noname</title>
-<meta property="og:title" content="Posts | noname" />
-<meta name="twitter:title" content="Posts | noname" />
-<meta itemprop="name" content="Posts | noname" />
-<meta name="application-name" content="Posts | noname" />
+<title itemprop="name">VulNyx - First | noname</title>
+<meta property="og:title" content="VulNyx - First | noname" />
+<meta name="twitter:title" content="VulNyx - First | noname" />
+<meta itemprop="name" content="VulNyx - First | noname" />
+<meta name="application-name" content="VulNyx - First | noname" />
 <meta property="og:site_name" content="" />
 
-<meta name="description" content="">
-<meta itemprop="description" content="" />
-<meta property="og:description" content="" />
-<meta name="twitter:description" content="" />
+<meta name="description" content="Writeup First 🟢">
+<meta itemprop="description" content="Writeup First 🟢" />
+<meta property="og:description" content="Writeup First 🟢" />
+<meta name="twitter:description" content="Writeup First 🟢" />
 
 <meta property="og:locale" content="es" />
 <meta name="language" content="es" />
 
 
 
-  <meta itemprop="image" content="https://0x-noname.github.io/" />
-  <meta property="og:image" content="https://0x-noname.github.io/" />
-  <meta name="twitter:image" content="https://0x-noname.github.io/" />
-  <meta name="twitter:image:src" content="https://0x-noname.github.io/" />
+  <meta itemprop="image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta property="og:image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/images/logo.png" />
 
 
 
 
     
-    
-    
-    
-    <link rel="first" href="/posts/" />
-    <link rel="last" href="/posts/" />
     
     
     
@@ -50,19 +45,19 @@
     {
         "@context": "http://schema.org",
         "@type": "Article",
-        "headline": "Posts",
+        "headline": "VulNyx - First",
         "author": {
         "@type": "Person",
         "name": ""
         },
         "datePublished": "2023-11-16",
-        "description": "",
-        "wordCount":  0 ,
+        "description": "Writeup First 🟢",
+        "wordCount":  375 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-11-16",
         "image": {
         "@type": "imageObject",
-        "url": ""
+        "url": "\/images\/logo.png"
         },
         "publisher": {
         "@type": "Organization",
@@ -77,9 +72,7 @@
 
     
 
-    <link rel="canonical" href="https://0x-noname.github.io/posts/">
-    <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="noname">
-    <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="noname">
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/first/">
     <link href="/style.min.0dafdc75467b093a9691e40fa17265d2fe1f3baba37da4faf9af6a1b0b035248.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -176,65 +169,94 @@ stroke-linejoin="round" class="feather feather-home">
         </div>
     </nav>
 </div>
-<div class="wrapper list-page">
-    <header class="header">
-        <h1 class="header-title center">Posts</h1>
-    </header>
+
+<div class="wrapper post">
     <main class="page-content" aria-label="Content">
-        
-        
-        <h2 class="post-year">2023</h2>
+        <article>
+            <header class="header">
+                <h1 class="header-title">VulNyx - First</h1>
+                
+                <div class="post-meta">
+                    <time datetime="2023-11-16T16:25:10&#43;02:00" itemprop="datePublished"> Nov 16, 2023 </time>
+                </div>
+            </header><div class="page-content">
+                <p><img src="/../machines/nyx/first/first_logo.webp" alt="logo"></p>
+<ul>
+<li><em>Default Password - SSH</em></li>
+<li><em>Escape Restricted Shell - rbash</em></li>
+<li><em>Cron Hijacking - Privesc</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -p- -T5 -n -v 192.168.1.14
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT     STATE SERVICE
+</span></span><span style="display:flex;"><span>22/tcp   open  ssh
+</span></span><span style="display:flex;"><span>80/tcp   open  http
+</span></span><span style="display:flex;"><span>4369/tcp open  epmd
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -sVC -v -p 22,80,4369 192.168.1.14
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT     STATE SERVICE VERSION
+</span></span><span style="display:flex;"><span>22/tcp   open  ssh     OpenSSH 8.4p1 Debian 5+deb11u2 (protocol 2.0)
+</span></span><span style="display:flex;"><span>| ssh-hostkey: 
+</span></span><span style="display:flex;"><span>|   3072 24:83:97:49:96:11:7c:7a:54:00:17:3b:0c:f6:e1:54 (RSA)
+</span></span><span style="display:flex;"><span>|   256 83:cc:d0:72:41:48:fc:c4:ba:46:a1:0e:70:50:52:71 (ECDSA)
+</span></span><span style="display:flex;"><span>|_  256 a0:37:99:32:78:17:69:4f:1d:ac:75:1e:ba:19:58:45 (ED25519)
+</span></span><span style="display:flex;"><span>80/tcp   open  http    Apache httpd 2.4.56 ((Debian))
+</span></span><span style="display:flex;"><span>|_http-server-header: Apache/2.4.56 (Debian)
+</span></span><span style="display:flex;"><span>| http-methods: 
+</span></span><span style="display:flex;"><span>|_  Supported Methods: GET POST OPTIONS HEAD
+</span></span><span style="display:flex;"><span>|_http-title: Apache2 Debian Default Page: It works
+</span></span><span style="display:flex;"><span>4369/tcp open  epmd    Erlang Port Mapper Daemon
+</span></span><span style="display:flex;"><span>| epmd-info: 
+</span></span><span style="display:flex;"><span>|   epmd_port: 4369
+</span></span><span style="display:flex;"><span>|_  nodes: 
+</span></span><span style="display:flex;"><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><h3 id="http-tcp---80">HTTP TCP - 80</h3>
+<p><img src="/../machines/nyx/first/http.webp" alt="/http"></p>
+<p>Si miro la máquina víctima hay pequeña pista.</p>
+<p><img src="/../machines/nyx/first/raspberry.webp" alt="raspberry"></p>
+<p>En internet busco usuario y contraseña de una raspberry encuentro lo siguiente.</p>
+<p><img src="/../machines/nyx/first/userpasswd.webp" alt="userpasswd"></p>
+<p>Me conecto por <strong>SSH</strong> usando las credenciales por defecto.</p>
+<p><img src="/../machines/nyx/first/pi.webp" alt="pi"></p>
+<p>Lanzo un <code>echo $SHELL</code> y me doy cuenta de que estoy en una <strong>rbash</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>pi@raspberry:~ $ echo $SHELL
+</span></span><span style="display:flex;"><span>/bin/rbash
+</span></span></code></pre></div><p>Si intento hacer una búsqueda de binarios con permisos <strong>SUID</strong> me sale el siguiente mensaje.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>pi@raspberry:~ $ find / -perm -4000 2&gt;/dev/null
+</span></span><span style="display:flex;"><span>-rbash: /dev/null: restringido: no se puede redirigir la salida
+</span></span></code></pre></div><p>Para escapar de la <strong>rbash</strong> he usado esta <a href="https://www.hackplayers.com/2018/05/tecnicas-para-escapar-de-restricted--shells.html">web</a> y lo unico que tengo que hacer es conectarme por <strong>SSH</strong> de la siguiente manera.</p>
+<p><img src="/../machines/nyx/first/bashnprpofile.webp" alt="bashnprpofile"></p>
+<p>Ahora ya me permite realizar la búsqueda correctamente.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>pi@raspberry:~ $ find / -perm -4000 2&gt;/dev/null
+</span></span><span style="display:flex;"><span>/usr/bin/ping
+</span></span><span style="display:flex;"><span>/usr/bin/passwd
+</span></span><span style="display:flex;"><span>/usr/bin/sudo
+</span></span><span style="display:flex;"><span>/usr/bin/newgrp
+</span></span><span style="display:flex;"><span>/usr/bin/su
+</span></span></code></pre></div><p>Enumero el sistema con <strong>pspy64</strong> y veo una tarea cron que realiza un ping al dominio <code>raspberrypi.com</code>.</p>
+<p><img src="/../machines/nyx/first/pspy64.webp" alt="pspy64"></p>
+<p>Reviso el archivo de configuración <strong>crontab</strong> y veo una ruta sospechosa en el path.</p>
+<p><img src="/../machines/nyx/first/crontab.webp" alt="crontab"></p>
+<p>Al final del archivo se puede observar que cron llama al binario ping de forma relativa.</p>
+<p><img src="/../machines/nyx/first/crontab2.webp" alt="crontab2"></p>
+<p>Revisando los permisos de <strong>html</strong> veo que tengo todos los permisos.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>pi@raspberry:~ $ ls -l /var/www/
+</span></span><span style="display:flex;"><span>total 4
+</span></span><span style="display:flex;"><span>drwxrwxrwx 2 www-data www-data 4096 nov 13 14:07 html
+</span></span></code></pre></div><p>Ahora puedo elevar privilegios aprovechandome del <strong>PATH</strong> y de la tarea cron que llama al binario <strong>ping</strong> de forma relativa, para ello creo el archivo <strong>ping</strong> dentro de <code>/var/www/html</code> y en su interior escribo lo siguiente.</p>
+<p><img src="/../machines/nyx/first/ping.webp" alt="ping"></p>
+<p>Dejo un netcat a la escucha, espero unos segundos y obtengo el root.</p>
+<p><img src="/../machines/nyx/first/root.webp" alt="root"></p>
+<p>Y aquí termina la máquina First.</p>
+<p>Saludos!</p>
 
-        
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/posts/vulnyx/">VulNyx - Machines</a>
-    </h4>
-    
-    
-    <time class="post-item-meta" datetime="2023-11-16T16:25:10&#43;0200">
-        Nov 16, 2023
-    </time>
-</article>
-
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/posts/hackmyvm/">HackMyVM - Machines</a>
-    </h4>
-    
-    
-    <time class="post-item-meta" datetime="2023-10-31T20:57:08&#43;0200">
-        Oct 31, 2023
-    </time>
-</article>
-
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/posts/hackthebox/">HackTheBox - Machines</a>
-    </h4>
-    
-    
-    <time class="post-item-meta" datetime="2023-09-21T12:29:15&#43;0200">
-        Sep 21, 2023
-    </time>
-</article>
-
-
-         
-
-         
-
+            </div>
+        </article>
     </main>
-</div><footer class="footer">
+</div>
+<footer class="footer">
     <span class="footer_item"> </span>
     &nbsp;
 
