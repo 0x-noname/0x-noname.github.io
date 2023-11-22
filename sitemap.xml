@@ -3,15 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://0x-noname.github.io/</loc>
-    <lastmod>2023-11-16T16:25:10+02:00</lastmod>
+    <lastmod>2023-11-22T16:25:10+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/</loc>
-    <lastmod>2023-11-16T16:25:10+02:00</lastmod>
+    <lastmod>2023-11-22T16:25:10+02:00</lastmod>
   </url><url>
-    <loc>https://0x-noname.github.io/writeups/nyx/first/</loc>
-    <lastmod>2023-11-16T16:25:10+02:00</lastmod>
+    <loc>https://0x-noname.github.io/writeups/nyx/bind/</loc>
+    <lastmod>2023-11-22T16:25:10+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/vulnyx/</loc>
+    <lastmod>2023-11-22T16:25:10+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/writeups/nyx/first/</loc>
     <lastmod>2023-11-16T16:25:10+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/air/</loc>
