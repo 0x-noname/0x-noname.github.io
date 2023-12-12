@@ -3,13 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://0x-noname.github.io/</loc>
-    <lastmod>2023-12-10T17:22:10+02:00</lastmod>
+    <lastmod>2023-12-12T11:22:10+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/</loc>
-    <lastmod>2023-12-10T17:22:10+02:00</lastmod>
+    <lastmod>2023-12-12T11:22:10+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/writeups/nyx/agent/</loc>
+    <lastmod>2023-12-12T11:22:10+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/vulnyx/</loc>
-    <lastmod>2023-12-10T17:22:10+02:00</lastmod>
+    <lastmod>2023-12-12T11:22:10+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/mux/</loc>
     <lastmod>2023-12-10T17:22:10+02:00</lastmod>
