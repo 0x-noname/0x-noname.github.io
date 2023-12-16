@@ -6,7 +6,16 @@
     <description>Recent content in HackMyVM - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 08 Dec 2023 15:57:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Dec 2023 15:57:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Whitedoor</title>
+      <link>https://0x-noname.github.io/writeups/hmv/whitedoor/</link>
+      <pubDate>Sat, 16 Dec 2023 15:57:08 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/whitedoor/</guid>
+      <description>Command Injection Brute Force - hash Bcrypt Abuse Vim Sudo - Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.12 PORT STATE SERVICE 21/tcp open ftp 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 21,22,80 192.168.1.12 PORT STATE SERVICE VERSION 21/tcp open ftp vsftpd 3.0.3 | ftp-anon: Anonymous FTP login allowed (FTP code 230) |_-rw-r--r-- 1 0 0 13 Nov 16 22:40 README.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Slowman</title>
       <link>https://0x-noname.github.io/writeups/hmv/slowman/</link>
