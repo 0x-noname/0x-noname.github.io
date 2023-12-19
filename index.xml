@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 16 Dec 2023 15:57:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Dec 2023 11:11:10 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Infected</title>
+      <link>https://0x-noname.github.io/writeups/nyx/infected/</link>
+      <pubDate>Tue, 19 Dec 2023 11:11:10 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/infected/</guid>
+      <description>Apache Module Backdoor - Exploit Abusing Service Binary - Sudo User Pivoting Abusing Joe Binary - Sudo Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.56 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http Escaneo de servicios ❯ nmap -sVC -v -p 22,80 192.168.1.56 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.2p1 Debian 2+deb12u1 (protocol 2.0) | ssh-hostkey: | 256 a9:a8:52:f3:cd:ec:0d:5b:5f:f3:af:5b:3c:db:76:b6 (ECDSA) |_ 256 73:f5:8e:44:0c:b9:0a:e0:e7:31:0c:04:ac:7e:ff:fd (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Whitedoor</title>
       <link>https://0x-noname.github.io/writeups/hmv/whitedoor/</link>
