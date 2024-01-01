@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 28 Dec 2023 16:24:45 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 2024 16:24:45 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Listen</title>
+      <link>https://0x-noname.github.io/writeups/nyx/listen/</link>
+      <pubDate>Mon, 01 Jan 2024 16:24:45 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/listen/</guid>
+      <description>Brute Force Key Rsa - (RSAcrack) Username Enumeration Exploit (OpenSSH 2.3 &amp;lt; 7.7) Cron Path Hijacking - Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.115 PORT STATE SERVICE 22/tcp open ssh 8000/tcp open http-alt Escaneo de servicios ❯ nmap -sVC -v -p 22,8000 192.168.1.115 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.7 (protocol 2.0) | ssh-hostkey: | 2048 0c:3f:13:54:6e:6e:e6:56:d2:91:eb:ad:95:36:c6:8d (RSA) | 256 9b:e6:8e:14:39:7a:17:a3:80:88:cd:77:2e:c3:3b:1a (ECDSA) |_ 256 85:5a:05:2a:4b:c0:b2:36:ea:8a:e2:8a:b2:ef:bc:df (ED25519) 8000/tcp open http SimpleHTTPServer 0.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Look</title>
       <link>https://0x-noname.github.io/writeups/nyx/look/</link>
