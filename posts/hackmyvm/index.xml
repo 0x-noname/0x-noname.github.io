@@ -6,7 +6,16 @@
     <description>Recent content in HackMyVM - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sat, 16 Dec 2023 15:57:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jan 2024 00:01:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Vivifytech</title>
+      <link>https://0x-noname.github.io/writeups/hmv/vivifytech/</link>
+      <pubDate>Fri, 05 Jan 2024 00:01:08 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/vivifytech/</guid>
+      <description>Brute Force SSH - (Hydra) Information Leakage - (User Pivoting) Abuse Git Binar - (Sudo Privesc) Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.12 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 3306/tcp open mysql 33060/tcp open mysqlx Escaneo de servicios ❯ nmap -sVC -v -p 22,80,3306,33060 192.168.1.12 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.2p1 Debian 2+deb12u1 (protocol 2.0) | ssh-hostkey: | 256 32:f3:f6:36:95:12:c8:18:f3:ad:b8:0f:04:4d:73:2f (ECDSA) |_ 256 1d:ec:9c:6e:3c:cf:83:f6:f0:45:22:58:13:2f:d3:9e (ED25519) 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Whitedoor</title>
       <link>https://0x-noname.github.io/writeups/hmv/whitedoor/</link>
