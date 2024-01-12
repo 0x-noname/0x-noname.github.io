@@ -2,25 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://0x-noname.github.io/</loc>
+    <lastmod>2024-01-12T00:02:22+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/posts/</loc>
+    <lastmod>2024-01-12T00:02:22+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/posts/vulnyx/</loc>
+    <lastmod>2024-01-12T00:02:22+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/writeups/nyx/remote/</loc>
+    <lastmod>2024-01-12T00:02:22+02:00</lastmod>
+  </url><url>
     <loc>https://0x-noname.github.io/posts/hackmyvm/</loc>
     <lastmod>2024-01-10T11:01:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/hmv/nebula/</loc>
     <lastmod>2024-01-10T11:01:08+02:00</lastmod>
   </url><url>
-    <loc>https://0x-noname.github.io/</loc>
-    <lastmod>2024-01-10T11:01:08+02:00</lastmod>
-  </url><url>
-    <loc>https://0x-noname.github.io/posts/</loc>
-    <lastmod>2024-01-10T11:01:08+02:00</lastmod>
-  </url><url>
     <loc>https://0x-noname.github.io/writeups/hmv/vivifytech/</loc>
     <lastmod>2024-01-05T00:01:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/load/</loc>
-    <lastmod>2024-01-03T00:02:22+02:00</lastmod>
-  </url><url>
-    <loc>https://0x-noname.github.io/posts/vulnyx/</loc>
     <lastmod>2024-01-03T00:02:22+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/listen/</loc>
