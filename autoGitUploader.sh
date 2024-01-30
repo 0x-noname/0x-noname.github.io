@@ -17,7 +17,7 @@ echo -e "\n${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git s
 git status
 
 echo -e "\n${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git add --all :!.autoGitUploader.sh${end}\n"
-git add --all :!.autoGitUploader.sh
+git add --all -- :!.autoGitUploader.sh
 
 echo -e "\n${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git commit${end} ${ga}con el comentario${end} ${tur}$name-$nweb${end}\n"
 git commit -m "add-$name-$nweb"
