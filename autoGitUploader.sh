@@ -13,11 +13,11 @@ echo -e "\n${ga}AutoUpload${end}\n"
 read -p "[!] Nombre máquina: " name
 read -p "[!] Nombe Web: " nweb
 #echo -e "\n${ga}[${end}${gr}+${end}${ga}]${end} ${ga}Has introducido${end} ${tur}$name-$nweb${end}"
-echo -e "\n${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git status${end}"
+echo -e "\n${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git status${end}\n"
 git status
-echo -e "${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git add .${end}"
+echo -e "\n${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git add .${end}\n"
 git add .
-echo -e "${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git commit${end} ${ga}con el comentario${end} ${tur}$name-$nweb${end} "
+echo -e "\n${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git commit${end} ${ga}con el comentario${end} ${tur}$name-$nweb${end}\n"
 git commit -m "add-$name-$nweb"
-echo -e "${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git push${end}"
+echo -e "\n${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git push${end}\n"
 git push -u origin main
