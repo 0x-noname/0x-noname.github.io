@@ -12,7 +12,6 @@ clear
 echo -e "\n${ga}AutoUpload${end}\n"
 read -p "[!] Nombre máquina: " name
 read -p "[!] Nombe Web: " nweb
-cd ~/hugo/webNueva/public/
 
 echo -e "\n${ga}[${end}${gr}+${end}${ga}]${end} ${pur}Lanzando${end} ${yel}git status${end}\n"
 git status
