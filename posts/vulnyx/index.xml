@@ -6,11 +6,11 @@
     <description>Recent content in VulNyx - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 30 Jan 2024 10:02:22 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Jan 2024 10:02:22 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VulNyx - Shared</title>
       <link>https://0x-noname.github.io/writeups/nyx/shared/</link>
-      <pubDate>Tue, 30 Jan 2024 10:02:22 +0200</pubDate>
+      <pubDate>Wed, 31 Jan 2024 10:02:22 +0200</pubDate>
       
       <guid>https://0x-noname.github.io/writeups/nyx/shared/</guid>
       <description>WordPress Plugin Site Editor 1.1.1 - LFI Log Poisoning access.log - RCE Brute Force KeePass - CVE-2023-32784 - KeePwn NFS no_root_squash - Privesc Escaneo de puertos ❯ nmap -p- -T5 -n -v 192.168.1.145 PORT STATE SERVICE 22/tcp open ssh 80/tcp open http 111/tcp open rpcbind 2049/tcp open nfs 34019/tcp open unknown 41479/tcp open unknown 41865/tcp open unknown 48099/tcp open unknown 48919/tcp open unknown Escaneo de servicios ❯ nmap -sVC -p 22,80,111,2049,34019,41479,41865,48099,48919 -v 192.</description>
