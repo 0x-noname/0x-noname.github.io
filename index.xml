@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 31 Jan 2024 10:02:22 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Feb 2024 10:02:22 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Eternal</title>
+      <link>https://0x-noname.github.io/writeups/nyx/eternal/</link>
+      <pubDate>Sun, 04 Feb 2024 10:02:22 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/eternal/</guid>
+      <description>EternalBlue - MS17-010 Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.21 PORT STATE SERVICE REASON 135/tcp open msrpc syn-ack ttl 128 139/tcp open netbios-ssn syn-ack ttl 128 445/tcp open microsoft-ds syn-ack ttl 128 5357/tcp open wsdapi syn-ack ttl 128 49152/tcp open unknown syn-ack ttl 128 49153/tcp open unknown syn-ack ttl 128 49154/tcp open unknown syn-ack ttl 128 49155/tcp open unknown syn-ack ttl 128 49156/tcp open unknown syn-ack ttl 128 49157/tcp open unknown syn-ack ttl 128 Escaneo de servicios ❯ nmap -sVC -p 135,139,445,5357,49152,49153,49154,49155,49156,49157 -v 192.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Shared</title>
       <link>https://0x-noname.github.io/writeups/nyx/shared/</link>
