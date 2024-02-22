@@ -6,7 +6,16 @@
     <description>Recent content in VulNyx - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 16 Feb 2024 13:07:29 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Feb 2024 12:11:29 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Friends</title>
+      <link>https://0x-noname.github.io/writeups/nyx/friends/</link>
+      <pubDate>Thu, 22 Feb 2024 12:11:29 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/friends/</guid>
+      <description>Reverse Image Search - (Lens) Brute Force MySQL - (Hydra) MySQL Functions - (LOAD_FILE and INTO OUTFILE) Abusing Batcat Binary - (Sudo) Abusing Su Binary - (Sudo/Privesc) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.112 PORT STATE SERVICE REASON 22/tcp open ssh syn-ack ttl 64 80/tcp open http syn-ack ttl 64 3306/tcp open mysql syn-ack ttl 64 Escaneo de servicios ❯ nmap -sVC -p 22,80,3306 -v 192.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Dump</title>
       <link>https://0x-noname.github.io/writeups/nyx/dump/</link>
