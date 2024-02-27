@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 22 Feb 2024 12:11:29 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Feb 2024 18:18:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Animetronic</title>
+      <link>https://0x-noname.github.io/writeups/hmv/animetronic/</link>
+      <pubDate>Tue, 27 Feb 2024 18:18:08 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/animetronic/</guid>
+      <description>Brute Force SSH - (Hydra) Leaked Passwords - (User Pivoting) Abuse Socat Binary - (Privesc) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.15 PORT STATE SERVICE REASON 22/tcp open ssh syn-ack ttl 64 80/tcp open http syn-ack ttl 64 Escaneo de servicios ❯ nmap -sV -sC -p 22,80 -v 192.168.1.15 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.4 (Ubuntu Linux; protocol 2.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Friends</title>
       <link>https://0x-noname.github.io/writeups/nyx/friends/</link>
