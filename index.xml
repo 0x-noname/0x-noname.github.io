@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 27 Feb 2024 18:18:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Mar 2024 11:11:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Azer</title>
+      <link>https://0x-noname.github.io/writeups/hmv/azer/</link>
+      <pubDate>Tue, 05 Mar 2024 11:11:08 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/azer/</guid>
+      <description>Blind Command Injection - (BurpSuite) Leaked Passwords - (Privesc) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.38 PORT STATE SERVICE REASON 80/tcp open http syn-ack ttl 64 3000/tcp open ppp syn-ack ttl 64 Escaneo de servicios ❯ nmap -sV -sC -p 80,3000 -v 192.168.1.38 PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.4.57 ((Debian)) |_http-server-header: Apache/2.4.57 (Debian) |_http-title: L&amp;amp;#214;SEV | L&amp;amp;#246;semili &amp;amp;#199;ocuklar Vakf\xC4\xB1 | http-methods: |_ Supported Methods: POST OPTIONS HEAD GET |_http-favicon: Unknown favicon MD5: 669C744212A3D236CB8FEBE231CB5451 3000/tcp open http Node.</description>
+    </item>
+    
     <item>
       <title>HackMyVM - Animetronic</title>
       <link>https://0x-noname.github.io/writeups/hmv/animetronic/</link>

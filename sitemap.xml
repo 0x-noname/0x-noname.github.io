@@ -2,16 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://0x-noname.github.io/writeups/hmv/animetronic/</loc>
-    <lastmod>2024-02-27T18:18:08+02:00</lastmod>
+    <loc>https://0x-noname.github.io/writeups/hmv/azer/</loc>
+    <lastmod>2024-03-05T11:11:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/hackmyvm/</loc>
-    <lastmod>2024-02-27T18:18:08+02:00</lastmod>
+    <lastmod>2024-03-05T11:11:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/</loc>
-    <lastmod>2024-02-27T18:18:08+02:00</lastmod>
+    <lastmod>2024-03-05T11:11:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/</loc>
+    <lastmod>2024-03-05T11:11:08+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/writeups/hmv/animetronic/</loc>
     <lastmod>2024-02-27T18:18:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/friends/</loc>
