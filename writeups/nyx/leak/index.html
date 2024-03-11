@@ -212,7 +212,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span style="display:flex;"><span>|_http-title: Panel de control [Jenkins]
 </span></span></code></pre></div><h3 id="http-tcp---80">HTTP TCP - 80</h3>
 <p><img src="/../machines/nyx/leak/80.webp" alt="80"></p>
-<p>Fuerza bruta de directorios.</p>
+<p>Fuerza bruta de extensiones.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ wfuzz -c --hc=404,403 -t 200 -w /usr/share/seclists/Discovery/Web-Content/big.txt -z list,php-txt &#39;http://192.168.1.131/FUZZ.FUZ2Z&#39;
 </span></span><span style="display:flex;"><span>********************************************************
 </span></span><span style="display:flex;"><span>* Wfuzz 3.1.0 - The Web Fuzzer                         *
