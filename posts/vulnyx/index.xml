@@ -6,7 +6,16 @@
     <description>Recent content in VulNyx - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 22 Feb 2024 12:11:29 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Mar 2024 19:06:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Leak</title>
+      <link>https://0x-noname.github.io/writeups/nyx/leak/</link>
+      <pubDate>Mon, 11 Mar 2024 19:06:11 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/leak/</guid>
+      <description>Jenkins Arbitrary File Read - (CVE-2024-23897) Abusing wkhtmltopdf Binary - (Sudo/Privesc) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.131 PORT STATE SERVICE REASON 80/tcp open http syn-ack ttl 64 8080/tcp open http-proxy syn-ack ttl 64 MAC Address: 08:00:27:C0:2B:BF (Oracle VirtualBox virtual NIC) Escaneo de servicios ❯ nmap -sV -sC -p 80,8080 -v 192.168.1.131 PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.4.56 ((Debian)) | http-methods: |_ Supported Methods: HEAD GET POST OPTIONS |_http-title: Apache2 Debian Default Page: It works |_http-server-header: Apache/2.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Friends</title>
       <link>https://0x-noname.github.io/writeups/nyx/friends/</link>
