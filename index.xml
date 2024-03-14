@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 11 Mar 2024 19:06:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Mar 2024 11:40:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Plex</title>
+      <link>https://0x-noname.github.io/writeups/nyx/plex/</link>
+      <pubDate>Thu, 14 Mar 2024 11:40:11 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/plex/</guid>
+      <description>SSL/SSH Multiplexer - (CURL/SSH) Token JWT - (JWT.io) Abusing Mutt Binary - (Sudo/Privesc) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.24 PORT STATE SERVICE REASON 21/tcp open ftp syn-ack ttl 64 Escaneo de servicios ❯ nmap -sV -sC -p 21 -v 192.168.1.24 PORT STATE SERVICE VERSION 21/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u4 (protocol 2.0) |_ftp-bounce: ERROR: Script execution failed (use -d to debug) | ssh-hostkey: | 2048 56:9b:dd:56:a5:c1:e3:52:a8:42:46:18:5e:0c:12:86 (RSA) | 256 1b:d2:cc:59:21:50:1b:39:19:77:1d:28:c0:be:c6:82 (ECDSA) |_ 256 9c:e7:41:b6:ad:03:ed:f5:a1:4c:cc:0a:50:79:1c:20 (ED25519) Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel Si intento conectarme por FTP me muestra el banner de OpenSSH.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Leak</title>
       <link>https://0x-noname.github.io/writeups/nyx/leak/</link>
