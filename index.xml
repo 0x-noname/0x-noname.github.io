@@ -13,7 +13,7 @@
       <pubDate>Tue, 19 Mar 2024 11:40:11 +0200</pubDate>
       
       <guid>https://0x-noname.github.io/writeups/nyx/lost/</guid>
-      <description>SQL Injection Based Blind - (SQL-Map) Internal Port Fordwarding - (Chisel) Command Injection - (Filter Bypass) Lxd/lxc Group - (Privilege escalation) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.116 PORT STATE SERVICE REASON 22/tcp open ssh syn-ack ttl 64 80/tcp open http syn-ack ttl 64 Escaneo de servicios ❯ nmap -sV -sC -p 22,80 -v 192.168.1.116 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.</description>
+      <description>SQL Injection Based Blind - (SQL-Map) Internal Port Forwarding - (Chisel) Command Injection - (Filter Bypass) Lxd/lxc Group - (Privilege escalation) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.116 PORT STATE SERVICE REASON 22/tcp open ssh syn-ack ttl 64 80/tcp open http syn-ack ttl 64 Escaneo de servicios ❯ nmap -sV -sC -p 22,80 -v 192.168.1.116 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.</description>
     </item>
     
     <item>
