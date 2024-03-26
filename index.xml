@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 19 Mar 2024 11:40:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Mar 2024 10:11:08 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Liceo</title>
+      <link>https://0x-noname.github.io/writeups/hmv/liceo/</link>
+      <pubDate>Tue, 26 Mar 2024 10:11:08 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/liceo/</guid>
+      <description>File Upload - (Bypass Extension Check) Abusing Bash Binary - (SUID) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.12 PORT STATE SERVICE REASON 21/tcp open ftp syn-ack ttl 64 22/tcp open ssh syn-ack ttl 64 80/tcp open http syn-ack ttl 64 Escaneo de servicios ❯ nmap -sV -sC -p 21,22,80 -v 192.168.1.12 PORT STATE SERVICE VERSION 21/tcp open ftp vsftpd 3.0.5 | ftp-syst: | STAT: | FTP server status: | Connected to ::ffff:192.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Lost</title>
       <link>https://0x-noname.github.io/writeups/nyx/lost/</link>
