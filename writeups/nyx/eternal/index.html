@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">VulNyx - Eternal | noname</title>
+<meta property="og:title" content="VulNyx - Eternal | noname" />
+<meta name="twitter:title" content="VulNyx - Eternal | noname" />
+<meta itemprop="name" content="VulNyx - Eternal | noname" />
+<meta name="application-name" content="VulNyx - Eternal | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Writeup Eternal 🟢">
+<meta itemprop="description" content="Writeup Eternal 🟢" />
+<meta property="og:description" content="Writeup Eternal 🟢" />
+<meta name="twitter:description" content="Writeup Eternal 🟢" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta property="og:image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/images/logo.png" />
+
+
+
+
+    
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-02-04T10:02:22&#43;0200 />
+    <meta property="article:published_time" content=2024-02-04T10:02:22&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "VulNyx - Eternal",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-02-04",
+        "description": "Writeup Eternal 🟢",
+        "wordCount":  459 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-02-04",
+        "image": {
+        "@type": "imageObject",
+        "url": "\/images\/logo.png"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.111.3">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/eternal/">
+    <link href="/style.min.0dafdc75467b093a9691e40fa17265d2fe1f3baba37da4faf9af6a1b0b035248.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "" class="notransition">
+<script src="/js/themeLoader.min.3c3396ae9effcbd02e7064baa7b435ffe6560bcd7fec0b428a470d3a128f2220.js"></script>
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">VulNyx - Eternal</h1>
+                
+                <div class="post-meta">
+                    <time datetime="2024-02-04T10:02:22&#43;02:00" itemprop="datePublished"> Feb 4, 2024 </time>
+                </div>
+            </header><div class="page-content">
+                <p><img src="/../machines/nyx/eternal/eternal_logo.webp" alt="logo"></p>
+<ul>
+<li><em>EternalBlue - MS17-010</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.21
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT      STATE SERVICE      REASON
+</span></span><span style="display:flex;"><span>135/tcp   open  msrpc        syn-ack ttl 128
+</span></span><span style="display:flex;"><span>139/tcp   open  netbios-ssn  syn-ack ttl 128
+</span></span><span style="display:flex;"><span>445/tcp   open  microsoft-ds syn-ack ttl 128
+</span></span><span style="display:flex;"><span>5357/tcp  open  wsdapi       syn-ack ttl 128
+</span></span><span style="display:flex;"><span>49152/tcp open  unknown      syn-ack ttl 128
+</span></span><span style="display:flex;"><span>49153/tcp open  unknown      syn-ack ttl 128
+</span></span><span style="display:flex;"><span>49154/tcp open  unknown      syn-ack ttl 128
+</span></span><span style="display:flex;"><span>49155/tcp open  unknown      syn-ack ttl 128
+</span></span><span style="display:flex;"><span>49156/tcp open  unknown      syn-ack ttl 128
+</span></span><span style="display:flex;"><span>49157/tcp open  unknown      syn-ack ttl 128
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -sVC -p 135,139,445,5357,49152,49153,49154,49155,49156,49157 -v 192.168.1.21
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT      STATE SERVICE      VERSION
+</span></span><span style="display:flex;"><span>135/tcp   open  msrpc        Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+</span></span><span style="display:flex;"><span>445/tcp   open  microsoft-ds Windows 7 Enterprise 7601 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)
+</span></span><span style="display:flex;"><span>5357/tcp  open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+</span></span><span style="display:flex;"><span>|_http-title: Service Unavailable
+</span></span><span style="display:flex;"><span>|_http-server-header: Microsoft-HTTPAPI/2.0
+</span></span><span style="display:flex;"><span>49152/tcp open  msrpc        Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>49153/tcp open  msrpc        Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>49154/tcp open  msrpc        Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>49155/tcp open  msrpc        Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>49156/tcp open  msrpc        Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>49157/tcp open  msrpc        Microsoft Windows RPC
+</span></span><span style="display:flex;"><span>Service Info: Host: MIKE-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Host script results:
+</span></span><span style="display:flex;"><span>|_clock-skew: mean: -20m01s, deviation: 34m38s, median: -1s
+</span></span><span style="display:flex;"><span>| smb-security-mode: 
+</span></span><span style="display:flex;"><span>|   account_used: guest
+</span></span><span style="display:flex;"><span>|   authentication_level: user
+</span></span><span style="display:flex;"><span>|   challenge_response: supported
+</span></span><span style="display:flex;"><span>|_  message_signing: disabled (dangerous, but default)
+</span></span><span style="display:flex;"><span>| smb2-time: 
+</span></span><span style="display:flex;"><span>|   date: 2024-02-04T11:07:04
+</span></span><span style="display:flex;"><span>|_  start_date: 2024-02-04T10:46:34
+</span></span><span style="display:flex;"><span>| smb-os-discovery: 
+</span></span><span style="display:flex;"><span>|   OS: Windows 7 Enterprise 7601 Service Pack 1 (Windows 7 Enterprise 6.1)
+</span></span><span style="display:flex;"><span>|   OS CPE: cpe:/o:microsoft:windows_7::sp1
+</span></span><span style="display:flex;"><span>|   Computer name: MIKE-PC
+</span></span><span style="display:flex;"><span>|   NetBIOS computer name: MIKE-PC\x00
+</span></span><span style="display:flex;"><span>|   Workgroup: WORKGROUP\x00
+</span></span><span style="display:flex;"><span>|_  System time: 2024-02-04T12:07:04+01:00
+</span></span><span style="display:flex;"><span>| nbstat: NetBIOS name: MIKE-PC, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 08:00:27:ad:ce:65 (Oracle VirtualBox virtual NIC)
+</span></span><span style="display:flex;"><span>| Names:
+</span></span><span style="display:flex;"><span>|   MIKE-PC&lt;20&gt;          Flags: &lt;unique&gt;&lt;active&gt;
+</span></span><span style="display:flex;"><span>|   MIKE-PC&lt;00&gt;          Flags: &lt;unique&gt;&lt;active&gt;
+</span></span><span style="display:flex;"><span>|   WORKGROUP&lt;00&gt;        Flags: &lt;group&gt;&lt;active&gt;
+</span></span><span style="display:flex;"><span>|   WORKGROUP&lt;1e&gt;        Flags: &lt;group&gt;&lt;active&gt;
+</span></span><span style="display:flex;"><span>|   WORKGROUP&lt;1d&gt;        Flags: &lt;unique&gt;&lt;active&gt;
+</span></span><span style="display:flex;"><span>|_  \x01\x02__MSBROWSE__\x02&lt;01&gt;  Flags: &lt;group&gt;&lt;active&gt;
+</span></span><span style="display:flex;"><span>| smb2-security-mode: 
+</span></span><span style="display:flex;"><span>|   2:1:0: 
+</span></span><span style="display:flex;"><span>|_    Message signing enabled but not required
+</span></span></code></pre></div><h3 id="escaneo-de-vulnerabilidades">Escaneo de vulnerabilidades</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap --script &#34;vuln&#34; 192.168.1.21
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT      STATE SERVICE
+</span></span><span style="display:flex;"><span>135/tcp   open  msrpc
+</span></span><span style="display:flex;"><span>139/tcp   open  netbios-ssn
+</span></span><span style="display:flex;"><span>445/tcp   open  microsoft-ds
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Host script results:
+</span></span><span style="display:flex;"><span>|_samba-vuln-cve-2012-1182: NT_STATUS_ACCESS_DENIED
+</span></span><span style="display:flex;"><span>|_smb-vuln-ms10-061: NT_STATUS_ACCESS_DENIED
+</span></span><span style="display:flex;"><span>| smb-vuln-ms17-010: 
+</span></span><span style="display:flex;"><span>|   VULNERABLE:
+</span></span><span style="display:flex;"><span>|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+</span></span><span style="display:flex;"><span>|     State: VULNERABLE
+</span></span><span style="display:flex;"><span>|     IDs:  CVE:CVE-2017-0143
+</span></span><span style="display:flex;"><span>|     Risk factor: HIGH
+</span></span><span style="display:flex;"><span>|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+</span></span><span style="display:flex;"><span>|        servers (ms17-010).
+</span></span><span style="display:flex;"><span>|           
+</span></span><span style="display:flex;"><span>|     Disclosure date: 2017-03-14
+</span></span><span style="display:flex;"><span>|     References:
+</span></span><span style="display:flex;"><span>|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+</span></span><span style="display:flex;"><span>|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+</span></span><span style="display:flex;"><span>|_      https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+</span></span><span style="display:flex;"><span>|_smb-vuln-ms10-054: false
+</span></span></code></pre></div><p>En esta ocasión me descargo <a href="https://github.com/d4t4s3c/Win7Blue">Win7Blue</a> del sr <strong>d4t4s3c</strong>.</p>
+<p><img src="/../machines/nyx/eternal/win7BlueTool.webp" alt="win7BlueTool"></p>
+<p>Con la opción <code>[2] Scanner Arch</code> te muestra la arquitectura del sistema.</p>
+<p><img src="/../machines/nyx/eternal/win7blueArch.webp" alt="win7blueArch"></p>
+<p>Al ser de <strong>64 bits</strong> uso la opción <strong>4</strong>.</p>
+<p><img src="/../machines/nyx/eternal/win7blueExploit.webp" alt="win7blueExploit"></p>
+<p>Ahora dejo un <strong>netcat</strong> a la escucha por el puerto <strong>443</strong> y pulso enter para continuar.</p>
+<p><img src="/../machines/nyx/eternal/win7blueExploitLaunch.webp" alt="win7blueExploitLaunch"></p>
+<p>Recibo la shell.</p>
+<p><img src="/../machines/nyx/eternal/revshell.webp" alt="revshell"></p>
+<p>Con el comando <strong>whoami</strong> veo que soy <strong>authority\system</strong>.</p>
+<p><img src="/../machines/nyx/eternal/revshellSystem.webp" alt="revshellSystem"></p>
+<p>Al tener máximos privilegios sólo tengo que ir al escritorio del usuario <strong>MIKE</strong> para leer las flags.</p>
+<p><img src="/../machines/nyx/eternal/root.webp" alt="root"></p>
+<p>Y aquí termina la máquina Eternal.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article>
+    </main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
+        theme on
+        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+    
+    
+    <script src="https://0x-noname.github.io/js/script.min.46bd451490183d25f475c182f8fe773c1c787124cec75969e37c871d76aa151f.js" integrity="sha256-Rr1FFJAYPSX0dcGC&#43;P53PBx4cSTOx1lp43yHHXaqFR8="></script>
+
+
+    </body>
+</html>

