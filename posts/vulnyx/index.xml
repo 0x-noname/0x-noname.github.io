@@ -6,7 +6,16 @@
     <description>Recent content in VulNyx - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 28 Mar 2024 11:40:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Apr 2024 11:40:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Diff3r3ntS3c</title>
+      <link>https://0x-noname.github.io/writeups/nyx/dsec/</link>
+      <pubDate>Wed, 03 Apr 2024 11:40:11 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/dsec/</guid>
+      <description>File Upload - (Bypass Extension Check) Abusing Cron Job - (Privesc/script.sh) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.14 PORT STATE SERVICE REASON 80/tcp open http syn-ack ttl 64 Escaneo de servicios ❯ nmap -sV -sC -p 80 -v 192.168.1.14 PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.4.57 ((Debian)) | http-methods: |_ Supported Methods: GET POST OPTIONS HEAD |_http-server-header: Apache/2.4.57 (Debian) |_http-title: Diff3r3ntS3c HTTP TCP - 80 En Get In Touch veo una herramienta para subir archivos.</description>
+    </item>
+    
     <item>
       <title>VulNyx - HackingStation</title>
       <link>https://0x-noname.github.io/writeups/nyx/hs/</link>
