@@ -31,7 +31,7 @@
       <pubDate>Thu, 28 Mar 2024 11:40:11 +0200</pubDate>
       
       <guid>https://0x-noname.github.io/writeups/nyx/hs/</guid>
-      <description>OS Command Injection Abusing Nmap Binary - (Sudo/Privesc) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.56 PORT STATE SERVICE REASON 80/tcp open http syn-ack ttl 64 Escaneo de servicios ❯ nmap -sV -sC -p 80 -v 192.168.1.56 PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.4.57 ((Debian)) |_http-title: HackingStation | http-methods: |_ Supported Methods: HEAD GET POST OPTION |_http-server-header: Apache/2.4.57 (Debian) HTTP TCP - 80 Al visitar la web veo una herramienta para buscar exploits, para probar la herramienta busco un exploit de apache.</description>
+      <description>OS Command Injection Abusing Nmap Binary - (Sudo/Privesc) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.56 PORT STATE SERVICE REASON 80/tcp open http syn-ack ttl 64 Escaneo de servicios ❯ nmap -sV -sC -p 80 -v 192.168.1.56 PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.4.57 ((Debian)) |_http-title: HackingStation | http-methods: |_ Supported Methods: HEAD GET POST OPTIONS |_http-server-header: Apache/2.4.57 (Debian) HTTP TCP - 80 Al visitar la web veo una herramienta para buscar exploits, para probar la herramienta busco un exploit de apache.</description>
     </item>
     
     <item>
