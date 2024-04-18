@@ -6,7 +6,16 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 09 Apr 2024 13:10:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Apr 2024 11:40:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Exec</title>
+      <link>https://0x-noname.github.io/writeups/nyx/exec/</link>
+      <pubDate>Wed, 17 Apr 2024 11:40:11 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/exec/</guid>
+      <description>User Enumeration SMB - (RpcClient) Brute Force SMB - (NetExec) Abusing Bash Binary - (Sudo/Pivoting) Abusing Apt Binary - (Sudo/Privesc) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 192.168.1.74 PORT STATE SERVICE REASON 22/tcp open ssh syn-ack ttl 64 80/tcp open http syn-ack ttl 64 139/tcp open netbios-ssn syn-ack ttl 64 445/tcp open microsoft-ds syn-ack ttl 64 Escaneo de servicios ❯ nmap -sV -sC -p 22,80,139,445 -v 192.</description>
+    </item>
+    
     <item>
       <title>VulNyx - Sun</title>
       <link>https://0x-noname.github.io/writeups/nyx/sun/</link>
