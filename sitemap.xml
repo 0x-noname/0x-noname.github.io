@@ -2,11 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://0x-noname.github.io/posts/hackmyvm/</loc>
+    <lastmod>2024-05-21T10:20:23+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/writeups/hmv/slackware/</loc>
+    <lastmod>2024-05-21T10:20:23+02:00</lastmod>
+  </url><url>
     <loc>https://0x-noname.github.io/</loc>
-    <lastmod>2024-04-17T11:40:11+02:00</lastmod>
+    <lastmod>2024-05-21T10:20:23+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/</loc>
-    <lastmod>2024-04-17T11:40:11+02:00</lastmod>
+    <lastmod>2024-05-21T10:20:23+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/exec/</loc>
     <lastmod>2024-04-17T11:40:11+02:00</lastmod>
@@ -24,9 +30,6 @@
     <lastmod>2024-03-28T11:40:11+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/hmv/liceo/</loc>
-    <lastmod>2024-03-26T10:11:08+02:00</lastmod>
-  </url><url>
-    <loc>https://0x-noname.github.io/posts/hackmyvm/</loc>
     <lastmod>2024-03-26T10:11:08+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/lost/</loc>
