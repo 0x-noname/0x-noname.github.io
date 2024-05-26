@@ -6,7 +6,18 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 21 May 2024 10:20:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 May 2024 11:40:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Robot</title>
+      <link>https://0x-noname.github.io/writeups/nyx/robot/</link>
+      <pubDate>Sun, 26 May 2024 11:40:11 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/robot/</guid>
+      
+      <description>Steganography - (Exiftool) Information Leakage Backup - (Mongodb) Brute Force SSH - (Hydra) Abusing sh Binary - (Sudo/User Pivoting) Abusing python3 Binary - (Sudo/User Pivoting) Abusing awk Binary - (Sudo/User Pivoting) Abusing zzuf Binary - (Sudo/Privesc) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 172.0.100.26 PORT STATE SERVICE REASON 22/tcp open ssh syn-ack ttl 64 80/tcp open http syn-ack ttl 64 27017/tcp open mongod syn-ack ttl 64 Escaneo de servicios ❯ nmap -sVC -p 22,80,27017 172.</description>
+      
+    </item>
+    
     <item>
       <title>HackMyVM - Slackware</title>
       <link>https://0x-noname.github.io/writeups/hmv/slackware/</link>
