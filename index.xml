@@ -6,7 +6,18 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sun, 26 May 2024 11:40:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 May 2024 11:40:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Bund</title>
+      <link>https://0x-noname.github.io/writeups/nyx/bund/</link>
+      <pubDate>Thu, 30 May 2024 11:40:11 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/bund/</guid>
+      
+      <description>Rsync enumeration - (Rsync/enumRsync.py) Modified file upload - (Rsync/app.rb) Abusing bundle Binary - (Sudo/Privesc) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 172.0.100.27 PORT STATE SERVICE REASON 22/tcp open ssh syn-ack ttl 64 80/tcp open http syn-ack ttl 64 873/tcp open rsync syn-ack ttl 64 9393/tcp open unknown syn-ack ttl 64 Escaneo de servicios ❯ nmap -sVC -p 22,80,873,9393 172.0.100.27 PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 8.</description>
+      
+    </item>
+    
     <item>
       <title>VulNyx - Robot</title>
       <link>https://0x-noname.github.io/writeups/nyx/robot/</link>
