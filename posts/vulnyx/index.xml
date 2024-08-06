@@ -6,7 +6,18 @@
     <description>Recent content in VulNyx - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 09 Jul 2024 11:40:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Aug 2024 12:22:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Call</title>
+      <link>https://0x-noname.github.io/writeups/nyx/call/</link>
+      <pubDate>Tue, 06 Aug 2024 12:22:11 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/call/</guid>
+      
+      <description>SIP Digest Leak - (sippts.py) Brute Force Hash MD5 - (John) Abusing Su Binary - (Sudo/Privesc) Escaneo de puertos ❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 172.0.100.32 -oG ports PORT STATE SERVICE REASON 22/tcp open ssh syn-ack ttl 64 80/tcp open http syn-ack ttl 64 Escaneo de servicios ❯ nmap -sVC -p 22,80 172.0.100.32 -oN servicios PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.2p1 Debian 2+deb12u3 (protocol 2.</description>
+      
+    </item>
+    
     <item>
       <title>VulNyx - Admin</title>
       <link>https://0x-noname.github.io/writeups/nyx/admin/</link>
