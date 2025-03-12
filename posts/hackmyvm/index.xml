@@ -6,7 +6,84 @@
     <description>Recent content in HackMyVM - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 12 Feb 2025 10:20:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Mar 2025 18:00:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HackMyVM - Hero 🟡</title>
+      <link>https://0x-noname.github.io/writeups/hmv/jan/</link>
+      <pubDate>Wed, 12 Mar 2025 18:00:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/hmv/jan/</guid>
+      
+      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/hero/hero_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Through Arbitrary Command Execution in n8n Command Module (RCE)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;RSA Key Leak (HTTP)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Symbolic Link - Shadow File (Privilege Escalation)&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;escaneo-de-puertos&#34;&gt;Escaneo de puertos&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 172.0.100.33
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PORT     STATE SERVICE REASON
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;80/tcp   open  http    syn-ack ttl 64
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5678/tcp open  rrac    syn-ack ttl 63
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;escaneo-de-servicios&#34;&gt;Escaneo de servicios&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ nmap -sVC -p 80,5678 172.0.100.33
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PORT     STATE SERVICE VERSION
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;80/tcp   open  http    nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Site doesn&amp;#39;t have a title (text/html).
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5678/tcp open  rrac?
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| fingerprint-strings: 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|   GetRequest: 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     HTTP/1.1 200 OK
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Accept-Ranges: bytes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Cache-Control: public, max-age=86400
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Last-Modified: Mon, 24 Feb 2025 08:02:09 GMT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     ETag: W/&amp;#34;7b7-19536fa51e4&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Content-Type: text/html; charset=UTF-8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Content-Length: 1975
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Vary: Accept-Encoding
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Date: Mon, 24 Feb 2025 08:05:22 GMT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Connection: close
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;!DOCTYPE html&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;head&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;script type=&amp;#34;module&amp;#34; crossorigin src=&amp;#34;/assets/polyfills-DfOJfMlf.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;meta charset=&amp;#34;utf-8&amp;#34; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width,initial-scale=1.0&amp;#34; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;link rel=&amp;#34;icon&amp;#34; href=&amp;#34;/favicon.ico&amp;#34; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;style&amp;gt;@media (prefers-color-scheme: dark) { body { background-color: rgb(45, 46, 46) } }&amp;lt;/style&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     window.BASE_PATH = &amp;#39;/&amp;#39;;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     window.REST_ENDPOINT = &amp;#39;rest&amp;#39;;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;/script&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;script src=&amp;#34;/rest/sentry.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;script&amp;gt;!function(t,e){var o,n,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|   HTTPOptions, RTSPRequest: 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     HTTP/1.1 404 Not Found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Content-Security-Policy: default-src &amp;#39;none&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     X-Content-Type-Options: nosniff
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Content-Type: text/html; charset=utf-8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Content-Length: 143
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Vary: Accept-Encoding
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Date: Mon, 24 Feb 2025 08:05:22 GMT
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Connection: close
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;!DOCTYPE html&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;head&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;title&amp;gt;Error&amp;lt;/title&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;/head&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;body&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;pre&amp;gt;Cannot OPTIONS /&amp;lt;/pre&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;/body&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_    &amp;lt;/html&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/hero/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>HackMyVM - Jan</title>
       <link>https://0x-noname.github.io/writeups/hmv/jan/</link>

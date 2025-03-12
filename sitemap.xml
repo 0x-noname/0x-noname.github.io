@@ -2,11 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://0x-noname.github.io/writeups/hmv/jan/</loc>
+    <lastmod>2025-03-12T18:00:23+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/posts/hackmyvm/</loc>
+    <lastmod>2025-03-12T18:00:23+02:00</lastmod>
+  </url><url>
     <loc>https://0x-noname.github.io/</loc>
-    <lastmod>2025-02-20T18:34:31+02:00</lastmod>
+    <lastmod>2025-03-12T18:00:23+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/</loc>
-    <lastmod>2025-02-20T18:34:31+02:00</lastmod>
+    <lastmod>2025-03-12T18:00:23+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/lower/</loc>
     <lastmod>2025-02-20T18:34:31+02:00</lastmod>
@@ -18,9 +24,6 @@
     <lastmod>2025-02-16T11:00:31+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/hmv/jan/</loc>
-    <lastmod>2025-02-12T10:20:23+02:00</lastmod>
-  </url><url>
-    <loc>https://0x-noname.github.io/posts/hackmyvm/</loc>
     <lastmod>2025-02-12T10:20:23+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/call/</loc>
