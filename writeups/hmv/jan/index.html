@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">HackMyVM - Hero 🟡 | noname</title>
-<meta property="og:title" content="HackMyVM - Hero 🟡 | noname" />
-<meta name="twitter:title" content="HackMyVM - Hero 🟡 | noname" />
-<meta itemprop="name" content="HackMyVM - Hero 🟡 | noname" />
-<meta name="application-name" content="HackMyVM - Hero 🟡 | noname" />
+<title itemprop="name">HackMyVM - Hero | noname</title>
+<meta property="og:title" content="HackMyVM - Hero | noname" />
+<meta name="twitter:title" content="HackMyVM - Hero | noname" />
+<meta itemprop="name" content="HackMyVM - Hero | noname" />
+<meta name="application-name" content="HackMyVM - Hero | noname" />
 <meta property="og:site_name" content="" />
 
 <meta name="description" content="Writeup Hero 🟡">
@@ -46,7 +46,7 @@
     {
         "@context": "http://schema.org",
         "@type": "Article",
-        "headline": "HackMyVM - Hero 🟡",
+        "headline": "HackMyVM - Hero",
         "author": {
         "@type": "Person",
         "name": ""
@@ -177,7 +177,7 @@ stroke-linejoin="round" class="feather feather-home">
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title">HackMyVM - Hero 🟡</h1>
+                <h1 class="header-title">HackMyVM - Hero</h1>
                 
                 
                 <div class="post-meta">
@@ -321,8 +321,8 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></code></pre></div><p>Me reconecto y puedo leer el archivo <strong><em>shadow</em></strong> y en el primer comentario puedo ver una cadena de texto.</p>
 <p><img src="/../machines/hmv/hero/readShadow.webp" alt="readShadow"></p>
 <ul>
-<li><strong><em>SSH</em></strong> está configurado para mostrar un banner, leerá <code>_banner.txt_</code> al iniciar sesión.</li>
-<li>Como <code>_banner.txt_</code> apunta a <code>_/etc/shadow_</code>, y <strong><em>SSH</em></strong> se ejecuta como <strong><em>root</em></strong>, este tiene permiso para leerlo.</li>
+<li><strong><em>SSH</em></strong> está configurado para mostrar un banner, leerá <code>banner.txt</code> al iniciar sesión.</li>
+<li>Como <code>banner.txt</code> apunta a <code>/etc/shadow</code>, y <strong><em>SSH</em></strong> se ejecuta como <strong><em>root</em></strong>, este tiene permiso para leerlo.</li>
 </ul>
 <p>Para obtener acceso como <strong><em>root</em></strong>, introduzco la cadena de texto que encontré comentada en el archivo <strong><em>shadow</em></strong>.</p>
 <pre tabindex="0"><code>hero:~$ su root
