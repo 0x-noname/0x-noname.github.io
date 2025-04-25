@@ -3,13 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://0x-noname.github.io/</loc>
-    <lastmod>2025-03-19T16:34:31+02:00</lastmod>
+    <lastmod>2025-04-25T12:54:31+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/</loc>
-    <lastmod>2025-03-19T16:34:31+02:00</lastmod>
+    <lastmod>2025-04-25T12:54:31+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/posts/vulnyx/</loc>
-    <lastmod>2025-03-19T16:34:31+02:00</lastmod>
+    <lastmod>2025-04-25T12:54:31+02:00</lastmod>
+  </url><url>
+    <loc>https://0x-noname.github.io/writeups/nyx/ywaf/</loc>
+    <lastmod>2025-04-25T12:54:31+02:00</lastmod>
   </url><url>
     <loc>https://0x-noname.github.io/writeups/nyx/psymin/</loc>
     <lastmod>2025-03-19T16:34:31+02:00</lastmod>
