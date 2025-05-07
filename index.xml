@@ -6,7 +6,50 @@
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 25 Apr 2025 12:54:31 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 May 2025 17:33:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - System</title>
+      <link>https://0x-noname.github.io/writeups/nyx/system/</link>
+      <pubDate>Wed, 07 May 2025 17:33:23 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/system/</guid>
+      
+      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/system/system_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Redis Password Brute-Force using Hydra&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;FTP Username Brute-Force using Hydra&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Arbitrary Command Execution via RedisModules-ExecuteCommand&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Chkrootkit 0.49 – Local Privilege Escalation – CVE-2014-0476&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;escaneo-de-puertos&#34;&gt;Escaneo de puertos&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 172.0.100.38
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PORT     STATE SERVICE     REASON
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2121/tcp open  ccproxy-ftp syn-ack ttl 64
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6379/tcp open  redis       syn-ack ttl 64
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;8000/tcp open  http-alt    syn-ack ttl 64
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;escaneo-de-servicios&#34;&gt;Escaneo de servicios&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ nmap -sVC -p 2121,6379,8000 172.0.100.38
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PORT     STATE SERVICE VERSION
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2121/tcp open  ftp     pyftpdlib 1.5.6
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| ftp-syst: 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|   STAT: 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| FTP server status:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|  Connected to: 172.0.100.38:2121
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|  Waiting for username.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|  TYPE: ASCII; STRUcture: File; MODE: Stream
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|  Data connection closed.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_End of status.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6379/tcp open  redis   Redis key-value store
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;8000/tcp open  http    SimpleHTTPServer 0.6 (Python 3.9.2)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: SimpleHTTP/0.6 Python/3.9.2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Site doesn&amp;#39;t have a title (text/html).
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;ftp---tcp-2121&#34;&gt;FTP - TCP 2121&lt;/h3&gt;
+&lt;p&gt;El intento de autenticación con credenciales &lt;code&gt;anonymous&lt;/code&gt; falla, lo que indica que el servicio no permite acceso anónimo y requiere credenciales válidas. No se dispone de usuarios conocidos que permitan llevar a cabo un ataque de fuerza bruta.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>VulNyx - YourWAF</title>
       <link>https://0x-noname.github.io/writeups/nyx/ywaf/</link>
