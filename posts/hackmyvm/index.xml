@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HackMyVM - Machines on noname</title>
-    <link>https://0x-noname.github.io/posts/hackmyvm/</link>
+    <link>http://localhost:1313/posts/hackmyvm/</link>
     <description>Recent content in HackMyVM - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 12 Mar 2025 18:00:23 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Mar 2025 18:00:23 +0200</lastBuildDate><atom:link href="http://localhost:1313/posts/hackmyvm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HackMyVM - Hero</title>
-      <link>https://0x-noname.github.io/writeups/hmv/jan/</link>
+      <link>http://localhost:1313/writeups/hmv/jan/</link>
       <pubDate>Wed, 12 Mar 2025 18:00:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/jan/</guid>
+      <guid>http://localhost:1313/writeups/hmv/jan/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/hero/hero_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/hero/hero_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Through Arbitrary Command Execution in n8n Command Module (RCE)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;RSA Key Leak (HTTP)&lt;/em&gt;&lt;/li&gt;
@@ -80,18 +80,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;/body&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_    &amp;lt;/html&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/hero/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/hero/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Jan</title>
-      <link>https://0x-noname.github.io/writeups/hmv/jan/</link>
+      <link>http://localhost:1313/writeups/hmv/jan/</link>
       <pubDate>Wed, 12 Feb 2025 10:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/jan/</guid>
+      <guid>http://localhost:1313/writeups/hmv/jan/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/jan/jan_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/jan/jan_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;HTTP Parameter Pollution (HPP)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse Service Sudo - (Privesc)&lt;/em&gt;&lt;/li&gt;
@@ -124,18 +124,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Content-Type: text/plain; charset=utf-8
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Connection: close
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---8080&#34;&gt;HTTP TCP - 8080&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/jan/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/jan/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Slackware</title>
-      <link>https://0x-noname.github.io/writeups/hmv/slackware/</link>
+      <link>http://localhost:1313/writeups/hmv/slackware/</link>
       <pubDate>Tue, 21 May 2024 10:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/slackware/</guid>
+      <guid>http://localhost:1313/writeups/hmv/slackware/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/slackware/slackware_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/slackware/slackware_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Reverse Image Search - (OSINT)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Extension enumeration 7z - (WFUZZ)&lt;/em&gt;&lt;/li&gt;
@@ -163,18 +163,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Potentially risky methods: TRACE
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Tribute to Slackware
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---2&#34;&gt;HTTP TCP - 2&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/slackware/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/slackware/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Liceo</title>
-      <link>https://0x-noname.github.io/writeups/hmv/liceo/</link>
+      <link>http://localhost:1313/writeups/hmv/liceo/</link>
       <pubDate>Tue, 26 Mar 2024 10:11:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/liceo/</guid>
+      <guid>http://localhost:1313/writeups/hmv/liceo/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/liceo/liceo_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/liceo/liceo_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;File Upload - (Bypass Extension Check)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Bash Binary - (SUID)&lt;/em&gt;&lt;/li&gt;
@@ -225,12 +225,12 @@
     
     <item>
       <title>HackMyVM - Azer</title>
-      <link>https://0x-noname.github.io/writeups/hmv/azer/</link>
+      <link>http://localhost:1313/writeups/hmv/azer/</link>
       <pubDate>Tue, 05 Mar 2024 11:11:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/azer/</guid>
+      <guid>http://localhost:1313/writeups/hmv/azer/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/azer/azer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/azer/azer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Blind Command Injection - (BurpSuite)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Leaked Passwords - (Privesc)&lt;/em&gt;&lt;/li&gt;
@@ -256,18 +256,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| http-methods: 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Supported Methods: GET HEAD POST OPTIONS
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/azer/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/azer/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Animetronic</title>
-      <link>https://0x-noname.github.io/writeups/hmv/animetronic/</link>
+      <link>http://localhost:1313/writeups/hmv/animetronic/</link>
       <pubDate>Tue, 27 Feb 2024 18:18:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/animetronic/</guid>
+      <guid>http://localhost:1313/writeups/hmv/animetronic/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/animetronic/animetronic_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/animetronic/animetronic_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SSH - (Hydra)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Leaked Passwords - (User Pivoting)&lt;/em&gt;&lt;/li&gt;
@@ -295,18 +295,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-favicon: Unknown favicon MD5: AF5214722D8F88F2F9066DC9171DFCA6
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/animetronic/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/animetronic/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - CoffeShop</title>
-      <link>https://0x-noname.github.io/writeups/hmv/coffeeshop/</link>
+      <link>http://localhost:1313/writeups/hmv/coffeeshop/</link>
       <pubDate>Wed, 07 Feb 2024 11:01:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/coffeeshop/</guid>
+      <guid>http://localhost:1313/writeups/hmv/coffeeshop/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/coffeeshop/coffeeshop_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/coffeeshop/coffeeshop_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Subdomain Enumeration - (WFUZZ)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Cron Jobs - (User Pivoting)&lt;/em&gt;&lt;/li&gt;
@@ -339,12 +339,12 @@
     
     <item>
       <title>HackMyVM - Nebula</title>
-      <link>https://0x-noname.github.io/writeups/hmv/nebula/</link>
+      <link>http://localhost:1313/writeups/hmv/nebula/</link>
       <pubDate>Wed, 10 Jan 2024 11:01:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/nebula/</guid>
+      <guid>http://localhost:1313/writeups/hmv/nebula/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/nebula/nebula_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/nebula/nebula_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Time-based Blind SQLi - (SqlMap)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Generic MD5 Hash - (SqlMap)&lt;/em&gt;&lt;/li&gt;
@@ -373,18 +373,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.41 (Ubuntu)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/nebula/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/nebula/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Vivifytech</title>
-      <link>https://0x-noname.github.io/writeups/hmv/vivifytech/</link>
+      <link>http://localhost:1313/writeups/hmv/vivifytech/</link>
       <pubDate>Fri, 05 Jan 2024 00:01:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/vivifytech/</guid>
+      <guid>http://localhost:1313/writeups/hmv/vivifytech/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/vivifytech/vivifytech_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/vivifytech/vivifytech_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SSH - (Hydra)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Information Leakage - (User Pivoting)&lt;/em&gt;&lt;/li&gt;
@@ -426,18 +426,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1 service unrecognized despite returning data. If you know the service/version, please 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/vivifytech/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/vivifytech/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Whitedoor</title>
-      <link>https://0x-noname.github.io/writeups/hmv/whitedoor/</link>
+      <link>http://localhost:1313/writeups/hmv/whitedoor/</link>
       <pubDate>Sat, 16 Dec 2023 15:57:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/whitedoor/</guid>
+      <guid>http://localhost:1313/writeups/hmv/whitedoor/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/whitedoor/whitedoor_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/whitedoor/whitedoor_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Command Injection&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force - hash Bcrypt&lt;/em&gt;&lt;/li&gt;
@@ -487,12 +487,12 @@
     
     <item>
       <title>HackMyVM - Slowman</title>
-      <link>https://0x-noname.github.io/writeups/hmv/slowman/</link>
+      <link>http://localhost:1313/writeups/hmv/slowman/</link>
       <pubDate>Fri, 08 Dec 2023 15:57:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/slowman/</guid>
+      <guid>http://localhost:1313/writeups/hmv/slowman/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/slowman/slowman_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/slowman/slowman_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;FTP Missconfiguration&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Information Leakage - Password&lt;/em&gt;&lt;/li&gt;
@@ -580,12 +580,12 @@
     
     <item>
       <title>HackMyVM - RoosterRun</title>
-      <link>https://0x-noname.github.io/writeups/hmv/rooster/</link>
+      <link>http://localhost:1313/writeups/hmv/rooster/</link>
       <pubDate>Sat, 02 Dec 2023 16:57:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/rooster/</guid>
+      <guid>http://localhost:1313/writeups/hmv/rooster/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/rooster/rooster_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/rooster/rooster_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;CMS Made Simple - CVE-2019-9053&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Upload File - Bypass Extension&lt;/em&gt;&lt;/li&gt;
@@ -615,18 +615,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Home - Blog
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/rooster/httpcms.webp&#34; alt=&#34;httpcms&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/rooster/httpcms.webp&#34; alt=&#34;httpcms&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Darkside</title>
-      <link>https://0x-noname.github.io/writeups/hmv/darkside/</link>
+      <link>http://localhost:1313/writeups/hmv/darkside/</link>
       <pubDate>Tue, 31 Oct 2023 20:57:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/darkside/</guid>
+      <guid>http://localhost:1313/writeups/hmv/darkside/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/darkside/darkside_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/darkside/darkside_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Login Form&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Password Leaking&lt;/em&gt;&lt;/li&gt;
@@ -664,12 +664,12 @@
     
     <item>
       <title>HackMyVM - Pipy</title>
-      <link>https://0x-noname.github.io/writeups/hmv/pipy/</link>
+      <link>http://localhost:1313/writeups/hmv/pipy/</link>
       <pubDate>Tue, 24 Oct 2023 12:14:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/pipy/</guid>
+      <guid>http://localhost:1313/writeups/hmv/pipy/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/pipy/pipy_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/pipy/pipy_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SPIP v4.2.0 - RCE (Unauthenticated)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Password Leaking&lt;/em&gt;&lt;/li&gt;
@@ -697,18 +697,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Supported Methods: GET HEAD POST OPTIONS
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/pipy/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/pipy/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Simple</title>
-      <link>https://0x-noname.github.io/writeups/hmv/simple/</link>
+      <link>http://localhost:1313/writeups/hmv/simple/</link>
       <pubDate>Mon, 16 Oct 2023 20:30:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/simple/</guid>
+      <guid>http://localhost:1313/writeups/hmv/simple/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/simple/simple_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/simple/simple_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SMB - CrackMapExec&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;SeImpersonatePrivilege - GodPotato - Privesc&lt;/em&gt;&lt;/li&gt;
@@ -770,18 +770,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|   3:1:1: 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_    Message signing enabled but not required
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/simple/http.webp&#34; alt=&#34;http.png&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/simple/http.webp&#34; alt=&#34;http.png&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Economists</title>
-      <link>https://0x-noname.github.io/writeups/hmv/economists/</link>
+      <link>http://localhost:1313/writeups/hmv/economists/</link>
       <pubDate>Sun, 15 Oct 2023 12:12:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/economists/</guid>
+      <guid>http://localhost:1313/writeups/hmv/economists/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/economists/economists_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/economists/economists_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SSH&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Systemctl Binary - Privesc&lt;/em&gt;&lt;/li&gt;
@@ -836,12 +836,12 @@
     
     <item>
       <title>HackMyVM - Logan2</title>
-      <link>https://0x-noname.github.io/writeups/hmv/logan2/</link>
+      <link>http://localhost:1313/writeups/hmv/logan2/</link>
       <pubDate>Thu, 12 Oct 2023 18:09:35 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/logan2/</guid>
+      <guid>http://localhost:1313/writeups/hmv/logan2/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/logan2/logan2_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/logan2/logan2_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SQL-Injection/Time-Based Blind&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;LFI to RCE/Log-Poisoning&lt;/em&gt;&lt;/li&gt;
@@ -915,18 +915,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;meta name=&amp;#34;author&amp;#34; content=&amp;#34;Gitea - Git with a cup of tea&amp;#34; /&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_    &amp;lt;meta name=&amp;#34;description&amp;#34; content=&amp;#34;Gitea (Git with a c
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/logan2/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/logan2/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Liar</title>
-      <link>https://0x-noname.github.io/writeups/hmv/liar/</link>
+      <link>http://localhost:1313/writeups/hmv/liar/</link>
       <pubDate>Fri, 29 Sep 2023 22:03:55 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/liar/</guid>
+      <guid>http://localhost:1313/writeups/hmv/liar/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/liar/liar_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/liar/liar_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Smb - CrackMapExec&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;RunasCs&lt;/em&gt;&lt;/li&gt;
@@ -995,12 +995,12 @@
     
     <item>
       <title>HackMyVM - Wave</title>
-      <link>https://0x-noname.github.io/writeups/hmv/wave/</link>
+      <link>http://localhost:1313/writeups/hmv/wave/</link>
       <pubDate>Fri, 08 Sep 2023 17:26:55 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/wave/</guid>
+      <guid>http://localhost:1313/writeups/hmv/wave/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/wave/wave_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/wave/wave_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Extract Phar Archive&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Crack MD5 Hash&lt;/em&gt;&lt;/li&gt;
@@ -1032,18 +1032,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: nginx/1.22.1
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/wave/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/wave/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Za1</title>
-      <link>https://0x-noname.github.io/writeups/hmv/za1/</link>
+      <link>http://localhost:1313/writeups/hmv/za1/</link>
       <pubDate>Thu, 31 Aug 2023 15:30:15 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/za1/</guid>
+      <guid>http://localhost:1313/writeups/hmv/za1/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/za1/za1_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/za1/za1_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;File Upload Typecho v.1.2.1&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse Awk Binary&lt;/em&gt;&lt;/li&gt;
@@ -1078,12 +1078,12 @@
     
     <item>
       <title>HackMyVM - Observer</title>
-      <link>https://0x-noname.github.io/writeups/hmv/observer/</link>
+      <link>http://localhost:1313/writeups/hmv/observer/</link>
       <pubDate>Tue, 22 Aug 2023 22:45:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/observer/</guid>
+      <guid>http://localhost:1313/writeups/hmv/observer/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/observer/observer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/observer/observer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Reading SSH private key (user id_rsa)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Symbolic Links&lt;/em&gt;&lt;/li&gt;
@@ -1136,12 +1136,12 @@
     
     <item>
       <title>HackMyVM - Friendly3</title>
-      <link>https://0x-noname.github.io/writeups/hmv/friendly3/</link>
+      <link>http://localhost:1313/writeups/hmv/friendly3/</link>
       <pubDate>Fri, 04 Aug 2023 12:08:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/friendly3/</guid>
+      <guid>http://localhost:1313/writeups/hmv/friendly3/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/friendly3/friendly3_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/friendly3/friendly3_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Information leakage&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;FTP Brute Force&lt;/em&gt;&lt;/li&gt;
@@ -1171,18 +1171,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: nginx/1.22.1
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp-80&#34;&gt;HTTP-TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/friendly3/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/friendly3/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Apaches</title>
-      <link>https://0x-noname.github.io/writeups/hmv/apaches/</link>
+      <link>http://localhost:1313/writeups/hmv/apaches/</link>
       <pubDate>Tue, 01 Aug 2023 13:00:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/apaches/</guid>
+      <guid>http://localhost:1313/writeups/hmv/apaches/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/apaches/apaches_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/apaches/apaches_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Path Traversal &amp;amp; Remote Code Execution&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Shadow Hashes&lt;/em&gt;&lt;/li&gt;
@@ -1216,18 +1216,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-favicon: Unknown favicon MD5: EB49C4A639D3960EE7DDD07BC9F832B7
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp-80&#34;&gt;HTTP-TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/apaches/puerto%2080.webp&#34; alt=&#34;puerto 80&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/apaches/puerto%2080.webp&#34; alt=&#34;puerto 80&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Logan</title>
-      <link>https://0x-noname.github.io/writeups/hmv/logan/</link>
+      <link>http://localhost:1313/writeups/hmv/logan/</link>
       <pubDate>Thu, 20 Jul 2023 21:26:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/logan/</guid>
+      <guid>http://localhost:1313/writeups/hmv/logan/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/logan/logan_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/logan/logan_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;LFI - Path Traversal Sequences Stripped Non-Recursively&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Log Poisoning - Method POST&lt;/em&gt;&lt;/li&gt;
@@ -1269,12 +1269,12 @@
     
     <item>
       <title>HackMyVM - Stardust</title>
-      <link>https://0x-noname.github.io/writeups/hmv/stardust/</link>
+      <link>http://localhost:1313/writeups/hmv/stardust/</link>
       <pubDate>Sat, 15 Jul 2023 15:26:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/stardust/</guid>
+      <guid>http://localhost:1313/writeups/hmv/stardust/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/stardust/stardust_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/stardust/stardust_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Bypass Content-Type and Magic Number&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Upload Shell&lt;/em&gt;&lt;/li&gt;
@@ -1309,12 +1309,12 @@
     
     <item>
       <title>HackMyVM - Oliva</title>
-      <link>https://0x-noname.github.io/writeups/hmv/oliva/</link>
+      <link>http://localhost:1313/writeups/hmv/oliva/</link>
       <pubDate>Thu, 06 Jul 2023 13:26:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/oliva/</guid>
+      <guid>http://localhost:1313/writeups/hmv/oliva/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/oliva/oliva_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/oliva/oliva_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force LUKS File&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Leaked Credentials&lt;/em&gt;&lt;/li&gt;
@@ -1346,12 +1346,12 @@
     
     <item>
       <title>HackMyVM - Factorspace</title>
-      <link>https://0x-noname.github.io/writeups/hmv/factorspace/</link>
+      <link>http://localhost:1313/writeups/hmv/factorspace/</link>
       <pubDate>Sun, 18 Jun 2023 12:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/factorspace/</guid>
+      <guid>http://localhost:1313/writeups/hmv/factorspace/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/factorspace/factorspace_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/factorspace/factorspace_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force and Captcha bypass&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;XPATH Injection&lt;/em&gt;&lt;/li&gt;
@@ -1384,12 +1384,12 @@
     
     <item>
       <title>HackMyVM - Crack</title>
-      <link>https://0x-noname.github.io/writeups/hmv/crack/</link>
+      <link>http://localhost:1313/writeups/hmv/crack/</link>
       <pubDate>Thu, 08 Jun 2023 12:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/crack/</guid>
+      <guid>http://localhost:1313/writeups/hmv/crack/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/crack/crack_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/crack/crack_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;FTP Misconfiguration&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Shell In A Box&lt;/em&gt;&lt;/li&gt;
@@ -1454,12 +1454,12 @@
     
     <item>
       <title>HackMyVM - Printer2</title>
-      <link>https://0x-noname.github.io/writeups/hmv/printer2/</link>
+      <link>http://localhost:1313/writeups/hmv/printer2/</link>
       <pubDate>Thu, 18 May 2023 12:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/printer2/</guid>
+      <guid>http://localhost:1313/writeups/hmv/printer2/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/printer2/printer2_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/printer2/printer2_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Leaked Credentials&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Local File Inclusion&lt;/em&gt;&lt;/li&gt;
@@ -1500,12 +1500,12 @@
     
     <item>
       <title>HackMyVM - Friendly2</title>
-      <link>https://0x-noname.github.io/writeups/hmv/friendly2/</link>
+      <link>http://localhost:1313/writeups/hmv/friendly2/</link>
       <pubDate>Wed, 10 May 2023 12:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/friendly2/</guid>
+      <guid>http://localhost:1313/writeups/hmv/friendly2/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/friendly2/friendly2_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/friendly2/friendly2_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Directory Path Traversal&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force id_rsa&lt;/em&gt;&lt;/li&gt;
@@ -1533,18 +1533,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.56 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/friendly2/http.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/friendly2/http.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Aurora</title>
-      <link>https://0x-noname.github.io/writeups/hmv/aurora/</link>
+      <link>http://localhost:1313/writeups/hmv/aurora/</link>
       <pubDate>Fri, 05 May 2023 11:55:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/aurora/</guid>
+      <guid>http://localhost:1313/writeups/hmv/aurora/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/aurora/aurora_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/aurora/aurora_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Json Web Tokens&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Python Script&lt;/em&gt;&lt;/li&gt;
@@ -1588,12 +1588,12 @@
     
     <item>
       <title>HackMyVM - Doll</title>
-      <link>https://0x-noname.github.io/writeups/hmv/doll/</link>
+      <link>http://localhost:1313/writeups/hmv/doll/</link>
       <pubDate>Sat, 29 Apr 2023 18:20:52 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/doll/</guid>
+      <guid>http://localhost:1313/writeups/hmv/doll/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/doll/doll_logo.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/doll/doll_logo.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Docker Registry API Exposed&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Password Leakage&lt;/em&gt;&lt;/li&gt;
@@ -1621,18 +1621,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Site doesn&amp;#39;t have a title.
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Después de enumerar directorios con wfuzz navego al directorio &lt;code&gt;v2&lt;/code&gt; para ver su contenido.
-&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/doll/v2.png&#34; alt=&#34;v2&#34;&gt;&lt;/p&gt;</description>
+&lt;img src=&#34;http://localhost:1313/../machines/hmv/doll/v2.png&#34; alt=&#34;v2&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Literal</title>
-      <link>https://0x-noname.github.io/writeups/hmv/literal/</link>
+      <link>http://localhost:1313/writeups/hmv/literal/</link>
       <pubDate>Sun, 23 Apr 2023 19:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/literal/</guid>
+      <guid>http://localhost:1313/writeups/hmv/literal/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/literal/literal_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/literal/literal_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SQL injection&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Hash Cracking&lt;/em&gt;&lt;/li&gt;
@@ -1666,12 +1666,12 @@
     
     <item>
       <title>HackMyVM - Alive</title>
-      <link>https://0x-noname.github.io/writeups/hmv/alive/</link>
+      <link>http://localhost:1313/writeups/hmv/alive/</link>
       <pubDate>Sat, 15 Apr 2023 10:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/alive/</guid>
+      <guid>http://localhost:1313/writeups/hmv/alive/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/alive/alive_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/alive/alive_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;RCE&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Password leaked&lt;/em&gt;&lt;/li&gt;
@@ -1705,12 +1705,12 @@
     
     <item>
       <title>HackMyVM - University</title>
-      <link>https://0x-noname.github.io/writeups/hmv/university/</link>
+      <link>http://localhost:1313/writeups/hmv/university/</link>
       <pubDate>Wed, 12 Apr 2023 19:21:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/university/</guid>
+      <guid>http://localhost:1313/writeups/hmv/university/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/university/university_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/university/university_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Online Admission System - RCE&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Password leaked&lt;/em&gt;&lt;/li&gt;
@@ -1748,18 +1748,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Supported Methods: GET HEAD POST
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/university/university_login.png&#34; alt=&#34;university_login&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/university/university_login.png&#34; alt=&#34;university_login&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Omura</title>
-      <link>https://0x-noname.github.io/writeups/hmv/omura/</link>
+      <link>http://localhost:1313/writeups/hmv/omura/</link>
       <pubDate>Sat, 08 Apr 2023 11:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/omura/</guid>
+      <guid>http://localhost:1313/writeups/hmv/omura/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/omura/omura_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/omura/omura_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;LFI&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;XSLT injection&lt;/em&gt;&lt;/li&gt;
@@ -1802,12 +1802,12 @@
     
     <item>
       <title>HackMyVM - Quandary1</title>
-      <link>https://0x-noname.github.io/writeups/hmv/qandary1/</link>
+      <link>http://localhost:1313/writeups/hmv/qandary1/</link>
       <pubDate>Thu, 30 Mar 2023 15:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/qandary1/</guid>
+      <guid>http://localhost:1313/writeups/hmv/qandary1/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/quandary1/quandary1_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/quandary1/quandary1_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Generate RSA Key&lt;/em&gt;&lt;/li&gt;
@@ -1868,12 +1868,12 @@
     
     <item>
       <title>HackMyVM - Friendly</title>
-      <link>https://0x-noname.github.io/writeups/hmv/friendly/</link>
+      <link>http://localhost:1313/writeups/hmv/friendly/</link>
       <pubDate>Sat, 25 Mar 2023 18:20:52 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/friendly/</guid>
+      <guid>http://localhost:1313/writeups/hmv/friendly/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/friendly/friendly_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/friendly/friendly_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;FTP anonymous&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Upload File&lt;/em&gt;&lt;/li&gt;
@@ -1904,12 +1904,12 @@
     
     <item>
       <title>HackMyVM - Comet</title>
-      <link>https://0x-noname.github.io/writeups/hmv/comet/</link>
+      <link>http://localhost:1313/writeups/hmv/comet/</link>
       <pubDate>Thu, 23 Mar 2023 19:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/comet/</guid>
+      <guid>http://localhost:1313/writeups/hmv/comet/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/comet/comet_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/comet/comet_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Bypass WAF&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force&lt;/em&gt;&lt;/li&gt;
@@ -1936,18 +1936,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: CyberArray
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/comet/web.png&#34; alt=&#34;web&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/comet/web.png&#34; alt=&#34;web&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - W140</title>
-      <link>https://0x-noname.github.io/writeups/hmv/w140/</link>
+      <link>http://localhost:1313/writeups/hmv/w140/</link>
       <pubDate>Thu, 09 Mar 2023 19:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/w140/</guid>
+      <guid>http://localhost:1313/writeups/hmv/w140/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/w140/w140_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/w140/w140_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Command Injection&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;RCE&lt;/em&gt;&lt;/li&gt;
@@ -1979,12 +1979,12 @@
     
     <item>
       <title>HackMyVM - Colors</title>
-      <link>https://0x-noname.github.io/writeups/hmv/colors/</link>
+      <link>http://localhost:1313/writeups/hmv/colors/</link>
       <pubDate>Sun, 26 Feb 2023 19:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/colors/</guid>
+      <guid>http://localhost:1313/writeups/hmv/colors/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/colors/colors-logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/colors/colors-logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;IPv6&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;sudo abuse&lt;/em&gt;&lt;/li&gt;

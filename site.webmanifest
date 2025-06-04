@@ -1,7 +1,7 @@
 {
     "name": "noname",
     "short_name": "noname",
-    "start_url": "https://0x-noname.github.io/",
+    "start_url": "http://localhost:1313/",
     "theme_color": "#434648",
     "background_color": "#ffffff",
     "display": "standalone",

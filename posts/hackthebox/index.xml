@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HackTheBox - Machines on noname</title>
-    <link>https://0x-noname.github.io/posts/hackthebox/</link>
+    <link>http://localhost:1313/posts/hackthebox/</link>
     <description>Recent content in HackTheBox - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 21 Sep 2023 12:29:15 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/hackthebox/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Sep 2023 12:29:15 +0200</lastBuildDate><atom:link href="http://localhost:1313/posts/hackthebox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HackTheBox - Wifinetic</title>
-      <link>https://0x-noname.github.io/writeups/htb/wifinetic/</link>
+      <link>http://localhost:1313/writeups/htb/wifinetic/</link>
       <pubDate>Thu, 21 Sep 2023 12:29:15 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/htb/wifinetic/</guid>
+      <guid>http://localhost:1313/writeups/htb/wifinetic/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/wifinetic/wifinetic_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/wifinetic/wifinetic_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Backup file - FTP&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Reuse Credentials - SSH&lt;/em&gt;&lt;/li&gt;
@@ -82,12 +82,12 @@
     
     <item>
       <title>HackTheBox - Inject</title>
-      <link>https://0x-noname.github.io/writeups/htb/inject/</link>
+      <link>http://localhost:1313/writeups/htb/inject/</link>
       <pubDate>Tue, 12 Sep 2023 10:30:15 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/htb/inject/</guid>
+      <guid>http://localhost:1313/writeups/htb/inject/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/inject/inject_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/inject/inject_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;LFI - Directory Traversal&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Spring Cloud Exploitation (CVE-2022-22963)&lt;/em&gt;&lt;/li&gt;
@@ -119,18 +119,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-open-proxy: Proxy might be redirecting requests
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---8080&#34;&gt;HTTP TCP - 8080&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/inject/web.webp&#34; alt=&#34;web&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/inject/web.webp&#34; alt=&#34;web&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackTheBox - MonitorsTwo</title>
-      <link>https://0x-noname.github.io/writeups/htb/monitorstwo/</link>
+      <link>http://localhost:1313/writeups/htb/monitorstwo/</link>
       <pubDate>Sun, 10 Sep 2023 10:30:15 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/htb/monitorstwo/</guid>
+      <guid>http://localhost:1313/writeups/htb/monitorstwo/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/monitorstwo/monitorstwo_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/monitorstwo/monitorstwo_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;CVE-2022-46169&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse SUID Capsh Binary&lt;/em&gt;&lt;/li&gt;
@@ -166,12 +166,12 @@
     
     <item>
       <title>HackTheBox - TwoMillion</title>
-      <link>https://0x-noname.github.io/writeups/htb/2million/</link>
+      <link>http://localhost:1313/writeups/htb/2million/</link>
       <pubDate>Fri, 01 Sep 2023 15:30:15 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/htb/2million/</guid>
+      <guid>http://localhost:1313/writeups/htb/2million/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/2million/2million_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/2million/2million_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;HackTheBox Invite Code Challenge&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Discovering API Routes&lt;/em&gt;&lt;/li&gt;
@@ -199,7 +199,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Did not follow redirect to http://2million.htb/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/2million/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/2million/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     

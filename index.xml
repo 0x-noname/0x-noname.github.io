@@ -2,19 +2,82 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>noname</title>
-    <link>https://0x-noname.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Mon, 12 May 2025 17:14:11 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Jun 2025 12:04:22 +0200</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Build</title>
+      <link>http://localhost:1313/writeups/nyx/build/</link>
+      <pubDate>Wed, 04 Jun 2025 12:04:22 +0200</pubDate>
+      
+      <guid>http://localhost:1313/writeups/nyx/build/</guid>
+      
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/build/build_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Jenkins Default Credentials&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Remote Code Execution via Jenkins Script Console (Groovy)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Reverse Shell via PowerShell Executed from Jenkins&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Windows Privilege Escalation – Execution as NT AUTHORITY\SYSTEM&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;escaneo-de-puertos&#34;&gt;Escaneo de puertos&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 172.0.100.40
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PORT      STATE SERVICE      REASON
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;80/tcp    open  http         syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;135/tcp   open  msrpc        syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;139/tcp   open  netbios-ssn  syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;445/tcp   open  microsoft-ds syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5040/tcp  open  unknown      syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;7680/tcp  open  pando-pub    syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;8080/tcp  open  http-proxy   syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49664/tcp open  unknown      syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49665/tcp open  unknown      syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49666/tcp open  unknown      syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49667/tcp open  unknown      syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49668/tcp open  unknown      syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49669/tcp open  unknown      syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49670/tcp open  unknown      syn-ack ttl 128
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;escaneo-de-servicios&#34;&gt;Escaneo de servicios&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ nmap -sVC -p 80,135,139,445,5040,7680,8080,49664,49665,49666,49667,49668,49669,49670 172.0.100.40
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PORT      STATE  SERVICE       VERSION
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;80/tcp    open   http          Microsoft IIS httpd 10.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Microsoft-IIS/10.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: IIS Windows
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| http-methods: 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Potentially risky methods: TRACE
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;135/tcp   open   msrpc         Microsoft Windows RPC
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;139/tcp   open   netbios-ssn   Microsoft Windows netbios-ssn
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;445/tcp   open   microsoft-ds?
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5040/tcp  open   unknown
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;7680/tcp  closed pando-pub
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;8080/tcp  open   http          Jetty 12.0.19
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Jetty(12.0.19)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| http-robots.txt: 1 disallowed entry 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Site doesn&amp;#39;t have a title (text/html;charset=utf-8).
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49664/tcp open   msrpc         Microsoft Windows RPC
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49665/tcp open   msrpc         Microsoft Windows RPC
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49666/tcp open   msrpc         Microsoft Windows RPC
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49667/tcp open   msrpc         Microsoft Windows RPC
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49668/tcp open   msrpc         Microsoft Windows RPC
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49669/tcp open   msrpc         Microsoft Windows RPC
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;49670/tcp open   msrpc         Microsoft Windows RPC
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
+&lt;p&gt;Servicio HTTP corriendo bajo &lt;strong&gt;IIS en Windows&lt;/strong&gt;. No se identificaron recursos relevantes o interactivos.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>VulNyx - Ober</title>
-      <link>https://0x-noname.github.io/writeups/nyx/ober/</link>
+      <link>http://localhost:1313/writeups/nyx/ober/</link>
       <pubDate>Mon, 12 May 2025 17:14:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/ober/</guid>
+      <guid>http://localhost:1313/writeups/nyx/ober/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/ober/ober_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/ober/ober_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;OctoberCMS Authenticated RCE (CVE-2021-32649)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Hardcoded Database Credentials in Application Configuration Leading to Root System Access&lt;/em&gt;&lt;/li&gt;
@@ -49,12 +112,12 @@
     
     <item>
       <title>VulNyx - System</title>
-      <link>https://0x-noname.github.io/writeups/nyx/system/</link>
+      <link>http://localhost:1313/writeups/nyx/system/</link>
       <pubDate>Wed, 07 May 2025 17:33:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/system/</guid>
+      <guid>http://localhost:1313/writeups/nyx/system/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/system/system_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/system/system_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Redis Password Brute-Force using Hydra&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;FTP Username Brute-Force using Hydra&lt;/em&gt;&lt;/li&gt;
@@ -92,12 +155,12 @@
     
     <item>
       <title>VulNyx - YourWAF</title>
-      <link>https://0x-noname.github.io/writeups/nyx/ywaf/</link>
+      <link>http://localhost:1313/writeups/nyx/ywaf/</link>
       <pubDate>Fri, 25 Apr 2025 12:54:31 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/ywaf/</guid>
+      <guid>http://localhost:1313/writeups/nyx/ywaf/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/ywaf/ywaf_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/ywaf/ywaf_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Command Obfuscation via Wildcards&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Path Traversal to Access Sensitive Files via API Token&lt;/em&gt;&lt;/li&gt;
@@ -125,18 +188,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3000/tcp open  http    Node.js (Express middleware)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Site doesn&amp;#39;t have a title (text/html; charset=utf-8).
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/ywaf/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/ywaf/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Psymin</title>
-      <link>https://0x-noname.github.io/writeups/nyx/psymin/</link>
+      <link>http://localhost:1313/writeups/nyx/psymin/</link>
       <pubDate>Wed, 19 Mar 2025 16:34:31 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/psymin/</guid>
+      <guid>http://localhost:1313/writeups/nyx/psymin/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/psymin/psymin_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/psymin/psymin_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Sensitive Information Disclosure via Psy Shell (Information Leak - id_rsa)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Insecure Webmin Configuration (Default Credentials - via Chisel)&lt;/em&gt;&lt;/li&gt;
@@ -163,18 +226,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3000/tcp open  landesk-rc LANDesk remote management
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/psymin/nginx.webp&#34; alt=&#34;nginx&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/psymin/nginx.webp&#34; alt=&#34;nginx&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Hero</title>
-      <link>https://0x-noname.github.io/writeups/hmv/jan/</link>
+      <link>http://localhost:1313/writeups/hmv/jan/</link>
       <pubDate>Wed, 12 Mar 2025 18:00:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/jan/</guid>
+      <guid>http://localhost:1313/writeups/hmv/jan/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/hero/hero_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/hero/hero_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Through Arbitrary Command Execution in n8n Command Module (RCE)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;RSA Key Leak (HTTP)&lt;/em&gt;&lt;/li&gt;
@@ -240,18 +303,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;/body&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_    &amp;lt;/html&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/hero/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/hero/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Lower</title>
-      <link>https://0x-noname.github.io/writeups/nyx/lower/</link>
+      <link>http://localhost:1313/writeups/nyx/lower/</link>
       <pubDate>Thu, 20 Feb 2025 18:34:31 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/lower/</guid>
+      <guid>http://localhost:1313/writeups/nyx/lower/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/lower/lower_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/lower/lower_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SSH - (Hydra)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Group File - (Privesc)&lt;/em&gt;&lt;/li&gt;
@@ -274,18 +337,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.62 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Did not follow redirect to http://www.unique.nyx
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/lower/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/lower/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Fuser</title>
-      <link>https://0x-noname.github.io/writeups/nyx/fuser/</link>
+      <link>http://localhost:1313/writeups/nyx/fuser/</link>
       <pubDate>Sun, 16 Feb 2025 11:00:31 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/fuser/</guid>
+      <guid>http://localhost:1313/writeups/nyx/fuser/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/fuser/fuser_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/fuser/fuser_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;CUPS (CVE-2024-47176) - (evilcups.py)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Dash Binary - (Sudo/Privesc)&lt;/em&gt;&lt;/li&gt;
@@ -315,18 +378,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Inicio - CUPS 2.3.3op2
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: CUPS/2.3 IPP/2.1
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/fuser/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/fuser/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Jan</title>
-      <link>https://0x-noname.github.io/writeups/hmv/jan/</link>
+      <link>http://localhost:1313/writeups/hmv/jan/</link>
       <pubDate>Wed, 12 Feb 2025 10:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/jan/</guid>
+      <guid>http://localhost:1313/writeups/hmv/jan/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/jan/jan_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/jan/jan_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;HTTP Parameter Pollution (HPP)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse Service Sudo - (Privesc)&lt;/em&gt;&lt;/li&gt;
@@ -359,18 +422,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Content-Type: text/plain; charset=utf-8
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     Connection: close
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---8080&#34;&gt;HTTP TCP - 8080&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/jan/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/jan/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Call</title>
-      <link>https://0x-noname.github.io/writeups/nyx/call/</link>
+      <link>http://localhost:1313/writeups/nyx/call/</link>
       <pubDate>Tue, 06 Aug 2024 12:22:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/call/</guid>
+      <guid>http://localhost:1313/writeups/nyx/call/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/call/call_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/call/call_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SIP Digest Leak - (sippts.py)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Hash MD5 - (John)&lt;/em&gt;&lt;/li&gt;
@@ -394,18 +457,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: CallMe
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.61 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/call/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/call/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Admin</title>
-      <link>https://0x-noname.github.io/writeups/nyx/admin/</link>
+      <link>http://localhost:1313/writeups/nyx/admin/</link>
       <pubDate>Tue, 09 Jul 2024 11:40:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/admin/</guid>
+      <guid>http://localhost:1313/writeups/nyx/admin/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/admin/admin_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/admin/admin_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Extension Enumeration - (Wfuzz)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SMB - (NetExec)&lt;/em&gt;&lt;/li&gt;
@@ -468,18 +531,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|   3:1:1: 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_    Message signing enabled but not required
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/admin/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/admin/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Service</title>
-      <link>https://0x-noname.github.io/writeups/nyx/service/</link>
+      <link>http://localhost:1313/writeups/nyx/service/</link>
       <pubDate>Tue, 18 Jun 2024 11:40:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/service/</guid>
+      <guid>http://localhost:1313/writeups/nyx/service/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/service/service_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/service/service_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Joomla 4.2.8 Information Disclosure - (CVE-2023-23752)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Remote Command Execution - (Template)&lt;/em&gt;&lt;/li&gt;
@@ -515,18 +578,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_/language/ /layouts/ /libraries/ /logs/ /modules/ /plugins/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---808080&#34;&gt;HTTP TCP - 80/8080&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/service/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/service/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Arpon</title>
-      <link>https://0x-noname.github.io/writeups/nyx/arpon/</link>
+      <link>http://localhost:1313/writeups/nyx/arpon/</link>
       <pubDate>Thu, 06 Jun 2024 11:40:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/arpon/</guid>
+      <guid>http://localhost:1313/writeups/nyx/arpon/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/arpon/arpon_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/arpon/arpon_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;File Upload - (Bypass Extension Check)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Zip File - (JohnTheRipper/User Pivoting)&lt;/em&gt;&lt;/li&gt;
@@ -552,18 +615,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.59 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/arpon/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/arpon/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Bund</title>
-      <link>https://0x-noname.github.io/writeups/nyx/bund/</link>
+      <link>http://localhost:1313/writeups/nyx/bund/</link>
       <pubDate>Thu, 30 May 2024 11:40:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/bund/</guid>
+      <guid>http://localhost:1313/writeups/nyx/bund/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/bund/bund_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/bund/bund_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Rsync enumeration - (Rsync/enumRsync.py)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Modified file upload - (Rsync/app.rb)&lt;/em&gt;&lt;/li&gt;
@@ -595,18 +658,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Site doesn&amp;#39;t have a title (text/html;charset=utf-8).
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/bund/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/bund/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Robot</title>
-      <link>https://0x-noname.github.io/writeups/nyx/robot/</link>
+      <link>http://localhost:1313/writeups/nyx/robot/</link>
       <pubDate>Sun, 26 May 2024 11:40:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/robot/</guid>
+      <guid>http://localhost:1313/writeups/nyx/robot/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/robot/robot_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/robot/robot_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Steganography - (Exiftool)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Information Leakage Backup - (Mongodb)&lt;/em&gt;&lt;/li&gt;
@@ -699,18 +762,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_    Unauthorized
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/robot/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/robot/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Slackware</title>
-      <link>https://0x-noname.github.io/writeups/hmv/slackware/</link>
+      <link>http://localhost:1313/writeups/hmv/slackware/</link>
       <pubDate>Tue, 21 May 2024 10:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/slackware/</guid>
+      <guid>http://localhost:1313/writeups/hmv/slackware/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/slackware/slackware_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/slackware/slackware_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Reverse Image Search - (OSINT)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Extension enumeration 7z - (WFUZZ)&lt;/em&gt;&lt;/li&gt;
@@ -738,18 +801,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Potentially risky methods: TRACE
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Tribute to Slackware
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---2&#34;&gt;HTTP TCP - 2&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/slackware/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/slackware/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Exec</title>
-      <link>https://0x-noname.github.io/writeups/nyx/exec/</link>
+      <link>http://localhost:1313/writeups/nyx/exec/</link>
       <pubDate>Wed, 17 Apr 2024 11:40:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/exec/</guid>
+      <guid>http://localhost:1313/writeups/nyx/exec/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/exec/exec_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/exec/exec_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;User Enumeration SMB - (RpcClient)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SMB - (NetExec)&lt;/em&gt;&lt;/li&gt;
@@ -799,18 +862,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|   3:1:1: 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_    Message signing enabled but not required
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/exec/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/exec/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Sun</title>
-      <link>https://0x-noname.github.io/writeups/nyx/sun/</link>
+      <link>http://localhost:1313/writeups/nyx/sun/</link>
       <pubDate>Tue, 09 Apr 2024 13:10:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/sun/</guid>
+      <guid>http://localhost:1313/writeups/nyx/sun/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/sun/sun_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/sun/sun_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SMB - (NetExec)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;AspNet - (WebShell)&lt;/em&gt;&lt;/li&gt;
@@ -871,12 +934,12 @@
     
     <item>
       <title>VulNyx - Diff3r3ntS3c</title>
-      <link>https://0x-noname.github.io/writeups/nyx/dsec/</link>
+      <link>http://localhost:1313/writeups/nyx/dsec/</link>
       <pubDate>Wed, 03 Apr 2024 11:40:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/dsec/</guid>
+      <guid>http://localhost:1313/writeups/nyx/dsec/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/dsec/ds3c_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/dsec/ds3c_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;File Upload - (Bypass Extension Check)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Cron Job - (Privesc/script.sh)&lt;/em&gt;&lt;/li&gt;
@@ -896,18 +959,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.57 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Diff3r3ntS3c
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/dsec/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/dsec/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - HackingStation</title>
-      <link>https://0x-noname.github.io/writeups/nyx/hs/</link>
+      <link>http://localhost:1313/writeups/nyx/hs/</link>
       <pubDate>Thu, 28 Mar 2024 11:40:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/hs/</guid>
+      <guid>http://localhost:1313/writeups/nyx/hs/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/hs/hs_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/hs/hs_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;OS Command Injection&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Nmap Binary - (Sudo/Privesc)&lt;/em&gt;&lt;/li&gt;
@@ -933,12 +996,12 @@
     
     <item>
       <title>HackMyVM - Liceo</title>
-      <link>https://0x-noname.github.io/writeups/hmv/liceo/</link>
+      <link>http://localhost:1313/writeups/hmv/liceo/</link>
       <pubDate>Tue, 26 Mar 2024 10:11:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/liceo/</guid>
+      <guid>http://localhost:1313/writeups/hmv/liceo/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/liceo/liceo_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/liceo/liceo_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;File Upload - (Bypass Extension Check)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Bash Binary - (SUID)&lt;/em&gt;&lt;/li&gt;
@@ -989,12 +1052,12 @@
     
     <item>
       <title>VulNyx - Lost</title>
-      <link>https://0x-noname.github.io/writeups/nyx/lost/</link>
+      <link>http://localhost:1313/writeups/nyx/lost/</link>
       <pubDate>Tue, 19 Mar 2024 11:40:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/lost/</guid>
+      <guid>http://localhost:1313/writeups/nyx/lost/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/lost/lost_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/lost/lost_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SQL Injection Based Blind - (SQL-Map)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Internal Port Forwarding - (Chisel)&lt;/em&gt;&lt;/li&gt;
@@ -1022,18 +1085,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.57 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/lost/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/lost/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Plex</title>
-      <link>https://0x-noname.github.io/writeups/nyx/plex/</link>
+      <link>http://localhost:1313/writeups/nyx/plex/</link>
       <pubDate>Thu, 14 Mar 2024 11:40:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/plex/</guid>
+      <guid>http://localhost:1313/writeups/nyx/plex/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/plex/plex_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/plex/plex_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SSL/SSH Multiplexer - (CURL/SSH)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Token JWT - (JWT.io)&lt;/em&gt;&lt;/li&gt;
@@ -1061,12 +1124,12 @@
     
     <item>
       <title>VulNyx - Leak</title>
-      <link>https://0x-noname.github.io/writeups/nyx/leak/</link>
+      <link>http://localhost:1313/writeups/nyx/leak/</link>
       <pubDate>Mon, 11 Mar 2024 19:06:11 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/leak/</guid>
+      <guid>http://localhost:1313/writeups/nyx/leak/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/leak/leak_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/leak/leak_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Jenkins Arbitrary File Read - (CVE-2024-23897)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing wkhtmltopdf Binary - (Sudo/Privesc)&lt;/em&gt;&lt;/li&gt;
@@ -1097,18 +1160,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Panel de control [Jenkins]
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/leak/80.webp&#34; alt=&#34;80&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/leak/80.webp&#34; alt=&#34;80&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Azer</title>
-      <link>https://0x-noname.github.io/writeups/hmv/azer/</link>
+      <link>http://localhost:1313/writeups/hmv/azer/</link>
       <pubDate>Tue, 05 Mar 2024 11:11:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/azer/</guid>
+      <guid>http://localhost:1313/writeups/hmv/azer/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/azer/azer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/azer/azer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Blind Command Injection - (BurpSuite)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Leaked Passwords - (Privesc)&lt;/em&gt;&lt;/li&gt;
@@ -1134,18 +1197,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| http-methods: 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Supported Methods: GET HEAD POST OPTIONS
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/azer/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/azer/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Animetronic</title>
-      <link>https://0x-noname.github.io/writeups/hmv/animetronic/</link>
+      <link>http://localhost:1313/writeups/hmv/animetronic/</link>
       <pubDate>Tue, 27 Feb 2024 18:18:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/animetronic/</guid>
+      <guid>http://localhost:1313/writeups/hmv/animetronic/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/animetronic/animetronic_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/animetronic/animetronic_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SSH - (Hydra)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Leaked Passwords - (User Pivoting)&lt;/em&gt;&lt;/li&gt;
@@ -1173,18 +1236,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-favicon: Unknown favicon MD5: AF5214722D8F88F2F9066DC9171DFCA6
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/animetronic/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/animetronic/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Friends</title>
-      <link>https://0x-noname.github.io/writeups/nyx/friends/</link>
+      <link>http://localhost:1313/writeups/nyx/friends/</link>
       <pubDate>Thu, 22 Feb 2024 12:11:29 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/friends/</guid>
+      <guid>http://localhost:1313/writeups/nyx/friends/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/friends/friends_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/friends/friends_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Reverse Image Search - (Lens)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force MySQL - (Hydra)&lt;/em&gt;&lt;/li&gt;
@@ -1231,12 +1294,12 @@
     
     <item>
       <title>VulNyx - Dump</title>
-      <link>https://0x-noname.github.io/writeups/nyx/dump/</link>
+      <link>http://localhost:1313/writeups/nyx/dump/</link>
       <pubDate>Fri, 16 Feb 2024 13:07:29 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/dump/</guid>
+      <guid>http://localhost:1313/writeups/nyx/dump/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/dump/dump_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/dump/dump_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Getting NTLM User Hashes - (Secretsdump)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Sam Hashes - (John)&lt;/em&gt;&lt;/li&gt;
@@ -1292,12 +1355,12 @@
     
     <item>
       <title>VulNyx - Druid</title>
-      <link>https://0x-noname.github.io/writeups/nyx/druid/</link>
+      <link>http://localhost:1313/writeups/nyx/druid/</link>
       <pubDate>Sun, 11 Feb 2024 12:23:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/druid/</guid>
+      <guid>http://localhost:1313/writeups/nyx/druid/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/druid/druid_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/druid/druid_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Hotel Druid 3.0.3 - (RCE)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Perl Binary - (Sudo)&lt;/em&gt;&lt;/li&gt;
@@ -1326,18 +1389,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Supported Methods: HEAD GET POST OPTIONS
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/druid/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/druid/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - CoffeShop</title>
-      <link>https://0x-noname.github.io/writeups/hmv/coffeeshop/</link>
+      <link>http://localhost:1313/writeups/hmv/coffeeshop/</link>
       <pubDate>Wed, 07 Feb 2024 11:01:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/coffeeshop/</guid>
+      <guid>http://localhost:1313/writeups/hmv/coffeeshop/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/coffeeshop/coffeeshop_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/coffeeshop/coffeeshop_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Subdomain Enumeration - (WFUZZ)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Cron Jobs - (User Pivoting)&lt;/em&gt;&lt;/li&gt;
@@ -1370,12 +1433,12 @@
     
     <item>
       <title>VulNyx - Eternal</title>
-      <link>https://0x-noname.github.io/writeups/nyx/eternal/</link>
+      <link>http://localhost:1313/writeups/nyx/eternal/</link>
       <pubDate>Sun, 04 Feb 2024 10:02:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/eternal/</guid>
+      <guid>http://localhost:1313/writeups/nyx/eternal/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/eternal/eternal_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/eternal/eternal_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;EternalBlue - MS17-010&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1471,12 +1534,12 @@
     
     <item>
       <title>VulNyx - Shared</title>
-      <link>https://0x-noname.github.io/writeups/nyx/shared/</link>
+      <link>http://localhost:1313/writeups/nyx/shared/</link>
       <pubDate>Wed, 31 Jan 2024 10:02:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/shared/</guid>
+      <guid>http://localhost:1313/writeups/nyx/shared/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/shared/shared_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/shared/shared_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;WordPress Plugin Site Editor 1.1.1 - LFI&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Log Poisoning access.log - RCE&lt;/em&gt;&lt;/li&gt;
@@ -1545,12 +1608,12 @@
     
     <item>
       <title>VulNyx - Experience</title>
-      <link>https://0x-noname.github.io/writeups/nyx/experience/</link>
+      <link>http://localhost:1313/writeups/nyx/experience/</link>
       <pubDate>Sun, 28 Jan 2024 10:02:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/experience/</guid>
+      <guid>http://localhost:1313/writeups/nyx/experience/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/experience/experience_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/experience/experience_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;CVE-2017-0143 - Metasploit SMB&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1653,12 +1716,12 @@
     
     <item>
       <title>VulNyx - Key</title>
-      <link>https://0x-noname.github.io/writeups/nyx/key/</link>
+      <link>http://localhost:1313/writeups/nyx/key/</link>
       <pubDate>Thu, 25 Jan 2024 10:02:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/key/</guid>
+      <guid>http://localhost:1313/writeups/nyx/key/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/key/key_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/key/key_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;IPv6 Enumeration&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Redis - Upload SSH Key&lt;/em&gt;&lt;/li&gt;
@@ -1687,18 +1750,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Apache2 Test Debian Default Page: It works
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/key/whatweb.webp&#34; alt=&#34;whatweb&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/key/whatweb.webp&#34; alt=&#34;whatweb&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Play</title>
-      <link>https://0x-noname.github.io/writeups/nyx/play/</link>
+      <link>http://localhost:1313/writeups/nyx/play/</link>
       <pubDate>Mon, 22 Jan 2024 10:02:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/play/</guid>
+      <guid>http://localhost:1313/writeups/nyx/play/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/play/play_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/play/play_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Arbitrary Directory Download - Musicco 2.0&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;SSH Brute Force Username - Hydra&lt;/em&gt;&lt;/li&gt;
@@ -1726,18 +1789,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Apache2 Debian Default Page: It works
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/play/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/play/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Slash</title>
-      <link>https://0x-noname.github.io/writeups/nyx/slash/</link>
+      <link>http://localhost:1313/writeups/nyx/slash/</link>
       <pubDate>Fri, 19 Jan 2024 00:02:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/slash/</guid>
+      <guid>http://localhost:1313/writeups/nyx/slash/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/slash/slash_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/slash/slash_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Alias LFI Misconfiguration - Nginx&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;SSH Brute Force - Hydra&lt;/em&gt;&lt;/li&gt;
@@ -1765,18 +1828,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Supported Methods: GET HEAD
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/slash/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/slash/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Cache</title>
-      <link>https://0x-noname.github.io/writeups/nyx/cache/</link>
+      <link>http://localhost:1313/writeups/nyx/cache/</link>
       <pubDate>Tue, 16 Jan 2024 00:02:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/cache/</guid>
+      <guid>http://localhost:1313/writeups/nyx/cache/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/cache/cache_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/cache/cache_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Internal Port Discovery - (id_rsa)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;SSH_login_pubkey - Metasploit&lt;/em&gt;&lt;/li&gt;
@@ -1809,18 +1872,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: ERROR: The requested URL could not be retrieved
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/cache/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/cache/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Remote</title>
-      <link>https://0x-noname.github.io/writeups/nyx/remote/</link>
+      <link>http://localhost:1313/writeups/nyx/remote/</link>
       <pubDate>Fri, 12 Jan 2024 00:02:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/remote/</guid>
+      <guid>http://localhost:1313/writeups/nyx/remote/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/remote/remote_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/remote/remote_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;WordPress Plugin Gwolle Guestbook 1.5.3 - (RFI)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Remote Binary - Sudo Privesc&lt;/em&gt;&lt;/li&gt;
@@ -1847,18 +1910,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Apache2 Debian Default Page: It works
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/remote/apache.webp&#34; alt=&#34;apache&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/remote/apache.webp&#34; alt=&#34;apache&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Nebula</title>
-      <link>https://0x-noname.github.io/writeups/hmv/nebula/</link>
+      <link>http://localhost:1313/writeups/hmv/nebula/</link>
       <pubDate>Wed, 10 Jan 2024 11:01:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/nebula/</guid>
+      <guid>http://localhost:1313/writeups/hmv/nebula/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/nebula/nebula_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/nebula/nebula_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Time-based Blind SQLi - (SqlMap)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Generic MD5 Hash - (SqlMap)&lt;/em&gt;&lt;/li&gt;
@@ -1887,18 +1950,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.41 (Ubuntu)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/nebula/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/nebula/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Vivifytech</title>
-      <link>https://0x-noname.github.io/writeups/hmv/vivifytech/</link>
+      <link>http://localhost:1313/writeups/hmv/vivifytech/</link>
       <pubDate>Fri, 05 Jan 2024 00:01:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/vivifytech/</guid>
+      <guid>http://localhost:1313/writeups/hmv/vivifytech/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/vivifytech/vivifytech_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/vivifytech/vivifytech_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SSH - (Hydra)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Information Leakage - (User Pivoting)&lt;/em&gt;&lt;/li&gt;
@@ -1940,18 +2003,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1 service unrecognized despite returning data. If you know the service/version, please 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/vivifytech/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/vivifytech/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Load</title>
-      <link>https://0x-noname.github.io/writeups/nyx/load/</link>
+      <link>http://localhost:1313/writeups/nyx/load/</link>
       <pubDate>Wed, 03 Jan 2024 00:02:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/load/</guid>
+      <guid>http://localhost:1313/writeups/nyx/load/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/load/load_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/load/load_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;RiteCMS 3.1.0 - Remote Code Execution (Authenticated)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Crash Binary - Sudo Pivoting&lt;/em&gt;&lt;/li&gt;
@@ -1980,18 +2043,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Apache2 Debian Default Page: It works
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/load/ww.webp&#34; alt=&#34;Vulnyx/load/ww&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/load/ww.webp&#34; alt=&#34;Vulnyx/load/ww&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Listen</title>
-      <link>https://0x-noname.github.io/writeups/nyx/listen/</link>
+      <link>http://localhost:1313/writeups/nyx/listen/</link>
       <pubDate>Mon, 01 Jan 2024 16:24:45 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/listen/</guid>
+      <guid>http://localhost:1313/writeups/nyx/listen/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/listen/listen_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/listen/listen_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Key Rsa - (RSAcrack)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Username Enumeration Exploit (OpenSSH 2.3 &amp;lt; 7.7)&lt;/em&gt;&lt;/li&gt;
@@ -2018,18 +2081,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Supported Methods: GET HEAD
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: SimpleHTTP/0.6 Python/3.7.3
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---8000&#34;&gt;HTTP TCP - 8000&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/listen/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/listen/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Look</title>
-      <link>https://0x-noname.github.io/writeups/nyx/look/</link>
+      <link>http://localhost:1313/writeups/nyx/look/</link>
       <pubDate>Thu, 28 Dec 2023 16:24:45 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/look/</guid>
+      <guid>http://localhost:1313/writeups/nyx/look/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/look/look_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/look/look_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SSH - (Hydra)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Nokogiri Binary - Sudo Privesc&lt;/em&gt;&lt;/li&gt;
@@ -2056,18 +2119,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.56 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/look/ww.webp&#34; alt=&#34;ww&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/look/ww.webp&#34; alt=&#34;ww&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Hunter</title>
-      <link>https://0x-noname.github.io/writeups/nyx/hunter/</link>
+      <link>http://localhost:1313/writeups/nyx/hunter/</link>
       <pubDate>Sat, 23 Dec 2023 11:11:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/hunter/</guid>
+      <guid>http://localhost:1313/writeups/nyx/hunter/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/hunter/hunter_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/hunter/hunter_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Domain Zone Transfer (AXFR)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Bypass File Upload Filter - (.htaccess)&lt;/em&gt;&lt;/li&gt;
@@ -2111,18 +2174,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;SF:rrently\x20available\xc0\x0c\0\x02\0\x03\0\0\0\0\0\x02\xc0\x0c&amp;#34;);
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/hunter/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/hunter/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Infected</title>
-      <link>https://0x-noname.github.io/writeups/nyx/infected/</link>
+      <link>http://localhost:1313/writeups/nyx/infected/</link>
       <pubDate>Tue, 19 Dec 2023 11:11:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/infected/</guid>
+      <guid>http://localhost:1313/writeups/nyx/infected/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/infected/infected_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/infected/infected_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Apache Module Backdoor - Exploit&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Service Binary - Sudo User Pivoting&lt;/em&gt;&lt;/li&gt;
@@ -2149,18 +2212,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.57 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/infected/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/infected/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Whitedoor</title>
-      <link>https://0x-noname.github.io/writeups/hmv/whitedoor/</link>
+      <link>http://localhost:1313/writeups/hmv/whitedoor/</link>
       <pubDate>Sat, 16 Dec 2023 15:57:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/whitedoor/</guid>
+      <guid>http://localhost:1313/writeups/hmv/whitedoor/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/whitedoor/whitedoor_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/whitedoor/whitedoor_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Command Injection&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force - hash Bcrypt&lt;/em&gt;&lt;/li&gt;
@@ -2210,12 +2273,12 @@
     
     <item>
       <title>VulNyx - Agent</title>
-      <link>https://0x-noname.github.io/writeups/nyx/agent/</link>
+      <link>http://localhost:1313/writeups/nyx/agent/</link>
       <pubDate>Tue, 12 Dec 2023 11:22:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/agent/</guid>
+      <guid>http://localhost:1313/writeups/nyx/agent/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/agent/agent_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/agent/agent_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;WebSVN 2.6.0 - RCE&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing C99 Binary - Sudo User Pivoting&lt;/em&gt;&lt;/li&gt;
@@ -2242,18 +2305,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: nginx/1.22.1
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/agent/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/agent/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Mux</title>
-      <link>https://0x-noname.github.io/writeups/nyx/mux/</link>
+      <link>http://localhost:1313/writeups/nyx/mux/</link>
       <pubDate>Sun, 10 Dec 2023 17:22:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/mux/</guid>
+      <guid>http://localhost:1313/writeups/nyx/mux/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/mux/mux_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/mux/mux_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Password Information Leakage - Strings Rlogin&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Tmux Binary - Sudo Privesc&lt;/em&gt;&lt;/li&gt;
@@ -2280,18 +2343,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;514/tcp open  tcpwrapped
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/mux/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/mux/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Slowman</title>
-      <link>https://0x-noname.github.io/writeups/hmv/slowman/</link>
+      <link>http://localhost:1313/writeups/hmv/slowman/</link>
       <pubDate>Fri, 08 Dec 2023 15:57:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/slowman/</guid>
+      <guid>http://localhost:1313/writeups/hmv/slowman/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/slowman/slowman_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/slowman/slowman_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;FTP Missconfiguration&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Information Leakage - Password&lt;/em&gt;&lt;/li&gt;
@@ -2379,12 +2442,12 @@
     
     <item>
       <title>VulNyx - Unit</title>
-      <link>https://0x-noname.github.io/writeups/nyx/unit/</link>
+      <link>http://localhost:1313/writeups/nyx/unit/</link>
       <pubDate>Tue, 05 Dec 2023 17:22:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/unit/</guid>
+      <guid>http://localhost:1313/writeups/nyx/unit/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/unit/unit_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/unit/unit_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Abusing PUT &amp;amp; MOVE Methods&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Xargs Binary - Sudo&lt;/em&gt;&lt;/li&gt;
@@ -2419,18 +2482,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: nginx/1.22.1
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/unit/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/unit/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - RoosterRun</title>
-      <link>https://0x-noname.github.io/writeups/hmv/rooster/</link>
+      <link>http://localhost:1313/writeups/hmv/rooster/</link>
       <pubDate>Sat, 02 Dec 2023 16:57:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/rooster/</guid>
+      <guid>http://localhost:1313/writeups/hmv/rooster/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/rooster/rooster_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/rooster/rooster_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;CMS Made Simple - CVE-2019-9053&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Upload File - Bypass Extension&lt;/em&gt;&lt;/li&gt;
@@ -2460,18 +2523,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Home - Blog
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/rooster/httpcms.webp&#34; alt=&#34;httpcms&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/rooster/httpcms.webp&#34; alt=&#34;httpcms&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Code</title>
-      <link>https://0x-noname.github.io/writeups/nyx/code/</link>
+      <link>http://localhost:1313/writeups/nyx/code/</link>
       <pubDate>Tue, 28 Nov 2023 19:22:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/code/</guid>
+      <guid>http://localhost:1313/writeups/nyx/code/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/code/code_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/code/code_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Pluck CMS 4.7.13 - File Upload RCE (Authenticated) - Manual&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse bash Binary - User Pivoting&lt;/em&gt;&lt;/li&gt;
@@ -2498,18 +2561,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.57 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/code/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/code/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Bind</title>
-      <link>https://0x-noname.github.io/writeups/nyx/bind/</link>
+      <link>http://localhost:1313/writeups/nyx/bind/</link>
       <pubDate>Wed, 22 Nov 2023 16:25:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/bind/</guid>
+      <guid>http://localhost:1313/writeups/nyx/bind/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/bind/bind_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/bind/bind_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Ncat - SCTP&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse wtfutil Binary - Privesc&lt;/em&gt;&lt;/li&gt;
@@ -2541,18 +2604,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Apache2 Debian Default Page: It works
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/bind/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/bind/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - First</title>
-      <link>https://0x-noname.github.io/writeups/nyx/first/</link>
+      <link>http://localhost:1313/writeups/nyx/first/</link>
       <pubDate>Thu, 16 Nov 2023 16:25:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/first/</guid>
+      <guid>http://localhost:1313/writeups/nyx/first/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/first/first_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/first/first_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Default Password - SSH&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Escape Restricted Shell - rbash&lt;/em&gt;&lt;/li&gt;
@@ -2585,18 +2648,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  nodes: 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/first/http.webp&#34; alt=&#34;/http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/first/http.webp&#34; alt=&#34;/http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Air</title>
-      <link>https://0x-noname.github.io/writeups/nyx/air/</link>
+      <link>http://localhost:1313/writeups/nyx/air/</link>
       <pubDate>Sun, 12 Nov 2023 20:25:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/air/</guid>
+      <guid>http://localhost:1313/writeups/nyx/air/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/air/air_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/air/air_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Insecure File Upload - Magic Number&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse air-repeater Binary - sudo&lt;/em&gt;&lt;/li&gt;
@@ -2631,18 +2694,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-open-proxy: Proxy might be redirecting requests
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/air/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/air/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Darkside</title>
-      <link>https://0x-noname.github.io/writeups/hmv/darkside/</link>
+      <link>http://localhost:1313/writeups/hmv/darkside/</link>
       <pubDate>Tue, 31 Oct 2023 20:57:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/darkside/</guid>
+      <guid>http://localhost:1313/writeups/hmv/darkside/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/darkside/darkside_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/darkside/darkside_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Login Form&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Password Leaking&lt;/em&gt;&lt;/li&gt;
@@ -2680,12 +2743,12 @@
     
     <item>
       <title>VulNyx - Basic</title>
-      <link>https://0x-noname.github.io/writeups/nyx/basic/</link>
+      <link>http://localhost:1313/writeups/nyx/basic/</link>
       <pubDate>Mon, 30 Oct 2023 20:25:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/basic/</guid>
+      <guid>http://localhost:1313/writeups/nyx/basic/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/basic/basic_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/basic/basic_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SSH&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse venv Binary - SUID Privesc&lt;/em&gt;&lt;/li&gt;
@@ -2720,18 +2783,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: CUPS/2.3 IPP/2.1
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/basic/whatweb.webp&#34; alt=&#34;whatweb&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/basic/whatweb.webp&#34; alt=&#34;whatweb&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Fire</title>
-      <link>https://0x-noname.github.io/writeups/nyx/fire/</link>
+      <link>http://localhost:1313/writeups/nyx/fire/</link>
       <pubDate>Sat, 28 Oct 2023 19:59:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/fire/</guid>
+      <guid>http://localhost:1313/writeups/nyx/fire/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/fire/fire_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/fire/fire_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Extracting Credentials - Firefox Profile&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Import SSH Key - Public&lt;/em&gt;&lt;/li&gt;
@@ -2817,12 +2880,12 @@
     
     <item>
       <title>VulNyx - Noob</title>
-      <link>https://0x-noname.github.io/writeups/nyx/noob/</link>
+      <link>http://localhost:1313/writeups/nyx/noob/</link>
       <pubDate>Thu, 26 Oct 2023 10:06:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/noob/</guid>
+      <guid>http://localhost:1313/writeups/nyx/noob/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/noob/noob_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/noob/noob_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Enumeration - Temporary Files&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Cracking - RSA Key&lt;/em&gt;&lt;/li&gt;
@@ -2856,12 +2919,12 @@
     
     <item>
       <title>HackMyVM - Pipy</title>
-      <link>https://0x-noname.github.io/writeups/hmv/pipy/</link>
+      <link>http://localhost:1313/writeups/hmv/pipy/</link>
       <pubDate>Tue, 24 Oct 2023 12:14:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/pipy/</guid>
+      <guid>http://localhost:1313/writeups/hmv/pipy/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/pipy/pipy_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/pipy/pipy_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SPIP v4.2.0 - RCE (Unauthenticated)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Password Leaking&lt;/em&gt;&lt;/li&gt;
@@ -2889,18 +2952,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Supported Methods: GET HEAD POST OPTIONS
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/pipy/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/pipy/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Wicca</title>
-      <link>https://0x-noname.github.io/writeups/nyx/wicca/</link>
+      <link>http://localhost:1313/writeups/nyx/wicca/</link>
       <pubDate>Fri, 20 Oct 2023 20:00:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/wicca/</guid>
+      <guid>http://localhost:1313/writeups/nyx/wicca/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/wicca/wicca_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/wicca/wicca_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;NodeJS (Express middleware)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse Links Binary - Privesc&lt;/em&gt;&lt;/li&gt;
@@ -2931,18 +2994,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Supported Methods: GET HEAD POST OPTIONS
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/wicca/http.webp&#34; alt=&#34;http.png&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/wicca/http.webp&#34; alt=&#34;http.png&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Simple</title>
-      <link>https://0x-noname.github.io/writeups/hmv/simple/</link>
+      <link>http://localhost:1313/writeups/hmv/simple/</link>
       <pubDate>Mon, 16 Oct 2023 20:30:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/simple/</guid>
+      <guid>http://localhost:1313/writeups/hmv/simple/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/simple/simple_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/simple/simple_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SMB - CrackMapExec&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;SeImpersonatePrivilege - GodPotato - Privesc&lt;/em&gt;&lt;/li&gt;
@@ -3004,18 +3067,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|   3:1:1: 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_    Message signing enabled but not required
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/simple/http.webp&#34; alt=&#34;http.png&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/simple/http.webp&#34; alt=&#34;http.png&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Economists</title>
-      <link>https://0x-noname.github.io/writeups/hmv/economists/</link>
+      <link>http://localhost:1313/writeups/hmv/economists/</link>
       <pubDate>Sun, 15 Oct 2023 12:12:08 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/economists/</guid>
+      <guid>http://localhost:1313/writeups/hmv/economists/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/economists/economists_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/economists/economists_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SSH&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Systemctl Binary - Privesc&lt;/em&gt;&lt;/li&gt;
@@ -3070,12 +3133,12 @@
     
     <item>
       <title>HackMyVM - Logan2</title>
-      <link>https://0x-noname.github.io/writeups/hmv/logan2/</link>
+      <link>http://localhost:1313/writeups/hmv/logan2/</link>
       <pubDate>Thu, 12 Oct 2023 18:09:35 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/logan2/</guid>
+      <guid>http://localhost:1313/writeups/hmv/logan2/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/logan2/logan2_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/logan2/logan2_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SQL-Injection/Time-Based Blind&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;LFI to RCE/Log-Poisoning&lt;/em&gt;&lt;/li&gt;
@@ -3149,18 +3212,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|     &amp;lt;meta name=&amp;#34;author&amp;#34; content=&amp;#34;Gitea - Git with a cup of tea&amp;#34; /&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_    &amp;lt;meta name=&amp;#34;description&amp;#34; content=&amp;#34;Gitea (Git with a c
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/logan2/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/logan2/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Zone</title>
-      <link>https://0x-noname.github.io/writeups/nyx/zone/</link>
+      <link>http://localhost:1313/writeups/nyx/zone/</link>
       <pubDate>Fri, 06 Oct 2023 09:19:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/zone/</guid>
+      <guid>http://localhost:1313/writeups/nyx/zone/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/zone/zone_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/zone/zone_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Domain Zone Transfer (AXFR)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Insecure File Upload&lt;/em&gt;&lt;/li&gt;
@@ -3215,12 +3278,12 @@
     
     <item>
       <title>VulNyx - Cap</title>
-      <link>https://0x-noname.github.io/writeups/nyx/cap/</link>
+      <link>http://localhost:1313/writeups/nyx/cap/</link>
       <pubDate>Wed, 04 Oct 2023 09:15:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/cap/</guid>
+      <guid>http://localhost:1313/writeups/nyx/cap/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/cap/cap_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/cap/cap_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;User Enumeration - Ident&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force SSH&lt;/em&gt;&lt;/li&gt;
@@ -3250,18 +3313,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.56 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/cap/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/cap/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Liar</title>
-      <link>https://0x-noname.github.io/writeups/hmv/liar/</link>
+      <link>http://localhost:1313/writeups/hmv/liar/</link>
       <pubDate>Fri, 29 Sep 2023 22:03:55 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/liar/</guid>
+      <guid>http://localhost:1313/writeups/hmv/liar/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/liar/liar_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/liar/liar_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Smb - CrackMapExec&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;RunasCs&lt;/em&gt;&lt;/li&gt;
@@ -3330,12 +3393,12 @@
     
     <item>
       <title>HackTheBox - Wifinetic</title>
-      <link>https://0x-noname.github.io/writeups/htb/wifinetic/</link>
+      <link>http://localhost:1313/writeups/htb/wifinetic/</link>
       <pubDate>Thu, 21 Sep 2023 12:29:15 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/htb/wifinetic/</guid>
+      <guid>http://localhost:1313/writeups/htb/wifinetic/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/wifinetic/wifinetic_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/wifinetic/wifinetic_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Backup file - FTP&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Reuse Credentials - SSH&lt;/em&gt;&lt;/li&gt;
@@ -3403,12 +3466,12 @@
     
     <item>
       <title>VulNyx - Jenk</title>
-      <link>https://0x-noname.github.io/writeups/nyx/jenk/</link>
+      <link>http://localhost:1313/writeups/nyx/jenk/</link>
       <pubDate>Wed, 20 Sep 2023 09:15:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/jenk/</guid>
+      <guid>http://localhost:1313/writeups/nyx/jenk/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/jenk/jenk_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/jenk/jenk_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;LFI - Data Leak&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Hash&lt;/em&gt;&lt;/li&gt;
@@ -3444,18 +3507,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Jetty(10.0.13)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/jenk/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/jenk/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackTheBox - Inject</title>
-      <link>https://0x-noname.github.io/writeups/htb/inject/</link>
+      <link>http://localhost:1313/writeups/htb/inject/</link>
       <pubDate>Tue, 12 Sep 2023 10:30:15 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/htb/inject/</guid>
+      <guid>http://localhost:1313/writeups/htb/inject/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/inject/inject_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/inject/inject_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;LFI - Directory Traversal&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Spring Cloud Exploitation (CVE-2022-22963)&lt;/em&gt;&lt;/li&gt;
@@ -3487,18 +3550,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-open-proxy: Proxy might be redirecting requests
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---8080&#34;&gt;HTTP TCP - 8080&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/inject/web.webp&#34; alt=&#34;web&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/inject/web.webp&#34; alt=&#34;web&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackTheBox - MonitorsTwo</title>
-      <link>https://0x-noname.github.io/writeups/htb/monitorstwo/</link>
+      <link>http://localhost:1313/writeups/htb/monitorstwo/</link>
       <pubDate>Sun, 10 Sep 2023 10:30:15 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/htb/monitorstwo/</guid>
+      <guid>http://localhost:1313/writeups/htb/monitorstwo/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/monitorstwo/monitorstwo_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/monitorstwo/monitorstwo_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;CVE-2022-46169&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse SUID Capsh Binary&lt;/em&gt;&lt;/li&gt;
@@ -3534,12 +3597,12 @@
     
     <item>
       <title>HackMyVM - Wave</title>
-      <link>https://0x-noname.github.io/writeups/hmv/wave/</link>
+      <link>http://localhost:1313/writeups/hmv/wave/</link>
       <pubDate>Fri, 08 Sep 2023 17:26:55 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/wave/</guid>
+      <guid>http://localhost:1313/writeups/hmv/wave/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/wave/wave_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/wave/wave_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Extract Phar Archive&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Crack MD5 Hash&lt;/em&gt;&lt;/li&gt;
@@ -3571,18 +3634,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: nginx/1.22.1
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/wave/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/wave/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Ready</title>
-      <link>https://0x-noname.github.io/writeups/nyx/ready/</link>
+      <link>http://localhost:1313/writeups/nyx/ready/</link>
       <pubDate>Tue, 05 Sep 2023 10:10:10 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/ready/</guid>
+      <guid>http://localhost:1313/writeups/nyx/ready/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/ready/ready_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/ready/ready_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Redis RCE&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Rsa Key&lt;/em&gt;&lt;/li&gt;
@@ -3618,18 +3681,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.54 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Apache2 Test Debian Default Page: It works
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80----8080&#34;&gt;HTTP TCP - 80  |  8080&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/ready/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/ready/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Beginner</title>
-      <link>https://0x-noname.github.io/writeups/nyx/beginner/</link>
+      <link>http://localhost:1313/writeups/nyx/beginner/</link>
       <pubDate>Sun, 03 Sep 2023 12:43:12 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/beginner/</guid>
+      <guid>http://localhost:1313/writeups/nyx/beginner/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/beginner/beginner_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/beginner/beginner_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;TFTP Brute&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Html2text Binary&lt;/em&gt;&lt;/li&gt;
@@ -3667,12 +3730,12 @@
     
     <item>
       <title>HackTheBox - TwoMillion</title>
-      <link>https://0x-noname.github.io/writeups/htb/2million/</link>
+      <link>http://localhost:1313/writeups/htb/2million/</link>
       <pubDate>Fri, 01 Sep 2023 15:30:15 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/htb/2million/</guid>
+      <guid>http://localhost:1313/writeups/htb/2million/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/2million/2million_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/2million/2million_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;HackTheBox Invite Code Challenge&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Discovering API Routes&lt;/em&gt;&lt;/li&gt;
@@ -3700,18 +3763,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Did not follow redirect to http://2million.htb/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/htb/2million/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/htb/2million/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Za1</title>
-      <link>https://0x-noname.github.io/writeups/hmv/za1/</link>
+      <link>http://localhost:1313/writeups/hmv/za1/</link>
       <pubDate>Thu, 31 Aug 2023 15:30:15 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/za1/</guid>
+      <guid>http://localhost:1313/writeups/hmv/za1/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/za1/za1_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/za1/za1_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;File Upload Typecho v.1.2.1&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse Awk Binary&lt;/em&gt;&lt;/li&gt;
@@ -3746,12 +3809,12 @@
     
     <item>
       <title>VulNyx - Goetia</title>
-      <link>https://0x-noname.github.io/writeups/nyx/goetia/</link>
+      <link>http://localhost:1313/writeups/nyx/goetia/</link>
       <pubDate>Fri, 25 Aug 2023 17:00:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/goetia/</guid>
+      <guid>http://localhost:1313/writeups/nyx/goetia/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/goetia/goetia_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/goetia/goetia_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Command Injection - RCE&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;PHP Filter Chains&lt;/em&gt;&lt;/li&gt;
@@ -3784,12 +3847,12 @@
     
     <item>
       <title>HackMyVM - Observer</title>
-      <link>https://0x-noname.github.io/writeups/hmv/observer/</link>
+      <link>http://localhost:1313/writeups/hmv/observer/</link>
       <pubDate>Tue, 22 Aug 2023 22:45:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/observer/</guid>
+      <guid>http://localhost:1313/writeups/hmv/observer/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/observer/observer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/observer/observer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Reading SSH private key (user id_rsa)&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Symbolic Links&lt;/em&gt;&lt;/li&gt;
@@ -3842,12 +3905,12 @@
     
     <item>
       <title>VulNyx - Chain</title>
-      <link>https://0x-noname.github.io/writeups/nyx/chain/</link>
+      <link>http://localhost:1313/writeups/nyx/chain/</link>
       <pubDate>Wed, 16 Aug 2023 17:00:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/chain/</guid>
+      <guid>http://localhost:1313/writeups/nyx/chain/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/chain/chain_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/chain/chain_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SNMP Enumeration Information Leakage&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;PHP Filter Chain&lt;/em&gt;&lt;/li&gt;
@@ -3870,18 +3933,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Chain
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.56 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http---tcp-80&#34;&gt;HTTP - TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/chain/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/chain/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Plot</title>
-      <link>https://0x-noname.github.io/writeups/nyx/plot/</link>
+      <link>http://localhost:1313/writeups/nyx/plot/</link>
       <pubDate>Sat, 12 Aug 2023 12:24:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/plot/</guid>
+      <guid>http://localhost:1313/writeups/nyx/plot/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/plot/plot_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/plot/plot_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Sar2HTML - RCE&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse SSH Binary&lt;/em&gt;&lt;/li&gt;
@@ -3909,18 +3972,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.56 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp-80&#34;&gt;HTTP-TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/plot/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/plot/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Belial</title>
-      <link>https://0x-noname.github.io/writeups/nyx/belial/</link>
+      <link>http://localhost:1313/writeups/nyx/belial/</link>
       <pubDate>Thu, 10 Aug 2023 12:24:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/belial/</guid>
+      <guid>http://localhost:1313/writeups/nyx/belial/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/belial/belial_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/belial/belial_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;PHP Development Server &amp;lt;= 7.4.21 - Remote Source Disclosure&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force FTP&lt;/em&gt;&lt;/li&gt;
@@ -3972,18 +4035,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Supported Methods: GET HEAD POST OPTIONS
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;puerto-80---tcp&#34;&gt;Puerto 80 - TCP&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/belial/puerto80.webp&#34; alt=&#34;puerto80&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/belial/puerto80.webp&#34; alt=&#34;puerto80&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Friendly3</title>
-      <link>https://0x-noname.github.io/writeups/hmv/friendly3/</link>
+      <link>http://localhost:1313/writeups/hmv/friendly3/</link>
       <pubDate>Fri, 04 Aug 2023 12:08:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/friendly3/</guid>
+      <guid>http://localhost:1313/writeups/hmv/friendly3/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/friendly3/friendly3_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/friendly3/friendly3_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Information leakage&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;FTP Brute Force&lt;/em&gt;&lt;/li&gt;
@@ -4013,18 +4076,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: nginx/1.22.1
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp-80&#34;&gt;HTTP-TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/friendly3/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/friendly3/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Apaches</title>
-      <link>https://0x-noname.github.io/writeups/hmv/apaches/</link>
+      <link>http://localhost:1313/writeups/hmv/apaches/</link>
       <pubDate>Tue, 01 Aug 2023 13:00:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/apaches/</guid>
+      <guid>http://localhost:1313/writeups/hmv/apaches/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/apaches/apaches_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/apaches/apaches_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Path Traversal &amp;amp; Remote Code Execution&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Shadow Hashes&lt;/em&gt;&lt;/li&gt;
@@ -4058,18 +4121,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-favicon: Unknown favicon MD5: EB49C4A639D3960EE7DDD07BC9F832B7
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp-80&#34;&gt;HTTP-TCP 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/apaches/puerto%2080.webp&#34; alt=&#34;puerto 80&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/apaches/puerto%2080.webp&#34; alt=&#34;puerto 80&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Share</title>
-      <link>https://0x-noname.github.io/writeups/nyx/share/</link>
+      <link>http://localhost:1313/writeups/nyx/share/</link>
       <pubDate>Sun, 30 Jul 2023 12:24:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/share/</guid>
+      <guid>http://localhost:1313/writeups/nyx/share/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/share/share_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/share/share_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Directory Traversal&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force RSA&lt;/em&gt;&lt;/li&gt;
@@ -4174,12 +4237,12 @@
     
     <item>
       <title>VulNyx - Discover</title>
-      <link>https://0x-noname.github.io/writeups/nyx/discover/</link>
+      <link>http://localhost:1313/writeups/nyx/discover/</link>
       <pubDate>Tue, 25 Jul 2023 18:24:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/discover/</guid>
+      <guid>http://localhost:1313/writeups/nyx/discover/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/discover/discover_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/discover/discover_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SMB Brute Force&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Upload Shell&lt;/em&gt;&lt;/li&gt;
@@ -4240,12 +4303,12 @@
     
     <item>
       <title>HackMyVM - Logan</title>
-      <link>https://0x-noname.github.io/writeups/hmv/logan/</link>
+      <link>http://localhost:1313/writeups/hmv/logan/</link>
       <pubDate>Thu, 20 Jul 2023 21:26:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/logan/</guid>
+      <guid>http://localhost:1313/writeups/hmv/logan/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/logan/logan_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/logan/logan_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;LFI - Path Traversal Sequences Stripped Non-Recursively&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Log Poisoning - Method POST&lt;/em&gt;&lt;/li&gt;
@@ -4287,12 +4350,12 @@
     
     <item>
       <title>HackMyVM - Stardust</title>
-      <link>https://0x-noname.github.io/writeups/hmv/stardust/</link>
+      <link>http://localhost:1313/writeups/hmv/stardust/</link>
       <pubDate>Sat, 15 Jul 2023 15:26:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/stardust/</guid>
+      <guid>http://localhost:1313/writeups/hmv/stardust/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/stardust/stardust_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/stardust/stardust_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Bypass Content-Type and Magic Number&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Upload Shell&lt;/em&gt;&lt;/li&gt;
@@ -4327,12 +4390,12 @@
     
     <item>
       <title>HackMyVM - Oliva</title>
-      <link>https://0x-noname.github.io/writeups/hmv/oliva/</link>
+      <link>http://localhost:1313/writeups/hmv/oliva/</link>
       <pubDate>Thu, 06 Jul 2023 13:26:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/oliva/</guid>
+      <guid>http://localhost:1313/writeups/hmv/oliva/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/oliva/oliva_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/oliva/oliva_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force LUKS File&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Leaked Credentials&lt;/em&gt;&lt;/li&gt;
@@ -4364,12 +4427,12 @@
     
     <item>
       <title>VulNyx - Shop</title>
-      <link>https://0x-noname.github.io/writeups/nyx/shop/</link>
+      <link>http://localhost:1313/writeups/nyx/shop/</link>
       <pubDate>Mon, 03 Jul 2023 20:24:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/shop/</guid>
+      <guid>http://localhost:1313/writeups/nyx/shop/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/shop/shop_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/shop/shop_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Time-Based Blind SQL Injection&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;SSH Brute Force&lt;/em&gt;&lt;/li&gt;
@@ -4402,12 +4465,12 @@
     
     <item>
       <title>VulNyx - Transfer</title>
-      <link>https://0x-noname.github.io/writeups/nyx/transfer/</link>
+      <link>http://localhost:1313/writeups/nyx/transfer/</link>
       <pubDate>Sun, 25 Jun 2023 15:24:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/transfer/</guid>
+      <guid>http://localhost:1313/writeups/nyx/transfer/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/transfer/transfer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/transfer/transfer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SSRF URL Scheme&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Port Forwarding&lt;/em&gt;&lt;/li&gt;
@@ -4433,12 +4496,12 @@
     
     <item>
       <title>VulNyx - Deploy</title>
-      <link>https://0x-noname.github.io/writeups/nyx/deploy/</link>
+      <link>http://localhost:1313/writeups/nyx/deploy/</link>
       <pubDate>Wed, 21 Jun 2023 19:24:42 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/deploy/</guid>
+      <guid>http://localhost:1313/writeups/nyx/deploy/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/deploy/deploy_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/deploy/deploy_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Tomcat Missconfigured&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Deploy War File&lt;/em&gt;&lt;/li&gt;
@@ -4477,12 +4540,12 @@
     
     <item>
       <title>VulNyx - External</title>
-      <link>https://0x-noname.github.io/writeups/nyx/external/</link>
+      <link>http://localhost:1313/writeups/nyx/external/</link>
       <pubDate>Tue, 20 Jun 2023 13:06:22 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/external/</guid>
+      <guid>http://localhost:1313/writeups/nyx/external/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/external/external_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/external/external_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;XXE File Read&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Leakage Credentials&lt;/em&gt;&lt;/li&gt;
@@ -4521,18 +4584,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Auth Plugin Name: mysql_native_password
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;puerto-80&#34;&gt;Puerto 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/external/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/external/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Factorspace</title>
-      <link>https://0x-noname.github.io/writeups/hmv/factorspace/</link>
+      <link>http://localhost:1313/writeups/hmv/factorspace/</link>
       <pubDate>Sun, 18 Jun 2023 12:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/factorspace/</guid>
+      <guid>http://localhost:1313/writeups/hmv/factorspace/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/factorspace/factorspace_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/factorspace/factorspace_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force and Captcha bypass&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;XPATH Injection&lt;/em&gt;&lt;/li&gt;
@@ -4565,12 +4628,12 @@
     
     <item>
       <title>VulNyx - Secrets</title>
-      <link>https://0x-noname.github.io/writeups/nyx/secrets/</link>
+      <link>http://localhost:1313/writeups/nyx/secrets/</link>
       <pubDate>Mon, 12 Jun 2023 20:29:14 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/secrets/</guid>
+      <guid>http://localhost:1313/writeups/nyx/secrets/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/secrets/secrets_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/secrets/secrets_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Cracking Private RSA Key&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Leakage Credentials Information&lt;/em&gt;&lt;/li&gt;
@@ -4603,12 +4666,12 @@
     
     <item>
       <title>VulNyx - Zero</title>
-      <link>https://0x-noname.github.io/writeups/nyx/zero/</link>
+      <link>http://localhost:1313/writeups/nyx/zero/</link>
       <pubDate>Sun, 11 Jun 2023 12:15:14 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/zero/</guid>
+      <guid>http://localhost:1313/writeups/nyx/zero/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/zero/zero_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/zero/zero_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Backdoor Remote Code Execution&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Leakage Credentials Information&lt;/em&gt;&lt;/li&gt;
@@ -4646,12 +4709,12 @@
     
     <item>
       <title>VulNyx - Real</title>
-      <link>https://0x-noname.github.io/writeups/nyx/real/</link>
+      <link>http://localhost:1313/writeups/nyx/real/</link>
       <pubDate>Sat, 10 Jun 2023 13:17:44 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/real/</guid>
+      <guid>http://localhost:1313/writeups/nyx/real/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/real/real_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/real/real_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;UnrealIRCd 3.2.8.1 Backdoor&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Hosts Permission Misconfigured&lt;/em&gt;&lt;/li&gt;
@@ -4690,12 +4753,12 @@
     
     <item>
       <title>HackMyVM - Crack</title>
-      <link>https://0x-noname.github.io/writeups/hmv/crack/</link>
+      <link>http://localhost:1313/writeups/hmv/crack/</link>
       <pubDate>Thu, 08 Jun 2023 12:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/crack/</guid>
+      <guid>http://localhost:1313/writeups/hmv/crack/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/crack/crack_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/crack/crack_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;FTP Misconfiguration&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Shell In A Box&lt;/em&gt;&lt;/li&gt;
@@ -4760,12 +4823,12 @@
     
     <item>
       <title>VulNyx - Flash</title>
-      <link>https://0x-noname.github.io/writeups/nyx/flash/</link>
+      <link>http://localhost:1313/writeups/nyx/flash/</link>
       <pubDate>Tue, 06 Jun 2023 15:18:44 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/flash/</guid>
+      <guid>http://localhost:1313/writeups/nyx/flash/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/flash/flash_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/flash/flash_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Server Side Template Injection&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Upload Shell&lt;/em&gt;&lt;/li&gt;
@@ -4865,12 +4928,12 @@
     
     <item>
       <title>VulNyx - Backdoor</title>
-      <link>https://0x-noname.github.io/writeups/nyx/backdoor/</link>
+      <link>http://localhost:1313/writeups/nyx/backdoor/</link>
       <pubDate>Fri, 02 Jun 2023 15:23:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/backdoor/</guid>
+      <guid>http://localhost:1313/writeups/nyx/backdoor/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/backdoor/backdoor_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/backdoor/backdoor_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force Secure WebShell&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Misconfiguration&lt;/em&gt;&lt;/li&gt;
@@ -4899,18 +4962,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.56 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/backdoor/apache.webp&#34; alt=&#34;apache.png&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/backdoor/apache.webp&#34; alt=&#34;apache.png&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Tom</title>
-      <link>https://0x-noname.github.io/writeups/nyx/tom/</link>
+      <link>http://localhost:1313/writeups/nyx/tom/</link>
       <pubDate>Sat, 27 May 2023 14:10:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/tom/</guid>
+      <guid>http://localhost:1313/writeups/nyx/tom/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/tom/tom_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/tom/tom_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Apache Tomcat&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Upload War&lt;/em&gt;&lt;/li&gt;
@@ -4950,12 +5013,12 @@
     
     <item>
       <title>VulNyx - Blog</title>
-      <link>https://0x-noname.github.io/writeups/nyx/blog/</link>
+      <link>http://localhost:1313/writeups/nyx/blog/</link>
       <pubDate>Fri, 26 May 2023 13:23:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/blog/</guid>
+      <guid>http://localhost:1313/writeups/nyx/blog/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/blog/blog_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/blog/blog_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force HTTP&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Upload Shell&lt;/em&gt;&lt;/li&gt;
@@ -4989,12 +5052,12 @@
     
     <item>
       <title>VulNyx - Node</title>
-      <link>https://0x-noname.github.io/writeups/nyx/node/</link>
+      <link>http://localhost:1313/writeups/nyx/node/</link>
       <pubDate>Wed, 24 May 2023 15:23:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/node/</guid>
+      <guid>http://localhost:1313/writeups/nyx/node/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/node/node_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/node/node_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Node-Red RCE&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abuse Node Binary&lt;/em&gt;&lt;/li&gt;
@@ -5027,18 +5090,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-favicon: Unknown favicon MD5: 818DD6AFD0D0F9433B21774F89665EEA
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-cors: GET POST PUT DELETE
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/node/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/node/http.webp&#34; alt=&#34;http&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Printer</title>
-      <link>https://0x-noname.github.io/writeups/nyx/printer/</link>
+      <link>http://localhost:1313/writeups/nyx/printer/</link>
       <pubDate>Tue, 23 May 2023 15:23:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/printer/</guid>
+      <guid>http://localhost:1313/writeups/nyx/printer/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/printer/printer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/printer/printer_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Leaked Credentials&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;RCE&lt;/em&gt;&lt;/li&gt;
@@ -5110,12 +5173,12 @@
     
     <item>
       <title>HackMyVM - Printer2</title>
-      <link>https://0x-noname.github.io/writeups/hmv/printer2/</link>
+      <link>http://localhost:1313/writeups/hmv/printer2/</link>
       <pubDate>Thu, 18 May 2023 12:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/printer2/</guid>
+      <guid>http://localhost:1313/writeups/hmv/printer2/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/printer2/printer2_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/printer2/printer2_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Leaked Credentials&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Local File Inclusion&lt;/em&gt;&lt;/li&gt;
@@ -5156,12 +5219,12 @@
     
     <item>
       <title>VulNyx - Hidden</title>
-      <link>https://0x-noname.github.io/writeups/nyx/hidden/</link>
+      <link>http://localhost:1313/writeups/nyx/hidden/</link>
       <pubDate>Wed, 17 May 2023 15:23:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/hidden/</guid>
+      <guid>http://localhost:1313/writeups/nyx/hidden/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/hidden/hidden_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/hidden/hidden_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Upload Shell&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Dash Binary&lt;/em&gt;&lt;/li&gt;
@@ -5194,12 +5257,12 @@
     
     <item>
       <title>VulNyx - Mail</title>
-      <link>https://0x-noname.github.io/writeups/nyx/mail/</link>
+      <link>http://localhost:1313/writeups/nyx/mail/</link>
       <pubDate>Tue, 16 May 2023 15:20:03 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/mail/</guid>
+      <guid>http://localhost:1313/writeups/nyx/mail/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/mail/mail_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/mail/mail_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Mail Poisoning&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Mail Binary&lt;/em&gt;&lt;/li&gt;
@@ -5247,12 +5310,12 @@
     
     <item>
       <title>HackMyVM - Friendly2</title>
-      <link>https://0x-noname.github.io/writeups/hmv/friendly2/</link>
+      <link>http://localhost:1313/writeups/hmv/friendly2/</link>
       <pubDate>Wed, 10 May 2023 12:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/friendly2/</guid>
+      <guid>http://localhost:1313/writeups/hmv/friendly2/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/friendly2/friendly2_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/friendly2/friendly2_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Directory Path Traversal&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force id_rsa&lt;/em&gt;&lt;/li&gt;
@@ -5280,16 +5343,16 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.56 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/friendly2/http.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/friendly2/http.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>Whoami</title>
-      <link>https://0x-noname.github.io/whoami/</link>
+      <link>http://localhost:1313/whoami/</link>
       <pubDate>Tue, 09 May 2023 20:10:18 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/whoami/</guid>
+      <guid>http://localhost:1313/whoami/</guid>
       
       <description>&lt;h3 id=&#34;dont-worry-be-h4x0r&#34;&gt;&lt;strong&gt;Don`t worry, be h4x0r.&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
@@ -5305,12 +5368,12 @@
     
     <item>
       <title>HackMyVM - Aurora</title>
-      <link>https://0x-noname.github.io/writeups/hmv/aurora/</link>
+      <link>http://localhost:1313/writeups/hmv/aurora/</link>
       <pubDate>Fri, 05 May 2023 11:55:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/aurora/</guid>
+      <guid>http://localhost:1313/writeups/hmv/aurora/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/aurora/aurora_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/aurora/aurora_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Json Web Tokens&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing Python Script&lt;/em&gt;&lt;/li&gt;
@@ -5354,12 +5417,12 @@
     
     <item>
       <title>VulNyx - Ceres</title>
-      <link>https://0x-noname.github.io/writeups/nyx/ceres/</link>
+      <link>http://localhost:1313/writeups/nyx/ceres/</link>
       <pubDate>Thu, 04 May 2023 15:20:03 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/ceres/</guid>
+      <guid>http://localhost:1313/writeups/nyx/ceres/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/ceres/ceres_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/ceres/ceres_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;LFI/PHP Wrappers&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Log Poisoning&lt;/em&gt;&lt;/li&gt;
@@ -5388,18 +5451,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: Apache/2.4.38 (Debian)
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/ceres/http.webp&#34; alt=&#34;http.png&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/ceres/http.webp&#34; alt=&#34;http.png&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Brain</title>
-      <link>https://0x-noname.github.io/writeups/nyx/brain/</link>
+      <link>http://localhost:1313/writeups/nyx/brain/</link>
       <pubDate>Wed, 03 May 2023 15:10:03 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/brain/</guid>
+      <guid>http://localhost:1313/writeups/nyx/brain/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/brain/brain_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/brain/brain_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Local File Inclusion&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Credential Leakage&lt;/em&gt;&lt;/li&gt;
@@ -5433,12 +5496,12 @@
     
     <item>
       <title>VulNyx - Serve</title>
-      <link>https://0x-noname.github.io/writeups/nyx/serve/</link>
+      <link>http://localhost:1313/writeups/nyx/serve/</link>
       <pubDate>Tue, 02 May 2023 15:20:03 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/serve/</guid>
+      <guid>http://localhost:1313/writeups/nyx/serve/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/serve/serve_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/serve/serve_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;HTTP Brute Force&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Curl Upload Shell&lt;/em&gt;&lt;/li&gt;
@@ -5472,12 +5535,12 @@
     
     <item>
       <title>VulNyx - Shock</title>
-      <link>https://0x-noname.github.io/writeups/nyx/shock/</link>
+      <link>http://localhost:1313/writeups/nyx/shock/</link>
       <pubDate>Sun, 30 Apr 2023 15:12:03 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/shock/</guid>
+      <guid>http://localhost:1313/writeups/nyx/shock/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/shock/shock_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/shock/shock_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Shellshock&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Abusing BusyBox Binary&lt;/em&gt;&lt;/li&gt;
@@ -5503,18 +5566,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Site doesn&amp;#39;t have a title (text/html).
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/shock/http.webp&#34; alt=&#34;http.png&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/shock/http.webp&#34; alt=&#34;http.png&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Doll</title>
-      <link>https://0x-noname.github.io/writeups/hmv/doll/</link>
+      <link>http://localhost:1313/writeups/hmv/doll/</link>
       <pubDate>Sat, 29 Apr 2023 18:20:52 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/doll/</guid>
+      <guid>http://localhost:1313/writeups/hmv/doll/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/doll/doll_logo.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/doll/doll_logo.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Docker Registry API Exposed&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Password Leakage&lt;/em&gt;&lt;/li&gt;
@@ -5542,18 +5605,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Site doesn&amp;#39;t have a title.
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Después de enumerar directorios con wfuzz navego al directorio &lt;code&gt;v2&lt;/code&gt; para ver su contenido.
-&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/doll/v2.png&#34; alt=&#34;v2&#34;&gt;&lt;/p&gt;</description>
+&lt;img src=&#34;http://localhost:1313/../machines/hmv/doll/v2.png&#34; alt=&#34;v2&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Wrapp</title>
-      <link>https://0x-noname.github.io/writeups/nyx/wrapp/</link>
+      <link>http://localhost:1313/writeups/nyx/wrapp/</link>
       <pubDate>Fri, 28 Apr 2023 13:12:03 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/wrapp/</guid>
+      <guid>http://localhost:1313/writeups/nyx/wrapp/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/wrapp/wrapp_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/wrapp/wrapp_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SSRF&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Internal Port Discovery&lt;/em&gt;&lt;/li&gt;
@@ -5592,18 +5655,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Summary   : Apache[2.4.38], HTTPServer[Debian Linux][Apache/2.4.38 (Debian)]
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;puerto-80&#34;&gt;Puerto 80&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/wrapp/tryharder.webp&#34; alt=&#34;tryharder&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/wrapp/tryharder.webp&#34; alt=&#34;tryharder&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>VulNyx - Hat</title>
-      <link>https://0x-noname.github.io/writeups/nyx/hat/</link>
+      <link>http://localhost:1313/writeups/nyx/hat/</link>
       <pubDate>Tue, 25 Apr 2023 15:20:03 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/hat/</guid>
+      <guid>http://localhost:1313/writeups/nyx/hat/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/hat/hat_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/hat/hat_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;FTP Brute Force&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Passphrase Cracking&lt;/em&gt;&lt;/li&gt;
@@ -5646,12 +5709,12 @@ PORT      STATE    SERVICE VERSION
     
     <item>
       <title>VulNyx - Fing</title>
-      <link>https://0x-noname.github.io/writeups/nyx/fing/</link>
+      <link>http://localhost:1313/writeups/nyx/fing/</link>
       <pubDate>Mon, 24 Apr 2023 10:01:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/fing/</guid>
+      <guid>http://localhost:1313/writeups/nyx/fing/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/fing/fing_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/fing/fing_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Finger&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;SSH Brute Force&lt;/em&gt;&lt;/li&gt;
@@ -5695,12 +5758,12 @@ PORT      STATE    SERVICE VERSION
     
     <item>
       <title>HackMyVM - Literal</title>
-      <link>https://0x-noname.github.io/writeups/hmv/literal/</link>
+      <link>http://localhost:1313/writeups/hmv/literal/</link>
       <pubDate>Sun, 23 Apr 2023 19:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/literal/</guid>
+      <guid>http://localhost:1313/writeups/hmv/literal/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/literal/literal_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/literal/literal_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;SQL injection&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Hash Cracking&lt;/em&gt;&lt;/li&gt;
@@ -5734,12 +5797,12 @@ PORT      STATE    SERVICE VERSION
     
     <item>
       <title>VulNyx - Doctor</title>
-      <link>https://0x-noname.github.io/writeups/nyx/doctor/</link>
+      <link>http://localhost:1313/writeups/nyx/doctor/</link>
       <pubDate>Sat, 22 Apr 2023 15:01:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/nyx/doctor/</guid>
+      <guid>http://localhost:1313/writeups/nyx/doctor/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/doctor/doctor_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/nyx/doctor/doctor_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Local File Inclusion&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Passphrase Cracking&lt;/em&gt;&lt;/li&gt;
@@ -5769,18 +5832,18 @@ PORT      STATE    SERVICE VERSION
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
 &lt;p&gt;Después de mirar el menu de navegación entro en &lt;code&gt;Doctors&lt;/code&gt;.
-&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/doctor/docmed.webp&#34; alt=&#34;docmed&#34;&gt;&lt;/p&gt;</description>
+&lt;img src=&#34;http://localhost:1313/../machines/nyx/doctor/docmed.webp&#34; alt=&#34;docmed&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Alive</title>
-      <link>https://0x-noname.github.io/writeups/hmv/alive/</link>
+      <link>http://localhost:1313/writeups/hmv/alive/</link>
       <pubDate>Sat, 15 Apr 2023 10:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/alive/</guid>
+      <guid>http://localhost:1313/writeups/hmv/alive/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/alive/alive_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/alive/alive_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;RCE&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Password leaked&lt;/em&gt;&lt;/li&gt;
@@ -5814,12 +5877,12 @@ PORT      STATE    SERVICE VERSION
     
     <item>
       <title>HackMyVM - University</title>
-      <link>https://0x-noname.github.io/writeups/hmv/university/</link>
+      <link>http://localhost:1313/writeups/hmv/university/</link>
       <pubDate>Wed, 12 Apr 2023 19:21:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/university/</guid>
+      <guid>http://localhost:1313/writeups/hmv/university/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/university/university_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/university/university_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Online Admission System - RCE&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Password leaked&lt;/em&gt;&lt;/li&gt;
@@ -5857,18 +5920,18 @@ PORT      STATE    SERVICE VERSION
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  Supported Methods: GET HEAD POST
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/university/university_login.png&#34; alt=&#34;university_login&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/university/university_login.png&#34; alt=&#34;university_login&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - Omura</title>
-      <link>https://0x-noname.github.io/writeups/hmv/omura/</link>
+      <link>http://localhost:1313/writeups/hmv/omura/</link>
       <pubDate>Sat, 08 Apr 2023 11:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/omura/</guid>
+      <guid>http://localhost:1313/writeups/hmv/omura/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/omura/omura_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/omura/omura_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;LFI&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;XSLT injection&lt;/em&gt;&lt;/li&gt;
@@ -5911,12 +5974,12 @@ PORT      STATE    SERVICE VERSION
     
     <item>
       <title>HackMyVM - Quandary1</title>
-      <link>https://0x-noname.github.io/writeups/hmv/qandary1/</link>
+      <link>http://localhost:1313/writeups/hmv/qandary1/</link>
       <pubDate>Thu, 30 Mar 2023 15:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/qandary1/</guid>
+      <guid>http://localhost:1313/writeups/hmv/qandary1/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/quandary1/quandary1_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/quandary1/quandary1_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Brute Force&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Generate RSA Key&lt;/em&gt;&lt;/li&gt;
@@ -5977,12 +6040,12 @@ PORT      STATE    SERVICE VERSION
     
     <item>
       <title>HackMyVM - Friendly</title>
-      <link>https://0x-noname.github.io/writeups/hmv/friendly/</link>
+      <link>http://localhost:1313/writeups/hmv/friendly/</link>
       <pubDate>Sat, 25 Mar 2023 18:20:52 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/friendly/</guid>
+      <guid>http://localhost:1313/writeups/hmv/friendly/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/friendly/friendly_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/friendly/friendly_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;FTP anonymous&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Upload File&lt;/em&gt;&lt;/li&gt;
@@ -6013,12 +6076,12 @@ PORT      STATE    SERVICE VERSION
     
     <item>
       <title>HackMyVM - Comet</title>
-      <link>https://0x-noname.github.io/writeups/hmv/comet/</link>
+      <link>http://localhost:1313/writeups/hmv/comet/</link>
       <pubDate>Thu, 23 Mar 2023 19:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/comet/</guid>
+      <guid>http://localhost:1313/writeups/hmv/comet/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/comet/comet_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/comet/comet_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Bypass WAF&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Brute Force&lt;/em&gt;&lt;/li&gt;
@@ -6045,18 +6108,18 @@ PORT      STATE    SERVICE VERSION
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: CyberArray
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http&#34;&gt;HTTP&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/comet/web.png&#34; alt=&#34;web&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/comet/web.png&#34; alt=&#34;web&#34;&gt;&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>HackMyVM - W140</title>
-      <link>https://0x-noname.github.io/writeups/hmv/w140/</link>
+      <link>http://localhost:1313/writeups/hmv/w140/</link>
       <pubDate>Thu, 09 Mar 2023 19:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/w140/</guid>
+      <guid>http://localhost:1313/writeups/hmv/w140/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/w140/w140_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/w140/w140_logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Command Injection&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;RCE&lt;/em&gt;&lt;/li&gt;
@@ -6088,12 +6151,12 @@ PORT      STATE    SERVICE VERSION
     
     <item>
       <title>HackMyVM - Colors</title>
-      <link>https://0x-noname.github.io/writeups/hmv/colors/</link>
+      <link>http://localhost:1313/writeups/hmv/colors/</link>
       <pubDate>Sun, 26 Feb 2023 19:20:23 +0200</pubDate>
       
-      <guid>https://0x-noname.github.io/writeups/hmv/colors/</guid>
+      <guid>http://localhost:1313/writeups/hmv/colors/</guid>
       
-      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/hmv/colors/colors-logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/../machines/hmv/colors/colors-logo.png&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;IPv6&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;sudo abuse&lt;/em&gt;&lt;/li&gt;
