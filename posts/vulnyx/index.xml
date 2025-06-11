@@ -6,7 +6,47 @@
     <description>Recent content in VulNyx - Machines on noname</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 06 Jun 2025 11:54:32 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Jun 2025 11:54:32 +0200</lastBuildDate><atom:link href="https://0x-noname.github.io/posts/vulnyx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VulNyx - Lower2</title>
+      <link>https://0x-noname.github.io/writeups/nyx/lower2/</link>
+      <pubDate>Wed, 11 Jun 2025 11:54:32 +0200</pubDate>
+      
+      <guid>https://0x-noname.github.io/writeups/nyx/lower2/</guid>
+      
+      <description>&lt;p&gt;&lt;img src=&#34;https://0x-noname.github.io/../machines/nyx/lower2/lower2_logo.webp&#34; alt=&#34;logo&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;SSH Banner Disclosure&lt;/em&gt; (Username Enumeration)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Telnet Login Brute-Force&lt;/em&gt; (Valid Credentials Found)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Insecure Remote Access via Telnet&lt;/em&gt; (Plaintext Credentials)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Misconfigured User Group&lt;/em&gt; (&lt;code&gt;b.taylor&lt;/code&gt; in &lt;code&gt;shadow&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Writable /etc/shadow File&lt;/em&gt; (Privilege Escalation)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Root Access via Injected SHA-512 Password Hash&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;escaneo-de-puertos&#34;&gt;Escaneo de puertos&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ nmap -p- -sS --min-rate 5000 -vvv -n -Pn 172.0.100.26
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PORT   STATE SERVICE REASON
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;22/tcp open  ssh     syn-ack ttl 64
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;23/tcp open  telnet  syn-ack ttl 64
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;80/tcp open  http    syn-ack ttl 64
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;escaneo-de-servicios&#34;&gt;Escaneo de servicios&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ nmap -sVC -p 22,23,80 172.0.100.26
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PORT   STATE SERVICE VERSION
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;22/tcp open  ssh     OpenSSH 9.2p1 Debian 2+deb12u4 (protocol 2.0)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| ssh-hostkey: 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|   256 a9:a8:52:f3:cd:ec:0d:5b:5f:f3:af:5b:3c:db:76:b6 (ECDSA)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_  256 73:f5:8e:44:0c:b9:0a:e0:e7:31:0c:04:ac:7e:ff:fd (ED25519)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;23/tcp open  telnet  Netkit telnet-ssl telnetd
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;80/tcp open  http    nginx 1.22.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-server-header: nginx/1.22.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|_http-title: Site doesn&amp;#39;t have a title (text/html).
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;http-tcp---80&#34;&gt;HTTP TCP - 80&lt;/h3&gt;
+&lt;p&gt;Se detecta un servidor web accesible desde el puerto 80.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>VulNyx - Sales</title>
       <link>https://0x-noname.github.io/writeups/nyx/sales/</link>
